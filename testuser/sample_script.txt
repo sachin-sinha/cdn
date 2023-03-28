@@ -1,0 +1,4 @@
+This is a sample script.
+Basically, we will have any file here that we need to download using REST call.
+Example; js files, container files for ShopIQ
+
