@@ -1610,6 +1610,41 @@
       };
     };
   })();
+  Templates["DomElementVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var selectionMethod = parameters.get("selectionMethod");
+        if (!selectionMethod) {
+          return;
+        }
+        var attributeName = parameters.get("attributeName");
+        var dom = TagManager.dom;
+        var ele;
+        if (selectionMethod === "elementId") {
+          ele = dom.byId(parameters.get("elementId"));
+        } else if (selectionMethod === "cssSelector") {
+          ele = dom.bySelector(parameters.get("cssSelector"));
+          if (ele && ele[0]) {
+            ele = ele[0];
+          } else {
+            ele = null;
+          }
+        }
+        if (ele) {
+          if (attributeName) {
+            if (String(attributeName).toLowerCase() === "value" && ele.nodeName === "INPUT") {
+              var type = dom.getElementAttribute(ele, "type");
+              if (type && type.toLowerCase() === "password") {
+                return;
+              }
+            }
+            return dom.getElementAttribute(ele, attributeName);
+          }
+          return TagManager.dom.getElementText(ele);
+        }
+      };
+    };
+  })();
       window.MatomoTagManager.addContainer(
         {
           id: "tfVMgnzD",
@@ -1622,6 +1657,7 @@
           variables: [
             
           {name: "TimeSinceLoad", type: "TimeSinceLoad", lookUpTable: [], defaultValue: "", parameters: {"selectedVariable":"Time since page load","Name":"name","Description":"desc","unit":"s"}, Variable: "TimeSinceLoadVariable"},
+          {name: "DomElement", type: "DomElement", lookUpTable: [], defaultValue: "", parameters: {"selectedVariable":"DOM Element","Name":"name","Description":"desc","selectionMethod":"cssSelector","cssSelector":"selector","attributeName":"attr"}, Variable: "DomElementVariable"},
           ]
         },
         Templates
