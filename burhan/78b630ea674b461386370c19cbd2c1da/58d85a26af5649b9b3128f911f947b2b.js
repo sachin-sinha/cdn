@@ -1580,7 +1580,39 @@
   
     (function () {
       var Templates = {};
-      
+      Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
+})();
   Templates["TimeSinceLoadVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -1623,11 +1655,14 @@
         {
           id: "tfVMgnzD",
           idsite: 1,
-          versionName: "version3",
-          revision: 3,
+          versionName: "version0",
+          revision: 1,
           environment: "live",
           tags: [],
-          triggers: [],
+          triggers: [
+            
+          {"id":0,"type":"AllElementsClick","name":"AllElementsClick","Trigger":"AllElementsClickTrigger","selectedTrigger":"All Elements Click","parameters":{},"conditions":[{"event_type":"","operation":"=","value":""}],"Name":"name","Description":"desc"}
+          ],
           variables: [
             
           {name: "TimeSinceLoad", type: "TimeSinceLoad", lookUpTable: [], defaultValue: "", parameters: {"selectedVariable":"Time since page load","Name":"name","Description":"desc","unit":"s"}, Variable: "TimeSinceLoadVariable"},
