@@ -6532,7 +6532,37 @@
       });
     };
   };
+})();Templates["FullscreenTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var numTriggers = 0;
+    var events = ["webkitfullscreenchange", "mozfullscreenchange", "fullscreenchange", "MSFullscreenChange"];
+    this.setUp = function (triggerEvent) {
+      function onFullScreen() {
+        var limit = parameters.get("triggerLimit", 1);
+        if (limit) {
+          limit = parseInt(limit, 10);
+        }
+        if (limit && limit <= numTriggers) {
+          return;
+        }
+        var docAlias = parameters.document;
+        var triggerAction = parameters.get("triggerAction", "enter");
+        var isFullscreen = docAlias.fullScreen || docAlias.webkitIsFullScreen || docAlias.mozFullScreen || docAlias.msFullscreenElement;
+        if (isFullscreen && (triggerAction === "any" || triggerAction === "enter")) {
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "enter" });
+          numTriggers++;
+        } else if (!isFullscreen && (triggerAction === "any" || triggerAction === "exit")) {
+          numTriggers++;
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "exit" });
+        }
+      }
+      for (var i = 0; i < events.length; i++) {
+        TagManager.dom.addEventListener(parameters.document, events[i], onFullScreen);
+      }
+    };
+  };
 })();
+
       //search here
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6667,6 +6697,72 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "e9acbb50-f467-4c5b-bda4-119ac13f3250",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "pageview",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "",
+    "eventAction": "",
+    "eventName": "",
+    "eventValue": "",
+    "selectedTag": "BangDB Analytics",
+    "Name": "Full_screen_exist",
+    "Description": "Full_screen_exist"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "3eabee33-d56e-4fac-8072-c636c0af7382"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -6683,6 +6779,20 @@
   "conditions": [],
   "Name": "Scroll_Reach",
   "Description": "Scroll_Reach"
+}
+          {
+  "id": "8ecd4d8f-1d17-468b-b761-c4838a5b9ce7",
+  "type": "Fullscreen",
+  "name": "Fullscreen",
+  "Trigger": "FullscreenTrigger",
+  "selectedTrigger": "Full screen",
+  "parameters": {
+    "triggerAction": "exit",
+    "triggerLimit": "0"
+  },
+  "conditions": [],
+  "Name": "Full_screen_exist",
+  "Description": "Full_Screen_exist"
 }
           ],
           variables: [
