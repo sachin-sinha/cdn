@@ -6502,14 +6502,62 @@
 })();
       //search here
       
-      [object Object]
-      [object Object]
-      [object Object]
-      [object Object]
-      [object Object]
-      [object Object]
-      [object Object]
-      [object Object]
+      Templates["ClickClassesVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        return parameters.container.dataLayer.get("mtm.clickElementClasses");
+      };
+    };
+  })();
+      Templates["ClickButtonVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.clickButton");
+        };
+    };
+})();
+      Templates["ClickDestinationUrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.clickElementUrl");
+        };
+    };
+})();
+      Templates["ClickElementVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.clickElement");
+        };
+    };
+})();
+      Templates["ClickIdVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.clickElementId");
+        };
+    };
+})();
+      Templates["ClickNodeNameVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.clickNodeName");
+        };
+    };
+})();
+      Templates["ClickTextVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.clickText");
+        };
+    };
+})();
+      Templates["FormElementVariable"] = (function () {
+    return function (parameters, TagManager) {
+        this.get = function () {
+            return parameters.container.dataLayer.get("mtm.formElement");
+        };
+    };
+})();
 
       window.MatomoTagManager.addContainer(
         {
