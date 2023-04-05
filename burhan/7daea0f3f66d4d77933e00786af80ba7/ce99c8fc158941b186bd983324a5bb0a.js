@@ -6499,63 +6499,7 @@
       });
     }
   };
-})();Templates["AllDownloadsClickTrigger"] = (function () {
-    return function (parameters, TagManager) {
-      this.setUp = function (triggerEvent) {
-        TagManager.dom.onReady(function () {
-          var extensions = parameters.get("downloadExtensions");
-          if (!extensions) {
-            return;
-          }
-          function isClickNode(nodeName) {
-            return nodeName === "A" || nodeName === "AREA";
-          }
-          TagManager.dom.onClick(function (event, clickButton) {
-            clickCallback(event, triggerEvent, clickButton);
-          });
-          function clickCallback(event, triggerEvent, clickButton) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.shadowRoot) {
-              var composedPath = event.composedPath();
-              if (composedPath.length) {
-                target = composedPath[0];
-              }
-            }
-            var nodeName = target.nodeName;
-            while (!isClickNode(nodeName) && target && target.parentNode) {
-              target = target.parentNode;
-              nodeName = target.nodeName;
-            }
-            extensions = String(extensions).split(",");
-            var i;
-            for (i = 0; i < extensions.length; i++) {
-              extensions[i] = TagManager.utils.trim(extensions[i]);
-            }
-            if (target && isClickNode(nodeName)) {
-              var link = TagManager.dom.getElementAttribute(target, "href");
-              var downloadExtensionsPattern = new RegExp("\\.(" + extensions.join("|") + ")([?&#]|$)", "i");
-              if (downloadExtensionsPattern.test(link)) {
-                triggerEvent({
-                  event: "mtm.DownloadClick",
-                  "mtm.clickElement": target,
-                  "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-                  "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-                  "mtm.clickText": TagManager.dom.getElementText(target),
-                  "mtm.clickNodeName": nodeName,
-                  "mtm.clickElementUrl": link,
-                  "mtm.clickButton": clickButton,
-                });
-              }
-            }
-          }
-        });
-      };
-    };
-  })();
-Templates["AllLinksClickTrigger"] = (function () {
+})();Templates["AllLinksClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
@@ -6742,78 +6686,7 @@ Templates["AllLinksClickTrigger"] = (function () {
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "38f277da-c2b3-4015-8d7e-c6d8b57c343b",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "Download_Trigger_test1",
-    "customUrl": "",
-    "eventCategory": "Download_Trigger_test1",
-    "eventAction": "Download_Trigger_test1",
-    "eventName": "Download_Trigger_test1",
-    "eventValue": {
-      "name": "ClickClasses",
-      "type": "ClickClasses",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickClassesVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download_Trigger_test1",
-    "Description": "Download_Trigger_test1"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "a51b2517-06db-4288-8a48-d9792bffbc6d",
+  "id": "5c7b9e02-5869-4cd2-8629-3dbdcfa5ce4b",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6857,9 +6730,9 @@ Templates["AllLinksClickTrigger"] = (function () {
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Link_Trigger",
-    "eventAction": "Link_Trigger",
-    "eventName": "Link_Trigger",
+    "eventCategory": "Link_Trigger1",
+    "eventAction": "Link_Trigger1",
+    "eventName": "Link_Trigger1",
     "eventValue": {
       "name": "ClickClasses",
       "type": "ClickClasses",
@@ -6869,11 +6742,13 @@ Templates["AllLinksClickTrigger"] = (function () {
       "Variable": "ClickClassesVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Link_Trigger",
-    "Description": "Link_Trigger tesr"
+    "Name": "Link_Trigger1",
+    "Description": "Link_Trigger"
   },
   "blockTriggerIds": [],
-  "fireTriggerIds": [],
+  "fireTriggerIds": [
+    "13293853-bb91-4dfe-a23c-b5d2fb6a7ae6"
+  ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
   "startDate": null,
@@ -6896,20 +6771,7 @@ Templates["AllLinksClickTrigger"] = (function () {
   "Description": "description"
 }
           {
-  "id": "dad40650-2749-41ab-9ba4-0325a734c143",
-  "type": "AllDownloadsClick",
-  "name": "AllDownloadsClick",
-  "Trigger": "AllDownloadsClickTrigger",
-  "selectedTrigger": "All Downloads Click",
-  "parameters": {
-    "downloadExtensions": "Downloading_trigger"
-  },
-  "conditions": [],
-  "Name": "Download_Trigger_test1",
-  "Description": "testing downloading trigger"
-}
-          {
-  "id": "427e070d-ee18-4577-97c1-577690d49949",
+  "id": "13293853-bb91-4dfe-a23c-b5d2fb6a7ae6",
   "type": "AllLinksClick",
   "name": "AllLinksClick",
   "Trigger": "AllLinksClickTrigger",
@@ -6917,7 +6779,7 @@ Templates["AllLinksClickTrigger"] = (function () {
   "parameters": {},
   "conditions": [],
   "Name": "Link_Trigger",
-  "Description": "Link_trigger"
+  "Description": "Link_Trigger"
 }
           ],
           variables: [
