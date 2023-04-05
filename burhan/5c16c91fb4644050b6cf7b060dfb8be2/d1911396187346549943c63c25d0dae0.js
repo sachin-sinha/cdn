@@ -6499,6 +6499,48 @@
       });
     }
   };
+})();Templates["AllLinksClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        function isClickNode(nodeName) {
+          return nodeName === "A" || nodeName === "AREA";
+        }
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+        function clickCallback(event, triggerEvent, clickButton) {
+          if (!event.target) {
+            return;
+          }
+          var target = event.target;
+          if (target.shadowRoot) {
+            var composedPath = event.composedPath();
+            if (composedPath.length) {
+              target = composedPath[0];
+            }
+          }
+          var nodeName = target.nodeName;
+          while (!isClickNode(nodeName) && target && target.parentNode) {
+            target = target.parentNode;
+            nodeName = target.nodeName;
+          }
+          if (target && isClickNode(nodeName)) {
+            triggerEvent({
+              event: "mtm.AllLinksClick",
+              "mtm.clickElement": target,
+              "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+              "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+              "mtm.clickText": TagManager.dom.getElementText(target),
+              "mtm.clickNodeName": nodeName,
+              "mtm.clickElementUrl": TagManager.dom.getElementAttribute(target, "href"),
+              "mtm.clickButton": clickButton,
+            });
+          }
+        }
+      });
+    };
+  };
 })();
       //search here
       
@@ -6714,6 +6756,79 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "644bd120-bef8-4ce9-8424-d728798313ea",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "return className on linkClickreturn className on linkClick",
+    "eventAction": "return className on linkClickreturn className on linkClick",
+    "eventName": "return className on linkClickreturn className on linkClick",
+    "eventValue": {
+      "name": "ClickClasses",
+      "type": "ClickClasses",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickClassesVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "return className oreturn className on linkClickn linkClick",
+    "Description": "return className on linkClickreturn className on linkClick"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "dec5f94b-1b41-4624-89ea-f956c53f6eab"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -6727,6 +6842,17 @@
   "conditions": [],
   "Name": "Element click",
   "Description": "Element click"
+}
+          {
+  "id": "dec5f94b-1b41-4624-89ea-f956c53f6eab",
+  "type": "AllLinksClick",
+  "name": "AllLinksClick",
+  "Trigger": "AllLinksClickTrigger",
+  "selectedTrigger": "All Links Click",
+  "parameters": {},
+  "conditions": [],
+  "Name": "return className on linkClick",
+  "Description": "return className on linkClick"
 }
           ],
           variables: [
