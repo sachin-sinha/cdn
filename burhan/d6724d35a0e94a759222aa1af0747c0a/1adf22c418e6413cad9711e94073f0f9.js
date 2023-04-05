@@ -1750,7 +1750,7 @@
                   if (av[aA]) {
                     av[aA].apply(av, au);
                   } else {
-                    var aC = "The method '" + aA + '' was not found in "_paq" variable.  Please have a look at the Matomo tracker documentation: https://developer.matomo.org/api-reference/tracking-javascript';
+                    var aC = "The method '" + aA + '\' was not found in "_paq" variable.  Please have a look at the Matomo tracker documentation: https://developer.matomo.org/api-reference/tracking-javascript';
                     ao(aC);
                     if (!aB) {
                       throw new TypeError(aC);
@@ -1935,7 +1935,7 @@
           return au ? au[1] : at;
         }
         function G(at) {
-          return /^[0-9][0-9]*(.[0-9]+)?$/.test(at);
+          return /^[0-9][0-9]*(\.[0-9]+)?$/.test(at);
         }
         function Q(av, aw) {
           var at = {},
@@ -2046,14 +2046,14 @@
           return aA;
         }
         function e(av, au) {
-          var at = "[\?&#]" + au + "=([^&#]*)";
+          var at = "[\\?&#]" + au + "=([^&#]*)";
           var ax = new RegExp(at);
           var aw = ax.exec(av);
           return aw ? p(aw[1]) : "";
         }
         function a(at) {
           if (at && String(at) === at) {
-            return at.replace(/^s+|s+$/g, "");
+            return at.replace(/^\s+|\s+$/g, "");
           }
           return at;
         }
@@ -2892,10 +2892,10 @@
             if ("" === au) {
               return this.getLocation().href;
             }
-            if (au.search(/^///) !== -1) {
+            if (au.search(/^\/\//) !== -1) {
               return this.getLocation().protocol + au;
             }
-            if (au.search(/:///) !== -1) {
+            if (au.search(/:\/\//) !== -1) {
               return au;
             }
             if (0 === au.indexOf("#")) {
@@ -2907,7 +2907,7 @@
             if (0 === au.search("^[a-zA-Z]{2,11}:")) {
               return au;
             }
-            if (au.search(/^//) !== -1) {
+            if (au.search(/^\//) !== -1) {
               return this.getLocation().origin + au;
             }
             var at = "(.*/)";
@@ -2979,7 +2979,7 @@
         }
         function R(az) {
           var aB = "Matomo_Overlay";
-          var au = new RegExp("index\.php\?module=Overlay&action=startOverlaySession&idSite=([0-9]+)&period=([^&]+)&date=([^&]+)(&segment=[^&]*)?");
+          var au = new RegExp("index\\.php\\?module=Overlay&action=startOverlaySession&idSite=([0-9]+)&period=([^&]+)&date=([^&]+)(&segment=[^&]*)?");
           var av = au.exec(J.referrer);
           if (av) {
             var ax = av[1];
@@ -3730,7 +3730,7 @@
                   }
                 }
               }
-              if (!new RegExp("Edge[ /](\d+[\.\d]+)").test(g.userAgent) && typeof navigator.javaEnabled !== "unknown" && M(g.javaEnabled) && g.javaEnabled()) {
+              if (!new RegExp("Edge[ /](\\d+[\\.\\d]+)").test(g.userAgent) && typeof navigator.javaEnabled !== "unknown" && M(g.javaEnabled) && g.javaEnabled()) {
                 dq.java = "1";
               }
               if (!M(W.showModalDialog) && M(g.cookieEnabled)) {
@@ -4124,7 +4124,7 @@
             var dU = [];
             if (dP) {
               for (dO in dP) {
-                if (Object.prototype.hasOwnProperty.call(dP, dO) && /^dimensiond+$/.test(dO)) {
+                if (Object.prototype.hasOwnProperty.call(dP, dO) && /^dimension\d+$/.test(dO)) {
                   var dF = dO.replace("dimension", "");
                   dU.push(parseInt(dF, 10));
                   dU.push(String(dF));
@@ -4298,7 +4298,7 @@
             }
             var dF = a7(bU, "download"),
               dE = a7(bf, "link"),
-              dI = new RegExp("\.(" + dp.join("|") + ")([?&#]|$)", "i");
+              dI = new RegExp("\\.(" + dp.join("|") + ")([?&#]|$)", "i");
             if (dE.test(dG)) {
               return "link";
             }
