@@ -6467,20 +6467,7 @@
           };
         };
       })();
-      Templates["WindowUnloadTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      var triggered = false;
-      TagManager.dom.addEventListener(parameters.window, "beforeunload", function () {
-        if (triggered) {
-          return;
-        }
-        triggered = true;
-        triggerEvent({ event: "WindowUnload" });
-      });
-    };
-  };
-})();
+      
       //search here
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6552,7 +6539,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "64e13a9a-db46-4463-a63c-905735cb2b9d",
+  "id": "0a02c634-aec2-4e7c-82a3-4bd2e2038ecb",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6596,24 +6583,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Window Unload",
-    "eventAction": "Window Unload",
-    "eventName": "Window Unload",
+    "eventCategory": "Timer",
+    "eventAction": "Timer",
+    "eventName": "Timer",
     "eventValue": {
-      "name": "ClickClasses",
-      "type": "ClickClasses",
+      "name": "ClickText",
+      "type": "ClickText",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "ClickClassesVariable"
+      "Variable": "ClickTextVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Window Unload",
-    "Description": "Window Unload"
+    "Name": "Timer",
+    "Description": "Timer"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "d3ece9e8-786e-40b8-b55b-ab17bd4b2872"
+    "024eaa4b-38ce-4481-b48a-b6e254f1fd29"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -6625,17 +6612,6 @@
           ],
           triggers: [
             
-          {
-  "id": "d3ece9e8-786e-40b8-b55b-ab17bd4b2872",
-  "type": "WindowUnload",
-  "name": "WindowUnload",
-  "Trigger": "WindowUnloadTrigger",
-  "selectedTrigger": "Window Unload",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Window Unload",
-  "Description": "Window Unload"
-},
           ],
           variables: [
             
