@@ -6540,6 +6540,195 @@
       });
     };
   };
+})();Templates["FullscreenTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var numTriggers = 0;
+    var events = ["webkitfullscreenchange", "mozfullscreenchange", "fullscreenchange", "MSFullscreenChange"];
+    this.setUp = function (triggerEvent) {
+      function onFullScreen() {
+        var limit = parameters.get("triggerLimit", 1);
+        if (limit) {
+          limit = parseInt(limit, 10);
+        }
+        if (limit && limit <= numTriggers) {
+          return;
+        }
+        var docAlias = parameters.document;
+        var triggerAction = parameters.get("triggerAction", "enter");
+        var isFullscreen = docAlias.fullScreen || docAlias.webkitIsFullScreen || docAlias.mozFullScreen || docAlias.msFullscreenElement;
+        if (isFullscreen && (triggerAction === "any" || triggerAction === "enter")) {
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "enter" });
+          numTriggers++;
+        } else if (!isFullscreen && (triggerAction === "any" || triggerAction === "exit")) {
+          numTriggers++;
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "exit" });
+        }
+      }
+      for (var i = 0; i < events.length; i++) {
+        TagManager.dom.addEventListener(parameters.document, events[i], onFullScreen);
+      }
+    };
+  };
+})();
+Templates["HistoryChangeTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    function getCurrentUrl() {
+      return parameters.window.location.href;
+    }
+    function getEventUrl(event) {
+      if (event && event.target && event.target.location && event.target.location.href) {
+        return event.target.location.href;
+      }
+      return getCurrentUrl();
+    }
+    this.setUp = function (triggerEvent) {
+      var initialUrl = getCurrentUrl();
+      var url = TagManager.url;
+      var origin = url.parseUrl(initialUrl, "origin");
+      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
+      function trigger(eventType, newUrl, newState) {
+        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
+        var shouldForceEvent =
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
+        shouldForceEvent = !shouldForceEvent;
+        var oldUrl = lastEvent.path;
+        if (lastEvent.search) {
+          oldUrl += "?" + lastEvent.search;
+        }
+        if (lastEvent.hash) {
+          oldUrl += "#" + lastEvent.hash;
+        }
+        var nowUrl = newEvent.path;
+        if (newEvent.search) {
+          nowUrl += "?" + newEvent.search;
+        }
+        if (newEvent.hash) {
+          nowUrl += "#" + newEvent.hash;
+        }
+        if (shouldForceEvent || oldUrl !== nowUrl) {
+          var tmpLast = lastEvent;
+          lastEvent = newEvent;
+          triggerEvent({
+            event: "mtm.HistoryChange",
+            "mtm.historyChangeSource": newEvent.eventType,
+            "mtm.oldUrl": origin + oldUrl,
+            "mtm.newUrl": origin + nowUrl,
+            "mtm.oldUrlHash": tmpLast.hash,
+            "mtm.newUrlHash": newEvent.hash,
+            "mtm.oldUrlPath": tmpLast.path,
+            "mtm.newUrlPath": newEvent.path,
+            "mtm.oldUrlSearch": tmpLast.search,
+            "mtm.newUrlSearch": newEvent.search,
+            "mtm.oldHistoryState": tmpLast.state,
+            "mtm.newHistoryState": newEvent.state,
+          });
+        }
+      }
+      function replaceHistoryMethod(methodNameToReplace) {
+        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
+          trigger(methodNameToReplace, getCurrentUrl(), state);
+        });
+      }
+      replaceHistoryMethod("replaceState");
+      replaceHistoryMethod("pushState");
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "hashchange",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("hashchange", newUrl, null);
+        },
+        false
+      );
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "popstate",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("popstate", newUrl, event.state);
+        },
+        false
+      );
+    };
+  };
+})();Templates["UserInteractionTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      var eventNames = ["touchstart", "mouseover", "wheel", "scroll", "keydown"];
+      var windowAlias = parameters.window;
+      var init = function () {
+        triggerEvent({ event: "UserInteraction" });
+        removeListeners();
+      };
+      var removeListeners = function () {
+        for (var i = 0, iLen = eventNames.length; i < iLen; i++) {
+          windowAlias.removeEventListener(eventNames[i], init);
+        }
+      };
+      for (var i = 0, iLen = eventNames.length; i < iLen; i++) {
+        windowAlias.addEventListener(eventNames[i], init, { once: true });
+      }
+    };
+  };
+})();Templates["WindowLeaveTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var numTriggers = 0;
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        if (!parameters.document.documentElement) {
+          return;
+        }
+        var timerInCaseReturns;
+        function cancelTimer() {
+          if (timerInCaseReturns) {
+            clearTimeout(timerInCaseReturns);
+            timerInCaseReturns = null;
+          }
+        }
+        TagManager.dom.addEventListener(parameters.document.documentElement, "mouseleave", function (event) {
+          if ("undefined" === typeof event.clientY) {
+            return;
+          }
+          if (event.clientY > 3) {
+            return;
+          }
+          if (timerInCaseReturns) {
+            cancelTimer();
+            return;
+          }
+          var timerDelay = 50;
+          timerInCaseReturns = setTimeout(function () {
+            var limit = parameters.get("triggerLimit", 1);
+            if (limit) {
+              limit = parseInt(limit, 10);
+            }
+            if (limit && limit <= numTriggers) {
+              return;
+            }
+            numTriggers++;
+            triggerEvent({ event: "WindowLeave" });
+          }, timerDelay);
+        });
+        TagManager.dom.addEventListener(parameters.document.documentElement, "mouseenter", cancelTimer);
+      });
+    };
+  };
+})();Templates["WindowUnloadTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      var triggered = false;
+      TagManager.dom.addEventListener(parameters.window, "beforeunload", function () {
+        if (triggered) {
+          return;
+        }
+        triggered = true;
+        triggerEvent({ event: "WindowUnload" });
+      });
+    };
+  };
 })();
       //search here
       
@@ -6828,6 +7017,371 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "cd93e750-aefe-47b4-b797-20ad0fd0ac13",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Fullscreen",
+    "eventAction": "Fullscreen",
+    "eventName": "Fullscreen",
+    "eventValue": {
+      "name": "ClickText",
+      "type": "ClickText",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickTextVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Fullscreen",
+    "Description": "Fullscreen"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "ef2b9e8f-a9e9-47f8-a52c-ed85791c9540"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "2c6deeac-a3c7-4ac2-9289-7d1d9b74e57a",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "histChange",
+    "eventAction": "histChange",
+    "eventName": "histChange",
+    "eventValue": {
+      "name": "ClickClasses",
+      "type": "ClickClasses",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickClassesVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "histChange",
+    "Description": "histChange"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "75e0ece0-5b4b-4de0-8cb5-10a98307ec08"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "4f5fee10-432d-481d-8b93-14681af3265f",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "user is interacting",
+    "eventAction": "user is interacting",
+    "eventName": "user is interacting",
+    "eventValue": {
+      "name": "ClickText",
+      "type": "ClickText",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickTextVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "user is interacting",
+    "Description": "user is interacting"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "ee9b6f2c-a0f3-4867-961e-bf5a4c3e8ffb"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "925985b8-e691-4128-a46f-bec958bba80e",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Window Leave",
+    "eventAction": "Window Leave",
+    "eventName": "Window Leave",
+    "eventValue": {
+      "name": "ClickText",
+      "type": "ClickText",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickTextVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Window Leave",
+    "Description": "Window Leave"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "688eefc9-efcd-4b0e-a303-7bcebb96ed2e"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "ca28f1f3-269b-431c-9105-d2f75dbd6996",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Window Unload",
+    "eventAction": "Window Unload",
+    "eventName": "Window Unload",
+    "eventValue": {
+      "name": "ClickClasses",
+      "type": "ClickClasses",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickClassesVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Window Unload",
+    "Description": "Window Unload"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "8584090f-e0da-441e-98fa-40bd709697ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -6863,6 +7417,66 @@
   "conditions": [],
   "Name": "Form submitttt",
   "Description": "Form submitttt"
+},
+          {
+  "id": "ef2b9e8f-a9e9-47f8-a52c-ed85791c9540",
+  "type": "Fullscreen",
+  "name": "Fullscreen",
+  "Trigger": "FullscreenTrigger",
+  "selectedTrigger": "Full screen",
+  "parameters": {
+    "triggerAction": "any",
+    "triggerLimit": "0"
+  },
+  "conditions": [],
+  "Name": "Fullscreen",
+  "Description": "Fullscreen"
+},
+          {
+  "id": "75e0ece0-5b4b-4de0-8cb5-10a98307ec08",
+  "type": "HistoryChange",
+  "name": "HistoryChange",
+  "Trigger": "HistoryChangeTrigger",
+  "selectedTrigger": "History Change",
+  "parameters": {},
+  "conditions": [],
+  "Name": "histChange",
+  "Description": "histChange"
+},
+          {
+  "id": "ee9b6f2c-a0f3-4867-961e-bf5a4c3e8ffb",
+  "type": "UserInteraction",
+  "name": "UserInteraction",
+  "Trigger": "UserInteractionTrigger",
+  "selectedTrigger": "User Interaction",
+  "parameters": {},
+  "conditions": [],
+  "Name": "user is interacting",
+  "Description": "user is interacting"
+},
+          {
+  "id": "688eefc9-efcd-4b0e-a303-7bcebb96ed2e",
+  "type": "WindowLeave",
+  "name": "WindowLeave",
+  "Trigger": "WindowLeaveTrigger",
+  "selectedTrigger": "Window Leave",
+  "parameters": {
+    "triggerLimit": "0"
+  },
+  "conditions": [],
+  "Name": "Window Leave",
+  "Description": "Window Leave"
+},
+          {
+  "id": "8584090f-e0da-441e-98fa-40bd709697ff",
+  "type": "WindowUnload",
+  "name": "WindowUnload",
+  "Trigger": "WindowUnloadTrigger",
+  "selectedTrigger": "Window Unload",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Window Unload",
+  "Description": "Window Unload"
 },
           ],
           variables: [
