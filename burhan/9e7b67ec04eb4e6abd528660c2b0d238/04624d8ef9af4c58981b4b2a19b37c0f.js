@@ -6730,6 +6730,79 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "43820ac7-da6e-4751-b79f-6fc317710b22",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Click_Elements2",
+    "eventAction": "Click_Elements2",
+    "eventName": "Click_Elements2",
+    "eventValue": {
+      "name": "ClickElement",
+      "type": "ClickElement",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickElementVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Click_Elements",
+    "Description": "Testing click_elements"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "0a3b342d-2a3b-4bcc-bbfc-f3a73a8559c7"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
