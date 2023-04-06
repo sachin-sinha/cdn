@@ -6725,7 +6725,7 @@
 },
           ],
           triggers: [
-            
+            ,
           {
   "id": "d5e4e35e-0859-4ce9-82ba-7b872b91b71c",
   "type": "WindowLoaded",
@@ -6736,7 +6736,7 @@
   "conditions": [],
   "Name": "WL (Window Loaded)",
   "Description": "WL (Window Loaded)"
-}
+},
           {
   "id": "147bd4bc-4fa0-4596-867c-bb5e6abcd2b2",
   "type": "FormSubmit",
