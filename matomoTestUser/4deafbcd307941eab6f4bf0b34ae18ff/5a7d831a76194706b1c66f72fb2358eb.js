@@ -6725,7 +6725,7 @@
 },
           ],
           triggers: [
-            ,
+            
           {
   "id": "d5e4e35e-0859-4ce9-82ba-7b872b91b71c",
   "type": "WindowLoaded",
@@ -6747,7 +6747,7 @@
   "conditions": [],
   "Name": "Form Submit v1",
   "Description": "Form Submit v1"
-}
+},
           ],
           variables: [
             
