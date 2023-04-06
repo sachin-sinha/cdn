@@ -6475,14 +6475,6 @@
       });
     };
   };
-})();Templates["DomReadyTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        triggerEvent({ event: "DOMReady" });
-      });
-    };
-  };
 })();
       //search here
       
@@ -6553,9 +6545,9 @@
           tags: [
             
         {
-  "id": "d4c1c25f-3a97-4483-846a-e59ca1f31f66",
+  "id": "d7a4a38a-7531-480d-bf5b-40509dcda624",
   "type": "Matomo",
-  "name": "DOM_Ready",
+  "name": "Window_Loaded_1",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -6598,24 +6590,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "DOM_Ready",
-    "eventAction": "DOM_Ready",
-    "eventName": "DOM_Ready",
+    "eventCategory": "Window_Loaded_1",
+    "eventAction": "Window_Loaded_1",
+    "eventName": "Window_Loaded_1",
     "eventValue": {
-      "name": "ClickElement",
-      "type": "ClickElement",
+      "name": "ClickButton",
+      "type": "ClickButton",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "ClickElementVariable"
+      "Variable": "ClickButtonVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "DOM_Ready",
-    "Description": "DOM Ready Trigger testing"
+    "Name": "Window_Loaded_1",
+    "Description": "Window_Loaded_1"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "9548e0e7-6573-457f-9673-3087768eebed"
+    "83721164-b645-4120-9d7c-ee42cde91384"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -6638,17 +6630,6 @@
   "conditions": [],
   "Name": "Window_Loaded_1",
   "Description": "Window_Loaded_1"
-}
-          {
-  "id": "9548e0e7-6573-457f-9673-3087768eebed",
-  "type": "DomReady",
-  "name": "DomReady",
-  "Trigger": "DomReadyTrigger",
-  "selectedTrigger": "DOM Ready",
-  "parameters": {},
-  "conditions": [],
-  "Name": "DOM_Ready",
-  "Description": "Testing DOM ready trigger"
 }
           ],
           variables: [
