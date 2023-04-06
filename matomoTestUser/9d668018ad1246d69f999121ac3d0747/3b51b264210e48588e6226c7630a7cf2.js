@@ -6499,6 +6499,14 @@
       });
     }
   };
+})();Templates["WindowLoadedTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onLoad(function () {
+        triggerEvent({ event: "WindowLoad" });
+      });
+    };
+  };
 })();
       //search here
       
@@ -6641,6 +6649,79 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "18a514fd-4bed-4efe-8b59-16fa33b4c0f7",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "loadCat",
+    "eventAction": "loadAct",
+    "eventName": "loadName",
+    "eventValue": {
+      "name": "ClickClasses",
+      "type": "ClickClasses",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickClassesVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "name",
+    "Description": "desc"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d700bbdf-466d-442a-9f9e-49ccfc0f5da9"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -6653,6 +6734,17 @@
   "parameters": {},
   "conditions": [],
   "Name": "AEC",
+  "Description": "desc"
+},
+          {
+  "id": "d700bbdf-466d-442a-9f9e-49ccfc0f5da9",
+  "type": "WindowLoaded",
+  "name": "WindowLoaded",
+  "Trigger": "WindowLoadedTrigger",
+  "selectedTrigger": "Window Loaded",
+  "parameters": {},
+  "conditions": [],
+  "Name": "window Loaded",
   "Description": "desc"
 },
           ],
