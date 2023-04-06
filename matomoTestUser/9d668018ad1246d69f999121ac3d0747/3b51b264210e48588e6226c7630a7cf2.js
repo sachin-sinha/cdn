@@ -6507,6 +6507,39 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();
       //search here
       
@@ -6722,6 +6755,79 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "1067d84d-06e0-4a24-8516-22af79a02dcd",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Form submitttt",
+    "eventAction": "Form submitttt",
+    "eventName": "Form submitttt",
+    "eventValue": {
+      "name": "FormElement",
+      "type": "FormElement",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "FormElementVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Form submitttt",
+    "Description": "Form submitttt"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "62b87757-d9f8-43ec-b43d-b230d425839a"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -6746,6 +6852,17 @@
   "conditions": [],
   "Name": "window Loaded",
   "Description": "desc"
+},
+          {
+  "id": "62b87757-d9f8-43ec-b43d-b230d425839a",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Form submitttt",
+  "Description": "Form submitttt"
 },
           ],
           variables: [
