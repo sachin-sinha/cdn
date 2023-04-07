@@ -6499,7 +6499,37 @@
       });
     }
   };
+})();Templates["FullscreenTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var numTriggers = 0;
+    var events = ["webkitfullscreenchange", "mozfullscreenchange", "fullscreenchange", "MSFullscreenChange"];
+    this.setUp = function (triggerEvent) {
+      function onFullScreen() {
+        var limit = parameters.get("triggerLimit", 1);
+        if (limit) {
+          limit = parseInt(limit, 10);
+        }
+        if (limit && limit <= numTriggers) {
+          return;
+        }
+        var docAlias = parameters.document;
+        var triggerAction = parameters.get("triggerAction", "enter");
+        var isFullscreen = docAlias.fullScreen || docAlias.webkitIsFullScreen || docAlias.mozFullScreen || docAlias.msFullscreenElement;
+        if (isFullscreen && (triggerAction === "any" || triggerAction === "enter")) {
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "enter" });
+          numTriggers++;
+        } else if (!isFullscreen && (triggerAction === "any" || triggerAction === "exit")) {
+          numTriggers++;
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "exit" });
+        }
+      }
+      for (var i = 0; i < events.length; i++) {
+        TagManager.dom.addEventListener(parameters.document, events[i], onFullScreen);
+      }
+    };
+  };
 })();
+
       //search here
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6636,6 +6666,79 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "e6f9c928-f9e5-445e-ac16-bdf3ae611b12",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Full Screen",
+    "eventAction": "Full Screen",
+    "eventName": "Full Screen",
+    "eventValue": {
+      "name": "ClickElement",
+      "type": "ClickElement",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickElementVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Full Screen",
+    "Description": "Full Screen"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "8d6eeed4-ccd4-4e1e-b643-469c5c2dcbfb"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -6649,6 +6752,20 @@
   "conditions": [],
   "Name": "Click_Elements",
   "Description": "Click_Elements"
+},
+          {
+  "id": "8d6eeed4-ccd4-4e1e-b643-469c5c2dcbfb",
+  "type": "Fullscreen",
+  "name": "Fullscreen",
+  "Trigger": "FullscreenTrigger",
+  "selectedTrigger": "Full screen",
+  "parameters": {
+    "triggerAction": "any",
+    "triggerLimit": "0"
+  },
+  "conditions": [],
+  "Name": "Full Screen",
+  "Description": "Full Screen"
 },
           ],
           variables: [
