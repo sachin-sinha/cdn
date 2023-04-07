@@ -6467,7 +6467,63 @@
           };
         };
       })();
-      
+      Templates["AllDownloadsClickTrigger"] = (function () {
+    return function (parameters, TagManager) {
+      this.setUp = function (triggerEvent) {
+        TagManager.dom.onReady(function () {
+          var extensions = parameters.get("downloadExtensions");
+          if (!extensions) {
+            return;
+          }
+          function isClickNode(nodeName) {
+            return nodeName === "A" || nodeName === "AREA";
+          }
+          TagManager.dom.onClick(function (event, clickButton) {
+            clickCallback(event, triggerEvent, clickButton);
+          });
+          function clickCallback(event, triggerEvent, clickButton) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.shadowRoot) {
+              var composedPath = event.composedPath();
+              if (composedPath.length) {
+                target = composedPath[0];
+              }
+            }
+            var nodeName = target.nodeName;
+            while (!isClickNode(nodeName) && target && target.parentNode) {
+              target = target.parentNode;
+              nodeName = target.nodeName;
+            }
+            extensions = String(extensions).split(",");
+            var i;
+            for (i = 0; i < extensions.length; i++) {
+              extensions[i] = TagManager.utils.trim(extensions[i]);
+            }
+            if (target && isClickNode(nodeName)) {
+              var link = TagManager.dom.getElementAttribute(target, "href");
+              var downloadExtensionsPattern = new RegExp("\\.(" + extensions.join("|") + ")([?&#]|$)", "i");
+              if (downloadExtensionsPattern.test(link)) {
+                triggerEvent({
+                  event: "mtm.DownloadClick",
+                  "mtm.clickElement": target,
+                  "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+                  "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+                  "mtm.clickText": TagManager.dom.getElementText(target),
+                  "mtm.clickNodeName": nodeName,
+                  "mtm.clickElementUrl": link,
+                  "mtm.clickButton": clickButton,
+                });
+              }
+            }
+          }
+        });
+      };
+    };
+  })();
+
       //search here
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6536,9 +6592,95 @@
           environment: "live",
           tags: [
             
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "b28fd71f-faa9-4714-b4bc-3bd2b4cfdff0",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download Trigger",
+    "eventAction": "Download Trigger",
+    "eventName": "Download Trigger",
+    "eventValue": {
+      "name": "ClickElement",
+      "type": "ClickElement",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickElementVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download Trigger",
+    "Description": "Download Trigger"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "716e2d7b-abdd-491d-9c3c-f42bd280aeba"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
+          {
+  "id": "716e2d7b-abdd-491d-9c3c-f42bd280aeba",
+  "type": "AllDownloadsClick",
+  "name": "AllDownloadsClick",
+  "Trigger": "AllDownloadsClickTrigger",
+  "selectedTrigger": "All Downloads Click",
+  "parameters": {
+    "downloadExtensions": "7z,aac,apk,arc,arj,asf,asx,avi,azw3,bin,csv,deb,dm"
+  },
+  "conditions": [],
+  "Name": "Download Trigger",
+  "Description": "Download_Trigger"
+},
           ],
           variables: [
             
