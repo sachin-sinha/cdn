@@ -6577,9 +6577,10 @@
           tags: [
             
         {
-  "id": "a2a0d575-f4ca-4408-8ffe-b3af9cf65cfa",
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "ece9f7d0-cb97-48ef-be4e-5b18e7863c30",
   "type": "Matomo",
-  "name": "name",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -6622,9 +6623,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "category",
-    "eventAction": "action",
-    "eventName": "name",
+    "eventCategory": "newCat",
+    "eventAction": "newAct",
+    "eventName": "newName",
     "eventValue": {
       "name": "ClickClasses",
       "type": "ClickClasses",
@@ -6635,18 +6636,17 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "name",
-    "Description": "description"
+    "Description": "desc"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "d8593d8b-3c2e-4677-8db1-c4667f128de7"
+    "125be420-746d-4edd-86f3-2204e7443190"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
   "startDate": null,
   "endDate": null,
   "Tag": "MatomoTag",
-  "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
           ],
@@ -6664,7 +6664,7 @@
   "Description": "description"
 },
           {
-  "id": "739934de-44e8-4545-94d4-ae9984a513af",
+  "id": "125be420-746d-4edd-86f3-2204e7443190",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -6682,21 +6682,9 @@
       },
       "comparison": "equals",
       "expected": "burhan"
-    },
-    {
-      "actual": {
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "not_equals",
-      "expected": "state"
     }
   ],
-  "Name": "Name",
+  "Name": "burhanClick",
   "Description": "desc"
 },
           ],
