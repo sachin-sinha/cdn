@@ -6530,38 +6530,6 @@ Templates["FormSubmitTrigger"] = (function () {
       });
     };
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();
       //search here
       
@@ -6780,7 +6748,7 @@ Templates["FormSubmitTrigger"] = (function () {
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "de851493-f1c2-4c7b-a9f2-bf3f3cb99a61",
+  "id": "7d29175e-b15b-4980-bdf7-de2da0c6a2bd",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6819,24 +6787,29 @@ Templates["FormSubmitTrigger"] = (function () {
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "",
-    "eventAction": "",
-    "eventName": "",
-    "eventValue": "",
-    "selectedTag": "Custom HTML",
-    "Name": "CustomHTML",
-    "Description": "CustomHTML",
-    "customHTML": "<script>\nalert(\"Hi, this test is working\");\n</script>",
-    "position": "Body End"
+    "eventCategory": "JSERROR",
+    "eventAction": "JSERROR",
+    "eventName": "JSERROR",
+    "eventValue": {
+      "name": "ClickText",
+      "type": "ClickText",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickTextVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "JSERROR",
+    "Description": "JSERROR"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "c4d33fad-23a7-447f-be09-ceeced3fd3a3"
+    "c9891e4e-034c-4fec-93d2-8174e306a276"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -6872,17 +6845,6 @@ Templates["FormSubmitTrigger"] = (function () {
   "conditions": [],
   "Name": "ujjwal_form",
   "Description": "ujjwal_form"
-},
-          {
-  "id": "c4d33fad-23a7-447f-be09-ceeced3fd3a3",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [],
-  "Name": "CustomHTML",
-  "Description": "CustomHTML"
 },
           ],
           variables: [
