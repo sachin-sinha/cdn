@@ -6495,7 +6495,7 @@
               }
               triggerEvent({
                 event: "mtm.FormSubmit",
-                "mtm.formElement": target,
+                "mtm.formElement": JSON.stringify(target),
                 "mtm.formElementId": dom.getElementAttribute(target, "id"),
                 "mtm.formElementName": dom.getElementAttribute(target, "name"),
                 "mtm.formElementClasses": dom.getElementClassNames(target),
@@ -6566,6 +6566,50 @@
             return parameters.container.dataLayer.get("mtm.formElement");
         };
     };
+})();
+      Templates["IsoDateVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toISOString();
+      };
+  };
+})();
+      Templates["LocalDateVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toDateString();
+      };
+  };
+})();
+      Templates["LocalHourVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().getHours();
+      };
+  };
+})();
+      Templates["LocalTimeVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toTimeString();
+      };
+  };
+})();
+      Templates["UtcDateVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toUTCString();
+      };
+  };
+})();
+      Templates["WeekdayVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          var weekday = new Date().getDay();
+          var weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+          return weekdays[weekday];
+      };
+  };
 })();
 
       window.MatomoTagManager.addContainer(
@@ -6747,7 +6791,7 @@
   "conditions": [],
   "Name": "Form Submit v1",
   "Description": "Form Submit v1"
-}
+},
           ],
           variables: [
             
