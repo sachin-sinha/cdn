@@ -6495,7 +6495,7 @@
               }
               triggerEvent({
                 event: "mtm.FormSubmit",
-                "mtm.formElement": JSON.stringify(target),
+                "mtm.formElement": JSON.stringify(JSON.parse(target)),
                 "mtm.formElementId": dom.getElementAttribute(target, "id"),
                 "mtm.formElementName": dom.getElementAttribute(target, "name"),
                 "mtm.formElementClasses": dom.getElementClassNames(target),
