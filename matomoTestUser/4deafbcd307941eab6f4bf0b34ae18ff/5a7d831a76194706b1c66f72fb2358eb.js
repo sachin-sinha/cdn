@@ -6493,9 +6493,10 @@
               if (!formAction) {
                 formAction = parameters.window.location.href;
               }
+              console.log(target, 'this is target')
               triggerEvent({
                 event: "mtm.FormSubmit",
-                "mtm.formElement": JSON.stringify(JSON.parse(target)),
+                "mtm.formElement": target,
                 "mtm.formElementId": dom.getElementAttribute(target, "id"),
                 "mtm.formElementName": dom.getElementAttribute(target, "name"),
                 "mtm.formElementClasses": dom.getElementClassNames(target),
