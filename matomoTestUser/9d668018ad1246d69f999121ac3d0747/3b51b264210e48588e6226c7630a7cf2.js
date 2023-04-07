@@ -6467,15 +6467,37 @@
           };
         };
       })();
-      Templates["DomReadyTrigger"] = (function () {
+      Templates["FullscreenTrigger"] = (function () {
   return function (parameters, TagManager) {
+    var numTriggers = 0;
+    var events = ["webkitfullscreenchange", "mozfullscreenchange", "fullscreenchange", "MSFullscreenChange"];
     this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        triggerEvent({ event: "DOMReady" });
-      });
+      function onFullScreen() {
+        var limit = parameters.get("triggerLimit", 1);
+        if (limit) {
+          limit = parseInt(limit, 10);
+        }
+        if (limit && limit <= numTriggers) {
+          return;
+        }
+        var docAlias = parameters.document;
+        var triggerAction = parameters.get("triggerAction", "enter");
+        var isFullscreen = docAlias.fullScreen || docAlias.webkitIsFullScreen || docAlias.mozFullScreen || docAlias.msFullscreenElement;
+        if (isFullscreen && (triggerAction === "any" || triggerAction === "enter")) {
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "enter" });
+          numTriggers++;
+        } else if (!isFullscreen && (triggerAction === "any" || triggerAction === "exit")) {
+          numTriggers++;
+          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "exit" });
+        }
+      }
+      for (var i = 0; i < events.length; i++) {
+        TagManager.dom.addEventListener(parameters.document, events[i], onFullScreen);
+      }
     };
   };
 })();
+
       //search here
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6547,7 +6569,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "0a02c634-aec2-4e7c-82a3-4bd2e2038ecb",
+  "id": "e1c930f2-7e55-4e31-bda9-93ef939dc198",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6591,97 +6613,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Timer",
-    "eventAction": "Timer",
-    "eventName": "Timer",
+    "eventCategory": "Full Screen",
+    "eventAction": "Full Screen",
+    "eventName": "Full Screen",
     "eventValue": {
-      "name": "ClickText",
-      "type": "ClickText",
+      "name": "ClickClasses",
+      "type": "ClickClasses",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "ClickTextVariable"
+      "Variable": "ClickClassesVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Timer",
-    "Description": "Timer"
+    "Name": "Full Screen",
+    "Description": "Full Screen"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "024eaa4b-38ce-4481-b48a-b6e254f1fd29"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "2b29bee0-ca31-42d4-9207-2a75eda3ce02",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "DOM is ready",
-    "eventAction": "DOM is ready",
-    "eventName": "DOM is ready",
-    "eventValue": {
-      "name": "ClickText",
-      "type": "ClickText",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickTextVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "DOM is ready",
-    "Description": "DOM is ready"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "f81fb2d5-97cb-4512-b6f1-dabc79a567e4"
+    "bb5f31dd-558f-496c-a047-db430b0741e3"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -6694,15 +6643,18 @@
           triggers: [
             
           {
-  "id": "f81fb2d5-97cb-4512-b6f1-dabc79a567e4",
-  "type": "DomReady",
-  "name": "DomReady",
-  "Trigger": "DomReadyTrigger",
-  "selectedTrigger": "DOM Ready",
-  "parameters": {},
+  "id": "bb5f31dd-558f-496c-a047-db430b0741e3",
+  "type": "Fullscreen",
+  "name": "Fullscreen",
+  "Trigger": "FullscreenTrigger",
+  "selectedTrigger": "Full screen",
+  "parameters": {
+    "triggerAction": "any",
+    "triggerLimit": "0"
+  },
   "conditions": [],
-  "Name": "DOM is ready",
-  "Description": "DOM is ready"
+  "Name": "Full Screen",
+  "Description": "Full Screen"
 },
           ],
           variables: [
