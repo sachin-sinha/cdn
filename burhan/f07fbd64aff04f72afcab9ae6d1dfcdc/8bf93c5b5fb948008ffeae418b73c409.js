@@ -6467,40 +6467,7 @@
           };
         };
       })();
-      Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
-      });
-    };
-  };
-})();
+      
       //search here
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6569,93 +6536,9 @@
           environment: "live",
           tags: [
             
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "646193e3-987f-40de-a82c-4712e48f9c51",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Form_submit",
-    "eventAction": "Form_submit",
-    "eventName": "Form_submit",
-    "eventValue": {
-      "name": "ClickClasses",
-      "type": "ClickClasses",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickClassesVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Form_submit",
-    "Description": "Form_submit"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "0c2d1d36-5841-4cb8-a5b9-c815440cdb56"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
-          {
-  "id": "0c2d1d36-5841-4cb8-a5b9-c815440cdb56",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Form_Submit",
-  "Description": "Form_Submit"
-},
           ],
           variables: [
             
