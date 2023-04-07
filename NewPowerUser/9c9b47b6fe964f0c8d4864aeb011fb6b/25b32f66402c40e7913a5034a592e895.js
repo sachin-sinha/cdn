@@ -6664,7 +6664,7 @@
   "Description": "description"
 },
           {
-  "id": "dfea810c-afcb-4921-b4ac-58ca921f11f0",
+  "id": "739934de-44e8-4545-94d4-ae9984a513af",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -6682,6 +6682,18 @@
       },
       "comparison": "equals",
       "expected": "burhan"
+    },
+    {
+      "actual": {
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "not_equals",
+      "expected": "state"
     }
   ],
   "Name": "Name",
