@@ -6527,17 +6527,6 @@
         }
       };
     };
-  })();Templates["ReferrerUrlVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var urlPart = parameters.get("urlPart", "href");
-        var urlReferrer = parameters.get("document.referrer");
-        if (!urlReferrer || !urlPart) {
-          return;
-        }
-        return TagManager.url.parseUrl(urlReferrer, urlPart);
-      };
-    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6993,7 +6982,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "f7b2d6cd-b795-4d5d-953a-80e1ea7d4bd7",
+  "id": "737d74cd-142d-4ed4-81d7-c270c936a64c",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7037,117 +7026,35 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "JS Var",
-    "eventAction": "JS Var",
-    "eventName": "JS Var",
+    "eventCategory": "a",
+    "eventAction": "a",
+    "eventName": "a",
     "eventValue": {
       "selectedVariable": "JavaScript Variable",
       "Variable": "JavaScriptVariable",
       "name": "JavaScript",
       "type": "JavaScript",
-      "Name": "JS Var",
-      "Description": "JS Var",
-      "variableName": "abcd",
-      "id": "6922afd9-1112-4f95-bf01-36d3d5dfbc3f",
+      "Name": "JSlet",
+      "Description": "JSlet",
+      "variableName": "a",
+      "id": "749a0b2c-2fde-427f-875b-5fcd99222ce0",
       "parameters": {
         "selectedVariable": "JavaScript Variable",
         "Variable": "JavaScriptVariable",
         "name": "JavaScript",
         "type": "JavaScript",
-        "Name": "JS Var",
-        "Description": "JS Var",
-        "variableName": "abcd"
+        "Name": "JSlet",
+        "Description": "JSlet",
+        "variableName": "a"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "JS Var",
-    "Description": "JS Var"
+    "Name": "a",
+    "Description": "a"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "a2056db1-8596-4cc3-8492-df609ee44e21"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "1b894ad8-f77c-4833-ba57-35f34787f6c2",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Rfr url",
-    "eventAction": "Rfr url",
-    "eventName": "Rfr url",
-    "eventValue": {
-      "selectedVariable": "Referrer URL",
-      "Variable": "ReferrerUrlVariable",
-      "name": "ReferrerUrl",
-      "type": "ReferrerUrl",
-      "Name": "Referrer URL",
-      "Description": "Referrer URL",
-      "id": "517921dd-def8-41fc-b863-9d1fba233b05",
-      "parameters": {
-        "selectedVariable": "Referrer URL",
-        "Variable": "ReferrerUrlVariable",
-        "name": "ReferrerUrl",
-        "type": "ReferrerUrl",
-        "Name": "Referrer URL",
-        "Description": "Referrer URL"
-      }
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Rfr url",
-    "Description": "Rfr url"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7189,37 +7096,20 @@
   "Variable": "JavaScriptVariable",
   "name": "JavaScript",
   "type": "JavaScript",
-  "Name": "JS Var",
-  "Description": "JS Var",
-  "variableName": "abcd",
-  "id": "6922afd9-1112-4f95-bf01-36d3d5dfbc3f",
+  "Name": "JSlet",
+  "Description": "JSlet",
+  "variableName": "a",
+  "id": "749a0b2c-2fde-427f-875b-5fcd99222ce0",
   "parameters": {
     "selectedVariable": "JavaScript Variable",
     "Variable": "JavaScriptVariable",
     "name": "JavaScript",
     "type": "JavaScript",
-    "Name": "JS Var",
-    "Description": "JS Var",
-    "variableName": "abcd"
+    "Name": "JSlet",
+    "Description": "JSlet",
+    "variableName": "a"
   }
 }, Variable: "JavaScriptVariable"},
-          {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Referrer URL",
-  "Variable": "ReferrerUrlVariable",
-  "name": "ReferrerUrl",
-  "type": "ReferrerUrl",
-  "Name": "Referrer URL",
-  "Description": "Referrer URL",
-  "id": "517921dd-def8-41fc-b863-9d1fba233b05",
-  "parameters": {
-    "selectedVariable": "Referrer URL",
-    "Variable": "ReferrerUrlVariable",
-    "name": "ReferrerUrl",
-    "type": "ReferrerUrl",
-    "Name": "Referrer URL",
-    "Description": "Referrer URL"
-  }
-}, Variable: "ReferrerUrlVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
