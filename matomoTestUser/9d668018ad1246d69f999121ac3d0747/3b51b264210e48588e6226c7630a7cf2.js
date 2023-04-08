@@ -6500,33 +6500,13 @@
       });
     }
   };
-})();
-  Templates["TimeSinceLoadVariable"] = (function () {
+})();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
-        var unit = parameters.get("unit", "ms");
-        var now = new Date().getTime();
-        var loadTime = TagManager.dataLayer.get("mtm.mtmScriptLoadedTime");
-        if (!loadTime) {
-          loadTime = TagManager.dataLayer.get("mtm.startTime");
+        var dataLayerName = parameters.get("dataLayerName");
+        if (dataLayerName && parameters.container) {
+          return parameters.container.dataLayer.get(dataLayerName);
         }
-        if (!loadTime) {
-          var win = parameters.window;
-          if (TagManager.utils.isObject(win.performance) && win.performance.timing && win.performance.timing) {
-            loadTime = win.performance.timing.loadEventStart;
-          }
-        }
-        if (!loadTime) {
-          return;
-        }
-        if (unit === "s") {
-          now = now / 1000;
-          loadTime = loadTime / 1000;
-        } else if (unit === "m") {
-          now = now / 1000 / 60;
-          loadTime = loadTime / 1000 / 60;
-        }
-        return parseInt(Math.round(now - loadTime), 10);
       };
     };
   })();
@@ -6975,16 +6955,17 @@
       window.MatomoTagManager.addContainer(
         {
           id: "tfVMgnzD",
-          idsite: "without window ",
+          idsite: 1,
           versionName: "version0",
           revision: 1,
           environment: "live",
           tags: [
             
         {
-  "id": "721004f1-28f8-45c0-87ab-f1f4a18c1f0e",
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "8b4c50b7-29a3-41a6-9309-bbf44730bc42",
   "type": "Matomo",
-  "name": "CC",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -6993,7 +6974,7 @@
       "defaultValue": "",
       "parameters": {
         "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "without window ",
+        "idSite": "1",
         "enableLinkTracking": true,
         "enableCrossDomainLinking": true,
         "enableDoNotTrack": false,
@@ -7027,70 +7008,79 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "cat",
-    "eventAction": "act",
-    "eventName": "nam",
+    "eventCategory": "DL Click",
+    "eventAction": "DL Click",
+    "eventName": "DL Click",
     "eventValue": {
-      "name": "ClickClasses",
-      "type": "ClickClasses",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickClassesVariable"
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "Data Layer",
+      "Description": "Data Layer",
+      "dataLayerName": "orderTotal",
+      "id": "71518c69-90de-4b79-bb47-3692d870f8fa",
+      "parameters": {
+        "selectedVariable": "Data layer",
+        "Variable": "DataLayerVariable",
+        "name": "DataLayer",
+        "type": "DataLayer",
+        "Name": "Data Layer",
+        "Description": "Data Layer",
+        "dataLayerName": "orderTotal"
+      }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CC",
-    "Description": "CC"
+    "Name": "DL Click",
+    "Description": "DL Click"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "dbe894e3-a074-4b90-a574-aed19009a88f"
+    "c959b3a2-fd2b-40d0-81b2-9fff58ed4f1d"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
   "startDate": null,
   "endDate": null,
   "Tag": "MatomoTag",
-  "idSite": "without window ",
-  "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
           ],
           triggers: [
             
           {
-  "id": "dbe894e3-a074-4b90-a574-aed19009a88f",
+  "id": "c959b3a2-fd2b-40d0-81b2-9fff58ed4f1d",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
   "selectedTrigger": "All Elements Click",
   "parameters": {},
   "conditions": [],
-  "Name": "CC",
-  "Description": "CC"
+  "Name": "DL Click",
+  "Description": "DL Click"
 },
           ],
           variables: [
             
-          {name: "TimeSinceLoad", type: "TimeSinceLoad", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Time since page load",
-  "Variable": "TimeSinceLoadVariable",
-  "name": "TimeSinceLoad",
-  "type": "TimeSinceLoad",
-  "Name": "Calculate Time",
-  "Description": "Calculate Time",
-  "unit": "s",
-  "id": "67106fbe-2975-42e2-bdd8-4618c7ed82a9",
+          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Data layer",
+  "Variable": "DataLayerVariable",
+  "name": "DataLayer",
+  "type": "DataLayer",
+  "Name": "Data Layer",
+  "Description": "Data Layer",
+  "dataLayerName": "orderTotal",
+  "id": "71518c69-90de-4b79-bb47-3692d870f8fa",
   "parameters": {
-    "selectedVariable": "Time since page load",
-    "Variable": "TimeSinceLoadVariable",
-    "name": "TimeSinceLoad",
-    "type": "TimeSinceLoad",
-    "Name": "Calculate Time",
-    "Description": "Calculate Time",
-    "unit": "s"
+    "selectedVariable": "Data layer",
+    "Variable": "DataLayerVariable",
+    "name": "DataLayer",
+    "type": "DataLayer",
+    "Name": "Data Layer",
+    "Description": "Data Layer",
+    "dataLayerName": "orderTotal"
   }
-}, Variable: "TimeSinceLoadVariable"},
+}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
@@ -7098,7 +7088,7 @@
               defaultValue: "",
               parameters: {
                 matomoUrl: "https://testbe.bangdb.com:18080",
-                idSite: "without window ",
+                idSite: "1",
                 enableLinkTracking: true,
                 enableCrossDomainLinking: true,
                 enableDoNotTrack: false,
