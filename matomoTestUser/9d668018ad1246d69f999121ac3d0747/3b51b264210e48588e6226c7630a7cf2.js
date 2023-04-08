@@ -6964,7 +6964,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "36d00566-5f12-447f-bff6-6d4acbc11528",
+  "id": "2b215065-c38d-4b39-a221-b4731c14beb8",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7003,22 +7003,42 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "",
-    "eventAction": "",
-    "eventName": "",
-    "eventValue": "",
+    "eventCategory": "PVVV",
+    "eventAction": "PVVV",
+    "eventName": "PVVV",
+    "eventValue": {
+      "selectedVariable": "DOM Element",
+      "Variable": "DomElementVariable",
+      "name": "DomElement",
+      "type": "DomElement",
+      "Name": "DOM ELEMENT",
+      "Description": "DOM ELEMENT",
+      "selectionMethod": "cssSelector",
+      "cssSelector": ".body",
+      "id": "ceded2e1-a223-486a-8a05-060fec4ef48e",
+      "parameters": {
+        "selectedVariable": "DOM Element",
+        "Variable": "DomElementVariable",
+        "name": "DomElement",
+        "type": "DomElement",
+        "Name": "DOM ELEMENT",
+        "Description": "DOM ELEMENT",
+        "selectionMethod": "cssSelector",
+        "cssSelector": ".body"
+      }
+    },
     "selectedTag": "BangDB Analytics",
-    "Name": "PV",
-    "Description": "PV"
+    "Name": "PVVV",
+    "Description": "PVVV"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "7e48c254-3bbb-49a1-9162-07e22fb071b9"
+    "b84e7448-c8fb-48cb-85c8-d20d5e22c3ca"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7031,15 +7051,15 @@
           triggers: [
             
           {
-  "id": "7e48c254-3bbb-49a1-9162-07e22fb071b9",
+  "id": "b84e7448-c8fb-48cb-85c8-d20d5e22c3ca",
   "type": "PageView",
   "name": "PageView",
   "Trigger": "PageViewTrigger",
   "selectedTrigger": "Pageview",
   "parameters": {},
   "conditions": [],
-  "Name": "PV",
-  "Description": "PV"
+  "Name": "Pageeevieww",
+  "Description": "Pageeevieww"
 },
           ],
           variables: [
@@ -7053,7 +7073,7 @@
   "Description": "DOM ELEMENT",
   "selectionMethod": "cssSelector",
   "cssSelector": ".body",
-  "id": "ad076991-9384-4b0d-90b5-fd7d0101df31",
+  "id": "ceded2e1-a223-486a-8a05-060fec4ef48e",
   "parameters": {
     "selectedVariable": "DOM Element",
     "Variable": "DomElementVariable",
