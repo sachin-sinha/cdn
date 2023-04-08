@@ -6467,71 +6467,8 @@
           };
         };
       })();
-      Templates["FullscreenTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    var numTriggers = 0;
-    var events = ["webkitfullscreenchange", "mozfullscreenchange", "fullscreenchange", "MSFullscreenChange"];
-    this.setUp = function (triggerEvent) {
-      function onFullScreen() {
-        var limit = parameters.get("triggerLimit", 1);
-        if (limit) {
-          limit = parseInt(limit, 10);
-        }
-        if (limit && limit <= numTriggers) {
-          return;
-        }
-        var docAlias = parameters.document;
-        var triggerAction = parameters.get("triggerAction", "enter");
-        var isFullscreen = docAlias.fullScreen || docAlias.webkitIsFullScreen || docAlias.mozFullScreen || docAlias.msFullscreenElement;
-        if (isFullscreen && (triggerAction === "any" || triggerAction === "enter")) {
-          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "enter" });
-          numTriggers++;
-        } else if (!isFullscreen && (triggerAction === "any" || triggerAction === "exit")) {
-          numTriggers++;
-          triggerEvent({ event: "mtm.Fullscreen", "mtm.fullscreenAction": "exit" });
-        }
-      }
-      for (var i = 0; i < events.length; i++) {
-        TagManager.dom.addEventListener(parameters.document, events[i], onFullScreen);
-      }
-    };
-  };
-})();
-Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
-      });
-    };
-  };
-})();
-      //search here
+      //change location
+      
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6589,7 +6526,391 @@ Templates["FormSubmitTrigger"] = (function () {
         };
     };
 })();
-
+      Templates["IsoDateVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toISOString();
+      };
+  };
+})();
+      Templates["LocalDateVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toDateString();
+      };
+  };
+})();
+      Templates["LocalHourVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().getHours();
+      };
+  };
+})();
+      Templates["LocalTimeVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toTimeString();
+      };
+  };
+})();
+      Templates["UtcDateVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return new Date().toUTCString();
+      };
+  };
+})();
+      Templates["WeekdayVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          var weekday = new Date().getDay();
+          var weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+          return weekdays[weekday];
+      };
+  };
+})();
+      Templates["BrowserLanguageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return navigator.language;
+      };
+  };
+})();
+      Templates["ScreenHeightVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getScreenHeight();
+      };
+  };
+})();
+      Templates["ScreenHeightAvailableVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getViewportHeight();
+      };
+  };
+})();
+      Templates["ScreenWidthVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getScreenWidth();
+      };
+  };
+})();
+      Templates["ScreenWidthAvailableVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getViewportWidth();
+      };
+  };
+})();
+      Templates["UserAgentVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return navigator.userAgent;
+      };
+  };
+})();
+      Templates["ErrorLineVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.errorLine");
+      };
+  };
+})();
+      Templates["ErrorMessageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.errorMessage");
+      };
+  };
+})();
+      Templates["ErrorUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.errorUrl");
+      };
+  };
+})();
+      Templates["FormClassesVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementClasses");
+      };
+  };
+})();
+      Templates["FormDestinationVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementAction");
+      };
+  };
+})();
+      Templates["FormIdVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementId");
+      };
+  };
+})();
+      Templates["FormNameVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementName");
+      };
+  };
+})();
+      Templates["HistoryHashNewVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrlHash");
+      };
+  };
+})();
+      Templates["HistoryHashNewPathVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrlPath");
+      };
+  };
+})();
+      Templates["HistoryHashNewSearchVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrlSearch");
+      };
+  };
+})();
+      Templates["HistoryHashNewUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrl");
+      };
+  };
+})();
+      Templates["HistoryHashOldVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrlHash");
+      };
+  };
+})();
+      Templates["HistoryHashOldPathVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrlPath");
+      };
+  };
+})();
+      Templates["HistoryHashOldSearchVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrlSearch");
+      };
+  };
+})();
+      Templates["HistoryHashOldUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrl");
+      };
+  };
+})();
+      Templates["HistorySourceVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.historyChangeSource");
+      };
+  };
+})();
+      Templates["FirstDirectoryVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          var pathname = parameters.window.location.pathname;
+          if (!pathname || pathname === "/") {
+              return null;
+          }
+          pathname = String(pathname).substr(1);
+          var posFirstPath = String(pathname).indexOf("/");
+          if (posFirstPath === -1) {
+              return pathname;
+          }
+          return pathname.substr(0, posFirstPath);
+      };
+  };
+})();
+      Templates["PageHashVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return String(parameters.window.location.hash).replace("#", "");
+      };
+  };
+})();
+      Templates["PageHostnameVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.hostname;
+      };
+  };
+})();
+      Templates["PageOriginVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.origin;
+      };
+  };
+})();
+      Templates["PagePathVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.pathname;
+      };
+  };
+})();
+      Templates["PageTitleVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.document.title;
+      };
+  };
+})();
+      Templates["PageUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.href;
+      };
+  };
+})();
+      Templates["ReferrerVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.document.referrer;
+      };
+  };
+})();
+      Templates["DnsLookupTimeVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getPerformanceTiming("domainLookupEnd") - TagManager.window.getPerformanceTiming("domainLookupStart");
+      };
+  };
+})();
+      Templates["PageLoadTimeTotalVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getPerformanceTiming("loadEventEnd") - TagManager.window.getPerformanceTiming("navigationStart");
+      };
+  };
+})();
+      Templates["PageRenderTimeVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getPerformanceTiming("domComplete") - TagManager.window.getPerformanceTiming("domLoading");
+      };
+  };
+})();
+      Templates["SeoCanonicalUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          var elements = TagManager.dom.bySelector('link[rel="canonical"]');
+          if (elements && elements[0]) {
+              return elements[0].href;
+          }
+      };
+  };
+})();
+      Templates["SeoNumH1Variable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.dom.byTagName("h1").length;
+      };
+  };
+})();
+      Templates["SeoNumH2Variable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.dom.byTagName("h2").length;
+      };
+  };
+})();
+      Templates["ScrollHorizontalPercentageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollHorizontalPercentage");
+      };
+  };
+})();
+      Templates["ScrollLeftPixelVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollLeftPx");
+      };
+  };
+})();
+      Templates["ScrollSourceVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollSource");
+      };
+  };
+})();
+      Templates["ScrollTopPixelVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollTopPx");
+      };
+  };
+})();
+      Templates["ScrollVerticalPercentageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollVerticalPercentage");
+      };
+  };
+})();
+      Templates["RandomNumberVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return Math.floor(Math.random() * 20000000000);
+      };
+  };
+})();
+      Templates["VisibleElementClassesVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityClasses");
+      };
+  };
+})();
+      Templates["VisibleElementUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityUrl");
+      };
+  };
+})();
+      Templates["VisibleElementIdVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityId");
+      };
+  };
+})();
+      Templates["VisibleElementNodeNameVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityNodeName");
+      };
+  };
+})();
+      Templates["VisibleElementTextVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityText");
+      };
+  };
+})();
       window.MatomoTagManager.addContainer(
         {
           id: "tfVMgnzD",
@@ -6599,253 +6920,9 @@ Templates["FormSubmitTrigger"] = (function () {
           environment: "live",
           tags: [
             
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "e1c930f2-7e55-4e31-bda9-93ef939dc198",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Full Screen",
-    "eventAction": "Full Screen",
-    "eventName": "Full Screen",
-    "eventValue": {
-      "name": "ClickClasses",
-      "type": "ClickClasses",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickClassesVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Full Screen",
-    "Description": "Full Screen"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "bb5f31dd-558f-496c-a047-db430b0741e3"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "c1969d33-0aaa-488f-9a50-2ea8c2101f7b",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "ujjwal_form",
-    "eventAction": "ujjwal_form",
-    "eventName": "ujjwal_form",
-    "eventValue": {
-      "name": "FormElement",
-      "type": "FormElement",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "FormElementVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "ujjwal_form",
-    "Description": "ujjwal_form"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "e094bba2-90a6-43fa-a175-1a6e64d88117"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "7d29175e-b15b-4980-bdf7-de2da0c6a2bd",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "JSERROR",
-    "eventAction": "JSERROR",
-    "eventName": "JSERROR",
-    "eventValue": {
-      "name": "ClickText",
-      "type": "ClickText",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickTextVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "JSERROR",
-    "Description": "JSERROR"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "c9891e4e-034c-4fec-93d2-8174e306a276"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
-          {
-  "id": "bb5f31dd-558f-496c-a047-db430b0741e3",
-  "type": "Fullscreen",
-  "name": "Fullscreen",
-  "Trigger": "FullscreenTrigger",
-  "selectedTrigger": "Full screen",
-  "parameters": {
-    "triggerAction": "any",
-    "triggerLimit": "0"
-  },
-  "conditions": [],
-  "Name": "Full Screen",
-  "Description": "Full Screen"
-},
-          {
-  "id": "e094bba2-90a6-43fa-a175-1a6e64d88117",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [],
-  "Name": "ujjwal_form",
-  "Description": "ujjwal_form"
-},
           ],
           variables: [
             
