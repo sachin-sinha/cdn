@@ -6468,7 +6468,97 @@
         };
       })();
       //change location
-      
+      Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
+})();Templates["HistoryChangeTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    function getCurrentUrl() {
+      return parameters.window.location.href;
+    }
+    function getEventUrl(event) {
+      if (event && event.target && event.target.location && event.target.location.href) {
+        return event.target.location.href;
+      }
+      return getCurrentUrl();
+    }
+    this.setUp = function (triggerEvent) {
+      var initialUrl = getCurrentUrl();
+      var url = TagManager.url;
+      var origin = url.parseUrl(initialUrl, "origin");
+      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
+      function trigger(eventType, newUrl, newState) {
+        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
+        var shouldForceEvent =
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
+        shouldForceEvent = !shouldForceEvent;
+        var oldUrl = lastEvent.path;
+        if (lastEvent.search) {
+          oldUrl += "?" + lastEvent.search;
+        }
+        if (lastEvent.hash) {
+          oldUrl += "#" + lastEvent.hash;
+        }
+        var nowUrl = newEvent.path;
+        if (newEvent.search) {
+          nowUrl += "?" + newEvent.search;
+        }
+        if (newEvent.hash) {
+          nowUrl += "#" + newEvent.hash;
+        }
+        if (shouldForceEvent || oldUrl !== nowUrl) {
+          var tmpLast = lastEvent;
+          lastEvent = newEvent;
+          triggerEvent({
+            event: "mtm.HistoryChange",
+            "mtm.historyChangeSource": newEvent.eventType,
+            "mtm.oldUrl": origin + oldUrl,
+            "mtm.newUrl": origin + nowUrl,
+            "mtm.oldUrlHash": tmpLast.hash,
+            "mtm.newUrlHash": newEvent.hash,
+            "mtm.oldUrlPath": tmpLast.path,
+            "mtm.newUrlPath": newEvent.path,
+            "mtm.oldUrlSearch": tmpLast.search,
+            "mtm.newUrlSearch": newEvent.search,
+            "mtm.oldHistoryState": tmpLast.state,
+            "mtm.newHistoryState": newEvent.state,
+          });
+        }
+      }
+      function replaceHistoryMethod(methodNameToReplace) {
+        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
+          trigger(methodNameToReplace, getCurrentUrl(), state);
+        });
+      }
+      replaceHistoryMethod("replaceState");
+      replaceHistoryMethod("pushState");
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "hashchange",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("hashchange", newUrl, null);
+        },
+        false
+      );
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "popstate",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("popstate", newUrl, event.state);
+        },
+        false
+      );
+    };
+  };
+})();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6920,9 +7010,177 @@
           environment: "live",
           tags: [
             
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "b7e811bc-175f-473d-893b-fa53740a3254",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Page View",
+    "eventAction": "Page View",
+    "eventName": "Page View",
+    "eventValue": {
+      "name": "PageUrl",
+      "type": "PageUrl",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "PageUrlVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Page View",
+    "Description": "Page View"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "83bf56c8-c1ee-49d0-ab8c-9e00333ee533"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "be539b2b-ff99-4999-8d12-6e06b8754859",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "History Change",
+    "eventAction": "History Change",
+    "eventName": "History Change",
+    "eventValue": {
+      "name": "HistoryHashNewUrl",
+      "type": "HistoryHashNewUrl",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "HistoryHashNewUrlVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "History Change",
+    "Description": "History Change"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "e51dac54-0d0e-4ab0-bb02-9731033a5d84"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
+          {
+  "id": "83bf56c8-c1ee-49d0-ab8c-9e00333ee533",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Page View",
+  "Description": "Page View"
+},
+          {
+  "id": "e51dac54-0d0e-4ab0-bb02-9731033a5d84",
+  "type": "HistoryChange",
+  "name": "HistoryChange",
+  "Trigger": "HistoryChangeTrigger",
+  "selectedTrigger": "History Change",
+  "parameters": {},
+  "conditions": [],
+  "Name": "History Change",
+  "Description": "History Change"
+},
           ],
           variables: [
             
