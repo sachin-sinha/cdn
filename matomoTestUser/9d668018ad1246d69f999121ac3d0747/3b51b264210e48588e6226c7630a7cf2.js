@@ -6500,68 +6500,7 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
-})();Templates["DataLayerVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var dataLayerName = parameters.get("dataLayerName");
-        if (dataLayerName && parameters.container) {
-          return parameters.container.dataLayer.get(dataLayerName);
-        }
-      };
-    };
-  })();Templates["CookieVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var cookieName = parameters.get("cookieName");
-        if (!cookieName) {
-          return;
-        }
-        var cookie = parameters.get("document.cookie");
-        if (!cookie) {
-          return;
-        }
-        var cookiePattern = new RegExp("(^|;)[ ]*" + cookieName + "=([^;]*)");
-        var cookieMatch = cookiePattern.exec(cookie);
-        if (parameters.get("uriDecode", false) && cookieMatch) {
-          return TagManager.url.decodeSafe(cookieMatch[2]);
-        } else if (cookieMatch) {
-          return cookieMatch[2];
-        }
-      };
-    };
-  })();
+})();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7016,7 +6955,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "8b4c50b7-29a3-41a6-9309-bbf44730bc42",
+  "id": "94557c1b-c5e4-47f4-8209-d739c9301907",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7060,119 +6999,33 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "DL Click",
-    "eventAction": "DL Click",
-    "eventName": "DL Click",
+    "eventCategory": "CJS",
+    "eventAction": "CJS",
+    "eventName": "CJS",
     "eventValue": {
-      "selectedVariable": "Data layer",
-      "Variable": "DataLayerVariable",
-      "name": "DataLayer",
-      "type": "DataLayer",
-      "Name": "Data Layer",
-      "Description": "Data Layer",
-      "dataLayerName": "orderTotal",
-      "id": "71518c69-90de-4b79-bb47-3692d870f8fa",
+      "selectedVariable": "Custom JavaScript",
+      "name": "CustomJsFunction",
+      "type": "CustomJsFunction",
+      "Name": "CJS",
+      "Description": "CJS",
+      "jsFunction": "function() { return \"something is a string\";}",
+      "id": "30e8d17c-e624-48a0-ae01-d0a46d940f7f",
       "parameters": {
-        "selectedVariable": "Data layer",
-        "Variable": "DataLayerVariable",
-        "name": "DataLayer",
-        "type": "DataLayer",
-        "Name": "Data Layer",
-        "Description": "Data Layer",
-        "dataLayerName": "orderTotal"
+        "selectedVariable": "Custom JavaScript",
+        "name": "CustomJsFunction",
+        "type": "CustomJsFunction",
+        "Name": "CJS",
+        "Description": "CJS",
+        "jsFunction": "function() { return \"something is a string\";}"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "DL Click",
-    "Description": "DL Click"
+    "Name": "CJS",
+    "Description": "CJS"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "c959b3a2-fd2b-40d0-81b2-9fff58ed4f1d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "f30122d1-057c-4640-94fa-ff9c46ba8236",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "FP Cookie",
-    "eventAction": "FP Cookie",
-    "eventName": "FP Cookie",
-    "eventValue": {
-      "selectedVariable": "First-Party Cookie",
-      "Variable": "CookieVariable",
-      "name": "Cookie",
-      "type": "Cookie",
-      "cookieName": "_pk_id.Wheat Goat.ce08",
-      "Description": "FP Cookie",
-      "Name": "FP Cookie",
-      "id": "5ab07ff7-d470-40ca-9935-67e2b95e2c16",
-      "parameters": {
-        "selectedVariable": "First-Party Cookie",
-        "Variable": "CookieVariable",
-        "name": "Cookie",
-        "type": "Cookie",
-        "cookieName": "_pk_id.Wheat Goat.ce08",
-        "Description": "FP Cookie",
-        "Name": "FP Cookie"
-      }
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "FP Cookie",
-    "Description": "FP Cookie"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "91434ecc-9840-4dea-99b9-ff2a13478b7c"
+    "02f3f347-8f85-47a2-8674-8f958e7a8c78"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7185,68 +7038,19 @@
           triggers: [
             
           {
-  "id": "c959b3a2-fd2b-40d0-81b2-9fff58ed4f1d",
+  "id": "02f3f347-8f85-47a2-8674-8f958e7a8c78",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
   "selectedTrigger": "All Elements Click",
   "parameters": {},
   "conditions": [],
-  "Name": "DL Click",
-  "Description": "DL Click"
-},
-          {
-  "id": "91434ecc-9840-4dea-99b9-ff2a13478b7c",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [],
-  "Name": "FP Cookie Click",
-  "Description": "FP Cookie"
+  "Name": "AllClick",
+  "Description": "AllClick"
 },
           ],
           variables: [
             
-          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Data layer",
-  "Variable": "DataLayerVariable",
-  "name": "DataLayer",
-  "type": "DataLayer",
-  "Name": "Data Layer",
-  "Description": "Data Layer",
-  "dataLayerName": "orderTotal",
-  "id": "71518c69-90de-4b79-bb47-3692d870f8fa",
-  "parameters": {
-    "selectedVariable": "Data layer",
-    "Variable": "DataLayerVariable",
-    "name": "DataLayer",
-    "type": "DataLayer",
-    "Name": "Data Layer",
-    "Description": "Data Layer",
-    "dataLayerName": "orderTotal"
-  }
-}, Variable: "DataLayerVariable"},
-          {name: "Cookie", type: "Cookie", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "First-Party Cookie",
-  "Variable": "CookieVariable",
-  "name": "Cookie",
-  "type": "Cookie",
-  "cookieName": "_pk_id.Wheat Goat.ce08",
-  "Description": "FP Cookie",
-  "Name": "FP Cookie",
-  "id": "5ab07ff7-d470-40ca-9935-67e2b95e2c16",
-  "parameters": {
-    "selectedVariable": "First-Party Cookie",
-    "Variable": "CookieVariable",
-    "name": "Cookie",
-    "type": "Cookie",
-    "cookieName": "_pk_id.Wheat Goat.ce08",
-    "Description": "FP Cookie",
-    "Name": "FP Cookie"
-  }
-}, Variable: "CookieVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
