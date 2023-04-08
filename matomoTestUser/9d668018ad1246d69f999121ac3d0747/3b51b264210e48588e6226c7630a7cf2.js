@@ -6955,7 +6955,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "94557c1b-c5e4-47f4-8209-d739c9301907",
+  "id": "2abfbd84-e965-41bd-8ded-6977a0c67771",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7008,20 +7008,20 @@
       "type": "CustomJsFunction",
       "Name": "CJS",
       "Description": "CJS",
-      "jsFunction": "function() { return \"something is a string\";}",
-      "id": "30e8d17c-e624-48a0-ae01-d0a46d940f7f",
+      "jsFunction": "function(){ return \"something is a string\"; }",
+      "id": "464223a5-a6f6-4a3d-81ba-c4f63afc4847",
       "parameters": {
         "selectedVariable": "Custom JavaScript",
         "name": "CustomJsFunction",
         "type": "CustomJsFunction",
         "Name": "CJS",
         "Description": "CJS",
-        "jsFunction": "function() { return \"something is a string\";}"
+        "jsFunction": "function(){ return \"something is a string\"; }"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CJS",
-    "Description": "CJS"
+    "Description": "CJS",
+    "Name": "CJS"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
