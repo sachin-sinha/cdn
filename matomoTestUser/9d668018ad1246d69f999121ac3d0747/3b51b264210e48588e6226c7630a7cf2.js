@@ -6506,15 +6506,7 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["UrlVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var urlPart = parameters.get("urlPart", "href");
-        var loc = parameters.window.location;
-        return TagManager.url.parseUrl(loc.href, urlPart);
-      };
-    };
-  })();
+})();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6969,7 +6961,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "92758e49-3891-4f47-9e54-53f5df6a1c6b",
+  "id": "e7ba1905-7b6e-4403-a77e-55e58b511f28",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7013,29 +7005,29 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "var",
-    "eventAction": "var",
-    "eventName": "var",
+    "eventCategory": "CustomJS",
+    "eventAction": "CustomJS",
+    "eventName": "CustomJS",
     "eventValue": {
-      "selectedVariable": "URL Variable",
-      "Variable": "UrlVariable",
-      "name": "Url",
-      "type": "Url",
-      "Name": "URL Var",
-      "Description": "URL Var",
-      "id": "d926ea92-ba79-44b7-a225-28576bd5bee9",
+      "selectedVariable": "Custom JavaScript",
+      "name": "CustomJsFunction",
+      "type": "CustomJsFunction",
+      "Name": "JSCustom",
+      "Description": "JSCustom",
+      "jsFunction": "functioin(){ return: 6; }",
+      "id": "a084f74a-3b21-4cb3-b3e3-10a8132dcfe6",
       "parameters": {
-        "selectedVariable": "URL Variable",
-        "Variable": "UrlVariable",
-        "name": "Url",
-        "type": "Url",
-        "Name": "URL Var",
-        "Description": "URL Var"
+        "selectedVariable": "Custom JavaScript",
+        "name": "CustomJsFunction",
+        "type": "CustomJsFunction",
+        "Name": "JSCustom",
+        "Description": "JSCustom",
+        "jsFunction": "functioin(){ return: 6; }"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "var",
-    "Description": "var"
+    "Name": "CustomJS",
+    "Description": "CustomJS"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7077,23 +7069,6 @@
           ],
           variables: [
             
-          {name: "Url", type: "Url", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Variable",
-  "Variable": "UrlVariable",
-  "name": "Url",
-  "type": "Url",
-  "Name": "URL Var",
-  "Description": "URL Var",
-  "id": "d926ea92-ba79-44b7-a225-28576bd5bee9",
-  "parameters": {
-    "selectedVariable": "URL Variable",
-    "Variable": "UrlVariable",
-    "name": "Url",
-    "type": "Url",
-    "Name": "URL Var",
-    "Description": "URL Var"
-  }
-}, Variable: "UrlVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
