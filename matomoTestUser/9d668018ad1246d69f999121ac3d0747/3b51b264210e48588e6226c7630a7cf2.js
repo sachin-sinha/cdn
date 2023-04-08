@@ -6468,11 +6468,37 @@
         };
       })();
       //change location
-      Templates["PageViewTrigger"] = (function () {
+      Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
     };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
   };
 })();
   Templates["TimeSinceLoadVariable"] = (function () {
@@ -6958,7 +6984,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "a68dacf8-312d-4d27-82e5-3034aa449c8b",
+  "id": "07d8ed11-3ab2-4352-bc71-efe28b6cdd5b",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7002,9 +7028,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Calculate Time",
-    "eventAction": "Calculate Time",
-    "eventName": "Calculate Time",
+    "eventCategory": "CC",
+    "eventAction": "CC",
+    "eventName": "CC",
     "eventValue": {
       "selectedVariable": "Time since page load",
       "Variable": "TimeSinceLoadVariable",
@@ -7025,12 +7051,12 @@
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Calculate Time",
-    "Description": "Calculate Time"
+    "Name": "CC",
+    "Description": "CC"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "5ecc222f-af5e-4a45-b6c2-b743b8d66f83"
+    "dbe894e3-a074-4b90-a574-aed19009a88f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7043,15 +7069,15 @@
           triggers: [
             
           {
-  "id": "5ecc222f-af5e-4a45-b6c2-b743b8d66f83",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
+  "id": "dbe894e3-a074-4b90-a574-aed19009a88f",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
   "parameters": {},
   "conditions": [],
-  "Name": "PageV",
-  "Description": "PageV"
+  "Name": "CC",
+  "Description": "CC"
 },
           ],
           variables: [
