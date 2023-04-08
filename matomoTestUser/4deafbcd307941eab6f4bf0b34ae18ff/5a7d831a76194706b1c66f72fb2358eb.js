@@ -6467,6 +6467,7 @@
           };
         };
       })();
+      //change location
       Templates["WindowLoadedTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6493,7 +6494,6 @@
               if (!formAction) {
                 formAction = parameters.window.location.href;
               }
-              console.log(target, 'this is target')
               triggerEvent({
                 event: "mtm.FormSubmit",
                 "mtm.formElement": target,
@@ -6510,7 +6510,6 @@
     };
   };
 })();
-      //search here
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6612,7 +6611,347 @@
       };
   };
 })();
-
+      Templates["BrowserLanguageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return navigator.language;
+      };
+  };
+})();
+      Templates["ScreenHeightVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getScreenHeight();
+      };
+  };
+})();
+      Templates["ScreenHeightAvailableVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getViewportHeight();
+      };
+  };
+})();
+      Templates["ScreenWidthVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getScreenWidth();
+      };
+  };
+})();
+      Templates["ScreenWidthAvailableVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getViewportWidth();
+      };
+  };
+})();
+      Templates["UserAgentVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return navigator.userAgent;
+      };
+  };
+})();
+      Templates["ErrorLineVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.errorLine");
+      };
+  };
+})();
+      Templates["ErrorMessageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.errorMessage");
+      };
+  };
+})();
+      Templates["ErrorUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.errorUrl");
+      };
+  };
+})();
+      Templates["FormClassesVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementClasses");
+      };
+  };
+})();
+      Templates["FormDestinationVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementAction");
+      };
+  };
+})();
+      Templates["FormIdVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementId");
+      };
+  };
+})();
+      Templates["FormNameVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.formElementName");
+      };
+  };
+})();
+      Templates["HistoryHashNewVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrlHash");
+      };
+  };
+})();
+      Templates["HistoryHashNewPathVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrlPath");
+      };
+  };
+})();
+      Templates["HistoryHashNewSearchVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrlSearch");
+      };
+  };
+})();
+      Templates["HistoryHashNewUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.newUrl");
+      };
+  };
+})();
+      Templates["HistoryHashOldVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrlHash");
+      };
+  };
+})();
+      Templates["HistoryHashOldPathVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrlPath");
+      };
+  };
+})();
+      Templates["HistoryHashOldSearchVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrlSearch");
+      };
+  };
+})();
+      Templates["HistoryHashOldUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.oldUrl");
+      };
+  };
+})();
+      Templates["HistorySourceVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.historyChangeSource");
+      };
+  };
+})();
+      Templates["FirstDirectoryVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          var pathname = parameters.window.location.pathname;
+          if (!pathname || pathname === "/") {
+              return null;
+          }
+          pathname = String(pathname).substr(1);
+          var posFirstPath = String(pathname).indexOf("/");
+          if (posFirstPath === -1) {
+              return pathname;
+          }
+          return pathname.substr(0, posFirstPath);
+      };
+  };
+})();
+      Templates["PageHashVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return String(parameters.window.location.hash).replace("#", "");
+      };
+  };
+})();
+      Templates["PageHostnameVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.hostname;
+      };
+  };
+})();
+      Templates["PageOriginVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.origin;
+      };
+  };
+})();
+      Templates["PagePathVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.pathname;
+      };
+  };
+})();
+      Templates["PageTitleVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.document.title;
+      };
+  };
+})();
+      Templates["PageUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.window.location.href;
+      };
+  };
+})();
+      Templates["ReferrerVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.document.referrer;
+      };
+  };
+})();
+      Templates["DnsLookupTimeVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getPerformanceTiming("domainLookupEnd") - TagManager.window.getPerformanceTiming("domainLookupStart");
+      };
+  };
+})();
+      Templates["PageLoadTimeTotalVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getPerformanceTiming("loadEventEnd") - TagManager.window.getPerformanceTiming("navigationStart");
+      };
+  };
+})();
+      Templates["PageRenderTimeVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.window.getPerformanceTiming("domComplete") - TagManager.window.getPerformanceTiming("domLoading");
+      };
+  };
+})();
+      Templates["SeoCanonicalUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          var elements = TagManager.dom.bySelector('link[rel="canonical"]');
+          if (elements && elements[0]) {
+              return elements[0].href;
+          }
+      };
+  };
+})();
+      Templates["SeoNumH1Variable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.dom.byTagName("h1").length;
+      };
+  };
+})();
+      Templates["SeoNumH2Variable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return TagManager.dom.byTagName("h2").length;
+      };
+  };
+})();
+      Templates["ScrollHorizontalPercentageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollHorizontalPercentage");
+      };
+  };
+})();
+      Templates["ScrollLeftPixelVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollLeftPx");
+      };
+  };
+})();
+      Templates["ScrollSourceVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollSource");
+      };
+  };
+})();
+      Templates["ScrollTopPixelVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollTopPx");
+      };
+  };
+})();
+      Templates["ScrollVerticalPercentageVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.scrollVerticalPercentage");
+      };
+  };
+})();
+      Templates["RandomNumberVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return Math.floor(Math.random() * 20000000000);
+      };
+  };
+})();
+      Templates["VisibleElementClassesVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityClasses");
+      };
+  };
+})();
+      Templates["VisibleElementUrlVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityUrl");
+      };
+  };
+})();
+      Templates["VisibleElementIdVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityId");
+      };
+  };
+})();
+      Templates["VisibleElementNodeNameVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityNodeName");
+      };
+  };
+})();
+      Templates["VisibleElementTextVariable"] = (function () {
+  return function (parameters, TagManager) {
+      this.get = function () {
+          return parameters.container.dataLayer.get("mtm.elementVisibilityText");
+      };
+  };
+})();
       window.MatomoTagManager.addContainer(
         {
           id: "tfVMgnzD",
