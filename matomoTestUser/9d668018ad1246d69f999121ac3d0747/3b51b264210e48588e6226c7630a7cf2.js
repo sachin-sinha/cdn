@@ -6468,7 +6468,48 @@
         };
       })();
       //change location
-      
+      Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
+})();
+  Templates["DomElementVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var selectionMethod = parameters.get("selectionMethod");
+        if (!selectionMethod) {
+          return;
+        }
+        var attributeName = parameters.get("attributeName");
+        var dom = TagManager.dom;
+        var ele;
+        if (selectionMethod === "elementId") {
+          ele = dom.byId(parameters.get("elementId"));
+        } else if (selectionMethod === "cssSelector") {
+          ele = dom.bySelector(parameters.get("cssSelector"));
+          if (ele && ele[0]) {
+            ele = ele[0];
+          } else {
+            ele = null;
+          }
+        }
+        if (ele) {
+          if (attributeName) {
+            if (String(attributeName).toLowerCase() === "value" && ele.nodeName === "INPUT") {
+              var type = dom.getElementAttribute(ele, "type");
+              if (type && type.toLowerCase() === "password") {
+                return;
+              }
+            }
+            return dom.getElementAttribute(ele, attributeName);
+          }
+          return TagManager.dom.getElementText(ele);
+        }
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6920,12 +6961,110 @@
           environment: "live",
           tags: [
             
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "36d00566-5f12-447f-bff6-6d4acbc11528",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "pageview",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "",
+    "eventAction": "",
+    "eventName": "",
+    "eventValue": "",
+    "selectedTag": "BangDB Analytics",
+    "Name": "PV",
+    "Description": "PV"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "7e48c254-3bbb-49a1-9162-07e22fb071b9"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
+          {
+  "id": "7e48c254-3bbb-49a1-9162-07e22fb071b9",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "PV",
+  "Description": "PV"
+},
           ],
           variables: [
             
+          {name: "DomElement", type: "DomElement", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "DOM Element",
+  "Variable": "DomElementVariable",
+  "name": "DomElement",
+  "type": "DomElement",
+  "Name": "DOM ELEMENT",
+  "Description": "DOM ELEMENT",
+  "selectionMethod": "cssSelector",
+  "cssSelector": ".body",
+  "id": "ad076991-9384-4b0d-90b5-fd7d0101df31",
+  "parameters": {
+    "selectedVariable": "DOM Element",
+    "Variable": "DomElementVariable",
+    "name": "DomElement",
+    "type": "DomElement",
+    "Name": "DOM ELEMENT",
+    "Description": "DOM ELEMENT",
+    "selectionMethod": "cssSelector",
+    "cssSelector": ".body"
+  }
+}, Variable: "DomElementVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
