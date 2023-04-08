@@ -6649,7 +6649,22 @@
       });
     }
   };
-})();
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
+})();Templates["DataLayerVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var dataLayerName = parameters.get("dataLayerName");
+        if (dataLayerName && parameters.container) {
+          return parameters.container.dataLayer.get(dataLayerName);
+        }
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7323,7 +7338,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "3edbb4b5-08d8-48ae-81f2-8e6ff52a3b7a",
+  "id": "17dcc582-e044-422a-8c0a-e7cf4cc4afd3",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7367,33 +7382,35 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "CJS",
-    "eventAction": "CJS",
-    "eventName": "CJS",
+    "eventCategory": "Location",
+    "eventAction": "Location",
+    "eventName": "Location",
     "eventValue": {
-      "selectedVariable": "Custom JavaScript",
-      "name": "CustomJsFunction",
-      "type": "CustomJsFunction",
-      "Name": "CJS",
-      "Description": "CJS",
-      "jsFunction": "function(){ return \"something is a string\"; }",
-      "id": "55436e88-6ff5-4e8e-a1cc-aeafad06735b",
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "Location",
+      "Description": "Location",
+      "dataLayerName": "location",
+      "id": "6a39db2d-4b08-45b0-acd3-bba70e057246",
       "parameters": {
-        "selectedVariable": "Custom JavaScript",
-        "name": "CustomJsFunction",
-        "type": "CustomJsFunction",
-        "Name": "CJS",
-        "Description": "CJS",
-        "jsFunction": "function(){ return \"something is a string\"; }"
+        "selectedVariable": "Data layer",
+        "Variable": "DataLayerVariable",
+        "name": "DataLayer",
+        "type": "DataLayer",
+        "Name": "Location",
+        "Description": "Location",
+        "dataLayerName": "location"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CJS",
-    "Description": "CJS"
+    "Name": "Location",
+    "Description": "Location"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "6e716e28-0f94-460e-bdac-02848142604a"
+    "a4149666-719a-47c6-b6d9-c02d42ba7cc6"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7449,9 +7466,39 @@
   "Name": "AllClick",
   "Description": "AllClick"
 },
+          {
+  "id": "a4149666-719a-47c6-b6d9-c02d42ba7cc6",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Pageview",
+  "Description": "Pageview"
+},
           ],
           variables: [
             
+          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Data layer",
+  "Variable": "DataLayerVariable",
+  "name": "DataLayer",
+  "type": "DataLayer",
+  "Name": "Location",
+  "Description": "Location",
+  "dataLayerName": "location",
+  "id": "6a39db2d-4b08-45b0-acd3-bba70e057246",
+  "parameters": {
+    "selectedVariable": "Data layer",
+    "Variable": "DataLayerVariable",
+    "name": "DataLayer",
+    "type": "DataLayer",
+    "Name": "Location",
+    "Description": "Location",
+    "dataLayerName": "location"
+  }
+}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
