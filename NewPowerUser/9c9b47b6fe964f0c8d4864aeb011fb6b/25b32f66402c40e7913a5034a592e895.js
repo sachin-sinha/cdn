@@ -6500,6 +6500,12 @@
       });
     }
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7046,6 +7052,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "8c8961f9-555e-41e9-990a-d3cdb9b70e01",
+  "type": "Matomo",
+  "name": "locatio",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "new website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "cat",
+    "eventAction": "act",
+    "eventName": "name",
+    "eventValue": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "location",
+      "Description": "this is for location",
+      "dataLayerName": "location",
+      "id": "1a212e1f-fe88-4b6e-9ed6-8e0b2c7c06c3",
+      "parameters": {
+        "selectedVariable": "Data layer",
+        "Variable": "DataLayerVariable",
+        "name": "DataLayer",
+        "type": "DataLayer",
+        "Name": "location",
+        "Description": "this is for location",
+        "dataLayerName": "location"
+      }
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "locatio",
+    "Description": "location"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "6ca4beea-55bf-4f4a-8e85-a60254e6b32d"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "new website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7060,6 +7151,17 @@
   "Name": "AEC",
   "Description": "desc"
 },
+          {
+  "id": "6ca4beea-55bf-4f4a-8e85-a60254e6b32d",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "pageview",
+  "Description": "desc"
+},
           ],
           variables: [
             
@@ -7068,18 +7170,18 @@
   "Variable": "DataLayerVariable",
   "name": "DataLayer",
   "type": "DataLayer",
-  "Name": "dataLayerVariableCustomName",
-  "Description": "dataLayerVariableCustomDescription",
-  "dataLayerName": "targerThis",
-  "id": "822097e8-5054-464f-a513-bde826d1ac8d",
+  "Name": "location",
+  "Description": "this is for location",
+  "dataLayerName": "location",
+  "id": "1a212e1f-fe88-4b6e-9ed6-8e0b2c7c06c3",
   "parameters": {
     "selectedVariable": "Data layer",
     "Variable": "DataLayerVariable",
     "name": "DataLayer",
     "type": "DataLayer",
-    "Name": "dataLayerVariableCustomName",
-    "Description": "dataLayerVariableCustomDescription",
-    "dataLayerName": "targerThis"
+    "Name": "location",
+    "Description": "this is for location",
+    "dataLayerName": "location"
   }
 }, Variable: "DataLayerVariable"},
             {
