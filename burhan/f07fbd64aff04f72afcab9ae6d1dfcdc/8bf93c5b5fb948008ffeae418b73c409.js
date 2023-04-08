@@ -6664,6 +6664,13 @@
         }
       };
     };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -7419,6 +7426,165 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "ce794bd6-8885-49fc-b99d-1ea8a29927f7",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Browser",
+    "eventAction": "Browser",
+    "eventName": "Browser",
+    "eventValue": {
+      "name": "PageLoadTimeTotal",
+      "type": "PageLoadTimeTotal",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "PageLoadTimeTotalVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Browser",
+    "Description": "Browser"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a4149666-719a-47c6-b6d9-c02d42ba7cc6",
+    "bc90744a-fe4e-4e03-9f15-8725a1008cd1"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "64e22645-b055-454c-a558-da2e050174c5",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "UTM Source",
+    "eventAction": "UTM Source",
+    "eventName": "UTM Source",
+    "eventValue": {
+      "selectedVariable": "URL Parameter",
+      "Variable": "UrlParameterVariable",
+      "name": "UrlParameter",
+      "type": "UrlParameter",
+      "Name": "UTM Source",
+      "Description": "UTM Source",
+      "parameterName": "utm_source",
+      "id": "98b35bce-8d58-4e92-a838-158b908889ad",
+      "parameters": {
+        "selectedVariable": "URL Parameter",
+        "Variable": "UrlParameterVariable",
+        "name": "UrlParameter",
+        "type": "UrlParameter",
+        "Name": "UTM Source",
+        "Description": "UTM Source",
+        "parameterName": "utm_source"
+      }
+    },
+    "selectedTag": "BangDB Analytics",
+    "Description": "UTM Source",
+    "Name": "UTM Source"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a4149666-719a-47c6-b6d9-c02d42ba7cc6",
+    "bc90744a-fe4e-4e03-9f15-8725a1008cd1"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7499,6 +7665,25 @@
     "dataLayerName": "location"
   }
 }, Variable: "DataLayerVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "UTM Source",
+  "Description": "UTM Source",
+  "parameterName": "utm_source",
+  "id": "98b35bce-8d58-4e92-a838-158b908889ad",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "UTM Source",
+    "Description": "UTM Source",
+    "parameterName": "utm_source"
+  }
+}, Variable: "UrlParameterVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
