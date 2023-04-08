@@ -6506,25 +6506,11 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["JavaScriptVariable"] = (function () {
+})();Templates["UrlParameterVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
-        var varName = parameters.get("variableName");
-        if (varName) {
-          var parts = varName.split(".");
-          var i;
-          var obj = parameters.window;
-          for (i = 0; i < parts.length; i++) {
-            if (parts[i] in obj) {
-              obj = obj[parts[i]];
-            } else {
-              return;
-            }
-          }
-          if (obj !== parameters.window) {
-            return "" + obj;
-          }
-        }
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
       };
     };
   })();
@@ -6982,7 +6968,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "737d74cd-142d-4ed4-81d7-c270c936a64c",
+  "id": "cec98db0-f83b-410c-9942-659c932e398c",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7026,42 +7012,44 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "a",
-    "eventAction": "a",
-    "eventName": "a",
+    "eventCategory": "URL Param",
+    "eventAction": "URL Param",
+    "eventName": "URL Param",
     "eventValue": {
-      "selectedVariable": "JavaScript Variable",
-      "Variable": "JavaScriptVariable",
-      "name": "JavaScript",
-      "type": "JavaScript",
-      "Name": "JSlet",
-      "Description": "JSlet",
-      "variableName": "a",
-      "id": "749a0b2c-2fde-427f-875b-5fcd99222ce0",
+      "selectedVariable": "URL Parameter",
+      "Variable": "UrlParameterVariable",
+      "name": "UrlParameter",
+      "type": "UrlParameter",
+      "Name": "URL Param",
+      "Description": "URL Param",
+      "parameterName": "lang",
+      "id": "0951790b-1407-4091-a5dc-490ba60073a3",
       "parameters": {
-        "selectedVariable": "JavaScript Variable",
-        "Variable": "JavaScriptVariable",
-        "name": "JavaScript",
-        "type": "JavaScript",
-        "Name": "JSlet",
-        "Description": "JSlet",
-        "variableName": "a"
+        "selectedVariable": "URL Parameter",
+        "Variable": "UrlParameterVariable",
+        "name": "UrlParameter",
+        "type": "UrlParameter",
+        "Name": "URL Param",
+        "Description": "URL Param",
+        "parameterName": "lang"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "a",
-    "Description": "a"
+    "Name": "URL Param",
+    "Description": "URL Param"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "a2056db1-8596-4cc3-8492-df609ee44e21"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
   "startDate": null,
   "endDate": null,
   "Tag": "MatomoTag",
-  "blockedTriggerIds": []
+  "blockedTriggerIds": [
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
+  ]
 },
           ],
           triggers: [
@@ -7091,25 +7079,25 @@
           ],
           variables: [
             
-          {name: "JavaScript", type: "JavaScript", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "JavaScript Variable",
-  "Variable": "JavaScriptVariable",
-  "name": "JavaScript",
-  "type": "JavaScript",
-  "Name": "JSlet",
-  "Description": "JSlet",
-  "variableName": "a",
-  "id": "749a0b2c-2fde-427f-875b-5fcd99222ce0",
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "URL Param",
+  "Description": "URL Param",
+  "parameterName": "lang",
+  "id": "0951790b-1407-4091-a5dc-490ba60073a3",
   "parameters": {
-    "selectedVariable": "JavaScript Variable",
-    "Variable": "JavaScriptVariable",
-    "name": "JavaScript",
-    "type": "JavaScript",
-    "Name": "JSlet",
-    "Description": "JSlet",
-    "variableName": "a"
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "URL Param",
+    "Description": "URL Param",
+    "parameterName": "lang"
   }
-}, Variable: "JavaScriptVariable"},
+}, Variable: "UrlParameterVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
