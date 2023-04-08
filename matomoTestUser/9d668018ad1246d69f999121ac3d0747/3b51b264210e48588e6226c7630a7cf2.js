@@ -6475,38 +6475,32 @@
     };
   };
 })();
-  Templates["DomElementVariable"] = (function () {
+  Templates["TimeSinceLoadVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
-        var selectionMethod = parameters.get("selectionMethod");
-        if (!selectionMethod) {
+        var unit = parameters.get("unit", "ms");
+        var now = new Date().getTime();
+        var loadTime = TagManager.dataLayer.get("mtm.mtmScriptLoadedTime");
+        if (!loadTime) {
+          loadTime = TagManager.dataLayer.get("mtm.startTime");
+        }
+        if (!loadTime) {
+          var win = parameters.window;
+          if (TagManager.utils.isObject(win.performance) && win.performance.timing && win.performance.timing) {
+            loadTime = win.performance.timing.loadEventStart;
+          }
+        }
+        if (!loadTime) {
           return;
         }
-        var attributeName = parameters.get("attributeName");
-        var dom = TagManager.dom;
-        var ele;
-        if (selectionMethod === "elementId") {
-          ele = dom.byId(parameters.get("elementId"));
-        } else if (selectionMethod === "cssSelector") {
-          ele = dom.bySelector(parameters.get("cssSelector"));
-          if (ele && ele[0]) {
-            ele = ele[0];
-          } else {
-            ele = null;
-          }
+        if (unit === "s") {
+          now = now / 1000;
+          loadTime = loadTime / 1000;
+        } else if (unit === "m") {
+          now = now / 1000 / 60;
+          loadTime = loadTime / 1000 / 60;
         }
-        if (ele) {
-          if (attributeName) {
-            if (String(attributeName).toLowerCase() === "value" && ele.nodeName === "INPUT") {
-              var type = dom.getElementAttribute(ele, "type");
-              if (type && type.toLowerCase() === "password") {
-                return;
-              }
-            }
-            return dom.getElementAttribute(ele, attributeName);
-          }
-          return TagManager.dom.getElementText(ele);
-        }
+        return parseInt(Math.round(now - loadTime), 10);
       };
     };
   })();
@@ -6964,7 +6958,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "2b215065-c38d-4b39-a221-b4731c14beb8",
+  "id": "a68dacf8-312d-4d27-82e5-3034aa449c8b",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7008,37 +7002,35 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "PVVV",
-    "eventAction": "PVVV",
-    "eventName": "PVVV",
+    "eventCategory": "Calculate Time",
+    "eventAction": "Calculate Time",
+    "eventName": "Calculate Time",
     "eventValue": {
-      "selectedVariable": "DOM Element",
-      "Variable": "DomElementVariable",
-      "name": "DomElement",
-      "type": "DomElement",
-      "Name": "DOM ELEMENT",
-      "Description": "DOM ELEMENT",
-      "selectionMethod": "cssSelector",
-      "cssSelector": ".body",
-      "id": "ceded2e1-a223-486a-8a05-060fec4ef48e",
+      "selectedVariable": "Time since page load",
+      "Variable": "TimeSinceLoadVariable",
+      "name": "TimeSinceLoad",
+      "type": "TimeSinceLoad",
+      "Name": "Calculate Time",
+      "Description": "Calculate Time",
+      "unit": "s",
+      "id": "67106fbe-2975-42e2-bdd8-4618c7ed82a9",
       "parameters": {
-        "selectedVariable": "DOM Element",
-        "Variable": "DomElementVariable",
-        "name": "DomElement",
-        "type": "DomElement",
-        "Name": "DOM ELEMENT",
-        "Description": "DOM ELEMENT",
-        "selectionMethod": "cssSelector",
-        "cssSelector": ".body"
+        "selectedVariable": "Time since page load",
+        "Variable": "TimeSinceLoadVariable",
+        "name": "TimeSinceLoad",
+        "type": "TimeSinceLoad",
+        "Name": "Calculate Time",
+        "Description": "Calculate Time",
+        "unit": "s"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "PVVV",
-    "Description": "PVVV"
+    "Name": "Calculate Time",
+    "Description": "Calculate Time"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "b84e7448-c8fb-48cb-85c8-d20d5e22c3ca"
+    "5ecc222f-af5e-4a45-b6c2-b743b8d66f83"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7051,40 +7043,38 @@
           triggers: [
             
           {
-  "id": "b84e7448-c8fb-48cb-85c8-d20d5e22c3ca",
+  "id": "5ecc222f-af5e-4a45-b6c2-b743b8d66f83",
   "type": "PageView",
   "name": "PageView",
   "Trigger": "PageViewTrigger",
   "selectedTrigger": "Pageview",
   "parameters": {},
   "conditions": [],
-  "Name": "Pageeevieww",
-  "Description": "Pageeevieww"
+  "Name": "PageV",
+  "Description": "PageV"
 },
           ],
           variables: [
             
-          {name: "DomElement", type: "DomElement", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "DOM Element",
-  "Variable": "DomElementVariable",
-  "name": "DomElement",
-  "type": "DomElement",
-  "Name": "DOM ELEMENT",
-  "Description": "DOM ELEMENT",
-  "selectionMethod": "cssSelector",
-  "cssSelector": ".body",
-  "id": "ceded2e1-a223-486a-8a05-060fec4ef48e",
+          {name: "TimeSinceLoad", type: "TimeSinceLoad", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Time since page load",
+  "Variable": "TimeSinceLoadVariable",
+  "name": "TimeSinceLoad",
+  "type": "TimeSinceLoad",
+  "Name": "Calculate Time",
+  "Description": "Calculate Time",
+  "unit": "s",
+  "id": "67106fbe-2975-42e2-bdd8-4618c7ed82a9",
   "parameters": {
-    "selectedVariable": "DOM Element",
-    "Variable": "DomElementVariable",
-    "name": "DomElement",
-    "type": "DomElement",
-    "Name": "DOM ELEMENT",
-    "Description": "DOM ELEMENT",
-    "selectionMethod": "cssSelector",
-    "cssSelector": ".body"
+    "selectedVariable": "Time since page load",
+    "Variable": "TimeSinceLoadVariable",
+    "name": "TimeSinceLoad",
+    "type": "TimeSinceLoad",
+    "Name": "Calculate Time",
+    "Description": "Calculate Time",
+    "unit": "s"
   }
-}, Variable: "DomElementVariable"},
+}, Variable: "TimeSinceLoadVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
