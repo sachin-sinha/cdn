@@ -6500,6 +6500,12 @@
       });
     }
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["JavaScriptVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7071,7 +7077,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "c89352c0-02d6-4e45-9c54-eeacbd4f45ab",
+  "id": "1b894ad8-f77c-4833-ba57-35f34787f6c2",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7115,9 +7121,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Referrer URL",
-    "eventAction": "Referrer URL",
-    "eventName": "Referrer URL",
+    "eventCategory": "Rfr url",
+    "eventAction": "Rfr url",
+    "eventName": "Rfr url",
     "eventValue": {
       "selectedVariable": "Referrer URL",
       "Variable": "ReferrerUrlVariable",
@@ -7136,12 +7142,12 @@
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Referrer URL",
-    "Description": "Referrer URL"
+    "Name": "Rfr url",
+    "Description": "Rfr url"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "a2056db1-8596-4cc3-8492-df609ee44e21"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7163,6 +7169,17 @@
   "conditions": [],
   "Name": "AllClick",
   "Description": "AllClick"
+},
+          {
+  "id": "0b65f9c5-34b1-4e2b-a716-ae7ceb838524",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "PV",
+  "Description": "PV"
 },
           ],
           variables: [
