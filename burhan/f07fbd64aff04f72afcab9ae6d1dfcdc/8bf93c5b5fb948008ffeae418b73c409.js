@@ -6468,10 +6468,88 @@
         };
       })();
       //change location
-      Templates["PageViewTrigger"] = (function () {
+      Templates["HistoryChangeTrigger"] = (function () {
   return function (parameters, TagManager) {
+    function getCurrentUrl() {
+      return parameters.window.location.href;
+    }
+    function getEventUrl(event) {
+      if (event && event.target && event.target.location && event.target.location.href) {
+        return event.target.location.href;
+      }
+      return getCurrentUrl();
+    }
     this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
+      var initialUrl = getCurrentUrl();
+      var url = TagManager.url;
+      var origin = url.parseUrl(initialUrl, "origin");
+      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
+      function trigger(eventType, newUrl, newState) {
+        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
+        var shouldForceEvent =
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
+        shouldForceEvent = !shouldForceEvent;
+        var oldUrl = lastEvent.path;
+        if (lastEvent.search) {
+          oldUrl += "?" + lastEvent.search;
+        }
+        if (lastEvent.hash) {
+          oldUrl += "#" + lastEvent.hash;
+        }
+        var nowUrl = newEvent.path;
+        if (newEvent.search) {
+          nowUrl += "?" + newEvent.search;
+        }
+        if (newEvent.hash) {
+          nowUrl += "#" + newEvent.hash;
+        }
+        if (shouldForceEvent || oldUrl !== nowUrl) {
+          var tmpLast = lastEvent;
+          lastEvent = newEvent;
+          triggerEvent({
+            event: "mtm.HistoryChange",
+            "mtm.historyChangeSource": newEvent.eventType,
+            "mtm.oldUrl": origin + oldUrl,
+            "mtm.newUrl": origin + nowUrl,
+            "mtm.oldUrlHash": tmpLast.hash,
+            "mtm.newUrlHash": newEvent.hash,
+            "mtm.oldUrlPath": tmpLast.path,
+            "mtm.newUrlPath": newEvent.path,
+            "mtm.oldUrlSearch": tmpLast.search,
+            "mtm.newUrlSearch": newEvent.search,
+            "mtm.oldHistoryState": tmpLast.state,
+            "mtm.newHistoryState": newEvent.state,
+          });
+        }
+      }
+      function replaceHistoryMethod(methodNameToReplace) {
+        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
+          trigger(methodNameToReplace, getCurrentUrl(), state);
+        });
+      }
+      replaceHistoryMethod("replaceState");
+      replaceHistoryMethod("pushState");
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "hashchange",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("hashchange", newUrl, null);
+        },
+        false
+      );
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "popstate",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("popstate", newUrl, event.state);
+        },
+        false
+      );
     };
   };
 })();
@@ -6929,7 +7007,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "730ac984-23c3-4d29-ad3e-f979456193e1",
+  "id": "ca0cdc36-f489-4446-9d55-5ce3d88ad9e9",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6973,8 +7051,8 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Pageview",
-    "eventAction": "Pageview",
+    "eventCategory": "History Change",
+    "eventAction": "History Change",
     "eventName": "Pageview",
     "eventValue": {
       "name": "PageUrl",
@@ -6985,12 +7063,12 @@
       "Variable": "PageUrlVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Pageview",
-    "Description": "Pageview"
+    "Name": "History Change",
+    "Description": "History Change"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "3ee43583-a07b-4f76-97ff-917dbd35b192"
+    "bc90744a-fe4e-4e03-9f15-8725a1008cd1"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7003,15 +7081,15 @@
           triggers: [
             
           {
-  "id": "3ee43583-a07b-4f76-97ff-917dbd35b192",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
+  "id": "bc90744a-fe4e-4e03-9f15-8725a1008cd1",
+  "type": "HistoryChange",
+  "name": "HistoryChange",
+  "Trigger": "HistoryChangeTrigger",
+  "selectedTrigger": "History Change",
   "parameters": {},
   "conditions": [],
-  "Name": "Pageview",
-  "Description": "Pageview"
+  "Name": "History Change",
+  "Description": "History Change"
 },
           ],
           variables: [
