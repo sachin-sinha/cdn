@@ -6506,14 +6506,7 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
-  })();Templates["UrlVariable"] = (function () {
+})();Templates["UrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var urlPart = parameters.get("urlPart", "href");
@@ -6976,7 +6969,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "cec98db0-f83b-410c-9942-659c932e398c",
+  "id": "92758e49-3891-4f47-9e54-53f5df6a1c6b",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7020,117 +7013,29 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "URL Param",
-    "eventAction": "URL Param",
-    "eventName": "URL Param",
+    "eventCategory": "var",
+    "eventAction": "var",
+    "eventName": "var",
     "eventValue": {
-      "selectedVariable": "URL Parameter",
-      "Variable": "UrlParameterVariable",
-      "name": "UrlParameter",
-      "type": "UrlParameter",
-      "Name": "URL Param",
-      "Description": "URL Param",
-      "parameterName": "lang",
-      "id": "0951790b-1407-4091-a5dc-490ba60073a3",
+      "selectedVariable": "URL Variable",
+      "Variable": "UrlVariable",
+      "name": "Url",
+      "type": "Url",
+      "Name": "URL Var",
+      "Description": "URL Var",
+      "id": "d926ea92-ba79-44b7-a225-28576bd5bee9",
       "parameters": {
-        "selectedVariable": "URL Parameter",
-        "Variable": "UrlParameterVariable",
-        "name": "UrlParameter",
-        "type": "UrlParameter",
-        "Name": "URL Param",
-        "Description": "URL Param",
-        "parameterName": "lang"
+        "selectedVariable": "URL Variable",
+        "Variable": "UrlVariable",
+        "name": "Url",
+        "type": "Url",
+        "Name": "URL Var",
+        "Description": "URL Var"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "URL Param",
-    "Description": "URL Param"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": [
-    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
-  ]
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "a6c09a02-0571-4e54-8812-01bdc78e4dcf",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "URL Var",
-    "eventAction": "URL Var",
-    "eventName": "URL Var",
-    "eventValue": {
-      "selectedVariable": "URL Parameter",
-      "Variable": "UrlParameterVariable",
-      "name": "UrlParameter",
-      "type": "UrlParameter",
-      "Name": "URL Param",
-      "Description": "URL Param",
-      "parameterName": "lang",
-      "id": "0951790b-1407-4091-a5dc-490ba60073a3",
-      "parameters": {
-        "selectedVariable": "URL Parameter",
-        "Variable": "UrlParameterVariable",
-        "name": "UrlParameter",
-        "type": "UrlParameter",
-        "Name": "URL Param",
-        "Description": "URL Param",
-        "parameterName": "lang"
-      }
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "URL Var",
-    "Description": "URL Var"
+    "Name": "var",
+    "Description": "var"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7172,25 +7077,6 @@
           ],
           variables: [
             
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Name": "URL Param",
-  "Description": "URL Param",
-  "parameterName": "lang",
-  "id": "0951790b-1407-4091-a5dc-490ba60073a3",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Name": "URL Param",
-    "Description": "URL Param",
-    "parameterName": "lang"
-  }
-}, Variable: "UrlParameterVariable"},
           {name: "Url", type: "Url", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "URL Variable",
   "Variable": "UrlVariable",
