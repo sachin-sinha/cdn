@@ -7218,7 +7218,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "b3fc5e93-098a-4471-9add-e02e77d7089a",
+  "id": "26834d76-cb4c-416d-9446-3d56e11b9a97",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7266,12 +7266,12 @@
     "eventAction": "FormSubmit",
     "eventName": "FormSubmit",
     "eventValue": {
-      "name": "FormElement",
-      "type": "FormElement",
+      "name": "FormName",
+      "type": "FormName",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "FormElementVariable"
+      "Variable": "FormNameVariable"
     },
     "selectedTag": "BangDB Analytics",
     "Name": "FormSubmit",
