@@ -6500,7 +6500,39 @@
       });
     }
   };
-})();
+})();Templates["JavaScriptVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var varName = parameters.get("variableName");
+        if (varName) {
+          var parts = varName.split(".");
+          var i;
+          var obj = parameters.window;
+          for (i = 0; i < parts.length; i++) {
+            if (parts[i] in obj) {
+              obj = obj[parts[i]];
+            } else {
+              return;
+            }
+          }
+          if (obj !== parameters.window) {
+            return "" + obj;
+          }
+        }
+      };
+    };
+  })();Templates["ReferrerUrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var urlPart = parameters.get("urlPart", "href");
+        var urlReferrer = parameters.get("document.referrer");
+        if (!urlReferrer || !urlPart) {
+          return;
+        }
+        return TagManager.url.parseUrl(urlReferrer, urlPart);
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6955,7 +6987,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "2abfbd84-e965-41bd-8ded-6977a0c67771",
+  "id": "f7b2d6cd-b795-4d5d-953a-80e1ea7d4bd7",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6999,33 +7031,117 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "CJS",
-    "eventAction": "CJS",
-    "eventName": "CJS",
+    "eventCategory": "JS Var",
+    "eventAction": "JS Var",
+    "eventName": "JS Var",
     "eventValue": {
-      "selectedVariable": "Custom JavaScript",
-      "name": "CustomJsFunction",
-      "type": "CustomJsFunction",
-      "Name": "CJS",
-      "Description": "CJS",
-      "jsFunction": "function(){ return \"something is a string\"; }",
-      "id": "464223a5-a6f6-4a3d-81ba-c4f63afc4847",
+      "selectedVariable": "JavaScript Variable",
+      "Variable": "JavaScriptVariable",
+      "name": "JavaScript",
+      "type": "JavaScript",
+      "Name": "JS Var",
+      "Description": "JS Var",
+      "variableName": "abcd",
+      "id": "6922afd9-1112-4f95-bf01-36d3d5dfbc3f",
       "parameters": {
-        "selectedVariable": "Custom JavaScript",
-        "name": "CustomJsFunction",
-        "type": "CustomJsFunction",
-        "Name": "CJS",
-        "Description": "CJS",
-        "jsFunction": "function(){ return \"something is a string\"; }"
+        "selectedVariable": "JavaScript Variable",
+        "Variable": "JavaScriptVariable",
+        "name": "JavaScript",
+        "type": "JavaScript",
+        "Name": "JS Var",
+        "Description": "JS Var",
+        "variableName": "abcd"
       }
     },
     "selectedTag": "BangDB Analytics",
-    "Description": "CJS",
-    "Name": "CJS"
+    "Name": "JS Var",
+    "Description": "JS Var"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "02f3f347-8f85-47a2-8674-8f958e7a8c78"
+    "a2056db1-8596-4cc3-8492-df609ee44e21"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "c89352c0-02d6-4e45-9c54-eeacbd4f45ab",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Referrer URL",
+    "eventAction": "Referrer URL",
+    "eventName": "Referrer URL",
+    "eventValue": {
+      "selectedVariable": "Referrer URL",
+      "Variable": "ReferrerUrlVariable",
+      "name": "ReferrerUrl",
+      "type": "ReferrerUrl",
+      "Name": "Referrer URL",
+      "Description": "Referrer URL",
+      "id": "517921dd-def8-41fc-b863-9d1fba233b05",
+      "parameters": {
+        "selectedVariable": "Referrer URL",
+        "Variable": "ReferrerUrlVariable",
+        "name": "ReferrerUrl",
+        "type": "ReferrerUrl",
+        "Name": "Referrer URL",
+        "Description": "Referrer URL"
+      }
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Referrer URL",
+    "Description": "Referrer URL"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a2056db1-8596-4cc3-8492-df609ee44e21"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7038,7 +7154,7 @@
           triggers: [
             
           {
-  "id": "02f3f347-8f85-47a2-8674-8f958e7a8c78",
+  "id": "a2056db1-8596-4cc3-8492-df609ee44e21",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -7051,6 +7167,42 @@
           ],
           variables: [
             
+          {name: "JavaScript", type: "JavaScript", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "JavaScript Variable",
+  "Variable": "JavaScriptVariable",
+  "name": "JavaScript",
+  "type": "JavaScript",
+  "Name": "JS Var",
+  "Description": "JS Var",
+  "variableName": "abcd",
+  "id": "6922afd9-1112-4f95-bf01-36d3d5dfbc3f",
+  "parameters": {
+    "selectedVariable": "JavaScript Variable",
+    "Variable": "JavaScriptVariable",
+    "name": "JavaScript",
+    "type": "JavaScript",
+    "Name": "JS Var",
+    "Description": "JS Var",
+    "variableName": "abcd"
+  }
+}, Variable: "JavaScriptVariable"},
+          {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Referrer URL",
+  "Variable": "ReferrerUrlVariable",
+  "name": "ReferrerUrl",
+  "type": "ReferrerUrl",
+  "Name": "Referrer URL",
+  "Description": "Referrer URL",
+  "id": "517921dd-def8-41fc-b863-9d1fba233b05",
+  "parameters": {
+    "selectedVariable": "Referrer URL",
+    "Variable": "ReferrerUrlVariable",
+    "name": "ReferrerUrl",
+    "type": "ReferrerUrl",
+    "Name": "Referrer URL",
+    "Description": "Referrer URL"
+  }
+}, Variable: "ReferrerUrlVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
