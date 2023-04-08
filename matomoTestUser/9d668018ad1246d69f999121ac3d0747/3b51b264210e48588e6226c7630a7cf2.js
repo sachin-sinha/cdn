@@ -6982,10 +6982,9 @@
           tags: [
             
         {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "07d8ed11-3ab2-4352-bc71-efe28b6cdd5b",
+  "id": "721004f1-28f8-45c0-87ab-f1f4a18c1f0e",
   "type": "Matomo",
+  "name": "CC",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -6994,7 +6993,7 @@
       "defaultValue": "",
       "parameters": {
         "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
+        "idSite": "without window ",
         "enableLinkTracking": true,
         "enableCrossDomainLinking": true,
         "enableDoNotTrack": false,
@@ -7028,27 +7027,16 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "CC",
-    "eventAction": "CC",
-    "eventName": "CC",
+    "eventCategory": "cat",
+    "eventAction": "act",
+    "eventName": "nam",
     "eventValue": {
-      "selectedVariable": "Time since page load",
-      "Variable": "TimeSinceLoadVariable",
-      "name": "TimeSinceLoad",
-      "type": "TimeSinceLoad",
-      "Name": "Calculate Time",
-      "Description": "Calculate Time",
-      "unit": "s",
-      "id": "67106fbe-2975-42e2-bdd8-4618c7ed82a9",
-      "parameters": {
-        "selectedVariable": "Time since page load",
-        "Variable": "TimeSinceLoadVariable",
-        "name": "TimeSinceLoad",
-        "type": "TimeSinceLoad",
-        "Name": "Calculate Time",
-        "Description": "Calculate Time",
-        "unit": "s"
-      }
+      "name": "ClickClasses",
+      "type": "ClickClasses",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ClickClassesVariable"
     },
     "selectedTag": "BangDB Analytics",
     "Name": "CC",
@@ -7063,6 +7051,8 @@
   "startDate": null,
   "endDate": null,
   "Tag": "MatomoTag",
+  "idSite": "without window ",
+  "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
           ],
