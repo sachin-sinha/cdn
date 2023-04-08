@@ -6467,15 +6467,8 @@
           };
         };
       })();
-      Templates["WindowLoadedTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onLoad(function () {
-        triggerEvent({ event: "WindowLoad" });
-      });
-    };
-  };
-})();Templates["AllElementsClickTrigger"] = (function () {
+      //change location
+      Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
@@ -6507,43 +6500,16 @@
       });
     }
   };
-})();
-  Templates["DomElementVariable"] = (function () {
+})();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
-        var selectionMethod = parameters.get("selectionMethod");
-        if (!selectionMethod) {
-          return;
-        }
-        var attributeName = parameters.get("attributeName");
-        var dom = TagManager.dom;
-        var ele;
-        if (selectionMethod === "elementId") {
-          ele = dom.byId(parameters.get("elementId"));
-        } else if (selectionMethod === "cssSelector") {
-          ele = dom.bySelector(parameters.get("cssSelector"));
-          if (ele && ele[0]) {
-            ele = ele[0];
-          } else {
-            ele = null;
-          }
-        }
-        if (ele) {
-          if (attributeName) {
-            if (String(attributeName).toLowerCase() === "value" && ele.nodeName === "INPUT") {
-              var type = dom.getElementAttribute(ele, "type");
-              if (type && type.toLowerCase() === "password") {
-                return;
-              }
-            }
-            return dom.getElementAttribute(ele, attributeName);
-          }
-          return TagManager.dom.getElementText(ele);
+        var dataLayerName = parameters.get("dataLayerName");
+        if (dataLayerName && parameters.container) {
+          return parameters.container.dataLayer.get(dataLayerName);
         }
       };
     };
   })();
-
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6986,21 +6952,19 @@
       };
   };
 })();
-
       window.MatomoTagManager.addContainer(
         {
           id: "tfVMgnzD",
-          idsite: 1,
+          idsite: "new website",
           versionName: "version0",
           revision: 1,
           environment: "live",
           tags: [
             
         {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "ece9f7d0-cb97-48ef-be4e-5b18e7863c30",
+  "id": "ddeb9991-df04-4996-90c7-ac7127bf75ae",
   "type": "Matomo",
+  "name": "BDBAnalytics",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7009,7 +6973,7 @@
       "defaultValue": "",
       "parameters": {
         "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
+        "idSite": "new website",
         "enableLinkTracking": true,
         "enableCrossDomainLinking": true,
         "enableDoNotTrack": false,
@@ -7043,82 +7007,81 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "newCat",
-    "eventAction": "newAct",
-    "eventName": "newName",
+    "eventCategory": "customCat",
+    "eventAction": "customAct",
+    "eventName": "customName",
     "eventValue": {
-      "name": "ClickClasses",
-      "type": "ClickClasses",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "ClickClassesVariable"
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "dataLayerVariableCustomName",
+      "Description": "dataLayerVariableCustomDescription",
+      "dataLayerName": "targerThis",
+      "id": "822097e8-5054-464f-a513-bde826d1ac8d",
+      "parameters": {
+        "selectedVariable": "Data layer",
+        "Variable": "DataLayerVariable",
+        "name": "DataLayer",
+        "type": "DataLayer",
+        "Name": "dataLayerVariableCustomName",
+        "Description": "dataLayerVariableCustomDescription",
+        "dataLayerName": "targerThis"
+      }
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "name",
+    "Name": "BDBAnalytics",
     "Description": "desc"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "125be420-746d-4edd-86f3-2204e7443190"
+    "8b610dda-9d71-461d-924a-7b9ef906da96"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
   "startDate": null,
   "endDate": null,
   "Tag": "MatomoTag",
+  "idSite": "new website",
+  "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
           ],
           triggers: [
             
           {
-  "id": "d8593d8b-3c2e-4677-8db1-c4667f128de7",
-  "type": "WindowLoaded",
-  "name": "WindowLoaded",
-  "Trigger": "WindowLoadedTrigger",
-  "selectedTrigger": "Window Loaded",
-  "parameters": {},
-  "conditions": [],
-  "Name": "name",
-  "Description": "description"
-},
-          {
-  "id": "125be420-746d-4edd-86f3-2204e7443190",
+  "id": "8b610dda-9d71-461d-924a-7b9ef906da96",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
   "selectedTrigger": "All Elements Click",
   "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "burhan"
-    }
-  ],
-  "Name": "burhanClick",
+  "conditions": [],
+  "Name": "AEC",
   "Description": "desc"
 },
           ],
           variables: [
             
-          {name: "DomElement", type: "DomElement", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "DOM Element",
-  "Name": "variableName",
-  "Description": "description",
-  "selectionMethod": "cssSelector",
-  "cssSelector": "selector",
-  "attributeName": "attributeName",
-  "id": "dcc582e7-7c87-40ba-bdd2-283396cf6927"
-}, Variable: "DomElementVariable"},
+          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Data layer",
+  "Variable": "DataLayerVariable",
+  "name": "DataLayer",
+  "type": "DataLayer",
+  "Name": "dataLayerVariableCustomName",
+  "Description": "dataLayerVariableCustomDescription",
+  "dataLayerName": "targerThis",
+  "id": "822097e8-5054-464f-a513-bde826d1ac8d",
+  "parameters": {
+    "selectedVariable": "Data layer",
+    "Variable": "DataLayerVariable",
+    "name": "DataLayer",
+    "type": "DataLayer",
+    "Name": "dataLayerVariableCustomName",
+    "Description": "dataLayerVariableCustomDescription",
+    "dataLayerName": "targerThis"
+  }
+}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
@@ -7126,7 +7089,7 @@
               defaultValue: "",
               parameters: {
                 matomoUrl: "https://testbe.bangdb.com:18080",
-                idSite: "1",
+                idSite: "new website",
                 enableLinkTracking: true,
                 enableCrossDomainLinking: true,
                 enableDoNotTrack: false,
