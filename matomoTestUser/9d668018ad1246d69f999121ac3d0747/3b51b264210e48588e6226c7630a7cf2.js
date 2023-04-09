@@ -6929,7 +6929,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "737bd3b8-96b4-4390-ae3d-d91585762cde",
+  "id": "06806a69-71f4-41f5-bbb9-58c21aeba894",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6973,9 +6973,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "ISO Date",
-    "eventAction": "",
-    "eventName": "",
+    "eventCategory": "isoDate",
+    "eventAction": "isoDate",
+    "eventName": "isoDate",
     "eventValue": {
       "name": "IsoDate",
       "type": "IsoDate",
@@ -6985,8 +6985,8 @@
       "Variable": "IsoDateVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "ISO Date",
-    "Description": "ISO Date"
+    "Name": "isoDate",
+    "Description": "isoDate"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7002,7 +7002,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "9dede87e-a4b4-43de-a678-c1d26a1c1ed0",
+  "id": "a173f5ea-b6f8-4074-9c13-302c60f0c45f",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7046,9 +7046,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Local time",
-    "eventAction": "",
-    "eventName": "",
+    "eventCategory": "LTLT",
+    "eventAction": "LT",
+    "eventName": "LT",
     "eventValue": {
       "name": "LocalTime",
       "type": "LocalTime",
@@ -7058,8 +7058,8 @@
       "Variable": "LocalTimeVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Local time",
-    "Description": "Local time"
+    "Name": "LT",
+    "Description": "LT"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
