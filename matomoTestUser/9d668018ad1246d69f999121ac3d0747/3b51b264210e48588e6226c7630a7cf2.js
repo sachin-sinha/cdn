@@ -6474,6 +6474,38 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6929,7 +6961,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "86adb94a-65eb-45f3-af17-6159da370abb",
+  "id": "f635499c-5dec-4d7d-a730-0c3d555b7d84",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6973,20 +7005,20 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "PageRenderTime",
-    "eventAction": "PageRenderTime",
-    "eventName": "PageRenderTime",
+    "eventCategory": "canonicalurl",
+    "eventAction": "canonicalurl",
+    "eventName": "canonicalurl",
     "eventValue": {
-      "name": "PageRenderTime",
-      "type": "PageRenderTime",
+      "name": "SeoCanonicalUrl",
+      "type": "SeoCanonicalUrl",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "PageRenderTimeVariable"
+      "Variable": "SeoCanonicalUrlVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "PageRenderTime",
-    "Description": "PageRenderTime"
+    "Name": "canonicalurl",
+    "Description": "canonicalurl"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7002,7 +7034,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "cf17b071-cefe-4a3a-bb75-7428a1e33c2e",
+  "id": "d5e02e86-4ef7-42c9-9a68-3f6ae16f7c91",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7046,24 +7078,170 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "DNSlookupTime",
-    "eventAction": "DNSlookupTime",
-    "eventName": "DNSlookupTime",
+    "eventCategory": "h1no",
+    "eventAction": "h1no",
+    "eventName": "h1no",
     "eventValue": {
-      "name": "DnsLookupTime",
-      "type": "DnsLookupTime",
+      "name": "SeoNumH1",
+      "type": "SeoNumH1",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "DnsLookupTimeVariable"
+      "Variable": "SeoNumH1Variable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "DNSlookupTime",
-    "Description": "DNSlookupTime"
+    "Name": "h1no",
+    "Description": "h1no"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
+    "f8a5a1a3-8440-423c-bded-2900d388461b"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "acab541c-2695-43e1-8a78-81fea348b7f4",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "h2no",
+    "eventAction": "h2no",
+    "eventName": "h2no",
+    "eventValue": {
+      "name": "SeoNumH2",
+      "type": "SeoNumH2",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "SeoNumH2Variable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "h2no",
+    "Description": "h2no"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "f8a5a1a3-8440-423c-bded-2900d388461b"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "506b8b89-e5ac-4b5e-9732-477e56947580",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "RandomNumber",
+    "eventAction": "RandomNumber",
+    "eventName": "RandomNumber",
+    "eventValue": {
+      "name": "RandomNumber",
+      "type": "RandomNumber",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "RandomNumberVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "RandomNumber",
+    "Description": "RandomNumber"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "f8a5a1a3-8440-423c-bded-2900d388461b"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7085,6 +7263,17 @@
   "conditions": [],
   "Name": "PV",
   "Description": "PV"
+},
+          {
+  "id": "f8a5a1a3-8440-423c-bded-2900d388461b",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [],
+  "Description": "All Click",
+  "Name": "All Click"
 },
           ],
           variables: [
