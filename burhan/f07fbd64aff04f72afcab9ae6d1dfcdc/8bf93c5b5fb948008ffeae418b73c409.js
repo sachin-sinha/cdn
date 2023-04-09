@@ -7429,80 +7429,6 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "ce794bd6-8885-49fc-b99d-1ea8a29927f7",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Browser",
-    "eventAction": "Browser",
-    "eventName": "Browser",
-    "eventValue": {
-      "name": "PageLoadTimeTotal",
-      "type": "PageLoadTimeTotal",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "PageLoadTimeTotalVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Browser",
-    "Description": "Browser"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "a4149666-719a-47c6-b6d9-c02d42ba7cc6",
-    "bc90744a-fe4e-4e03-9f15-8725a1008cd1"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
   "id": "64e22645-b055-454c-a558-da2e050174c5",
   "type": "Matomo",
   "parameters": {
@@ -7662,7 +7588,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "136d02ca-a4e4-4134-8b4d-91e714a44d0d",
+  "id": "0102227e-a079-419d-83d2-08b95765c74a",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7706,20 +7632,20 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "isodate",
-    "eventAction": "isodate",
-    "eventName": "isodate",
+    "eventCategory": "LoadTime",
+    "eventAction": "LoadTime",
+    "eventName": "LoadTime",
     "eventValue": {
-      "name": "IsoDate",
-      "type": "IsoDate",
+      "name": "PageLoadTimeTotal",
+      "type": "PageLoadTimeTotal",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "IsoDateVariable"
+      "Variable": "PageLoadTimeTotalVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "isodate",
-    "Description": "isodate"
+    "Name": "LoadTime",
+    "Description": "LoadTime"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7735,7 +7661,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "8fc64722-1aa7-4075-9bb3-0211fcb1877c",
+  "id": "74199ee6-fe72-4662-b4d1-eedf2cc4f649",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7779,20 +7705,93 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "LT",
-    "eventAction": "LT",
-    "eventName": "",
+    "eventCategory": "ScreenWidth",
+    "eventAction": "ScreenWidth",
+    "eventName": "DeviceScreenWidth",
     "eventValue": {
-      "name": "LocalTime",
-      "type": "LocalTime",
+      "name": "ScreenWidth",
+      "type": "ScreenWidth",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "LocalTimeVariable"
+      "Variable": "ScreenWidthVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "LT",
-    "Description": "LT"
+    "Name": "ScreenWidth",
+    "Description": "ScreenWidth"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a4149666-719a-47c6-b6d9-c02d42ba7cc6"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "bf18af11-2a5f-4fbb-867f-c6b7147fa53a",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "ScreenHeight",
+    "eventAction": "ScreenHeight",
+    "eventName": "DeviceScreenHeight",
+    "eventValue": {
+      "name": "ScreenHeight",
+      "type": "ScreenHeight",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ScreenHeightVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "ScreenHeight",
+    "Description": "ScreenHeight"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
