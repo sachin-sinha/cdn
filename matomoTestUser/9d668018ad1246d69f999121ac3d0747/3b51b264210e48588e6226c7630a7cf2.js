@@ -6762,6 +6762,294 @@
       TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
     };
   };
+})();Templates["ElementVisibilityTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var fireTriggerWhen = parameters.get("fireTriggerWhen", "oncePage");
+    var minPercentVisible = parameters.get("minPercentVisible", 10);
+    var self = this;
+    var triggeredNodes = [];
+    var documentAlias = parameters.document;
+    var windowAlias = parameters.window;
+    var utils = TagManager.utils;
+    var blockTrigger = false;
+    var onlyOncePerElement = fireTriggerWhen === "onceElement";
+    var selectors = getSelectors();
+    var observerIntersection;
+    var isMutationObserverSupported = "MutationObserver" in windowAlias;
+    var isIntersectionObserverSupported = "IntersectionObserver" in windowAlias;
+    var observeDomChanges = parameters.get("observeDomChanges", false);
+    var observerMutation;
+    var dynamicObservedNodesForIntersection = [];
+    var mutationObseverTimeout = false;
+    var allMutationsList = [];
+    function getPercentVisible(node) {
+      if (!node || !node.getBoundingClientRect) {
+        return 0;
+      }
+      var nodeRect = node.getBoundingClientRect();
+      var winRect = { height: parameters.window.innerHeight, width: parameters.window.innerWidth };
+      var visHeight = 0;
+      var visWidth = 0;
+      if (nodeRect.left >= 0) {
+        visWidth = Math.min(nodeRect.width, winRect.width - nodeRect.left);
+      } else if (nodeRect.right > 0) {
+        visWidth = Math.min(winRect.width, nodeRect.right);
+      } else {
+        return 0;
+      }
+      if (nodeRect.top >= 0) {
+        visHeight = Math.min(nodeRect.height, winRect.height - nodeRect.top);
+      } else if (nodeRect.bottom > 0) {
+        visHeight = Math.min(winRect.height, nodeRect.bottom);
+      } else {
+        return 0;
+      }
+      var vis = visHeight * visWidth;
+      var ele = nodeRect.height * nodeRect.width;
+      if (!ele) {
+        return 0;
+      }
+      return (vis / ele) * 100;
+    }
+    function isVisible(node) {
+      if (!node) {
+        return false;
+      }
+      function _getStyle(el, property) {
+        if (windowAlias.getComputedStyle) {
+          return documentAlias.defaultView.getComputedStyle(el, null)[property];
+        }
+        if (el.currentStyle) {
+          return el.currentStyle[property];
+        }
+      }
+      function _elementInDocument(element) {
+        element = element.parentNode;
+        while (element) {
+          if (element === documentAlias) {
+            return true;
+          }
+          element = element.parentNode;
+        }
+        return false;
+      }
+      function _isVisible(el, t, r, b, l, w, h) {
+        var p = el.parentNode,
+          VISIBLE_PADDING = 1;
+        if (!_elementInDocument(el)) {
+          return false;
+        }
+        if (9 === p.nodeType) {
+          return true;
+        }
+        if ("0" === _getStyle(el, "opacity") || "none" === _getStyle(el, "display") || "hidden" === _getStyle(el, "visibility")) {
+          return false;
+        }
+        if (!utils.isDefined(t) || !utils.isDefined(r) || !utils.isDefined(b) || !utils.isDefined(l) || !utils.isDefined(w) || !utils.isDefined(h)) {
+          t = el.offsetTop;
+          l = el.offsetLeft;
+          b = t + el.offsetHeight;
+          r = l + el.offsetWidth;
+          w = el.offsetWidth;
+          h = el.offsetHeight;
+        }
+        if (node === el && (0 === h || 0 === w) && "hidden" === _getStyle(el, "overflow")) {
+          return false;
+        }
+        if (p) {
+          if ("hidden" === _getStyle(p, "overflow") || "scroll" === _getStyle(p, "overflow")) {
+            if (l + VISIBLE_PADDING > p.offsetWidth + p.scrollLeft || l + w - VISIBLE_PADDING < p.scrollLeft || t + VISIBLE_PADDING > p.offsetHeight + p.scrollTop || t + h - VISIBLE_PADDING < p.scrollTop) {
+              return false;
+            }
+          }
+          if (el.offsetParent === p) {
+            l += p.offsetLeft;
+            t += p.offsetTop;
+          }
+          return _isVisible(p, t, r, b, l, w, h);
+        }
+        return true;
+      }
+      return _isVisible(node);
+    }
+    function checkVisiblity(triggerEvent) {
+      return function (event) {
+        if (blockTrigger) {
+          return;
+        }
+        var nodes = [];
+        if (!selectors) {
+          return;
+        }
+        nodes = TagManager.dom.bySelector(selectors);
+        for (var i = 0; i < nodes.length; i++) {
+          if (onlyOncePerElement) {
+            if (isNodeEventTriggered(nodes[i])) {
+              continue;
+            }
+          }
+          if (nodes[i] && isVisible(nodes[i]) && !isDynamicNodeObservedForIntersection(nodes[i])) {
+            var percentVisible = getPercentVisible(nodes[i]);
+            if (!minPercentVisible || minPercentVisible <= percentVisible) {
+              commonTrigger(triggerEvent, percentVisible, nodes[i]);
+              commonTriggeredNodeCheck(nodes[i]);
+            } else if (observerIntersection) {
+              observerIntersection.observe(nodes[i]);
+              dynamicObservedNodesForIntersection.push(nodes[i]);
+            }
+          }
+        }
+      };
+    }
+    function getSelectors() {
+      var selectionMethod = parameters.get("selectionMethod");
+      if (selectionMethod === "elementId") {
+        return "#" + parameters.get("elementId");
+      } else if (selectionMethod === "cssSelector") {
+        return parameters.get("cssSelector");
+      }
+      return;
+    }
+    function setIntersectionObserver(triggerEvent) {
+      return function () {
+        if (isIntersectionObserverSupported) {
+          var interSectionObserverOptions = { root: null, rootMargin: "0px", threshold: minPercentVisible / 100 };
+          observerIntersection = new IntersectionObserver(function (entries) {
+            interSectionCallback(entries, triggerEvent);
+          }, interSectionObserverOptions);
+          if (selectors) {
+            TagManager.dom.bySelector(selectors).forEach(function (element) {
+              observerIntersection.observe(element);
+            });
+          }
+        }
+      };
+    }
+    function interSectionCallback(entries, triggerEvent) {
+      var dom = TagManager.dom;
+      entries.forEach(function (entry) {
+        if (entry.intersectionRatio > 0) {
+          if (blockTrigger || (onlyOncePerElement && isNodeEventTriggered(entry.target))) {
+            return;
+          }
+          var percentVisible = Math.max(getPercentVisible(entry.target), minPercentVisible);
+          commonTrigger(triggerEvent, percentVisible, entry.target);
+          commonTriggeredNodeCheck(entry.target);
+        }
+      });
+    }
+    function isNodeEventTriggered(node) {
+      for (var j = 0; j < triggeredNodes.length; j++) {
+        if (node === triggeredNodes[j]) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function setMutationObserver(triggerEvent) {
+      return function () {
+        if (observeDomChanges && isMutationObserverSupported) {
+          var config = { attributes: true, childList: true, subtree: true };
+          observerMutation = new MutationObserver(function (mutationsList) {
+            Array.prototype.push.apply(allMutationsList, mutationsList);
+            if (mutationObseverTimeout) {
+              return;
+            }
+            mutationObseverTimeout = true;
+            setTimeout(function () {
+              mutationObserverCallback(allMutationsList, triggerEvent);
+              allMutationsList = [];
+              mutationObseverTimeout = false;
+            }, 120);
+          });
+          observerMutation.observe(documentAlias.body, config);
+        }
+      };
+    }
+    function mutationObserverCallback(mutationsList, triggerEvent) {
+      var domElements = TagManager.dom.bySelector(selectors);
+      for (var index in mutationsList) {
+        var mutation = mutationsList[index];
+        var addedNodes = mutation.addedNodes;
+        if (mutation.type === "attributes") {
+          addedNodes = [mutation.target];
+        }
+        if (addedNodes && addedNodes.length) {
+          addedNodes.forEach(function (node) {
+            domElements.forEach(function (element) {
+              if (node.contains(element)) {
+                if (blockTrigger || (onlyOncePerElement && isNodeEventTriggered(element))) {
+                  return;
+                }
+                if (!isNodeInViewport(element) && observerIntersection && !isDynamicNodeObservedForIntersection(element)) {
+                  observerIntersection.observe(element);
+                  dynamicObservedNodesForIntersection.push(element);
+                  return;
+                }
+                var percentVisible = Math.max(getPercentVisible(element), minPercentVisible);
+                commonTrigger(triggerEvent, percentVisible, element);
+                commonTriggeredNodeCheck(element);
+              }
+            });
+          });
+        }
+      }
+    }
+    function isNodeInViewport(node) {
+      var rect = node.getBoundingClientRect();
+      return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (windowAlias.innerHeight || documentAlias.documentElement.clientHeight) && rect.right <= (windowAlias.innerWidth || documentAlias.documentElement.clientWidth);
+    }
+    function isDynamicNodeObservedForIntersection(node) {
+      for (var i = 0; i < dynamicObservedNodesForIntersection.length; i++) {
+        if (node === dynamicObservedNodesForIntersection[i]) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function commonTrigger(triggerEvent, percentVisible, node) {
+      var dom = TagManager.dom;
+      triggerEvent({
+        event: "mtm.ElementVisibility",
+        "mtm.elementVisibilityElement": node,
+        "mtm.elementVisibilityPercentage": Math.round(percentVisible * 100) / 100,
+        "mtm.elementVisibilityId": dom.getElementAttribute(node, "id"),
+        "mtm.elementVisibilityClasses": dom.getElementClassNames(node),
+        "mtm.elementVisibilityText": TagManager.utils.trim(node.innerText),
+        "mtm.elementVisibilityNodeName": node.nodeName,
+        "mtm.elementVisibilityUrl": node.href || dom.getElementAttribute(node, "href"),
+      });
+    }
+    function commonTriggeredNodeCheck(node) {
+      if (fireTriggerWhen === "oncePage") {
+        blockTrigger = true;
+        if (self.scrollIndex) {
+          TagManager.window.offScroll(self.scrollIndex);
+        }
+        if (observerIntersection) {
+          observerIntersection.disconnect();
+        }
+        if (observerMutation) {
+          observerMutation.disconnect();
+        }
+      } else if (onlyOncePerElement) {
+        triggeredNodes.push(node);
+        if (observerIntersection) {
+          observerIntersection.unobserve(node);
+        }
+      }
+    }
+    this.setUp = function (triggerEvent) {
+      var useMutationObserver = isMutationObserverSupported && observeDomChanges && isIntersectionObserverSupported;
+      if (useMutationObserver) {
+        TagManager.dom.onLoad(setMutationObserver(triggerEvent));
+      } else {
+        this.scrollIndex = TagManager.window.onScroll(checkVisiblity(triggerEvent));
+        TagManager.dom.onLoad(checkVisiblity(triggerEvent));
+      }
+      TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
+    };
+  };
 })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -7217,7 +7505,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "699d63ee-c394-4a7e-aacd-a7b8027b01dc",
+  "id": "53aab538-26b8-4163-96ed-ee334168b45f",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7261,24 +7549,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Element visibility",
-    "eventAction": "Element visibility",
-    "eventName": "Element visibility",
+    "eventCategory": "EV ID ET",
+    "eventAction": "EV ID ET",
+    "eventName": "EV ID ET",
     "eventValue": {
-      "name": "VisibleElementText",
-      "type": "VisibleElementText",
+      "name": "VisibleElementId",
+      "type": "VisibleElementId",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "VisibleElementTextVariable"
+      "Variable": "VisibleElementIdVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Element visibility",
-    "Description": "Element visibility"
+    "Name": "EV ID ET",
+    "Description": "EV ID ET"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "8675f0f0-8faf-4601-a098-3c08669f2984"
+    "1c18dbd9-58c2-4daf-89c3-65a01828790e"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7290,7 +7578,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "812ef2d5-d974-4b28-9a01-77da87afadb5",
+  "id": "87874e65-1ba9-4c98-a877-12adbe430251",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7334,97 +7622,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Element visibility1",
-    "eventAction": "Element visibility1",
-    "eventName": "Element visibility1",
+    "eventCategory": "EV ID oncepp",
+    "eventAction": "EV ID oncepp",
+    "eventName": "EV ID oncepp",
     "eventValue": {
-      "name": "VisibleElementNodeName",
-      "type": "VisibleElementNodeName",
+      "name": "VisibleElementId",
+      "type": "VisibleElementId",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "VisibleElementNodeNameVariable"
+      "Variable": "VisibleElementIdVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Element visibility1",
-    "Description": "Element visibility1"
+    "Name": "EV ID oncepp",
+    "Description": "EV ID oncepp"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "8675f0f0-8faf-4601-a098-3c08669f2984"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "90d93999-b1c3-4f1d-9c01-297f9ef85070",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Element visibility2",
-    "eventAction": "Element visibility2",
-    "eventName": "Element visibility2",
-    "eventValue": {
-      "name": "VisibleElementClasses",
-      "type": "VisibleElementClasses",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "VisibleElementClassesVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Element visibility2",
-    "Description": "Element visibility2"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "8675f0f0-8faf-4601-a098-3c08669f2984"
+    "04d82274-69d9-4c5b-a5a9-639218f74efe"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7448,21 +7663,37 @@
   "Description": "PV"
 },
           {
-  "id": "8675f0f0-8faf-4601-a098-3c08669f2984",
+  "id": "1c18dbd9-58c2-4daf-89c3-65a01828790e",
   "type": "ElementVisibility",
   "name": "ElementVisibility",
   "Trigger": "ElementVisibilityTrigger",
   "selectedTrigger": "Element Visibility",
   "parameters": {
-    "selectionMethod": "cssSelector",
-    "undefined": ".body",
+    "selectionMethod": "elementId",
+    "undefined": "z8Tvpa",
     "fireTriggerWhen": "every",
     "minPercentVisible": "50",
+    "observeDomChanges": false
+  },
+  "conditions": [],
+  "Name": "EV ID ET",
+  "Description": "EV ID"
+},
+          {
+  "id": "04d82274-69d9-4c5b-a5a9-639218f74efe",
+  "type": "ElementVisibility",
+  "name": "ElementVisibility",
+  "Trigger": "ElementVisibilityTrigger",
+  "selectedTrigger": "Element Visibility",
+  "parameters": {
+    "selectionMethod": "elementId",
+    "undefined": "z8Tvpa",
+    "fireTriggerWhen": "oncePage",
     "observeDomChanges": true
   },
   "conditions": [],
-  "Name": "Element visibility",
-  "Description": "Element visibility"
+  "Name": "EV ID oncepp",
+  "Description": "EV ID oncepp"
 },
           ],
           variables: [
