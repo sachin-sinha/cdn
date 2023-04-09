@@ -6929,7 +6929,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "ed06c287-8415-4d11-b7df-27df8ebbdb61",
+  "id": "86adb94a-65eb-45f3-af17-6159da370abb",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -6973,20 +6973,93 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Refferer URL",
-    "eventAction": "Refferer URL",
-    "eventName": "Refferer URL",
+    "eventCategory": "PageRenderTime",
+    "eventAction": "PageRenderTime",
+    "eventName": "PageRenderTime",
     "eventValue": {
-      "name": "Referrer",
-      "type": "Referrer",
+      "name": "PageRenderTime",
+      "type": "PageRenderTime",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "ReferrerVariable"
+      "Variable": "PageRenderTimeVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Refferer URL",
-    "Description": "Refferer URL"
+    "Name": "PageRenderTime",
+    "Description": "PageRenderTime"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "cf17b071-cefe-4a3a-bb75-7428a1e33c2e",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "DNSlookupTime",
+    "eventAction": "DNSlookupTime",
+    "eventName": "DNSlookupTime",
+    "eventValue": {
+      "name": "DnsLookupTime",
+      "type": "DnsLookupTime",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "DnsLookupTimeVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "DNSlookupTime",
+    "Description": "DNSlookupTime"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
