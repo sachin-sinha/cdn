@@ -6468,43 +6468,70 @@
         };
       })();
       //change location
-      Templates["PageViewTrigger"] = (function () {
+      Templates["ScrollReachTrigger"] = (function () {
   return function (parameters, TagManager) {
+    var self = this;
+    var numTriggers = 0;
     this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
+      var scrollType = parameters.get("scrollType");
+      var pixels = parameters.get("pixels", 1000);
+      var percentage = parameters.get("percentage", 50);
+      if (!scrollType) {
         return;
       }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
+      this.scrollIndex = TagManager.window.onScroll(function (event) {
+        var hasReachedScrollPosition = false;
+        var dom = TagManager.dom;
+        var lastScrollTop = parseInt(dom.getScrollTop(), 10) + TagManager.window.getViewportHeight();
+        var lastScrollLeft = parseInt(dom.getScrollLeft(), 10) + TagManager.window.getViewportWidth();
+        var docHeight = dom.getDocumentHeight();
+        var docWidth = dom.getDocumentWidth();
+        var scrollPercentageVertical = (lastScrollTop / docHeight) * 100;
+        var scrollPercentageHorizontal = (lastScrollLeft / docWidth) * 100;
+        var eventType = event && event.type ? event.type : "";
+        switch (scrollType) {
+          case "verticalpixel":
+            if (lastScrollTop > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpixel":
+            if (lastScrollLeft > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "verticalpercentage":
+            if (scrollPercentageVertical >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpercentage":
+            if (scrollPercentageHorizontal >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
         }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
+        if (hasReachedScrollPosition) {
+          if (!numTriggers) {
+            numTriggers++;
+            triggerEvent({
+              event: "mtm.ScrollReach",
+              "mtm.scrollSource": eventType,
+              "mtm.scrollLeftPx": lastScrollLeft,
+              "mtm.scrollTopPx": lastScrollTop,
+              "mtm.scrollVerticalPercentage": Math.round(scrollPercentageVertical * 100) / 100,
+              "mtm.scrollHorizontalPercentage": Math.round(scrollPercentageHorizontal * 100) / 100,
+              "mtm.scrollDocumentHeightPx": docHeight,
+              "mtm.scrollDocumentWidthPx": docWidth,
+            });
+          }
+          if (self.scrollIndex !== null) {
+            TagManager.window.offScroll(self.scrollIndex);
+            self.scrollIndex = null;
+          }
+        }
       });
-    }
+    };
   };
 })();
       
@@ -6961,7 +6988,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "f635499c-5dec-4d7d-a730-0c3d555b7d84",
+  "id": "32ea36af-e57d-416e-8e50-bfa3a0ae7ee6",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7005,24 +7032,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "canonicalurl",
-    "eventAction": "canonicalurl",
-    "eventName": "canonicalurl",
+    "eventCategory": "ScrollHorizontalPercentage",
+    "eventAction": "ScrollHorizontalPercentage",
+    "eventName": "ScrollHorizontalPercentage",
     "eventValue": {
-      "name": "SeoCanonicalUrl",
-      "type": "SeoCanonicalUrl",
+      "name": "ScrollHorizontalPercentage",
+      "type": "ScrollHorizontalPercentage",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "SeoCanonicalUrlVariable"
+      "Variable": "ScrollHorizontalPercentageVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "canonicalurl",
-    "Description": "canonicalurl"
+    "Name": "ScrollHorizontalPercentage",
+    "Description": "ScrollHorizontalPercentage"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
+    "bd464ed0-a218-423b-bba2-db92562a6936"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7034,7 +7061,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "d5e02e86-4ef7-42c9-9a68-3f6ae16f7c91",
+  "id": "143c58fc-80cf-4404-8a75-6c94939c8905",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7078,24 +7105,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "h1no",
-    "eventAction": "h1no",
-    "eventName": "h1no",
+    "eventCategory": "ScrollLeftPixel",
+    "eventAction": "ScrollLeftPixel",
+    "eventName": "ScrollLeftPixel",
     "eventValue": {
-      "name": "SeoNumH1",
-      "type": "SeoNumH1",
+      "name": "ScrollLeftPixel",
+      "type": "ScrollLeftPixel",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "SeoNumH1Variable"
+      "Variable": "ScrollLeftPixelVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "h1no",
-    "Description": "h1no"
+    "Name": "ScrollLeftPixel",
+    "Description": "ScrollLeftPixel"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "f8a5a1a3-8440-423c-bded-2900d388461b"
+    "bd464ed0-a218-423b-bba2-db92562a6936"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7107,7 +7134,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "acab541c-2695-43e1-8a78-81fea348b7f4",
+  "id": "fdde10ff-e120-4f4c-921d-e586c3ca5aba",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7151,24 +7178,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "h2no",
-    "eventAction": "h2no",
-    "eventName": "h2no",
+    "eventCategory": "ScrollSource",
+    "eventAction": "ScrollSource",
+    "eventName": "ScrollSource",
     "eventValue": {
-      "name": "SeoNumH2",
-      "type": "SeoNumH2",
+      "name": "ScrollSource",
+      "type": "ScrollSource",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "SeoNumH2Variable"
+      "Variable": "ScrollSourceVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "h2no",
-    "Description": "h2no"
+    "Name": "ScrollSource",
+    "Description": "ScrollSource"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "f8a5a1a3-8440-423c-bded-2900d388461b"
+    "bd464ed0-a218-423b-bba2-db92562a6936"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7180,7 +7207,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "506b8b89-e5ac-4b5e-9732-477e56947580",
+  "id": "a362874d-8168-4a33-a4cd-f90c4cd28493",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7224,24 +7251,97 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "RandomNumber",
-    "eventAction": "RandomNumber",
-    "eventName": "RandomNumber",
+    "eventCategory": "ScrollTopPixel",
+    "eventAction": "ScrollTopPixel",
+    "eventName": "ScrollTopPixel",
     "eventValue": {
-      "name": "RandomNumber",
-      "type": "RandomNumber",
+      "name": "ScrollTopPixel",
+      "type": "ScrollTopPixel",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "RandomNumberVariable"
+      "Variable": "ScrollTopPixelVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "RandomNumber",
-    "Description": "RandomNumber"
+    "Name": "ScrollTopPixel",
+    "Description": "ScrollTopPixel"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "f8a5a1a3-8440-423c-bded-2900d388461b"
+    "bd464ed0-a218-423b-bba2-db92562a6936"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "3fd18b8d-4164-432e-9c64-65990752bc86",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "ScrollVerticalPercentage",
+    "eventAction": "ScrollVerticalPercentage",
+    "eventName": "ScrollVerticalPercentage",
+    "eventValue": {
+      "name": "ScrollVerticalPercentage",
+      "type": "ScrollVerticalPercentage",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "ScrollVerticalPercentageVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "ScrollVerticalPercentage",
+    "Description": "ScrollVerticalPercentage"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "bd464ed0-a218-423b-bba2-db92562a6936"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7254,26 +7354,18 @@
           triggers: [
             
           {
-  "id": "0b65f9c5-34b1-4e2b-a716-ae7ceb838524",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
+  "id": "bd464ed0-a218-423b-bba2-db92562a6936",
+  "type": "ScrollReach",
+  "name": "ScrollReach",
+  "Trigger": "ScrollReachTrigger",
+  "selectedTrigger": "Scroll Reach",
+  "parameters": {
+    "percentage": "3",
+    "scrollType": "verticalpercentage"
+  },
   "conditions": [],
-  "Name": "PV",
-  "Description": "PV"
-},
-          {
-  "id": "f8a5a1a3-8440-423c-bded-2900d388461b",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [],
-  "Description": "All Click",
-  "Name": "All Click"
+  "Name": "Scroll Reach",
+  "Description": "Scroll Reach"
 },
           ],
           variables: [
