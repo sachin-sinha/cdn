@@ -6474,90 +6474,6 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["HistoryChangeTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    function getCurrentUrl() {
-      return parameters.window.location.href;
-    }
-    function getEventUrl(event) {
-      if (event && event.target && event.target.location && event.target.location.href) {
-        return event.target.location.href;
-      }
-      return getCurrentUrl();
-    }
-    this.setUp = function (triggerEvent) {
-      var initialUrl = getCurrentUrl();
-      var url = TagManager.url;
-      var origin = url.parseUrl(initialUrl, "origin");
-      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
-      function trigger(eventType, newUrl, newState) {
-        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
-        var shouldForceEvent =
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
-        shouldForceEvent = !shouldForceEvent;
-        var oldUrl = lastEvent.path;
-        if (lastEvent.search) {
-          oldUrl += "?" + lastEvent.search;
-        }
-        if (lastEvent.hash) {
-          oldUrl += "#" + lastEvent.hash;
-        }
-        var nowUrl = newEvent.path;
-        if (newEvent.search) {
-          nowUrl += "?" + newEvent.search;
-        }
-        if (newEvent.hash) {
-          nowUrl += "#" + newEvent.hash;
-        }
-        if (shouldForceEvent || oldUrl !== nowUrl) {
-          var tmpLast = lastEvent;
-          lastEvent = newEvent;
-          triggerEvent({
-            event: "mtm.HistoryChange",
-            "mtm.historyChangeSource": newEvent.eventType,
-            "mtm.oldUrl": origin + oldUrl,
-            "mtm.newUrl": origin + nowUrl,
-            "mtm.oldUrlHash": tmpLast.hash,
-            "mtm.newUrlHash": newEvent.hash,
-            "mtm.oldUrlPath": tmpLast.path,
-            "mtm.newUrlPath": newEvent.path,
-            "mtm.oldUrlSearch": tmpLast.search,
-            "mtm.newUrlSearch": newEvent.search,
-            "mtm.oldHistoryState": tmpLast.state,
-            "mtm.newHistoryState": newEvent.state,
-          });
-        }
-      }
-      function replaceHistoryMethod(methodNameToReplace) {
-        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
-          trigger(methodNameToReplace, getCurrentUrl(), state);
-        });
-      }
-      replaceHistoryMethod("replaceState");
-      replaceHistoryMethod("pushState");
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "hashchange",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("hashchange", newUrl, null);
-        },
-        false
-      );
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "popstate",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("popstate", newUrl, event.state);
-        },
-        false
-      );
-    };
-  };
 })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -7013,7 +6929,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "b7a37ca1-1b30-4b98-9977-725f6b100e92",
+  "id": "df984438-1931-47bc-b903-af271a4e0562",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7057,24 +6973,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "HistoryHashNew",
-    "eventAction": "HistoryHashNew",
-    "eventName": "HistoryHashNew",
+    "eventCategory": "FD",
+    "eventAction": "FD",
+    "eventName": "FD",
     "eventValue": {
-      "name": "HistoryHashNew",
-      "type": "HistoryHashNew",
+      "name": "FirstDirectory",
+      "type": "FirstDirectory",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "HistoryHashNewVariable"
+      "Variable": "FirstDirectoryVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "HistoryHashNew",
-    "Description": "HistoryHashNew"
+    "Name": "FD",
+    "Description": "FD"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7086,7 +7002,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "6878bac6-b117-4f40-82bf-eda29a94e493",
+  "id": "a48ff524-d88d-4d35-a83d-03dc10e2c818",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7130,24 +7046,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "HistoryNewPath",
-    "eventAction": "HistoryNewPath",
-    "eventName": "HistoryNewPath",
+    "eventCategory": "PageHash",
+    "eventAction": "PageHash",
+    "eventName": "PageHash",
     "eventValue": {
-      "name": "HistoryHashNewPath",
-      "type": "HistoryHashNewPath",
+      "name": "PageHash",
+      "type": "PageHash",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "HistoryHashNewPathVariable"
+      "Variable": "PageHashVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "HistoryNewPath",
-    "Description": "HistoryNewPath"
+    "Name": "PageHash",
+    "Description": "PageHash"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7159,7 +7075,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "03fefc39-8e0d-48e9-9ab8-9e5313572a3b",
+  "id": "8684f8c9-6811-424e-9103-5361b5c39ce4",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7203,24 +7119,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "HistoryNewSearch",
-    "eventAction": "HistoryNewSearch",
-    "eventName": "HistoryNewSearch",
+    "eventCategory": "PageHostName",
+    "eventAction": "PageHostName",
+    "eventName": "PageHostName",
     "eventValue": {
-      "name": "HistoryHashNewSearch",
-      "type": "HistoryHashNewSearch",
+      "name": "PageHostname",
+      "type": "PageHostname",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "HistoryHashNewSearchVariable"
+      "Variable": "PageHostnameVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "HistoryNewSearch",
-    "Description": "HistoryNewSearch"
+    "Name": "PageHostName",
+    "Description": "PageHostName"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7232,7 +7148,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "180998a9-c645-421d-98ae-f9ba204eb64b",
+  "id": "8c9d86e7-dcc4-49d1-8310-76950fe22b79",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7276,24 +7192,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "HistoryNewURL",
-    "eventAction": "HistoryNewURL",
-    "eventName": "HistoryNewURL",
+    "eventCategory": "PageOrigin",
+    "eventAction": "PageOrigin",
+    "eventName": "PageOrigin",
     "eventValue": {
-      "name": "HistoryHashNewUrl",
-      "type": "HistoryHashNewUrl",
+      "name": "PageOrigin",
+      "type": "PageOrigin",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "HistoryHashNewUrlVariable"
+      "Variable": "PageOriginVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "HistoryNewURL",
-    "Description": "HistoryNewURL"
+    "Name": "PageOrigin",
+    "Description": "PageOrigin"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7305,7 +7221,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "b22400f1-3142-4f79-a7c3-9f6952d0cff8",
+  "id": "830b53bc-3ce3-444f-aa83-833f3b9c82ca",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7349,24 +7265,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "HistoryOldHash",
-    "eventAction": "HistoryOldHash",
-    "eventName": "HistoryOldHash",
+    "eventCategory": "PagePath",
+    "eventAction": "PagePath",
+    "eventName": "PagePath",
     "eventValue": {
-      "name": "HistoryHashOld",
-      "type": "HistoryHashOld",
+      "name": "PagePath",
+      "type": "PagePath",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "HistoryHashOldVariable"
+      "Variable": "PagePathVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "HistoryOldHash",
-    "Description": "HistoryOldHash"
+    "Name": "PagePath",
+    "Description": "PagePath"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7378,7 +7294,7 @@
         {
   "name": "9134dd9d2194bc388b19a90c09d1efc1",
   "Type": "BangDB Analytics",
-  "id": "610a8c7b-6542-46a5-9c9c-07f47670c246",
+  "id": "cca28b13-ba23-4f39-9f14-42fce859b505",
   "type": "Matomo",
   "parameters": {
     "matomoConfig": {
@@ -7422,243 +7338,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "HistoryOldPath",
-    "eventAction": "HistoryOldPath",
-    "eventName": "HistoryOldPath",
+    "eventCategory": "PageTitle",
+    "eventAction": "PageTitle",
+    "eventName": "PageTitle",
     "eventValue": {
-      "name": "HistoryHashOldPath",
-      "type": "HistoryHashOldPath",
+      "name": "PageTitle",
+      "type": "PageTitle",
       "lookUpTable": [],
       "defaultValue": null,
       "parameters": [],
-      "Variable": "HistoryHashOldPathVariable"
+      "Variable": "PageTitleVariable"
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "HistoryOldPath",
-    "Description": "HistoryOldPath"
+    "Name": "PageTitle",
+    "Description": "PageTitle"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "ac64b1d6-9ff1-4484-8036-1cb50d8b3feb",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "HistoryOldSearch",
-    "eventAction": "HistoryOldSearch",
-    "eventName": "HistoryOldSearch",
-    "eventValue": {
-      "name": "HistoryHashOldSearch",
-      "type": "HistoryHashOldSearch",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "HistoryHashOldSearchVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "HistoryOldSearch",
-    "Description": "HistoryOldSearch"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "f36e20d7-c837-4228-8e8f-b1245086b77c",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "HistoryOldUrl",
-    "eventAction": "HistoryOldUrl",
-    "eventName": "HistoryOldUrl",
-    "eventValue": {
-      "name": "HistoryHashOldUrl",
-      "type": "HistoryHashOldUrl",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "HistoryHashOldUrlVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "HistoryOldUrl",
-    "Description": "HistoryOldUrl"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "blockedTriggerIds": []
-},
-        {
-  "name": "9134dd9d2194bc388b19a90c09d1efc1",
-  "Type": "BangDB Analytics",
-  "id": "4b0dfc0c-a61c-45fc-bd9d-2ccb736ca735",
-  "type": "Matomo",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "1",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "HistoryOldSource",
-    "eventAction": "HistoryOldSource",
-    "eventName": "HistoryOldSource",
-    "eventValue": {
-      "name": "HistorySource",
-      "type": "HistorySource",
-      "lookUpTable": [],
-      "defaultValue": null,
-      "parameters": [],
-      "Variable": "HistorySourceVariable"
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "HistoryOldSource",
-    "Description": "HistoryOldSource"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "60bc03d6-2587-4077-9ce8-1756f0943035"
+    "0b65f9c5-34b1-4e2b-a716-ae7ceb838524"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7680,17 +7377,6 @@
   "conditions": [],
   "Name": "PV",
   "Description": "PV"
-},
-          {
-  "id": "60bc03d6-2587-4077-9ce8-1756f0943035",
-  "type": "HistoryChange",
-  "name": "HistoryChange",
-  "Trigger": "HistoryChangeTrigger",
-  "selectedTrigger": "History Change",
-  "parameters": {},
-  "conditions": [],
-  "Name": "History Change",
-  "Description": "History Change"
 },
           ],
           variables: [
