@@ -7017,17 +7017,13 @@
     "eventAction": "act",
     "eventName": "name",
     "eventValue": {
-      "joinedVariable": [
-        {
           "name": "ClickClasses",
           "type": "ClickClasses",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
           "Variable": "ClickClassesVariable"
-        }
-      ]
-    },
+        },
     "selectedTag": "BangDB Analytics",
     "Name": "name",
     "Description": "desc"
