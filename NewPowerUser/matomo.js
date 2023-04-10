@@ -4126,11 +4126,12 @@ if (typeof window.Matomo !== 'object') {
 
         // call getLocation and pass a callback function
         getLocation(function (latitude, longitude) {
+          console.log({latitude, longitude})
           request +=
             '&latitude=' +
             latitude +
             '&longitude=' +
-            longitude
+            longitude;
         });
 
         // build out the rest of the request
