@@ -4011,8 +4011,10 @@ if (typeof window.Matomo !== 'object') {
         function sP(position) {
           lat = position.coords.latitude;
           long = position.coords.longitude;
+          return {lat, long}
         }
-        gL();
+        var location = gL();
+        console.log(location)
 
         if (configCookiesDisabled) {
           deleteCookies();
@@ -4168,9 +4170,9 @@ if (typeof window.Matomo !== 'object') {
           '&user_agent=' + 
           navigator.userAgent +
           '&lat=' + 
-          lat +
+          location.lat +
           '&long=' +
-          long
+          location.long
           ;
 
         var browserFeatures = detectBrowserFeatures();
