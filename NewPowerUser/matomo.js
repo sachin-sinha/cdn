@@ -4009,12 +4009,12 @@ if (typeof window.Matomo !== 'object') {
         }
 
         function sP(position) {
-          console.log(position)
+          console.log({position})
           lat = position.coords.latitude;
           long = position.coords.longitude;
-          return {lat, long}
         }
-        var location = gL();
+       
+        gL();
 
         if (configCookiesDisabled) {
           deleteCookies();
@@ -4170,9 +4170,9 @@ if (typeof window.Matomo !== 'object') {
           '&user_agent=' + 
           navigator.userAgent +
           '&lat=' + 
-          location.lat +
+          lat +
           '&long=' +
-          location.long
+          long
           ;
 
         var browserFeatures = detectBrowserFeatures();
