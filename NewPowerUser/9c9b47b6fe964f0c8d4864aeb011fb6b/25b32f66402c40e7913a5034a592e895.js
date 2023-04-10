@@ -4108,7 +4108,9 @@
               "&_idn=" +
               dK.newVisitor +
               (dH ? "&cs=" + t(dH) : "") +
-              "&send_image=0";
+              "&send_image=0" + 
+              "&user_agent" + 
+              navigator.userAgent;
             var dM = ds();
             for (dO in dM) {
               if (Object.prototype.hasOwnProperty.call(dM, dO)) {
