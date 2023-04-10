@@ -4108,9 +4108,7 @@
               "&_idn=" +
               dK.newVisitor +
               (dH ? "&cs=" + t(dH) : "") +
-              "&send_image=0" + 
-              "&user_agent" + 
-              navigator.userAgent;
+              "&send_image=0"
             var dM = ds();
             for (dO in dM) {
               if (Object.prototype.hasOwnProperty.call(dM, dO)) {
@@ -4507,7 +4505,7 @@
             return aU(dD, dE.name, dE.piece, dE.target);
           }
           function c5(dD, dF, dC, dE) {
-            return "e_c=" + t(dD) + "&e_a=" + t(dF) + (M(dC) ? "&e_n=" + t(dC) : "") + (M(dE) ? "&e_v=" + t(dE) : "") + "&ca=1";
+            return "e_c=" + t(dD) + "&e_a=" + t(dF) + (M(dC) ? "&e_n=" + t(dC) : "") + (M(dE) ? "&e_v=" + t(dE) : "") + "&ca=1" + "&user_agent" + navigator.userAgent;
           }
           function ax(dE, dG, dC, dF, dI, dH) {
             if (!ac(dE) || !ac(dG)) {
