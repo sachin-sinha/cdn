@@ -6968,7 +6968,7 @@
           tags: [
             
         {
-  "id": "8113e916-e1b5-477a-9f8b-b4bae2811c05",
+  "id": "f446a053-cb5f-4ca3-a704-11d79f6f2b98",
   "type": "Matomo",
   "name": "name",
   "parameters": {
@@ -7013,17 +7013,21 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "cat",
-    "eventAction": "act",
-    "eventName": "name",
+    "eventCategory": "newCat",
+    "eventAction": "newAct",
+    "eventName": "newName",
     "eventValue": {
+      "joinedVariable": [
+        {
           "name": "ClickClasses",
           "type": "ClickClasses",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
           "Variable": "ClickClassesVariable"
-        },
+        }
+      ]
+    },
     "selectedTag": "BangDB Analytics",
     "Name": "name",
     "Description": "desc"
