@@ -6655,6 +6655,19 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["WindowUnloadTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      var triggered = false;
+      TagManager.dom.addEventListener(parameters.window, "beforeunload", function () {
+        if (triggered) {
+          return;
+        }
+        triggered = true;
+        triggerEvent({ event: "WindowUnload" });
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8023,6 +8036,79 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "deca653f-86fc-49f2-a5bd-23f1d131af7a",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "WindowUnload",
+    "eventAction": "WindowUnload",
+    "eventName": "WindowUnload",
+    "eventValue": {
+      "name": "PageUrl",
+      "type": "PageUrl",
+      "lookUpTable": [],
+      "defaultValue": null,
+      "parameters": [],
+      "Variable": "PageUrlVariable"
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "WindowUnload",
+    "Description": "WindowUnload"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "000ee648-1c5e-4d23-9668-b214d71c8d1b"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8080,6 +8166,17 @@
   "conditions": [],
   "Name": "Pageview",
   "Description": "Pageview"
+},
+          {
+  "id": "000ee648-1c5e-4d23-9668-b214d71c8d1b",
+  "type": "WindowUnload",
+  "name": "WindowUnload",
+  "Trigger": "WindowUnloadTrigger",
+  "selectedTrigger": "Window Unload",
+  "parameters": {},
+  "conditions": [],
+  "Name": "WindowUnload",
+  "Description": "WindowUnload"
 },
           ],
           variables: [
