@@ -3998,23 +3998,22 @@ if (typeof window.Matomo !== 'object') {
           attributionCookie = loadReferrerAttributionCookie(),
           currentUrl = configCustomUrl || locationHrefAlias,
           campaignNameDetected,
-          campaignKeywordDetected,
-          lat,
-          long;
+          campaignKeywordDetected;
 
         function gL() {
           if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(sP);
+            var loc = navigator.geolocation.getCurrentPosition(sP);
+            return loc
           }
         }
 
         function sP(position) {
-          console.log({position})
-          lat = position.coords.latitude;
-          long = position.coords.longitude;
+          var lat = position.coords.latitude;
+          var long = position.coords.longitude;
+          return {lat, long}
         }
        
-        gL();
+        var location = gL();
 
         if (configCookiesDisabled) {
           deleteCookies();
@@ -4170,9 +4169,9 @@ if (typeof window.Matomo !== 'object') {
           '&user_agent=' + 
           navigator.userAgent +
           '&lat=' + 
-          lat +
+          location.lat +
           '&long=' +
-          long
+          location.long
           ;
 
         var browserFeatures = detectBrowserFeatures();
