@@ -6968,9 +6968,9 @@
           tags: [
             
         {
-  "id": "832d082f-66b3-4058-b202-737a87c164c0",
+  "id": "3c3f8373-0536-4fe9-b26e-9cdf56c21a2d",
   "type": "Matomo",
-  "name": "multipleVariables",
+  "name": "name",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7013,9 +7013,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "cat",
-    "eventAction": "act",
-    "eventName": "name",
+    "eventCategory": "multiplecat",
+    "eventAction": "multipleact",
+    "eventName": "multiplename",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7027,34 +7027,26 @@
           "Variable": "ScreenHeightVariable"
         },
         {
+          "name": "BrowserLanguage",
+          "type": "BrowserLanguage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "BrowserLanguageVariable"
+        },
+        {
           "name": "ScreenWidth",
           "type": "ScreenWidth",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
           "Variable": "ScreenWidthVariable"
-        },
-        {
-          "name": "ScreenHeightAvailable",
-          "type": "ScreenHeightAvailable",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ScreenHeightAvailableVariable"
-        },
-        {
-          "name": "ScreenWidthAvailable",
-          "type": "ScreenWidthAvailable",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ScreenWidthAvailableVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "multipleVariables",
-    "Description": "description"
+    "Name": "name",
+    "Description": "desc"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
