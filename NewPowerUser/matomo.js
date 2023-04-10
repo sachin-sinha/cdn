@@ -4009,12 +4009,12 @@ if (typeof window.Matomo !== 'object') {
         }
 
         function sP(position) {
+          console.log(position)
           lat = position.coords.latitude;
           long = position.coords.longitude;
           return {lat, long}
         }
         var location = gL();
-        console.log(location)
 
         if (configCookiesDisabled) {
           deleteCookies();
