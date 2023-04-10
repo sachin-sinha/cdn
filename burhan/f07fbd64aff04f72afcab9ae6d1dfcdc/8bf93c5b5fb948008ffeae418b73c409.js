@@ -6684,6 +6684,17 @@
         return TagManager.url.getQueryParameter(name, parameters.window.location.search);
       };
     };
+  })();Templates["ReferrerUrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var urlPart = parameters.get("urlPart", "href");
+        var urlReferrer = parameters.get("document.referrer");
+        if (!urlReferrer || !urlPart) {
+          return;
+        }
+        return TagManager.url.parseUrl(urlReferrer, urlPart);
+      };
+    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -8109,6 +8120,88 @@
   "Tag": "MatomoTag",
   "blockedTriggerIds": []
 },
+        {
+  "name": "9134dd9d2194bc388b19a90c09d1efc1",
+  "Type": "BangDB Analytics",
+  "id": "7f1a368d-a985-4b6a-90e5-6349dd58f483",
+  "type": "Matomo",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/VisitorData"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "ReferrerURL",
+    "eventAction": "ReferrerURL",
+    "eventName": "ReferrerURL",
+    "eventValue": {
+      "selectedVariable": "Referrer URL",
+      "Variable": "ReferrerUrlVariable",
+      "name": "ReferrerUrl",
+      "type": "ReferrerUrl",
+      "Name": "ReferrerURL",
+      "Description": "ReferrerURL",
+      "id": "045debd9-2a94-4351-a5c8-3cf96e913e54",
+      "parameters": {
+        "selectedVariable": "Referrer URL",
+        "Variable": "ReferrerUrlVariable",
+        "name": "ReferrerUrl",
+        "type": "ReferrerUrl",
+        "Name": "ReferrerURL",
+        "Description": "ReferrerURL"
+      }
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "ReferrerURL",
+    "Description": "ReferrerURL"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a4149666-719a-47c6-b6d9-c02d42ba7cc6"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8219,6 +8312,23 @@
     "parameterName": "utm_source"
   }
 }, Variable: "UrlParameterVariable"},
+          {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Referrer URL",
+  "Variable": "ReferrerUrlVariable",
+  "name": "ReferrerUrl",
+  "type": "ReferrerUrl",
+  "Name": "ReferrerURL",
+  "Description": "ReferrerURL",
+  "id": "045debd9-2a94-4351-a5c8-3cf96e913e54",
+  "parameters": {
+    "selectedVariable": "Referrer URL",
+    "Variable": "ReferrerUrlVariable",
+    "name": "ReferrerUrl",
+    "type": "ReferrerUrl",
+    "Name": "ReferrerURL",
+    "Description": "ReferrerURL"
+  }
+}, Variable: "ReferrerUrlVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
