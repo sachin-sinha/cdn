@@ -4108,7 +4108,7 @@
               "&_idn=" +
               dK.newVisitor +
               (dH ? "&cs=" + t(dH) : "") +
-              "&send_image=0"
+              "&send_image=0";
             var dM = ds();
             for (dO in dM) {
               if (Object.prototype.hasOwnProperty.call(dM, dO)) {
@@ -4505,7 +4505,7 @@
             return aU(dD, dE.name, dE.piece, dE.target);
           }
           function c5(dD, dF, dC, dE) {
-            return "e_c=" + t(dD) + "&e_a=" + t(dF) + (M(dC) ? "&e_n=" + t(dC) : "") + (M(dE) ? "&e_v=" + t(dE) : "") + "&ca=1" + "&user_agent" + navigator.userAgent;
+            return "e_c=" + t(dD) + "&e_a=" + t(dF) + (M(dC) ? "&e_n=" + t(dC) : "") + (M(dE) ? "&e_v=" + t(dE) : "") + "&ca=1";
           }
           function ax(dE, dG, dC, dF, dI, dH) {
             if (!ac(dE) || !ac(dG)) {
@@ -6968,7 +6968,7 @@
           tags: [
             
         {
-  "id": "3c3f8373-0536-4fe9-b26e-9cdf56c21a2d",
+  "id": "0a0ddedf-6c51-4fdf-9f5a-125335f78886",
   "type": "Matomo",
   "name": "name",
   "parameters": {
@@ -7013,34 +7013,18 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "multiplecat",
-    "eventAction": "multipleact",
-    "eventName": "multiplename",
+    "eventCategory": "cat",
+    "eventAction": "act",
+    "eventName": "name",
     "eventValue": {
       "joinedVariable": [
         {
-          "name": "ScreenHeight",
-          "type": "ScreenHeight",
+          "name": "ClickClasses",
+          "type": "ClickClasses",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
-          "Variable": "ScreenHeightVariable"
-        },
-        {
-          "name": "BrowserLanguage",
-          "type": "BrowserLanguage",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "BrowserLanguageVariable"
-        },
-        {
-          "name": "ScreenWidth",
-          "type": "ScreenWidth",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ScreenWidthVariable"
+          "Variable": "ClickClassesVariable"
         }
       ]
     },
