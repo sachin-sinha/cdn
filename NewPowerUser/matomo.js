@@ -3998,23 +3998,17 @@ if (typeof window.Matomo !== 'object') {
           attributionCookie = loadReferrerAttributionCookie(),
           currentUrl = configCustomUrl || locationHrefAlias,
           campaignNameDetected,
-          campaignKeywordDetected;
+          campaignKeywordDetected,
+          lat, 
+          long;
 
-        function gL() {
-          if (navigator.geolocation) {
-            var loc = navigator.geolocation.getCurrentPosition(sP);
-            return loc
-          }
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+          });
         }
-
-        function sP(position) {
-          var lat = position.coords.latitude;
-          var long = position.coords.longitude;
-          return {lat, long}
-        }
-       
-        var location = gL();
-
+          
         if (configCookiesDisabled) {
           deleteCookies();
         }
@@ -4126,7 +4120,7 @@ if (typeof window.Matomo !== 'object') {
             );
           }
         }
-
+        console.log({lat, long})
         // build out the rest of the request
         request +=
           '&idsite=' +
@@ -4169,9 +4163,9 @@ if (typeof window.Matomo !== 'object') {
           '&user_agent=' + 
           navigator.userAgent +
           '&lat=' + 
-          location.lat +
+          lat +
           '&long=' +
-          location.long
+          long
           ;
 
         var browserFeatures = detectBrowserFeatures();
