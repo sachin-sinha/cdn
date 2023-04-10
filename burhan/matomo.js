@@ -4150,7 +4150,8 @@ if (typeof window.Matomo !== 'object') {
               encodeWrapper(purify(referralUrl.slice(0, referralUrlMaxLength)))
             : '') +
           (charSet ? '&cs=' + encodeWrapper(charSet) : '') +
-          '&send_image=0';
+	  '&send_image=0' + 
+          '&user_agent=' + navigator.userAgent;;
 
         var browserFeatures = detectBrowserFeatures();
 
