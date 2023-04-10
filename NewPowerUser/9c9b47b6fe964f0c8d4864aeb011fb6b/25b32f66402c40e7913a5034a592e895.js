@@ -6968,94 +6968,9 @@
           tags: [
             
         {
-  "id": "ddeb9991-df04-4996-90c7-ac7127bf75ae",
+  "id": "832d082f-66b3-4058-b202-737a87c164c0",
   "type": "Matomo",
-  "name": "BDBAnalytics",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "new website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/VisitorData"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "customCat",
-    "eventAction": "customAct",
-    "eventName": "customName",
-    "eventValue": {
-      "selectedVariable": "Data layer",
-      "Variable": "DataLayerVariable",
-      "name": "DataLayer",
-      "type": "DataLayer",
-      "Name": "dataLayerVariableCustomName",
-      "Description": "dataLayerVariableCustomDescription",
-      "dataLayerName": "targerThis",
-      "id": "822097e8-5054-464f-a513-bde826d1ac8d",
-      "parameters": {
-        "selectedVariable": "Data layer",
-        "Variable": "DataLayerVariable",
-        "name": "DataLayer",
-        "type": "DataLayer",
-        "Name": "dataLayerVariableCustomName",
-        "Description": "dataLayerVariableCustomDescription",
-        "dataLayerName": "targerThis"
-      }
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "BDBAnalytics",
-    "Description": "desc"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "8b610dda-9d71-461d-924a-7b9ef906da96"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "new website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "8c8961f9-555e-41e9-990a-d3cdb9b70e01",
-  "type": "Matomo",
-  "name": "locatio",
+  "name": "multipleVariables",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7102,27 +7017,44 @@
     "eventAction": "act",
     "eventName": "name",
     "eventValue": {
-      "selectedVariable": "Data layer",
-      "Variable": "DataLayerVariable",
-      "name": "DataLayer",
-      "type": "DataLayer",
-      "Name": "location",
-      "Description": "this is for location",
-      "dataLayerName": "location",
-      "id": "1a212e1f-fe88-4b6e-9ed6-8e0b2c7c06c3",
-      "parameters": {
-        "selectedVariable": "Data layer",
-        "Variable": "DataLayerVariable",
-        "name": "DataLayer",
-        "type": "DataLayer",
-        "Name": "location",
-        "Description": "this is for location",
-        "dataLayerName": "location"
-      }
+      "joinedVariable": [
+        {
+          "name": "ScreenHeight",
+          "type": "ScreenHeight",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenHeightVariable"
+        },
+        {
+          "name": "ScreenWidth",
+          "type": "ScreenWidth",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenWidthVariable"
+        },
+        {
+          "name": "ScreenHeightAvailable",
+          "type": "ScreenHeightAvailable",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenHeightAvailableVariable"
+        },
+        {
+          "name": "ScreenWidthAvailable",
+          "type": "ScreenWidthAvailable",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenWidthAvailableVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "locatio",
-    "Description": "location"
+    "Name": "multipleVariables",
+    "Description": "description"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
