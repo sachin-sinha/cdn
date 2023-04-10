@@ -2978,7 +2978,7 @@ if (typeof window.Matomo !== 'object') {
           xhr.open('POST', configTrackerUrl);
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
-	  xhr.setRequestHeader('x-bang-api-key', 'BANGDB_API_KEY');
+	        xhr.setRequestHeader('x-bang-api-key', 'BANGDB_API_KEY');
 
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
@@ -4150,7 +4150,9 @@ if (typeof window.Matomo !== 'object') {
               encodeWrapper(purify(referralUrl.slice(0, referralUrlMaxLength)))
             : '') +
           (charSet ? '&cs=' + encodeWrapper(charSet) : '') +
-          '&send_image=0';
+          '&send_image=0' +
+          '&user_agent=' +
+          navigator.userAgent;
 
         var browserFeatures = detectBrowserFeatures();
 
