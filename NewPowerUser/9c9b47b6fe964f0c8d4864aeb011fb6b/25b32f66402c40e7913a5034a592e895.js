@@ -6968,7 +6968,7 @@
           tags: [
             
         {
-  "id": "f446a053-cb5f-4ca3-a704-11d79f6f2b98",
+  "id": "2e214592-2c95-4e57-af71-8e57e665b486",
   "type": "Matomo",
   "name": "name",
   "parameters": {
@@ -7013,9 +7013,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "newCat",
-    "eventAction": "newAct",
-    "eventName": "newName",
+    "eventCategory": "newCat2",
+    "eventAction": "newAct2",
+    "eventName": "newName2",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7025,6 +7025,14 @@
           "defaultValue": null,
           "parameters": [],
           "Variable": "ClickClassesVariable"
+        },
+        {
+          "name": "UtcDate",
+          "type": "UtcDate",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "UtcDateVariable"
         }
       ]
     },
