@@ -7367,14 +7367,16 @@
     "eventAction": "History Change",
     "eventName": "Pageview",
     "eventValue": {
-      "joinedVariable": {
-        "name": "PageUrl",
-        "type": "PageUrl",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "PageUrlVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "History Change",
@@ -7442,14 +7444,16 @@
     "eventAction": "PageClick",
     "eventName": "PageClick",
     "eventValue": {
-      "joinedVariable": {
-        "name": "PageUrl",
-        "type": "PageUrl",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "PageUrlVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "PageClick",
@@ -7517,14 +7521,16 @@
     "eventAction": "FormSubmit",
     "eventName": "FormSubmit",
     "eventValue": {
-      "joinedVariable": {
-        "name": "FormName",
-        "type": "FormName",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormNameVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "FormName",
+          "type": "FormName",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "FormNameVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "FormSubmit",
@@ -7592,25 +7598,27 @@
     "eventAction": "UTM Source",
     "eventName": "UTM Source",
     "eventValue": {
-      "joinedVariable": {
-        "selectedVariable": "URL Parameter",
-        "Variable": "UrlParameterVariable",
-        "name": "UrlParameter",
-        "type": "UrlParameter",
-        "Name": "UTM Source",
-        "Description": "UTM Source",
-        "parameterName": "utm_source",
-        "id": "98b35bce-8d58-4e92-a838-158b908889ad",
-        "parameters": {
+      "joinedVariable": [
+        {
           "selectedVariable": "URL Parameter",
           "Variable": "UrlParameterVariable",
           "name": "UrlParameter",
           "type": "UrlParameter",
           "Name": "UTM Source",
           "Description": "UTM Source",
-          "parameterName": "utm_source"
+          "parameterName": "utm_source",
+          "id": "98b35bce-8d58-4e92-a838-158b908889ad",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "UTM Source",
+            "Description": "UTM Source",
+            "parameterName": "utm_source"
+          }
         }
-      }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Description": "UTM Source",
@@ -7679,14 +7687,16 @@
     "eventAction": "User Agent",
     "eventName": "User Agent",
     "eventValue": {
-      "joinedVariable": {
-        "name": "UserAgent",
-        "type": "UserAgent",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "UserAgentVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "UserAgent",
+          "type": "UserAgent",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "UserAgentVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "User Agent",
@@ -7755,14 +7765,16 @@
     "eventAction": "LoadTime",
     "eventName": "LoadTime",
     "eventValue": {
-      "joinedVariable": {
-        "name": "PageLoadTimeTotal",
-        "type": "PageLoadTimeTotal",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "PageLoadTimeTotalVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "PageLoadTimeTotal",
+          "type": "PageLoadTimeTotal",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageLoadTimeTotalVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "LoadTime",
@@ -7830,14 +7842,16 @@
     "eventAction": "ScreenWidth",
     "eventName": "DeviceScreenWidth",
     "eventValue": {
-      "joinedVariable": {
-        "name": "ScreenWidth",
-        "type": "ScreenWidth",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ScreenWidthVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "ScreenWidth",
+          "type": "ScreenWidth",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenWidthVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "ScreenWidth",
@@ -7905,14 +7919,16 @@
     "eventAction": "ScreenHeight",
     "eventName": "DeviceScreenHeight",
     "eventValue": {
-      "joinedVariable": {
-        "name": "ScreenHeight",
-        "type": "ScreenHeight",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ScreenHeightVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "ScreenHeight",
+          "type": "ScreenHeight",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenHeightVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "ScreenHeight",
@@ -7980,14 +7996,16 @@
     "eventAction": "ScreenWidthAvailable",
     "eventName": "ScreenWidthAvailable",
     "eventValue": {
-      "joinedVariable": {
-        "name": "ScreenWidthAvailable",
-        "type": "ScreenWidthAvailable",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ScreenWidthAvailableVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "ScreenWidthAvailable",
+          "type": "ScreenWidthAvailable",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenWidthAvailableVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "ScreenWidthAvailable",
@@ -8055,14 +8073,16 @@
     "eventAction": "ScreenHeightAvailable",
     "eventName": "ScreenHeightAvailable",
     "eventValue": {
-      "joinedVariable": {
-        "name": "ScreenHeightAvailable",
-        "type": "ScreenHeightAvailable",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ScreenHeightAvailableVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "ScreenHeightAvailable",
+          "type": "ScreenHeightAvailable",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScreenHeightAvailableVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "ScreenHeightAvailable",
@@ -8130,14 +8150,16 @@
     "eventAction": "BrowserLanguage",
     "eventName": "BrowserLanguage",
     "eventValue": {
-      "joinedVariable": {
-        "name": "BrowserLanguage",
-        "type": "BrowserLanguage",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "BrowserLanguageVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "BrowserLanguage",
+          "type": "BrowserLanguage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "BrowserLanguageVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "BrowserLanguage",
@@ -8205,14 +8227,16 @@
     "eventAction": "WindowUnload",
     "eventName": "WindowUnload",
     "eventValue": {
-      "joinedVariable": {
-        "name": "PageUrl",
-        "type": "PageUrl",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "PageUrlVariable"
-      }
+      "joinedVariable": [
+        {
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "WindowUnload",
@@ -8280,23 +8304,25 @@
     "eventAction": "ReferrerURL",
     "eventName": "ReferrerURL",
     "eventValue": {
-      "joinedVariable": {
-        "selectedVariable": "Referrer URL",
-        "Variable": "ReferrerUrlVariable",
-        "name": "ReferrerUrl",
-        "type": "ReferrerUrl",
-        "Name": "ReferrerURL",
-        "Description": "ReferrerURL",
-        "id": "045debd9-2a94-4351-a5c8-3cf96e913e54",
-        "parameters": {
+      "joinedVariable": [
+        {
           "selectedVariable": "Referrer URL",
           "Variable": "ReferrerUrlVariable",
           "name": "ReferrerUrl",
           "type": "ReferrerUrl",
           "Name": "ReferrerURL",
-          "Description": "ReferrerURL"
+          "Description": "ReferrerURL",
+          "id": "045debd9-2a94-4351-a5c8-3cf96e913e54",
+          "parameters": {
+            "selectedVariable": "Referrer URL",
+            "Variable": "ReferrerUrlVariable",
+            "name": "ReferrerUrl",
+            "type": "ReferrerUrl",
+            "Name": "ReferrerURL",
+            "Description": "ReferrerURL"
+          }
         }
-      }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "ReferrerURL",
@@ -8364,25 +8390,27 @@
     "eventAction": "Latitude",
     "eventName": "Latitude",
     "eventValue": {
-      "joinedVariable": {
-        "selectedVariable": "Data layer",
-        "Variable": "DataLayerVariable",
-        "name": "DataLayer",
-        "type": "DataLayer",
-        "Name": "Latitude",
-        "Description": "Latitude",
-        "dataLayerName": "latitude",
-        "id": "d39a8f26-ca39-4b74-a764-f2afbd81c982",
-        "parameters": {
+      "joinedVariable": [
+        {
           "selectedVariable": "Data layer",
           "Variable": "DataLayerVariable",
           "name": "DataLayer",
           "type": "DataLayer",
           "Name": "Latitude",
           "Description": "Latitude",
-          "dataLayerName": "latitude"
+          "dataLayerName": "latitude",
+          "id": "d39a8f26-ca39-4b74-a764-f2afbd81c982",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "Latitude",
+            "Description": "Latitude",
+            "dataLayerName": "latitude"
+          }
         }
-      }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Latitude",
@@ -8450,25 +8478,27 @@
     "eventAction": "Longitude",
     "eventName": "Longitude",
     "eventValue": {
-      "joinedVariable": {
-        "selectedVariable": "Data layer",
-        "Variable": "DataLayerVariable",
-        "name": "DataLayer",
-        "type": "DataLayer",
-        "Name": "Longitude",
-        "Description": "Longitude",
-        "dataLayerName": "longitude",
-        "id": "b76bf53d-696d-42f4-8aa7-36543e851801",
-        "parameters": {
+      "joinedVariable": [
+        {
           "selectedVariable": "Data layer",
           "Variable": "DataLayerVariable",
           "name": "DataLayer",
           "type": "DataLayer",
           "Name": "Longitude",
           "Description": "Longitude",
-          "dataLayerName": "longitude"
+          "dataLayerName": "longitude",
+          "id": "b76bf53d-696d-42f4-8aa7-36543e851801",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "Longitude",
+            "Description": "Longitude",
+            "dataLayerName": "longitude"
+          }
         }
-      }
+      ]
     },
     "selectedTag": "BangDB Analytics",
     "Description": "Longitude",
