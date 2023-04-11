@@ -6474,7 +6474,14 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();
+})();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6927,9 +6934,9 @@
           tags: [
             
         {
-  "id": "ca263003-0fd4-47a8-bb68-04f487f57992",
+  "id": "0b261964-2f86-4a6c-b5f4-00a94dd9350b",
   "type": "Matomo",
-  "name": "name",
+  "name": "BDBAnalytics",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -6978,18 +6985,28 @@
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Regerrer URL",
-          "name": "Referrer",
-          "type": "Referrer",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ReferrerVariable"
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "customParam",
+          "Description": "customParam",
+          "parameterName": "q",
+          "id": "e907298e-50e9-46ed-a1d1-556391dd3d70",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "customParam",
+            "Description": "customParam",
+            "parameterName": "q"
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "name",
+    "Name": "BDBAnalytics",
     "Description": "description"
   },
   "blockTriggerIds": [],
@@ -7022,6 +7039,25 @@
           ],
           variables: [
             
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "customParam",
+  "Description": "customParam",
+  "parameterName": "q",
+  "id": "e907298e-50e9-46ed-a1d1-556391dd3d70",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "customParam",
+    "Description": "customParam",
+    "parameterName": "q"
+  }
+}, Variable: "UrlParameterVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
