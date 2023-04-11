@@ -6938,7 +6938,7 @@
           tags: [
             
         {
-  "id": "e7a2a1c4-a8e6-43fa-a625-fcdf1a655703",
+  "id": "8eb2c07e-1ce8-4756-930e-34c570d4d879",
   "type": "Matomo",
   "name": "BDBAnalytics",
   "parameters": {
@@ -6983,9 +6983,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "searchQueryTerm",
-    "eventAction": "searchQueryTerm",
-    "eventName": "searchQueryTerm",
+    "eventCategory": "customSearchTerm",
+    "eventAction": "customSearchTerm",
+    "eventName": "customSearchTerm",
     "eventValue": {
       "joinedVariable": [
         {
@@ -6993,18 +6993,16 @@
           "Variable": "ReferrerUrlVariable",
           "name": "ReferrerUrl",
           "type": "ReferrerUrl",
-          "urlPart": "search",
-          "Description": "searchQuery",
-          "Name": "searchQuery",
-          "id": "623ae7af-ccf3-4acb-b41b-ff7f7e12ca5b",
+          "Description": "description",
+          "Name": "CustomURLreferrer",
+          "id": "52bc9bb4-5ebc-4482-b51c-48cc3f0e24d9",
           "parameters": {
             "selectedVariable": "Referrer URL",
             "Variable": "ReferrerUrlVariable",
             "name": "ReferrerUrl",
             "type": "ReferrerUrl",
-            "urlPart": "search",
-            "Description": "searchQuery",
-            "Name": "searchQuery"
+            "Description": "description",
+            "Name": "CustomURLreferrer"
           }
         }
       ]
@@ -7048,18 +7046,16 @@
   "Variable": "ReferrerUrlVariable",
   "name": "ReferrerUrl",
   "type": "ReferrerUrl",
-  "urlPart": "search",
-  "Description": "searchQuery",
-  "Name": "searchQuery",
-  "id": "623ae7af-ccf3-4acb-b41b-ff7f7e12ca5b",
+  "Description": "description",
+  "Name": "CustomURLreferrer",
+  "id": "52bc9bb4-5ebc-4482-b51c-48cc3f0e24d9",
   "parameters": {
     "selectedVariable": "Referrer URL",
     "Variable": "ReferrerUrlVariable",
     "name": "ReferrerUrl",
     "type": "ReferrerUrl",
-    "urlPart": "search",
-    "Description": "searchQuery",
-    "Name": "searchQuery"
+    "Description": "description",
+    "Name": "CustomURLreferrer"
   }
 }, Variable: "ReferrerUrlVariable"},
             {
