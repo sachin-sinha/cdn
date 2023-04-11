@@ -6501,6 +6501,35 @@
     }
   };
 })();
+  Templates["TimeSinceLoadVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var unit = parameters.get("unit", "ms");
+        var now = new Date().getTime();
+        var loadTime = TagManager.dataLayer.get("mtm.mtmScriptLoadedTime");
+        if (!loadTime) {
+          loadTime = TagManager.dataLayer.get("mtm.startTime");
+        }
+        if (!loadTime) {
+          var win = parameters.window;
+          if (TagManager.utils.isObject(win.performance) && win.performance.timing && win.performance.timing) {
+            loadTime = win.performance.timing.loadEventStart;
+          }
+        }
+        if (!loadTime) {
+          return;
+        }
+        if (unit === "s") {
+          now = now / 1000;
+          loadTime = loadTime / 1000;
+        } else if (unit === "m") {
+          now = now / 1000 / 60;
+          loadTime = loadTime / 1000 / 60;
+        }
+        return parseInt(Math.round(now - loadTime), 10);
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6953,9 +6982,9 @@
           tags: [
             
         {
-  "id": "d0a6ae56-bca6-4d1d-9d87-4f374f3f2503",
+  "id": "8ea22f32-ebb4-4cbb-88b5-1ae6e3dfc7f0",
   "type": "Matomo",
-  "name": "name",
+  "name": "Name",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7004,25 +7033,37 @@
     "eventValue": {
       "joinedVariable": [
         {
-          "name": "ClickButton",
-          "type": "ClickButton",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickButtonVariable"
+          "selectedVariable": "Time since page load",
+          "Variable": "TimeSinceLoadVariable",
+          "name": "TimeSinceLoad",
+          "type": "TimeSinceLoad",
+          "Name": "Custom Variable",
+          "Description": "desc",
+          "unit": "s",
+          "id": "b4026836-7181-45d0-adba-3f51fcbbc703",
+          "parameters": {
+            "selectedVariable": "Time since page load",
+            "Variable": "TimeSinceLoadVariable",
+            "name": "TimeSinceLoad",
+            "type": "TimeSinceLoad",
+            "Name": "Custom Variable",
+            "Description": "desc",
+            "unit": "s"
+          }
         },
         {
-          "name": "ClickDestinationUrl",
-          "type": "ClickDestinationUrl",
+          "Name": "Click Classes",
+          "name": "ClickClasses",
+          "type": "ClickClasses",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
-          "Variable": "ClickDestinationUrlVariable"
+          "Variable": "ClickClassesVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "name",
+    "Name": "Name",
     "Description": "desc"
   },
   "blockTriggerIds": [],
@@ -7055,6 +7096,25 @@
           ],
           variables: [
             
+          {name: "TimeSinceLoad", type: "TimeSinceLoad", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Time since page load",
+  "Variable": "TimeSinceLoadVariable",
+  "name": "TimeSinceLoad",
+  "type": "TimeSinceLoad",
+  "Name": "Custom Variable",
+  "Description": "desc",
+  "unit": "s",
+  "id": "b4026836-7181-45d0-adba-3f51fcbbc703",
+  "parameters": {
+    "selectedVariable": "Time since page load",
+    "Variable": "TimeSinceLoadVariable",
+    "name": "TimeSinceLoad",
+    "type": "TimeSinceLoad",
+    "Name": "Custom Variable",
+    "Description": "desc",
+    "unit": "s"
+  }
+}, Variable: "TimeSinceLoadVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
@@ -7087,7 +7147,7 @@
                 bundleTracker: true,
                 registerAsDefaultTracker: true,
                 jsEndpoint: "matomo.js",
-                trackingEndpoint: "stream/ShopIQ/VisitorData",
+                trackingEndpoint: "stream/ShopIQ/Data",
               },
               Variable: "MatomoConfigurationVariable",
             },
