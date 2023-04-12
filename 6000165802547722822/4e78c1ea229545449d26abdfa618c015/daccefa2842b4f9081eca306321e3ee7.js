@@ -6496,6 +6496,17 @@
         return TagManager.url.parseUrl(urlReferrer, urlPart);
       };
     };
+  })();Templates["ReferrerUrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var urlPart = parameters.get("urlPart", "href");
+        var urlReferrer = parameters.get("document.referrer");
+        if (!urlReferrer || !urlPart) {
+          return;
+        }
+        return TagManager.url.parseUrl(urlReferrer, urlPart);
+      };
+    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -7035,6 +7046,95 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "514527dc-2022-4522-b40b-11c5ed0851f5",
+  "type": "Matomo",
+  "name": "qRef",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "bangDB",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "qRef",
+    "eventAction": "qRef",
+    "eventName": "qRef",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Referrer URL",
+          "Variable": "ReferrerUrlVariable",
+          "name": "ReferrerUrl",
+          "type": "ReferrerUrl",
+          "Name": "qRef",
+          "Description": "qRef",
+          "urlPart": "search",
+          "id": "e7e91566-6167-4858-859a-58e09e2d5a00",
+          "parameters": {
+            "selectedVariable": "Referrer URL",
+            "Variable": "ReferrerUrlVariable",
+            "name": "ReferrerUrl",
+            "type": "ReferrerUrl",
+            "Name": "qRef",
+            "Description": "qRef",
+            "urlPart": "search"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "qRef",
+    "Description": "qRef"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "92b7198f-bedc-4520-b1dc-e14c27ad640f"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "bangDB",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7085,6 +7185,25 @@
     "type": "ReferrerUrl",
     "Name": "newReferrerURL",
     "Description": "description",
+    "urlPart": "search"
+  }
+}, Variable: "ReferrerUrlVariable"},
+          {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Referrer URL",
+  "Variable": "ReferrerUrlVariable",
+  "name": "ReferrerUrl",
+  "type": "ReferrerUrl",
+  "Name": "qRef",
+  "Description": "qRef",
+  "urlPart": "search",
+  "id": "e7e91566-6167-4858-859a-58e09e2d5a00",
+  "parameters": {
+    "selectedVariable": "Referrer URL",
+    "Variable": "ReferrerUrlVariable",
+    "name": "ReferrerUrl",
+    "type": "ReferrerUrl",
+    "Name": "qRef",
+    "Description": "qRef",
     "urlPart": "search"
   }
 }, Variable: "ReferrerUrlVariable"},
