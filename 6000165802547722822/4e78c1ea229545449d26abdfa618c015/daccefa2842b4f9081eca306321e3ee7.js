@@ -6485,6 +6485,17 @@
         return TagManager.url.parseUrl(urlReferrer, urlPart);
       };
     };
+  })();Templates["ReferrerUrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var urlPart = parameters.get("urlPart", "href");
+        var urlReferrer = parameters.get("document.referrer");
+        if (!urlReferrer || !urlPart) {
+          return;
+        }
+        return TagManager.url.parseUrl(urlReferrer, urlPart);
+      };
+    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -6938,9 +6949,9 @@
           tags: [
             
         {
-  "id": "8eb2c07e-1ce8-4756-930e-34c570d4d879",
+  "id": "cc68a5ee-b2bd-471f-bb29-311ccb7ca177",
   "type": "Matomo",
-  "name": "BDBAnalytics",
+  "name": "NewName",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -6983,9 +6994,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "customSearchTerm",
-    "eventAction": "customSearchTerm",
-    "eventName": "customSearchTerm",
+    "eventCategory": "checkToday",
+    "eventAction": "checkToday",
+    "eventName": "checkToday",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7008,8 +7019,8 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "BDBAnalytics",
-    "Description": "description"
+    "Name": "NewName",
+    "Description": "desc"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7056,6 +7067,25 @@
     "type": "ReferrerUrl",
     "Description": "description",
     "Name": "CustomURLreferrer"
+  }
+}, Variable: "ReferrerUrlVariable"},
+          {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Referrer URL",
+  "Variable": "ReferrerUrlVariable",
+  "name": "ReferrerUrl",
+  "type": "ReferrerUrl",
+  "Name": "newReferrerURL",
+  "Description": "description",
+  "urlPart": "search",
+  "id": "14c48066-a875-4d25-9d03-bff8c11c6735",
+  "parameters": {
+    "selectedVariable": "Referrer URL",
+    "Variable": "ReferrerUrlVariable",
+    "name": "ReferrerUrl",
+    "type": "ReferrerUrl",
+    "Name": "newReferrerURL",
+    "Description": "description",
+    "urlPart": "search"
   }
 }, Variable: "ReferrerUrlVariable"},
             {
