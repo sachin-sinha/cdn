@@ -6468,183 +6468,63 @@
         };
       })();
       //change location
-      Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
+      Templates["AllDownloadsClickTrigger"] = (function () {
+    return function (parameters, TagManager) {
+      this.setUp = function (triggerEvent) {
+        TagManager.dom.onReady(function () {
+          var extensions = parameters.get("downloadExtensions");
+          if (!extensions) {
+            return;
+          }
+          function isClickNode(nodeName) {
+            return nodeName === "A" || nodeName === "AREA";
+          }
+          TagManager.dom.onClick(function (event, clickButton) {
+            clickCallback(event, triggerEvent, clickButton);
+          });
+          function clickCallback(event, triggerEvent, clickButton) {
             if (!event.target) {
               return;
             }
             var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
+            if (target.shadowRoot) {
+              var composedPath = event.composedPath();
+              if (composedPath.length) {
+                target = composedPath[0];
               }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
             }
-          },
-          true
-        );
-      });
-    };
-  };
-})();Templates["WindowUnloadTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      var triggered = false;
-      TagManager.dom.addEventListener(parameters.window, "beforeunload", function () {
-        if (triggered) {
-          return;
-        }
-        triggered = true;
-        triggerEvent({ event: "WindowUnload" });
-      });
-    };
-  };
-})();Templates["HistoryChangeTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    function getCurrentUrl() {
-      return parameters.window.location.href;
-    }
-    function getEventUrl(event) {
-      if (event && event.target && event.target.location && event.target.location.href) {
-        return event.target.location.href;
-      }
-      return getCurrentUrl();
-    }
-    this.setUp = function (triggerEvent) {
-      var initialUrl = getCurrentUrl();
-      var url = TagManager.url;
-      var origin = url.parseUrl(initialUrl, "origin");
-      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
-      function trigger(eventType, newUrl, newState) {
-        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
-        var shouldForceEvent =
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
-        shouldForceEvent = !shouldForceEvent;
-        var oldUrl = lastEvent.path;
-        if (lastEvent.search) {
-          oldUrl += "?" + lastEvent.search;
-        }
-        if (lastEvent.hash) {
-          oldUrl += "#" + lastEvent.hash;
-        }
-        var nowUrl = newEvent.path;
-        if (newEvent.search) {
-          nowUrl += "?" + newEvent.search;
-        }
-        if (newEvent.hash) {
-          nowUrl += "#" + newEvent.hash;
-        }
-        if (shouldForceEvent || oldUrl !== nowUrl) {
-          var tmpLast = lastEvent;
-          lastEvent = newEvent;
-          triggerEvent({
-            event: "mtm.HistoryChange",
-            "mtm.historyChangeSource": newEvent.eventType,
-            "mtm.oldUrl": origin + oldUrl,
-            "mtm.newUrl": origin + nowUrl,
-            "mtm.oldUrlHash": tmpLast.hash,
-            "mtm.newUrlHash": newEvent.hash,
-            "mtm.oldUrlPath": tmpLast.path,
-            "mtm.newUrlPath": newEvent.path,
-            "mtm.oldUrlSearch": tmpLast.search,
-            "mtm.newUrlSearch": newEvent.search,
-            "mtm.oldHistoryState": tmpLast.state,
-            "mtm.newHistoryState": newEvent.state,
-          });
-        }
-      }
-      function replaceHistoryMethod(methodNameToReplace) {
-        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
-          trigger(methodNameToReplace, getCurrentUrl(), state);
+            var nodeName = target.nodeName;
+            while (!isClickNode(nodeName) && target && target.parentNode) {
+              target = target.parentNode;
+              nodeName = target.nodeName;
+            }
+            extensions = String(extensions).split(",");
+            var i;
+            for (i = 0; i < extensions.length; i++) {
+              extensions[i] = TagManager.utils.trim(extensions[i]);
+            }
+            if (target && isClickNode(nodeName)) {
+              var link = TagManager.dom.getElementAttribute(target, "href");
+              var downloadExtensionsPattern = new RegExp("\\.(" + extensions.join("|") + ")([?&#]|$)", "i");
+              if (downloadExtensionsPattern.test(link)) {
+                triggerEvent({
+                  event: "mtm.DownloadClick",
+                  "mtm.clickElement": target,
+                  "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+                  "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+                  "mtm.clickText": TagManager.dom.getElementText(target),
+                  "mtm.clickNodeName": nodeName,
+                  "mtm.clickElementUrl": link,
+                  "mtm.clickButton": clickButton,
+                });
+              }
+            }
+          }
         });
-      }
-      replaceHistoryMethod("replaceState");
-      replaceHistoryMethod("pushState");
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "hashchange",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("hashchange", newUrl, null);
-        },
-        false
-      );
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "popstate",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("popstate", newUrl, event.state);
-        },
-        false
-      );
+      };
     };
-  };
-})();Templates["WindowLoadedTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onLoad(function () {
-        triggerEvent({ event: "WindowLoad" });
-      });
-    };
-  };
-})();Templates["DataLayerVariable"] = (function () {
+  })();
+Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -7251,70 +7131,16 @@
           triggers: [
             
           {
-  "id": "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
+  "id": "8d76b050-944c-47e9-9329-7980b62d4ad6",
+  "type": "AllDownloadsClick",
+  "name": "AllDownloadsClick",
+  "Trigger": "AllDownloadsClickTrigger",
+  "selectedTrigger": "All Downloads Click",
+  "parameters": {
+    "downloadExtensions": "7z,aac,apk,arc,arj,asf,asx,avi,azw3,bin,csv,deb,dmg,doc,docx,epub,exe,flv,gif,gz,gzip,hqx,ibooks,jar,jpg,jpeg,js,mobi,mp2,mp3,mp4,mpg,mpeg,mov,movie,msi,msp,odb,odf,odg,ods,odt,ogg,ogv,pdf,phps,png,ppt,pptx,qt,qtm,ra,ram,rar,rpm,sea,sit,tar,tbz,tbz2,bz,bz2,tgz,torrent,txt,wav,wma,wmv,wpd,xls,xlsx,xml,z,zip"
+  },
   "conditions": [],
-  "Name": "All Elements Click",
-  "Description": "All Elements Click"
-},
-          {
-  "id": "30d86632-1fbb-4651-aedc-bbe8b32907ff",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Description": "Pageview",
-  "Name": "Pageview"
-},
-          {
-  "id": "52d812e0-d074-4f6a-b72d-5cf956ae3e1a",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Form Submit",
-  "Description": "Form Submit"
-},
-          {
-  "id": "aa4e40a8-321a-44fd-b002-e3856667c185",
-  "type": "WindowUnload",
-  "name": "WindowUnload",
-  "Trigger": "WindowUnloadTrigger",
-  "selectedTrigger": "Window Unload",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Window Unload",
-  "Description": "Window Unload"
-},
-          {
-  "id": "a97d0c16-6921-42df-bb9c-f1655a2279a3",
-  "type": "HistoryChange",
-  "name": "HistoryChange",
-  "Trigger": "HistoryChangeTrigger",
-  "selectedTrigger": "History Change",
-  "parameters": {},
-  "conditions": [],
-  "Name": "History Change",
-  "Description": "History Change"
-},
-          {
-  "id": "cf9414c0-8222-4dfc-9e2a-1b4fbe222ffb",
-  "type": "WindowLoaded",
-  "name": "WindowLoaded",
-  "Trigger": "WindowLoadedTrigger",
-  "selectedTrigger": "Window Loaded",
-  "parameters": {},
-  "conditions": [],
-  "Name": "name",
-  "Description": "description"
+  "Name": "AED"
 },
           ],
           variables: [
