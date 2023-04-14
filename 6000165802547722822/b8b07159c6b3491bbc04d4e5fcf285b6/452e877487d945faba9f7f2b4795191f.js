@@ -6681,6 +6681,15 @@
     };
   })();
       
+      
+        Templates["CustomJsFunctionVariable15cf6d44"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function () {
+                    return matomoIp;
+                };
+            };
+        })();
+
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8048,6 +8057,87 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "c2a1085a-47d7-4e6c-a268-21a011b99f0c",
+  "type": "Matomo",
+  "name": "visitorsIP",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Wheat Goat",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "eventCAT",
+    "eventAction": "eventACT",
+    "eventName": "eventNAME",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "IPaddress",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "lookUpTable": [],
+          "defaultValue": "",
+          "parameters": {
+            "jsFunction": "function() { return matomoIp; }"
+          },
+          "Variable": "CustomJsFunctionVariable15cf6d44"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "visitorsIP",
+    "Description": "visitorIP"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Wheat Goat",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8246,6 +8336,9 @@
             { name: "ClickNodeName", type: "ClickNodeName", lookUpTable: [], defaultValue: null, parameters: [], Variable: "ClickNodeNameVariable" },
             { name: "ClickText", type: "ClickText", lookUpTable: [], defaultValue: null, parameters: [], Variable: "ClickTextVariable" },
             { name: "FormElement", type: "FormElement", lookUpTable: [], defaultValue: null, parameters: [], Variable: "FormElementVariable" },
+            { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {
+  return matomoIp;
+}" }, Variable: "CustomJsFunctionVariable15cf6d44" }
           ]
         },
         Templates
