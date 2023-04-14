@@ -6601,6 +6601,15 @@ Templates["AllElementsClickTrigger"] = (function () {
     };
   })();
       
+      
+        Templates["CustomJsFunctionVariable15cf6d44"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function () {
+                    return matomoIp;
+                };
+            };
+        })();
+
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7245,6 +7254,87 @@ Templates["AllElementsClickTrigger"] = (function () {
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "96f2ad33-f6cf-48b4-9a11-f241294d3350",
+  "type": "Matomo",
+  "name": "Visitors IP",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "testweb",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "eventCat",
+    "eventAction": "eventAct",
+    "eventName": "eventName",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "IPaddress",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "lookUpTable": [],
+          "defaultValue": "",
+          "parameters": {
+            "jsFunction": "function() {\n  return matomoIp;\n}"
+          },
+          "Variable": "CustomJsFunctionVariable15cf6d44"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Visitors IP",
+    "Description": "description "
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d5caed56-357b-4411-b07b-ec66a150dbb7"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "testweb",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7410,6 +7500,9 @@ Templates["AllElementsClickTrigger"] = (function () {
             { name: "ClickNodeName", type: "ClickNodeName", lookUpTable: [], defaultValue: null, parameters: [], Variable: "ClickNodeNameVariable" },
             { name: "ClickText", type: "ClickText", lookUpTable: [], defaultValue: null, parameters: [], Variable: "ClickTextVariable" },
             { name: "FormElement", type: "FormElement", lookUpTable: [], defaultValue: null, parameters: [], Variable: "FormElementVariable" },
+            { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {
+  return matomoIp;
+}" }, Variable: "CustomJsFunctionVariable15cf6d44" }
           ]
         },
         Templates
