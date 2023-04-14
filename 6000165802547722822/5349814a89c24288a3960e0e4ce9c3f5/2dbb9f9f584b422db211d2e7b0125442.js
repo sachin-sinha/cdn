@@ -4109,9 +4109,6 @@
               dK.newVisitor +
               (dH ? "&cs=" + t(dH) : "") +
               "&send_image=0";
-
-            dD = aE(dD)
-            console.log({dD})
             var dM = ds();
             for (dO in dM) {
               if (Object.prototype.hasOwnProperty.call(dM, dO)) {
@@ -7023,9 +7020,9 @@ Templates["DataLayerVariable"] = (function () {
           tags: [
             
         {
-  "id": "53bf8075-c2fa-48a6-912a-cc3e7dadc498",
+  "id": "246b51b4-04a2-453f-9ed2-640305eb798e",
   "type": "Matomo",
-  "name": "windowLoaded",
+  "name": "new analytics",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7068,30 +7065,11 @@ Templates["DataLayerVariable"] = (function () {
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "newCat",
-    "eventAction": "newAct",
-    "eventName": "newName",
+    "eventCategory": "cat13",
+    "eventAction": "act13",
+    "eventName": "name13",
     "eventValue": {
       "joinedVariable": [
-        {
-          "selectedVariable": "Data layer",
-          "Variable": "DataLayerVariable",
-          "name": "DataLayer",
-          "type": "DataLayer",
-          "Name": "Latitude",
-          "Description": "Latitude",
-          "dataLayerName": "latitude",
-          "id": "6d7c3d36-f120-490e-9e9c-5be01099a73d",
-          "parameters": {
-            "selectedVariable": "Data layer",
-            "Variable": "DataLayerVariable",
-            "name": "DataLayer",
-            "type": "DataLayer",
-            "Name": "Latitude",
-            "Description": "Latitude",
-            "dataLayerName": "latitude"
-          }
-        },
         {
           "selectedVariable": "Data layer",
           "Variable": "DataLayerVariable",
@@ -7110,16 +7088,35 @@ Templates["DataLayerVariable"] = (function () {
             "Description": "Longitude",
             "dataLayerName": "longitude"
           }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "Latitude",
+          "Description": "Latitude",
+          "dataLayerName": "latitude",
+          "id": "6d7c3d36-f120-490e-9e9c-5be01099a73d",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "Latitude",
+            "Description": "Latitude",
+            "dataLayerName": "latitude"
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "windowLoaded",
+    "Name": "new analytics",
     "Description": "description"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "cf9414c0-8222-4dfc-9e2a-1b4fbe222ffb"
+    "4cfae57e-d094-48be-8da8-0f0fe5dd0144"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
