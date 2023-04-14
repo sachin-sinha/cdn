@@ -2563,7 +2563,8 @@ if (typeof window.Matomo !== 'object') {
         uniqueTrackerId = trackerIdCounter++,
         // whether a tracking request has been sent yet during this page view
         hasSentTrackingRequestYet = false,
-        configBrowserFeatureDetection = true;
+        configBrowserFeatureDetection = true,
+        performanceVariables;
 
       // Document title
       try {
@@ -3972,7 +3973,7 @@ if (typeof window.Matomo !== 'object') {
               performanceData.loadEventEnd - performanceData.loadEventStart
             );
         }
-
+	performanceVariables = timings;
         return request + timings;
       }
 
@@ -4152,7 +4153,7 @@ if (typeof window.Matomo !== 'object') {
           (charSet ? '&cs=' + encodeWrapper(charSet) : '') +
           '&send_image=0' +
           '&user_agent=' +
-          navigator.userAgent;
+          navigator.userAgent + performanceVariables;
 
         var browserFeatures = detectBrowserFeatures();
 
