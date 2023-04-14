@@ -8277,9 +8277,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "a652341f-9b62-4adf-8d77-0312ddb3c196",
+  "id": "6c2095e1-9007-41af-9d74-ebce731b5abc",
   "type": "Matomo",
-  "name": "initial load",
+  "name": "CustomLatLongOnLoad",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8322,9 +8322,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "LatLongOnLoad",
-    "eventAction": "LatLongOnLoad",
-    "eventName": "LatLongOnLoad",
+    "eventCategory": "CustomLatLongOnLoad",
+    "eventAction": "CustomLatLongOnLoad",
+    "eventName": "CustomLatLongOnLoad",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8368,11 +8368,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "initial load"
+    "Name": "CustomLatLongOnLoad"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "ee6dce21-239e-417a-a3f3-d8ebaa54b19c"
+    "aa722d0b-41b0-4774-a0c9-eb6af3410362"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8478,7 +8478,7 @@
   "Description": "PageClick"
 },
           {
-  "id": "ee6dce21-239e-417a-a3f3-d8ebaa54b19c",
+  "id": "aa722d0b-41b0-4774-a0c9-eb6af3410362",
   "type": "PageView",
   "name": "PageView",
   "Trigger": "PageViewTrigger",
@@ -8495,11 +8495,11 @@
         "parameters": [],
         "Variable": "ReferrerVariable"
       },
-      "comparison": "contains",
+      "comparison": "not_contains",
       "expected": "https://swapengines.com/"
     }
   ],
-  "Name": "on initial load"
+  "Name": "custom on load"
 },
           ],
           variables: [
