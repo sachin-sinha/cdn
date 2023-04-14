@@ -7500,9 +7500,7 @@ Templates["AllElementsClickTrigger"] = (function () {
             { name: "ClickNodeName", type: "ClickNodeName", lookUpTable: [], defaultValue: null, parameters: [], Variable: "ClickNodeNameVariable" },
             { name: "ClickText", type: "ClickText", lookUpTable: [], defaultValue: null, parameters: [], Variable: "ClickTextVariable" },
             { name: "FormElement", type: "FormElement", lookUpTable: [], defaultValue: null, parameters: [], Variable: "FormElementVariable" },
-            { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {
-  return matomoIp;
-}" }, Variable: "CustomJsFunctionVariable15cf6d44" }
+            { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {  return matomoIp; }" }, Variable: "CustomJsFunctionVariable15cf6d44" }
           ]
         },
         Templates
