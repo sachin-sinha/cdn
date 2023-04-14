@@ -6524,13 +6524,7 @@
       };
     };
   })();
-Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["DataLayerVariable"] = (function () {
+Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -7026,9 +7020,9 @@ Templates["PageViewTrigger"] = (function () {
           tags: [
             
         {
-  "id": "6999cac8-e9c2-4af5-b3cb-69599f13fc41",
+  "id": "8f21c01d-9a0f-4e1f-b930-4d21b49e7df8",
   "type": "Matomo",
-  "name": "New tag",
+  "name": "new name",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7071,30 +7065,11 @@ Templates["PageViewTrigger"] = (function () {
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "cat16",
-    "eventAction": "act16",
-    "eventName": "name16",
+    "eventCategory": "cat",
+    "eventAction": "act",
+    "eventName": "name",
     "eventValue": {
       "joinedVariable": [
-        {
-          "selectedVariable": "Data layer",
-          "Variable": "DataLayerVariable",
-          "name": "DataLayer",
-          "type": "DataLayer",
-          "Name": "Latitude",
-          "Description": "Latitude",
-          "dataLayerName": "latitude",
-          "id": "6d7c3d36-f120-490e-9e9c-5be01099a73d",
-          "parameters": {
-            "selectedVariable": "Data layer",
-            "Variable": "DataLayerVariable",
-            "name": "DataLayer",
-            "type": "DataLayer",
-            "Name": "Latitude",
-            "Description": "Latitude",
-            "dataLayerName": "latitude"
-          }
-        },
         {
           "selectedVariable": "Data layer",
           "Variable": "DataLayerVariable",
@@ -7113,15 +7088,35 @@ Templates["PageViewTrigger"] = (function () {
             "Description": "Longitude",
             "dataLayerName": "longitude"
           }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "Latitude",
+          "Description": "Latitude",
+          "dataLayerName": "latitude",
+          "id": "6d7c3d36-f120-490e-9e9c-5be01099a73d",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "Latitude",
+            "Description": "Latitude",
+            "dataLayerName": "latitude"
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "New tag"
+    "Name": "new name",
+    "Description": "desc"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "d5626ee9-8b0d-46d6-9585-7b9294c1d4f0"
+    "8d76b050-944c-47e9-9329-7980b62d4ad6"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7146,29 +7141,6 @@ Templates["PageViewTrigger"] = (function () {
   },
   "conditions": [],
   "Name": "AED"
-},
-          {
-  "id": "d5626ee9-8b0d-46d6-9585-7b9294c1d4f0",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": [],
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Regerrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "http://localhost:5500"
-    }
-  ]
 },
           ],
           variables: [
