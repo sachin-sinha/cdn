@@ -4109,9 +4109,6 @@
               dK.newVisitor +
               (dH ? "&cs=" + t(dH) : "") +
               "&send_image=0";
-            
-              dD = aE(dD)
-              console.log(4114, dD)
             var dM = ds();
             for (dO in dM) {
               if (Object.prototype.hasOwnProperty.call(dM, dO)) {
@@ -6527,7 +6524,39 @@
       };
     };
   })();
-Templates["DataLayerVariable"] = (function () {
+Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
+})();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -7130,6 +7159,92 @@ Templates["DataLayerVariable"] = (function () {
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "10f7ff7e-e326-4f44-a39f-2f5d6f0e539e",
+  "type": "Matomo",
+  "name": "BangDB analytics",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "testweb",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "newCat",
+    "eventAction": "newAct",
+    "eventName": "newName",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Referrer URL",
+          "Variable": "ReferrerUrlVariable",
+          "name": "ReferrerUrl",
+          "type": "ReferrerUrl",
+          "Name": "Referrer URL",
+          "Description": "Referrer URL",
+          "id": "1f3c7c19-b51a-4fd2-84bc-1a023a09ddb6",
+          "parameters": {
+            "selectedVariable": "Referrer URL",
+            "Variable": "ReferrerUrlVariable",
+            "name": "ReferrerUrl",
+            "type": "ReferrerUrl",
+            "Name": "Referrer URL",
+            "Description": "Referrer URL"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "BangDB analytics"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d5caed56-357b-4411-b07b-ec66a150dbb7"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "testweb",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7144,6 +7259,16 @@ Templates["DataLayerVariable"] = (function () {
   },
   "conditions": [],
   "Name": "AED"
+},
+          {
+  "id": "d5caed56-357b-4411-b07b-ec66a150dbb7",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [],
+  "Name": "AEC"
 },
           ],
           variables: [
