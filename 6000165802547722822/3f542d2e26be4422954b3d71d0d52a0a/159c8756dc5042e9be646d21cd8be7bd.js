@@ -6636,6 +6636,38 @@
       );
     };
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6677,6 +6709,41 @@
       this.get = function () {
         var name = parameters.get("parameterName");
         return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();
+  Templates["DomElementVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var selectionMethod = parameters.get("selectionMethod");
+        if (!selectionMethod) {
+          return;
+        }
+        var attributeName = parameters.get("attributeName");
+        var dom = TagManager.dom;
+        var ele;
+        if (selectionMethod === "elementId") {
+          ele = dom.byId(parameters.get("elementId"));
+        } else if (selectionMethod === "cssSelector") {
+          ele = dom.bySelector(parameters.get("cssSelector"));
+          if (ele && ele[0]) {
+            ele = ele[0];
+          } else {
+            ele = null;
+          }
+        }
+        if (ele) {
+          if (attributeName) {
+            if (String(attributeName).toLowerCase() === "value" && ele.nodeName === "INPUT") {
+              var type = dom.getElementAttribute(ele, "type");
+              if (type && type.toLowerCase() === "password") {
+                return;
+              }
+            }
+            return dom.getElementAttribute(ele, attributeName);
+          }
+          return TagManager.dom.getElementText(ele);
+        }
       };
     };
   })();
@@ -8199,6 +8266,17 @@
   "Name": "History Change",
   "Description": "History Change"
 },
+          {
+  "id": "ef571f03-2070-4925-83a0-48ba39c1d1f1",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [],
+  "Name": "adfs",
+  "Description": "fdsa"
+},
           ],
           variables: [
             
@@ -8295,6 +8373,25 @@
     "parameterName": "utm_source"
   }
 }, Variable: "UrlParameterVariable"},
+          {name: "DomElement", type: "DomElement", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "DOM Element",
+  "Variable": "DomElementVariable",
+  "name": "DomElement",
+  "type": "DomElement",
+  "undefined": "dfsa",
+  "Name": "afsd",
+  "attributeName": "fads",
+  "id": "6a121f05-3937-4ab9-97ae-b5c0000a6936",
+  "parameters": {
+    "selectedVariable": "DOM Element",
+    "Variable": "DomElementVariable",
+    "name": "DomElement",
+    "type": "DomElement",
+    "undefined": "dfsa",
+    "Name": "afsd",
+    "attributeName": "fads"
+  }
+}, Variable: "DomElementVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
