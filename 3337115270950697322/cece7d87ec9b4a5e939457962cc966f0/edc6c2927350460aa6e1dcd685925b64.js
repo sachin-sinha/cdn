@@ -8270,6 +8270,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "452c4ba9-ab23-47db-9e57-3cf5938e8500",
+  "type": "Matomo",
+  "name": "BrowserLanguage",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "BrowserLanguage",
+    "eventAction": "BrowserLanguage",
+    "eventName": "BrowserLanguage",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Browser Language",
+          "name": "BrowserLanguage",
+          "type": "BrowserLanguage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "BrowserLanguageVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "BrowserLanguage",
+    "Description": "Returns the preferred language of the user, which is usually the language of browser UI."
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
