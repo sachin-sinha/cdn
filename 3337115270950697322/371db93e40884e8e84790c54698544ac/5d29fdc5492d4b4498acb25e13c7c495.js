@@ -6668,6 +6668,12 @@
       });
     }
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6699,12 +6705,6 @@
         "mtm.clickButton": clickButton,
       });
     }
-  };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8277,85 +8277,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "be9601be-39ae-46d4-b638-767f5aef211c",
-  "type": "Matomo",
-  "name": "CallButton",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "autoparts-locator",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Autoparts_locator/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "CallButton",
-    "eventAction": "CallButton",
-    "eventName": "CallButton",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Click Text",
-          "name": "ClickText",
-          "type": "ClickText",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickTextVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "CallButton",
-    "Description": "Sends data, when call button is clicked on the website."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "f8177fcc-eb9a-4109-88d7-c0cd7eb76f80"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "autoparts-locator",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "2d8999b7-d31d-4f18-b6f6-91e41231fc37",
   "type": "Matomo",
   "name": "PageViewURL",
@@ -8424,6 +8345,85 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "7f8a74d5-8807-44cf-bc9e-b0e949809eab"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-locator",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "65a6976d-4fd9-4a2e-b504-aac983c3d20e",
+  "type": "Matomo",
+  "name": "CallButton",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-locator",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_locator/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "CallButton",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Text",
+          "name": "ClickText",
+          "type": "ClickText",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickTextVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "CallButton",
+    "Description": "Sends data, when call button is clicked on the website."
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "86ff3c64-4704-489f-ac19-04c47f55dafd"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8518,7 +8518,18 @@
   "Name": "PageClick"
 },
           {
-  "id": "f8177fcc-eb9a-4109-88d7-c0cd7eb76f80",
+  "id": "7f8a74d5-8807-44cf-bc9e-b0e949809eab",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Pageview (All)",
+  "Description": "Pageview (All)"
+},
+          {
+  "id": "86ff3c64-4704-489f-ac19-04c47f55dafd",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -8536,22 +8547,11 @@
         "Variable": "ClickClassesVariable"
       },
       "comparison": "regexp",
-      "expected": "^(fa-phone|contact_button_form)$"
+      "expected": "^(contact_button_footer|fa-phone)$"
     }
   ],
   "Name": "CallButton",
   "Description": "CallButton"
-},
-          {
-  "id": "7f8a74d5-8807-44cf-bc9e-b0e949809eab",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Pageview (All)",
-  "Description": "Pageview (All)"
 },
           ],
           variables: [
