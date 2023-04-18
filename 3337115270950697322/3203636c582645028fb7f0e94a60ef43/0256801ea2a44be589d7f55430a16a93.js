@@ -6668,6 +6668,12 @@
       });
     }
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6699,12 +6705,6 @@
         "mtm.clickButton": clickButton,
       });
     }
-  };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8198,85 +8198,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "2f2d1d19-852d-45fd-9a8e-83e2c2f0346c",
-  "type": "Matomo",
-  "name": "CallButton",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "autoparts-miles",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Autoparts_miles/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "CallButton",
-    "eventAction": "CallButton",
-    "eventName": "CallButton",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Click Text",
-          "name": "ClickText",
-          "type": "ClickText",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickTextVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "CallButton",
-    "Description": "Sends data, when call button is clicked on the website."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "b6d0c50f-cd16-4ba7-ae4a-2b982ee22308"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "autoparts-miles",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "c295434c-997e-4db3-a7dd-dab4737609fc",
   "type": "Matomo",
   "name": "BrowserLanguage",
@@ -8434,6 +8355,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "4874888b-87f2-4c56-aad3-38383c623a2f",
+  "type": "Matomo",
+  "name": "CallButton",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-miles",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_miles/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "CallButton",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Text",
+          "name": "ClickText",
+          "type": "ClickText",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickTextVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Description": "Sends data, when call button is clicked on the website.",
+    "Name": "CallButton"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "623659bd-623a-4aee-9e4a-87b09a28049b"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-miles",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8507,31 +8507,6 @@
   "Description": "History Change"
 },
           {
-  "id": "b6d0c50f-cd16-4ba7-ae4a-2b982ee22308",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Text",
-        "name": "ClickText",
-        "type": "ClickText",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickTextVariable"
-      },
-      "comparison": "regexp",
-      "expected": "^(+1-888-855-1808|Call Now|1-888-855-1808)$"
-    }
-  ],
-  "Name": "CallButton",
-  "Description": "CallButton"
-},
-          {
   "id": "1ca5bd8b-d1ed-4a58-86c5-d5c82e22b66f",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
@@ -8552,6 +8527,31 @@
   "conditions": [],
   "Name": "Pageview (All)",
   "Description": "Pageview (All)"
+},
+          {
+  "id": "623659bd-623a-4aee-9e4a-87b09a28049b",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Text",
+        "name": "ClickText",
+        "type": "ClickText",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickTextVariable"
+      },
+      "comparison": "regexp",
+      "expected": "^(1-888-855-1808|Call Now)$"
+    }
+  ],
+  "Name": "CallButton",
+  "Description": "CallButton"
 },
           ],
           variables: [
