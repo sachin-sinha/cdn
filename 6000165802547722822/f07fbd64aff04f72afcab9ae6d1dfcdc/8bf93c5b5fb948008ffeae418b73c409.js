@@ -6732,11 +6732,45 @@
       });
     }
   };
-})();Templates["WindowLoadedTrigger"] = (function () {
+})();Templates["AllLinksClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
-      TagManager.dom.onLoad(function () {
-        triggerEvent({ event: "WindowLoad" });
+      TagManager.dom.onReady(function () {
+        function isClickNode(nodeName) {
+          return nodeName === "A" || nodeName === "AREA";
+        }
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+        function clickCallback(event, triggerEvent, clickButton) {
+          if (!event.target) {
+            return;
+          }
+          var target = event.target;
+          if (target.shadowRoot) {
+            var composedPath = event.composedPath();
+            if (composedPath.length) {
+              target = composedPath[0];
+            }
+          }
+          var nodeName = target.nodeName;
+          while (!isClickNode(nodeName) && target && target.parentNode) {
+            target = target.parentNode;
+            nodeName = target.nodeName;
+          }
+          if (target && isClickNode(nodeName)) {
+            triggerEvent({
+              event: "mtm.AllLinksClick",
+              "mtm.clickElement": target,
+              "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+              "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+              "mtm.clickText": TagManager.dom.getElementText(target),
+              "mtm.clickNodeName": nodeName,
+              "mtm.clickElementUrl": TagManager.dom.getElementAttribute(target, "href"),
+              "mtm.clickButton": clickButton,
+            });
+          }
+        }
       });
     };
   };
@@ -8311,9 +8345,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "9c0f0b39-6868-47ec-93da-8e607bb2ce6e",
+  "id": "5ab8d154-8e13-4e3d-a266-2053a859fc91",
   "type": "Matomo",
-  "name": "Window Loaded",
+  "name": "Page test",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8356,29 +8390,29 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Window Loaded",
-    "eventAction": "Window Loaded",
-    "eventName": "Window Loaded",
+    "eventCategory": "cat",
+    "eventAction": "act",
+    "eventName": "name",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
+          "Name": "Click Destination URL",
+          "name": "ClickDestinationUrl",
+          "type": "ClickDestinationUrl",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
-          "Variable": "PageUrlVariable"
+          "Variable": "ClickDestinationUrlVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Window Loaded",
-    "Description": "Window Loaded"
+    "Name": "Page test",
+    "Description": "Page test"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "e29d9e2b-d891-430f-aa72-c0127b0756cb"
+    "aeb1c9b8-2450-4aaa-9705-bab5d8ebce88"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8494,15 +8528,29 @@
   "Description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaggggggggggggggggggggggggggggggggggg"
 },
           {
-  "id": "e29d9e2b-d891-430f-aa72-c0127b0756cb",
-  "type": "WindowLoaded",
-  "name": "WindowLoaded",
-  "Trigger": "WindowLoadedTrigger",
-  "selectedTrigger": "Window Loaded",
+  "id": "aeb1c9b8-2450-4aaa-9705-bab5d8ebce88",
+  "type": "AllLinksClick",
+  "name": "AllLinksClick",
+  "Trigger": "AllLinksClickTrigger",
+  "selectedTrigger": "All Links Click",
   "parameters": {},
-  "conditions": [],
-  "Name": "Window Loaded",
-  "Description": "Window Loaded"
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Destination URL",
+        "name": "ClickDestinationUrl",
+        "type": "ClickDestinationUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickDestinationUrlVariable"
+      },
+      "comparison": "contains",
+      "expected": "https://ivory-flamingo-175835.builder-preview.com/"
+    }
+  ],
+  "Name": "Link Click",
+  "Description": "LINK CLICK"
 },
           ],
           variables: [
