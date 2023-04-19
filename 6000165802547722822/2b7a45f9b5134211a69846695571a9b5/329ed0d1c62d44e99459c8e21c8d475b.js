@@ -6636,6 +6636,14 @@
       );
     };
   };
+})();Templates["WindowLoadedTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onLoad(function () {
+        triggerEvent({ event: "WindowLoad" });
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8048,6 +8056,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "2daa14ae-907e-4a17-8715-b247869147ee",
+  "type": "Matomo",
+  "name": "Window Loaded",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "ivory-flamingo_1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ_3/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Window Loaded",
+    "eventAction": "Window Loaded",
+    "eventName": "Window Loaded",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Window Loaded",
+    "Description": "Window Loaded"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "18590acb-a3c6-4fce-98a3-ee92fc22e205"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "ivory-flamingo_1",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8119,6 +8206,17 @@
   "conditions": [],
   "Name": "History Change",
   "Description": "History Change"
+},
+          {
+  "id": "18590acb-a3c6-4fce-98a3-ee92fc22e205",
+  "type": "WindowLoaded",
+  "name": "WindowLoaded",
+  "Trigger": "WindowLoadedTrigger",
+  "selectedTrigger": "Window Loaded",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Window Loaded",
+  "Description": "Window Loaded"
 },
           ],
           variables: [
