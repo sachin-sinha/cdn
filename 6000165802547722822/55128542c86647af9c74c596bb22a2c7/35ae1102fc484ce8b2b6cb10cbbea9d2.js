@@ -8089,9 +8089,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "0fd98d46-dc3c-4e8c-9679-4952cd9c859d",
+  "id": "26e6d4ba-4229-4917-bd6b-9d53cb5cfcbf",
   "type": "Matomo",
-  "name": "timer",
+  "name": "t",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8134,29 +8134,29 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "timer",
-    "eventAction": "timer",
-    "eventName": "timer",
+    "eventCategory": "t",
+    "eventAction": "t",
+    "eventName": "t",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
+          "Name": "Local Time",
+          "name": "LocalTime",
+          "type": "LocalTime",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
-          "Variable": "PageUrlVariable"
+          "Variable": "LocalTimeVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "timer",
-    "Description": "timer"
+    "Name": "t",
+    "Description": "t"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "a83da002-16be-4c60-843f-fc94f74c8e4f"
+    "dc2838dd-2d88-4510-9a13-f4c13a66cabd"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8251,16 +8251,16 @@
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
           {
-  "id": "a83da002-16be-4c60-843f-fc94f74c8e4f",
+  "id": "dc2838dd-2d88-4510-9a13-f4c13a66cabd",
   "Trigger": "TimerTrigger",
   "selectedTrigger": "Timer",
   "parameters": {
-    "eventName": "Page URL",
-    "triggerInterval": "3000",
-    "triggerLimit": "0"
+    "eventName": "Page Path",
+    "triggerLimit": "0",
+    "triggerInterval": "500"
   },
   "conditions": [],
-  "Name": "T",
+  "Name": "t5",
   "Description": "t"
 },
           ],
