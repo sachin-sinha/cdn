@@ -6642,6 +6642,40 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["TimerTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        var self = this;
+        var numTriggers = 0;
+        var defaultEvent = "mtm.Timer";
+        function getEventName() {
+            var eventName = parameters.get("eventName", defaultEvent);
+            if (!eventName) {
+                eventName = defaultEvent;
+            }
+            return eventName;
+        }
+        function getTriggerInterval() {
+            var triggerInterval = parameters.get("triggerInterval", 3000);
+            if (!triggerInterval || triggerInterval < 50) {
+                triggerInterval = 50;
+            }
+            return triggerInterval;
+        }
+        this.setUp = function (triggerEvent) {
+            setTimeout(function () {
+                var limit = parameters.get("triggerLimit", 1);
+                if (limit) {
+                    limit = parseInt(limit, 10);
+                }
+                if (limit && limit <= numTriggers) {
+                    return;
+                }
+                numTriggers++;
+                triggerEvent({ event: getEventName() });
+                self.setUp(triggerEvent);
+            }, getTriggerInterval());
+        };
+    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8054,6 +8088,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "b395798f-c99e-4c2e-9d21-c69282cbbe8e",
+  "type": "Matomo",
+  "name": "timer",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "test",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "t",
+    "eventAction": "t",
+    "eventName": "t",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Local Hour",
+          "name": "LocalHour",
+          "type": "LocalHour",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "LocalHourVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "timer",
+    "Description": "timer"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "80e28459-248d-4174-a964-1d0e1fcf1acd"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "test",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8136,6 +8249,19 @@
   "conditions": [],
   "Name": "Pageview (All)",
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
+},
+          {
+  "id": "80e28459-248d-4174-a964-1d0e1fcf1acd",
+  "Trigger": "TimerTrigger",
+  "selectedTrigger": "Timer",
+  "parameters": {
+    "undefined": "Page URL",
+    "Trigger interval": "3000",
+    "Trigger limit": "0"
+  },
+  "conditions": [],
+  "Name": "Timer",
+  "Description": "Timer"
 },
           ],
           variables: [
