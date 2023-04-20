@@ -8376,6 +8376,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "bd1524b8-2f6b-4ba2-aadd-4123a2f1c55c",
+  "type": "Matomo",
+  "name": "0.1sec",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "s",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "0.1",
+    "eventAction": "0.1",
+    "eventName": "0.1",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "0.1sec",
+    "Description": "0.1sec"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "eee59341-c233-47ec-a66b-e421ea8480e9"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "s",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
