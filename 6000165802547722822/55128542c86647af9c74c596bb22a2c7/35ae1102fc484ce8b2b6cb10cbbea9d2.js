@@ -7057,7 +7057,7 @@
             return eventName;
         }
         function getTriggerInterval() {
-            var triggerInterval = parameters.get("triggerInterval", TIMER_TRIGGER_INTERVAL);
+            var triggerInterval = parameters.get("triggerInterval", undefined);
             if (!triggerInterval || triggerInterval < 50) {
                 triggerInterval = 50;
             }
@@ -7655,7 +7655,7 @@
           ],
           triggers: [
             
-          {
+            {
   "id": "5bdb1edd-b06a-44ea-b3c5-08d4fdb687bc",
   "type": "ElementVisibility",
   "name": "ElementVisibility",
@@ -7672,7 +7672,7 @@
   "Name": "ev",
   "Description": "ev"
 },
-          {
+            {
   "id": "a0f62ad2-759d-42be-9dbf-d239cfeef3e8",
   "type": "ElementVisibility",
   "name": "ElementVisibility",
@@ -7689,7 +7689,7 @@
   "Name": "sv",
   "Description": "sv"
 },
-          {
+            {
   "id": "cd1f965f-eb11-4e3f-96d1-3113523d8f28",
   "Trigger": "TimerTrigger",
   "selectedTrigger": "Timer",
