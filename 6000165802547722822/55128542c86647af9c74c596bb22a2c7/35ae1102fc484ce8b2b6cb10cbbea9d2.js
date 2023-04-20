@@ -7057,7 +7057,7 @@
             return eventName;
         }
         function getTriggerInterval() {
-            var triggerInterval = parameters.get("triggerInterval", 3000);
+            var triggerInterval = parameters.get("triggerInterval", TIMER_TRIGGER_INTERVAL);
             if (!triggerInterval || triggerInterval < 50) {
                 triggerInterval = 50;
             }
