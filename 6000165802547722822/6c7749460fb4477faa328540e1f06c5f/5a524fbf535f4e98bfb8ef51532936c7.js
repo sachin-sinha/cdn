@@ -6930,6 +6930,40 @@
       TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
     };
   };
+})();Templates["TimerTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        var self = this;
+        var numTriggers = 0;
+        var defaultEvent = "mtm.Timer";
+        function getEventName() {
+            var eventName = parameters.get("eventName", defaultEvent);
+            if (!eventName) {
+                eventName = defaultEvent;
+            }
+            return eventName;
+        }
+        function getTriggerInterval() {
+            var triggerInterval = parameters.get("triggerInterval", 100);
+            if (!triggerInterval || triggerInterval < 50) {
+                triggerInterval = 50;
+            }
+            return triggerInterval;
+        }
+        this.setUp = function (triggerEvent) {
+            setTimeout(function () {
+                var limit = parameters.get("triggerLimit", 1);
+                if (limit) {
+                    limit = parseInt(limit, 10);
+                }
+                if (limit && limit <= numTriggers) {
+                    return;
+                }
+                numTriggers++;
+                triggerEvent({ event: getEventName() });
+                self.setUp(triggerEvent);
+            }, getTriggerInterval());
+        };
+    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8440,6 +8474,19 @@
   "conditions": [],
   "Name": "ev",
   "Description": "ev"
+},
+            {
+  "id": "eee59341-c233-47ec-a66b-e421ea8480e9",
+  "Trigger": "TimerTrigger",
+  "selectedTrigger": "Timer",
+  "parameters": {
+    "triggerInterval": "100",
+    "eventName": "Page URL",
+    "triggerLimit": "0"
+  },
+  "conditions": [],
+  "Description": "timer",
+  "Name": "timer"
 },
           ],
           variables: [
