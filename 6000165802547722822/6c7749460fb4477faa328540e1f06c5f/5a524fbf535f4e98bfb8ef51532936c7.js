@@ -6894,6 +6894,30 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["CustomEventTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        function isMatchingEvent(value) {
+            var eventName = parameters.get("eventName");
+            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
+        }
+        var missedEvents = [];
+        var index = parameters.container.dataLayer.on(function (value) {
+            if (isMatchingEvent(value)) {
+                missedEvents.push(value.event);
+            }
+        });
+        this.setUp = function (triggerEvent) {
+            parameters.container.dataLayer.off(index);
+            for (var i = 0; i < missedEvents.length; i++) {
+                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
+            }
+            parameters.container.dataLayer.on(function (value) {
+                if (isMatchingEvent(value)) {
+                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
+                }
+            });
+        };
+    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7399,9 +7423,9 @@
           tags: [
             
         {
-  "id": "79f6eccb-91ee-4766-b00c-2c427c6d901c",
+  "id": "03c582ea-fbf7-442c-a21b-4d206ef8c147",
   "type": "Matomo",
-  "name": "ce",
+  "name": "ipEvent",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7444,167 +7468,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "ce",
-    "eventAction": "ce",
-    "eventName": "ce",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "ISO Date",
-          "name": "IsoDate",
-          "type": "IsoDate",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "IsoDateVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "ce",
-    "Description": "ce"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "47ab388a-71df-465d-bbc9-9b8ad7d7e078"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "s",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "3a92a941-1af4-427e-be1d-889e1316b5f7",
-  "type": "Matomo",
-  "name": "ot",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "s",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "ot",
-    "eventAction": "ot",
-    "eventName": "ot",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Local Hour",
-          "name": "LocalHour",
-          "type": "LocalHour",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "LocalHourVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "ot",
-    "Description": "ot"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "933d7096-e15f-45e4-af71-f962b6a75530"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "s",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "bf1bec24-78aa-487f-8c98-74888caeb772",
-  "type": "Matomo",
-  "name": "a",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "s",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ShopIQ/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "a",
-    "eventAction": "a",
-    "eventName": "a",
+    "eventCategory": "ipEvent",
+    "eventAction": "ipEvent",
+    "eventName": "ipEvent",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7629,12 +7495,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "a",
-    "Description": "a"
+    "Name": "ipEvent",
+    "Description": "ipEvent"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "417b27c4-3f1b-4a9d-ae58-35d6090c6cfc"
+    "bee8f4ae-d4c5-4059-adc9-e07d087eed5c"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7712,6 +7578,33 @@
   "conditions": [],
   "Name": "a",
   "Description": "a"
+},
+            {
+  "id": "bee8f4ae-d4c5-4059-adc9-e07d087eed5c",
+  "type": "CustomEvent",
+  "name": "CustomEvent",
+  "Trigger": "CustomEventTrigger",
+  "selectedTrigger": "Custom Event",
+  "parameters": {
+    "eventName": "ipEvent"
+  },
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "http://localhost:5500"
+    }
+  ],
+  "Name": "ipEvent",
+  "Description": "ipEvent"
 },
           ],
           variables: [
