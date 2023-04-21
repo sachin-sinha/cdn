@@ -7128,6 +7128,30 @@
       TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
     };
   };
+})();Templates["CustomEventTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        function isMatchingEvent(value) {
+            var eventName = parameters.get("eventName");
+            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
+        }
+        var missedEvents = [];
+        var index = parameters.container.dataLayer.on(function (value) {
+            if (isMatchingEvent(value)) {
+                missedEvents.push(value.event);
+            }
+        });
+        this.setUp = function (triggerEvent) {
+            parameters.container.dataLayer.off(index);
+            for (var i = 0; i < missedEvents.length; i++) {
+                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
+            }
+            parameters.container.dataLayer.on(function (value) {
+                if (isMatchingEvent(value)) {
+                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
+                }
+            });
+        };
+    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8665,6 +8689,19 @@
   "conditions": [],
   "Name": "b",
   "Description": "b"
+},
+            {
+  "id": "47ab388a-71df-465d-bbc9-9b8ad7d7e078",
+  "type": "CustomEvent",
+  "name": "CustomEvent",
+  "Trigger": "CustomEventTrigger",
+  "selectedTrigger": "Custom Event",
+  "parameters": {
+    "eventName": "Local Date"
+  },
+  "conditions": [],
+  "Name": "cscs",
+  "Description": "cscs"
 },
           ],
           variables: [
