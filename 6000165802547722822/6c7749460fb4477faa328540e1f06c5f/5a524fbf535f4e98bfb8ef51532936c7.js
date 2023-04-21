@@ -6468,433 +6468,7 @@
         };
       })();
       //change location
-      Templates["HistoryChangeTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    function getCurrentUrl() {
-      return parameters.window.location.href;
-    }
-    function getEventUrl(event) {
-      if (event && event.target && event.target.location && event.target.location.href) {
-        return event.target.location.href;
-      }
-      return getCurrentUrl();
-    }
-    this.setUp = function (triggerEvent) {
-      var initialUrl = getCurrentUrl();
-      var url = TagManager.url;
-      var origin = url.parseUrl(initialUrl, "origin");
-      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
-      function trigger(eventType, newUrl, newState) {
-        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
-        var shouldForceEvent =
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
-        shouldForceEvent = !shouldForceEvent;
-        var oldUrl = lastEvent.path;
-        if (lastEvent.search) {
-          oldUrl += "?" + lastEvent.search;
-        }
-        if (lastEvent.hash) {
-          oldUrl += "#" + lastEvent.hash;
-        }
-        var nowUrl = newEvent.path;
-        if (newEvent.search) {
-          nowUrl += "?" + newEvent.search;
-        }
-        if (newEvent.hash) {
-          nowUrl += "#" + newEvent.hash;
-        }
-        if (shouldForceEvent || oldUrl !== nowUrl) {
-          var tmpLast = lastEvent;
-          lastEvent = newEvent;
-          triggerEvent({
-            event: "mtm.HistoryChange",
-            "mtm.historyChangeSource": newEvent.eventType,
-            "mtm.oldUrl": origin + oldUrl,
-            "mtm.newUrl": origin + nowUrl,
-            "mtm.oldUrlHash": tmpLast.hash,
-            "mtm.newUrlHash": newEvent.hash,
-            "mtm.oldUrlPath": tmpLast.path,
-            "mtm.newUrlPath": newEvent.path,
-            "mtm.oldUrlSearch": tmpLast.search,
-            "mtm.newUrlSearch": newEvent.search,
-            "mtm.oldHistoryState": tmpLast.state,
-            "mtm.newHistoryState": newEvent.state,
-          });
-        }
-      }
-      function replaceHistoryMethod(methodNameToReplace) {
-        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
-          trigger(methodNameToReplace, getCurrentUrl(), state);
-        });
-      }
-      replaceHistoryMethod("replaceState");
-      replaceHistoryMethod("pushState");
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "hashchange",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("hashchange", newUrl, null);
-        },
-        false
-      );
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "popstate",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("popstate", newUrl, event.state);
-        },
-        false
-      );
-    };
-  };
-})();Templates["ElementVisibilityTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    var fireTriggerWhen = parameters.get("fireTriggerWhen", "oncePage");
-    var minPercentVisible = parameters.get("minPercentVisible", 10);
-    var self = this;
-    var triggeredNodes = [];
-    var documentAlias = parameters.document;
-    var windowAlias = parameters.window;
-    var utils = TagManager.utils;
-    var blockTrigger = false;
-    var onlyOncePerElement = fireTriggerWhen === "onceElement";
-    var selectors = getSelectors();
-    var observerIntersection;
-    var isMutationObserverSupported = "MutationObserver" in windowAlias;
-    var isIntersectionObserverSupported = "IntersectionObserver" in windowAlias;
-    var observeDomChanges = parameters.get("observeDomChanges", false);
-    var observerMutation;
-    var dynamicObservedNodesForIntersection = [];
-    var mutationObseverTimeout = false;
-    var allMutationsList = [];
-    function getPercentVisible(node) {
-      if (!node || !node.getBoundingClientRect) {
-        return 0;
-      }
-      var nodeRect = node.getBoundingClientRect();
-      var winRect = { height: parameters.window.innerHeight, width: parameters.window.innerWidth };
-      var visHeight = 0;
-      var visWidth = 0;
-      if (nodeRect.left >= 0) {
-        visWidth = Math.min(nodeRect.width, winRect.width - nodeRect.left);
-      } else if (nodeRect.right > 0) {
-        visWidth = Math.min(winRect.width, nodeRect.right);
-      } else {
-        return 0;
-      }
-      if (nodeRect.top >= 0) {
-        visHeight = Math.min(nodeRect.height, winRect.height - nodeRect.top);
-      } else if (nodeRect.bottom > 0) {
-        visHeight = Math.min(winRect.height, nodeRect.bottom);
-      } else {
-        return 0;
-      }
-      var vis = visHeight * visWidth;
-      var ele = nodeRect.height * nodeRect.width;
-      if (!ele) {
-        return 0;
-      }
-      return (vis / ele) * 100;
-    }
-    function isVisible(node) {
-      if (!node) {
-        return false;
-      }
-      function _getStyle(el, property) {
-        if (windowAlias.getComputedStyle) {
-          return documentAlias.defaultView.getComputedStyle(el, null)[property];
-        }
-        if (el.currentStyle) {
-          return el.currentStyle[property];
-        }
-      }
-      function _elementInDocument(element) {
-        element = element.parentNode;
-        while (element) {
-          if (element === documentAlias) {
-            return true;
-          }
-          element = element.parentNode;
-        }
-        return false;
-      }
-      function _isVisible(el, t, r, b, l, w, h) {
-        var p = el.parentNode,
-          VISIBLE_PADDING = 1;
-        if (!_elementInDocument(el)) {
-          return false;
-        }
-        if (9 === p.nodeType) {
-          return true;
-        }
-        if ("0" === _getStyle(el, "opacity") || "none" === _getStyle(el, "display") || "hidden" === _getStyle(el, "visibility")) {
-          return false;
-        }
-        if (!utils.isDefined(t) || !utils.isDefined(r) || !utils.isDefined(b) || !utils.isDefined(l) || !utils.isDefined(w) || !utils.isDefined(h)) {
-          t = el.offsetTop;
-          l = el.offsetLeft;
-          b = t + el.offsetHeight;
-          r = l + el.offsetWidth;
-          w = el.offsetWidth;
-          h = el.offsetHeight;
-        }
-        if (node === el && (0 === h || 0 === w) && "hidden" === _getStyle(el, "overflow")) {
-          return false;
-        }
-        if (p) {
-          if ("hidden" === _getStyle(p, "overflow") || "scroll" === _getStyle(p, "overflow")) {
-            if (l + VISIBLE_PADDING > p.offsetWidth + p.scrollLeft || l + w - VISIBLE_PADDING < p.scrollLeft || t + VISIBLE_PADDING > p.offsetHeight + p.scrollTop || t + h - VISIBLE_PADDING < p.scrollTop) {
-              return false;
-            }
-          }
-          if (el.offsetParent === p) {
-            l += p.offsetLeft;
-            t += p.offsetTop;
-          }
-          return _isVisible(p, t, r, b, l, w, h);
-        }
-        return true;
-      }
-      return _isVisible(node);
-    }
-    function checkVisiblity(triggerEvent) {
-      return function (event) {
-        if (blockTrigger) {
-          return;
-        }
-        var nodes = [];
-        if (!selectors) {
-          return;
-        }
-        nodes = TagManager.dom.bySelector(selectors);
-        for (var i = 0; i < nodes.length; i++) {
-          if (onlyOncePerElement) {
-            if (isNodeEventTriggered(nodes[i])) {
-              continue;
-            }
-          }
-          if (nodes[i] && isVisible(nodes[i]) && !isDynamicNodeObservedForIntersection(nodes[i])) {
-            var percentVisible = getPercentVisible(nodes[i]);
-            if (!minPercentVisible || minPercentVisible <= percentVisible) {
-              commonTrigger(triggerEvent, percentVisible, nodes[i]);
-              commonTriggeredNodeCheck(nodes[i]);
-            } else if (observerIntersection) {
-              observerIntersection.observe(nodes[i]);
-              dynamicObservedNodesForIntersection.push(nodes[i]);
-            }
-          }
-        }
-      };
-    }
-    function getSelectors() {
-      var selectionMethod = parameters.get("selectionMethod");
-      if (selectionMethod === "elementId") {
-        return "#" + parameters.get("elementId");
-      } else if (selectionMethod === "cssSelector") {
-        return parameters.get("cssSelector");
-      }
-      return;
-    }
-    function setIntersectionObserver(triggerEvent) {
-      return function () {
-        if (isIntersectionObserverSupported) {
-          var interSectionObserverOptions = { root: null, rootMargin: "0px", threshold: minPercentVisible / 100 };
-          observerIntersection = new IntersectionObserver(function (entries) {
-            interSectionCallback(entries, triggerEvent);
-          }, interSectionObserverOptions);
-          if (selectors) {
-            TagManager.dom.bySelector(selectors).forEach(function (element) {
-              observerIntersection.observe(element);
-            });
-          }
-        }
-      };
-    }
-    function interSectionCallback(entries, triggerEvent) {
-      var dom = TagManager.dom;
-      entries.forEach(function (entry) {
-        if (entry.intersectionRatio > 0) {
-          if (blockTrigger || (onlyOncePerElement && isNodeEventTriggered(entry.target))) {
-            return;
-          }
-          var percentVisible = Math.max(getPercentVisible(entry.target), minPercentVisible);
-          commonTrigger(triggerEvent, percentVisible, entry.target);
-          commonTriggeredNodeCheck(entry.target);
-        }
-      });
-    }
-    function isNodeEventTriggered(node) {
-      for (var j = 0; j < triggeredNodes.length; j++) {
-        if (node === triggeredNodes[j]) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function setMutationObserver(triggerEvent) {
-      return function () {
-        if (observeDomChanges && isMutationObserverSupported) {
-          var config = { attributes: true, childList: true, subtree: true };
-          observerMutation = new MutationObserver(function (mutationsList) {
-            Array.prototype.push.apply(allMutationsList, mutationsList);
-            if (mutationObseverTimeout) {
-              return;
-            }
-            mutationObseverTimeout = true;
-            setTimeout(function () {
-              mutationObserverCallback(allMutationsList, triggerEvent);
-              allMutationsList = [];
-              mutationObseverTimeout = false;
-            }, 120);
-          });
-          observerMutation.observe(documentAlias.body, config);
-        }
-      };
-    }
-    function mutationObserverCallback(mutationsList, triggerEvent) {
-      var domElements = TagManager.dom.bySelector(selectors);
-      for (var index in mutationsList) {
-        var mutation = mutationsList[index];
-        var addedNodes = mutation.addedNodes;
-        if (mutation.type === "attributes") {
-          addedNodes = [mutation.target];
-        }
-        if (addedNodes && addedNodes.length) {
-          addedNodes.forEach(function (node) {
-            domElements.forEach(function (element) {
-              if (node.contains(element)) {
-                if (blockTrigger || (onlyOncePerElement && isNodeEventTriggered(element))) {
-                  return;
-                }
-                if (!isNodeInViewport(element) && observerIntersection && !isDynamicNodeObservedForIntersection(element)) {
-                  observerIntersection.observe(element);
-                  dynamicObservedNodesForIntersection.push(element);
-                  return;
-                }
-                var percentVisible = Math.max(getPercentVisible(element), minPercentVisible);
-                commonTrigger(triggerEvent, percentVisible, element);
-                commonTriggeredNodeCheck(element);
-              }
-            });
-          });
-        }
-      }
-    }
-    function isNodeInViewport(node) {
-      var rect = node.getBoundingClientRect();
-      return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (windowAlias.innerHeight || documentAlias.documentElement.clientHeight) && rect.right <= (windowAlias.innerWidth || documentAlias.documentElement.clientWidth);
-    }
-    function isDynamicNodeObservedForIntersection(node) {
-      for (var i = 0; i < dynamicObservedNodesForIntersection.length; i++) {
-        if (node === dynamicObservedNodesForIntersection[i]) {
-          return true;
-        }
-      }
-      return false;
-    }
-    function commonTrigger(triggerEvent, percentVisible, node) {
-      var dom = TagManager.dom;
-      triggerEvent({
-        event: "mtm.ElementVisibility",
-        "mtm.elementVisibilityElement": node,
-        "mtm.elementVisibilityPercentage": Math.round(percentVisible * 100) / 100,
-        "mtm.elementVisibilityId": dom.getElementAttribute(node, "id"),
-        "mtm.elementVisibilityClasses": dom.getElementClassNames(node),
-        "mtm.elementVisibilityText": TagManager.utils.trim(node.innerText),
-        "mtm.elementVisibilityNodeName": node.nodeName,
-        "mtm.elementVisibilityUrl": node.href || dom.getElementAttribute(node, "href"),
-      });
-    }
-    function commonTriggeredNodeCheck(node) {
-      if (fireTriggerWhen === "oncePage") {
-        blockTrigger = true;
-        if (self.scrollIndex) {
-          TagManager.window.offScroll(self.scrollIndex);
-        }
-        if (observerIntersection) {
-          observerIntersection.disconnect();
-        }
-        if (observerMutation) {
-          observerMutation.disconnect();
-        }
-      } else if (onlyOncePerElement) {
-        triggeredNodes.push(node);
-        if (observerIntersection) {
-          observerIntersection.unobserve(node);
-        }
-      }
-    }
-    this.setUp = function (triggerEvent) {
-      var useMutationObserver = isMutationObserverSupported && observeDomChanges && isIntersectionObserverSupported;
-      if (useMutationObserver) {
-        TagManager.dom.onLoad(setMutationObserver(triggerEvent));
-      } else {
-        this.scrollIndex = TagManager.window.onScroll(checkVisiblity(triggerEvent));
-        TagManager.dom.onLoad(checkVisiblity(triggerEvent));
-      }
-      TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
-    };
-  };
-})();Templates["CustomEventTrigger"] = (function () {
-    return function (parameters, TagManager) {
-        function isMatchingEvent(value) {
-            var eventName = parameters.get("eventName");
-            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
-        }
-        var missedEvents = [];
-        var index = parameters.container.dataLayer.on(function (value) {
-            if (isMatchingEvent(value)) {
-                missedEvents.push(value.event);
-            }
-        });
-        this.setUp = function (triggerEvent) {
-            parameters.container.dataLayer.off(index);
-            for (var i = 0; i < missedEvents.length; i++) {
-                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
-            }
-            parameters.container.dataLayer.on(function (value) {
-                if (isMatchingEvent(value)) {
-                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
-                }
-            });
-        };
-    };
-})();Templates["CustomEventTrigger"] = (function () {
-    return function (parameters, TagManager) {
-        function isMatchingEvent(value) {
-            var eventName = parameters.get("eventName");
-            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
-        }
-        var missedEvents = [];
-        var index = parameters.container.dataLayer.on(function (value) {
-            if (isMatchingEvent(value)) {
-                missedEvents.push(value.event);
-            }
-        });
-        this.setUp = function (triggerEvent) {
-            parameters.container.dataLayer.off(index);
-            for (var i = 0; i < missedEvents.length; i++) {
-                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
-            }
-            parameters.container.dataLayer.on(function (value) {
-                if (isMatchingEvent(value)) {
-                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
-                }
-            });
-        };
-    };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["CustomEventTrigger"] = (function () {
+      Templates["CustomEventTrigger"] = (function () {
     return function (parameters, TagManager) {
         function isMatchingEvent(value) {
             var eventName = parameters.get("eventName");
@@ -7423,9 +6997,9 @@
           tags: [
             
         {
-  "id": "03c582ea-fbf7-442c-a21b-4d206ef8c147",
+  "id": "9d40a84f-caae-40b8-8770-bda36bdbcdea",
   "type": "Matomo",
-  "name": "ipEvent",
+  "name": "ip",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7468,9 +7042,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "ipEvent",
-    "eventAction": "ipEvent",
-    "eventName": "ipEvent",
+    "eventCategory": "ip",
+    "eventAction": "ip",
+    "eventName": "ip",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7495,12 +7069,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "ipEvent",
-    "Description": "ipEvent"
+    "Name": "ip",
+    "Description": "ip"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "bee8f4ae-d4c5-4059-adc9-e07d087eed5c"
+    "64d5410b-f71a-456e-be59-68bcfb93802f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7515,78 +7089,13 @@
           triggers: [
             
             {
-  "id": "8614c969-9e94-4cc2-89bd-17c13254491e",
-  "type": "HistoryChange",
-  "name": "HistoryChange",
-  "Trigger": "HistoryChangeTrigger",
-  "selectedTrigger": "History Change",
-  "parameters": {},
-  "conditions": [],
-  "Description": "Triggered when the current URL changes.",
-  "Name": "History Change"
-},
-            {
-  "id": "7f180ed9-7e3e-4bde-9ece-e92388c83a06",
-  "type": "ElementVisibility",
-  "name": "ElementVisibility",
-  "Trigger": "ElementVisibilityTrigger",
-  "selectedTrigger": "Element Visibility",
-  "parameters": {
-    "selectionMethod": "elementId",
-    "elementId": "search",
-    "fireTriggerWhen": "every",
-    "minPercentVisible": "50",
-    "observeDomChanges": false
-  },
-  "conditions": [],
-  "Name": "b",
-  "Description": "b"
-},
-            {
-  "id": "47ab388a-71df-465d-bbc9-9b8ad7d7e078",
+  "id": "64d5410b-f71a-456e-be59-68bcfb93802f",
   "type": "CustomEvent",
   "name": "CustomEvent",
   "Trigger": "CustomEventTrigger",
   "selectedTrigger": "Custom Event",
   "parameters": {
-    "eventName": "Local Date"
-  },
-  "conditions": [],
-  "Name": "cscs",
-  "Description": "cscs"
-},
-            {
-  "id": "933d7096-e15f-45e4-af71-f962b6a75530",
-  "type": "CustomEvent",
-  "name": "CustomEvent",
-  "Trigger": "CustomEventTrigger",
-  "selectedTrigger": "Custom Event",
-  "parameters": {
-    "eventName": "orderTotal"
-  },
-  "conditions": [],
-  "Name": "cseee",
-  "Description": "cseee"
-},
-            {
-  "id": "417b27c4-3f1b-4a9d-ae58-35d6090c6cfc",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "a",
-  "Description": "a"
-},
-            {
-  "id": "bee8f4ae-d4c5-4059-adc9-e07d087eed5c",
-  "type": "CustomEvent",
-  "name": "CustomEvent",
-  "Trigger": "CustomEventTrigger",
-  "selectedTrigger": "Custom Event",
-  "parameters": {
-    "eventName": "ipEvent"
+    "eventName": "ip"
   },
   "conditions": [
     {
@@ -7603,8 +7112,8 @@
       "expected": "http://localhost:5500"
     }
   ],
-  "Name": "ipEvent",
-  "Description": "ipEvent"
+  "Name": "ip",
+  "Description": "ip"
 },
           ],
           variables: [
