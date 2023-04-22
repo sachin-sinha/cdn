@@ -2966,8 +2966,11 @@ if (typeof window.Matomo !== 'object') {
             Object?.entries(Obj)?.forEach(([key, value]) => {
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
+              } else if (typeof JSON.parse(value) === 'object') {
+                console.log(JSON.parse(value))
+                NewOBjs[key] = JSON.parse(value)
               } else {
-                console.log({value})
+                console.log(value)
                 NewOBjs[key] = value;
               }
             });
@@ -2986,7 +2989,7 @@ if (typeof window.Matomo !== 'object') {
             if (xhr.readyState === 4) {
               console.log(xhr.status);
               console.log(xhr.responseText);
-              console.log('newFunc')
+              console.log('newFunc5')
             }
           };
           let data = JSON.stringify(DataToSend);
