@@ -2966,8 +2966,8 @@ if (typeof window.Matomo !== 'object') {
             Object?.entries(Obj)?.forEach(([key, value]) => {
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
-              } else if (isObject(value)) {
-                NewOBjs[key] = { ...value }
+              } else if (typeof JSON.parse(value) === 'object') {
+                NewOBjs[key] = JSON.parse(value)
               } else {
                 NewOBjs[key] = value;
               }
@@ -2987,7 +2987,7 @@ if (typeof window.Matomo !== 'object') {
             if (xhr.readyState === 4) {
               console.log(xhr.status);
               console.log(xhr.responseText);
-              console.log('newChangesDeployed')
+              console.log('newTest')
             }
           };
           console.log(DataToSend) //this is the data i am consoling
