@@ -2966,7 +2966,11 @@ if (typeof window.Matomo !== 'object') {
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
               } else {
-                NewOBjs[key] = value;
+                if (value[0] === '{' && value[value.length - 1] === '}') {
+                  NewOBjs[key] = JSON.parse(value);
+                } else {
+                  NewOBjs[key] = value
+                }
               }
             });
             return NewOBjs;
