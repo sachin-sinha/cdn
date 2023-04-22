@@ -2987,7 +2987,7 @@ if (typeof window.Matomo !== 'object') {
               console.log(xhr.responseText);
             }
           };
-
+          console.log(DataToSend)
           let data = JSON.stringify(DataToSend);
 
           xhr.send(data);
