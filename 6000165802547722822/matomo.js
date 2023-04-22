@@ -2967,7 +2967,7 @@ if (typeof window.Matomo !== 'object') {
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
               } else {
-                console.log(typeof JSON.parse(value), 'this is where it should say object')
+                console.log(typeof value, 'this is where it should say object')
                 NewOBjs[key] = value;
               }
             });
