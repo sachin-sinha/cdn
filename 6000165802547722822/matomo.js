@@ -620,10 +620,10 @@ if (typeof window.Matomo !== 'object') {
           } else {
             throw new Error(
               'Parameter "' +
-              k +
-              '" provided value "' +
-              data[k] +
-              '" is not valid. Please provide a numeric value.'
+                k +
+                '" provided value "' +
+                data[k] +
+                '" is not valid. Please provide a numeric value.'
             );
           }
         }
@@ -787,8 +787,8 @@ if (typeof window.Matomo !== 'object') {
       // +   jslinted by: Anthon Pang (https://matomo.org)
 
       var rotate_left = function (n, s) {
-        return (n << s) | (n >>> (32 - s));
-      },
+          return (n << s) | (n >>> (32 - s));
+        },
         cvt_hex = function (val) {
           var strout = '',
             i,
@@ -1861,7 +1861,7 @@ if (typeof window.Matomo !== 'object') {
             for (index = 0; index < params.length; index++) {
               if (
                 'movie' ===
-                query.getAttributeValueFromNode(params[index], 'name') &&
+                  query.getAttributeValueFromNode(params[index], 'name') &&
                 query.hasNodeAttributeWithValue(params[index], 'value')
               ) {
                 return query.getAttributeValueFromNode(params[index], 'value');
@@ -2181,7 +2181,7 @@ if (typeof window.Matomo !== 'object') {
       // check whether we were redirected from the matomo overlay plugin
       var referrerRegExp = new RegExp(
         'index\\.php\\?module=Overlay&action=startOverlaySession' +
-        '&idSite=([0-9]+)&period=([^&]+)&date=([^&]+)(&segment=[^&]*)?'
+          '&idSite=([0-9]+)&period=([^&]+)&date=([^&]+)(&segment=[^&]*)?'
       );
 
       var match = referrerRegExp.exec(documentAlias.referrer);
@@ -2966,9 +2966,8 @@ if (typeof window.Matomo !== 'object') {
             Object?.entries(Obj)?.forEach(([key, value]) => {
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
-              } else if (typeof JSON.parse(value) === 'object') {
-                NewOBjs[key] = JSON.parse(value)
               } else {
+                console.log({value})
                 NewOBjs[key] = value;
               }
             });
@@ -2981,20 +2980,18 @@ if (typeof window.Matomo !== 'object') {
           xhr.open('POST', configTrackerUrl);
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
-          xhr.setRequestHeader('x-bang-api-key', '4335340168759954796');
+	        xhr.setRequestHeader('x-bang-api-key', '4335340168759954796');
 
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
               console.log(xhr.status);
               console.log(xhr.responseText);
-              console.log('newTest')
+              console.log('newFunc')
             }
           };
-          console.log(DataToSend) //this is the data i am consoling
-          let data = JSON.stringify(DataToSend); //this is where it is getting stringified
+          let data = JSON.stringify(DataToSend);
 
           xhr.send(data);
-
           // returns true if the user agent is able to successfully queue the data for transfer,
           // Otherwise it returns false and we need to try the regular way
         } catch (e) {
@@ -3054,8 +3051,8 @@ if (typeof window.Matomo !== 'object') {
             var xhr = windowAlias.XMLHttpRequest
               ? new windowAlias.XMLHttpRequest()
               : windowAlias.ActiveXObject
-                ? new ActiveXObject('Microsoft.XMLHTTP')
-                : null;
+              ? new ActiveXObject('Microsoft.XMLHTTP')
+              : null;
 
             xhr.open('POST', configTrackerUrl, true);
 
@@ -3518,10 +3515,10 @@ if (typeof window.Matomo !== 'object') {
         var browserFeatures = detectBrowserFeatures();
         return hash(
           (navigatorAlias.userAgent || '') +
-          (navigatorAlias.platform || '') +
-          windowAlias.JSON.stringify(browserFeatures) +
-          new Date().getTime() +
-          Math.random()
+            (navigatorAlias.platform || '') +
+            windowAlias.JSON.stringify(browserFeatures) +
+            new Date().getTime() +
+            Math.random()
         ).slice(0, 16);
       }
 
@@ -3530,8 +3527,8 @@ if (typeof window.Matomo !== 'object') {
 
         return hash(
           (navigatorAlias.userAgent || '') +
-          (navigatorAlias.platform || '') +
-          windowAlias.JSON.stringify(browserFeatures)
+            (navigatorAlias.platform || '') +
+            windowAlias.JSON.stringify(browserFeatures)
         ).slice(0, 6);
       }
 
@@ -3577,7 +3574,7 @@ if (typeof window.Matomo !== 'object') {
           if (
             currentTimestampInSeconds >= timestampInUrl &&
             currentTimestampInSeconds <=
-            timestampInUrl + configVisitorIdUrlParameterTimeoutInSeconds
+              timestampInUrl + configVisitorIdUrlParameterTimeoutInSeconds
           ) {
             // we only use visitorId if it was generated max 180 seconds ago
             return true;
@@ -3882,7 +3879,7 @@ if (typeof window.Matomo !== 'object') {
         if (!performanceData) {
           performanceData =
             typeof performanceAlias.getEntriesByType === 'function' &&
-              performanceAlias.getEntriesByType('navigation')
+            performanceAlias.getEntriesByType('navigation')
               ? performanceAlias.getEntriesByType('navigation')[0]
               : undefined;
         }
@@ -4152,7 +4149,7 @@ if (typeof window.Matomo !== 'object') {
           referralTs +
           (String(referralUrl).length
             ? '&_ref=' +
-            encodeWrapper(purify(referralUrl.slice(0, referralUrlMaxLength)))
+              encodeWrapper(purify(referralUrl.slice(0, referralUrlMaxLength)))
             : '') +
           (charSet ? '&cs=' + encodeWrapper(charSet) : '') +
           '&send_image=0' +
@@ -4438,7 +4435,7 @@ if (typeof window.Matomo !== 'object') {
 
         var request = getRequest(
           'action_name=' +
-          encodeWrapper(titleFixup(customTitle || configTitle)),
+            encodeWrapper(titleFixup(customTitle || configTitle)),
           customData,
           'log'
         );
@@ -4486,9 +4483,9 @@ if (typeof window.Matomo !== 'object') {
 
         // does class indicate whether it is an (explicit/forced) outlink or a download?
         var downloadPattern = getClassesRegExp(
-          configDownloadClasses,
-          'download'
-        ),
+            configDownloadClasses,
+            'download'
+          ),
           linkPattern = getClassesRegExp(configLinkClasses, 'link'),
           // does file extension indicate that it is a download?
           downloadExtensionsPattern = new RegExp(
@@ -4922,9 +4919,9 @@ if (typeof window.Matomo !== 'object') {
       function logSiteSearch(keyword, category, resultsCount, customData) {
         var request = getRequest(
           'search=' +
-          encodeWrapper(keyword) +
-          (category ? '&search_cat=' + encodeWrapper(category) : '') +
-          (isDefined(resultsCount) ? '&search_count=' + resultsCount : ''),
+            encodeWrapper(keyword) +
+            (category ? '&search_cat=' + encodeWrapper(category) : '') +
+            (isDefined(resultsCount) ? '&search_count=' + resultsCount : ''),
           customData,
           'sitesearch'
         );
@@ -4938,8 +4935,8 @@ if (typeof window.Matomo !== 'object') {
       function logGoal(idGoal, customRevenue, customData, callback) {
         var request = getRequest(
           'idgoal=' +
-          idGoal +
-          (customRevenue ? '&revenue=' + customRevenue : ''),
+            idGoal +
+            (customRevenue ? '&revenue=' + customRevenue : ''),
           customData,
           'goal'
         );
@@ -5402,7 +5399,7 @@ if (typeof window.Matomo !== 'object') {
           } else if (isString(userHook)) {
             try {
               eval('hookObj =' + userHook);
-            } catch (ignore) { }
+            } catch (ignore) {}
           }
 
           registeredHooks[hookName] = hookObj;
@@ -7908,8 +7905,8 @@ if (typeof window.Matomo !== 'object') {
               ) {
                 logConsoleError(
                   'The method ' +
-                  methodName +
-                  ' is registered more than once in "_paq" variable. Only the last call has an effect. Please have a look at the multiple Matomo trackers documentation: https://developer.matomo.org/guides/tracking-javascript-guide#multiple-piwik-trackers'
+                    methodName +
+                    ' is registered more than once in "_paq" variable. Only the last call has an effect. Please have a look at the multiple Matomo trackers documentation: https://developer.matomo.org/guides/tracking-javascript-guide#multiple-piwik-trackers'
                 );
               }
 
@@ -8470,7 +8467,7 @@ if (typeof window.piwik_log !== 'function') {
         if (window['piwik_' + optionName]) {
           return window['piwik_' + optionName];
         }
-      } catch (ignore) { }
+      } catch (ignore) {}
 
       return; // undefined
     }
