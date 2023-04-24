@@ -6749,6 +6749,69 @@
         return TagManager.url.getQueryParameter(name, parameters.window.location.search);
       };
     };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
+  })();Templates["UrlParameterVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var name = parameters.get("parameterName");
+        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
+      };
+    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -8434,6 +8497,807 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "5fab3ba7-98b5-42e3-9688-bdd94d4b0981",
+  "type": "Matomo",
+  "name": "gclid",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "gclid",
+    "eventAction": "gclid",
+    "eventName": "gclid",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "gclid",
+          "Description": "gclid",
+          "parameterName": "gclid",
+          "id": "2fb76ce5-a3af-4bc0-ac52-ba53357f6abf",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "gclid",
+            "Description": "gclid",
+            "parameterName": "gclid"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "gclid",
+    "Description": "gclid"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "0a0156b6-042d-4b2b-8a46-8c7dcc58a758",
+  "type": "Matomo",
+  "name": "campaignid",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "campaignid",
+    "eventAction": "campaignid",
+    "eventName": "campaignid",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "campaignid",
+          "Description": "campaignid",
+          "parameterName": "campaignid",
+          "id": "9b4086f5-b2ca-461d-8cab-ffccaf088a8a",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "campaignid",
+            "Description": "campaignid",
+            "parameterName": "campaignid"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "campaignid",
+    "Description": "campaignid"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "fafc5474-31bc-4273-8b19-965940297e80",
+  "type": "Matomo",
+  "name": "adgroupid",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "adgroupid",
+    "eventAction": "adgroupid",
+    "eventName": "adgroupid",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Description": "adgroupid",
+          "Name": "adgroupid",
+          "parameterName": "adgroupid",
+          "id": "7403929e-8f07-42a7-aa45-6eea96620ac8",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Description": "adgroupid",
+            "Name": "adgroupid",
+            "parameterName": "adgroupid"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "adgroupid",
+    "Description": "adgroupid"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "4ac87b28-542d-4e88-99eb-6741b038bfe5",
+  "type": "Matomo",
+  "name": "extensionid",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "extensionid",
+    "eventAction": "extensionid",
+    "eventName": "extensionid",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "extensionid",
+          "Description": "extensionid",
+          "parameterName": "extensionid",
+          "id": "fd1af650-b1e3-4a21-9423-e18b333e27db",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "extensionid",
+            "Description": "extensionid",
+            "parameterName": "extensionid"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Description": "extensionid",
+    "Name": "extensionid"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "c0ff8a9f-08f3-415e-8cd9-ea680450423c",
+  "type": "Matomo",
+  "name": "targetid",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "targetid",
+    "eventAction": "targetid",
+    "eventName": "targetid",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "targetid",
+          "Description": "targetid",
+          "parameterName": "targetid",
+          "id": "734cabfa-8131-48d8-8260-819bb62ce636",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "targetid",
+            "Description": "targetid",
+            "parameterName": "targetid"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "targetid",
+    "Description": "targetid"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "a3941c69-9106-47af-a38e-a7150cdb7054",
+  "type": "Matomo",
+  "name": "utm_term",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "utm_term",
+    "eventAction": "utm_term",
+    "eventName": "utm_term",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Description": "utm_term",
+          "Name": "utm_term",
+          "parameterName": "utm_term",
+          "id": "7c2495b2-12c1-4b39-810e-18c059e37d7f",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Description": "utm_term",
+            "Name": "utm_term",
+            "parameterName": "utm_term"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "utm_term",
+    "Description": "utm_term"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "bc99e673-9a22-4407-811c-999196aac1e5",
+  "type": "Matomo",
+  "name": "device",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "device",
+    "eventAction": "device",
+    "eventName": "device",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "device",
+          "Description": "device",
+          "parameterName": "device",
+          "id": "5730974d-d854-47d3-acd0-58eb690ec001",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "device",
+            "Description": "device",
+            "parameterName": "device"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "device",
+    "Description": "device"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "504d6448-ea3d-4594-b87a-bd9f047e3b9c",
+  "type": "Matomo",
+  "name": "network",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "network",
+    "eventAction": "network",
+    "eventName": "network",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "network",
+          "Description": "network",
+          "parameterName": "network",
+          "id": "ff62f471-dbe2-4259-8409-6d28c9ddeb68",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "network",
+            "Description": "network",
+            "parameterName": "network"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "network",
+    "Description": "network"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "9cada647-05ef-4b12-b25d-3fbd5c532177",
+  "type": "Matomo",
+  "name": "loc_physical_ms",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "loc_physical_ms",
+    "eventAction": "loc_physical_ms",
+    "eventName": "loc_physical_ms",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Parameter",
+          "Variable": "UrlParameterVariable",
+          "name": "UrlParameter",
+          "type": "UrlParameter",
+          "Name": "loc_physical_ms",
+          "Description": "loc_physical_ms",
+          "parameterName": "loc_physical_ms",
+          "id": "ff1a5c07-7228-4e91-aacb-d76ff059bf82",
+          "parameters": {
+            "selectedVariable": "URL Parameter",
+            "Variable": "UrlParameterVariable",
+            "name": "UrlParameter",
+            "type": "UrlParameter",
+            "Name": "loc_physical_ms",
+            "Description": "loc_physical_ms",
+            "parameterName": "loc_physical_ms"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Description": "loc_physical_ms",
+    "Name": "loc_physical_ms"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "30d86632-1fbb-4651-aedc-bbe8b32907ff"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8647,6 +9511,177 @@
     "Name": "UTMSource",
     "Description": "UTMSource",
     "parameterName": "utm_source"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "gclid",
+  "Description": "gclid",
+  "parameterName": "gclid",
+  "id": "2fb76ce5-a3af-4bc0-ac52-ba53357f6abf",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "gclid",
+    "Description": "gclid",
+    "parameterName": "gclid"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "campaignid",
+  "Description": "campaignid",
+  "parameterName": "campaignid",
+  "id": "9b4086f5-b2ca-461d-8cab-ffccaf088a8a",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "campaignid",
+    "Description": "campaignid",
+    "parameterName": "campaignid"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Description": "adgroupid",
+  "Name": "adgroupid",
+  "parameterName": "adgroupid",
+  "id": "7403929e-8f07-42a7-aa45-6eea96620ac8",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Description": "adgroupid",
+    "Name": "adgroupid",
+    "parameterName": "adgroupid"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "extensionid",
+  "Description": "extensionid",
+  "parameterName": "extensionid",
+  "id": "fd1af650-b1e3-4a21-9423-e18b333e27db",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "extensionid",
+    "Description": "extensionid",
+    "parameterName": "extensionid"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "targetid",
+  "Description": "targetid",
+  "parameterName": "targetid",
+  "id": "734cabfa-8131-48d8-8260-819bb62ce636",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "targetid",
+    "Description": "targetid",
+    "parameterName": "targetid"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Description": "utm_term",
+  "Name": "utm_term",
+  "parameterName": "utm_term",
+  "id": "7c2495b2-12c1-4b39-810e-18c059e37d7f",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Description": "utm_term",
+    "Name": "utm_term",
+    "parameterName": "utm_term"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "device",
+  "Description": "device",
+  "parameterName": "device",
+  "id": "5730974d-d854-47d3-acd0-58eb690ec001",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "device",
+    "Description": "device",
+    "parameterName": "device"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "network",
+  "Description": "network",
+  "parameterName": "network",
+  "id": "ff62f471-dbe2-4259-8409-6d28c9ddeb68",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "network",
+    "Description": "network",
+    "parameterName": "network"
+  }
+}, Variable: "UrlParameterVariable"},
+          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Parameter",
+  "Variable": "UrlParameterVariable",
+  "name": "UrlParameter",
+  "type": "UrlParameter",
+  "Name": "loc_physical_ms",
+  "Description": "loc_physical_ms",
+  "parameterName": "loc_physical_ms",
+  "id": "ff1a5c07-7228-4e91-aacb-d76ff059bf82",
+  "parameters": {
+    "selectedVariable": "URL Parameter",
+    "Variable": "UrlParameterVariable",
+    "name": "UrlParameter",
+    "type": "UrlParameter",
+    "Name": "loc_physical_ms",
+    "Description": "loc_physical_ms",
+    "parameterName": "loc_physical_ms"
   }
 }, Variable: "UrlParameterVariable"},
             {
