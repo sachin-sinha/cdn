@@ -9136,7 +9136,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "d6d07463-c76d-4bb0-83ae-bb305a7f0682",
+  "id": "24511519-9756-4dd1-92cd-3dc44deb4d61",
   "type": "Matomo",
   "name": "IP",
   "parameters": {
@@ -9213,7 +9213,7 @@
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "7f08d077-bcc5-47b0-8a10-25b7c5603ebe"
+    "0ff886ed-c5a5-4790-9847-220537727897"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -9344,7 +9344,7 @@
   "Description": "Pageview (All)"
 },
             {
-  "id": "7f08d077-bcc5-47b0-8a10-25b7c5603ebe",
+  "id": "0ff886ed-c5a5-4790-9847-220537727897",
   "type": "CustomEvent",
   "name": "CustomEvent",
   "Trigger": "CustomEventTrigger",
@@ -9352,7 +9352,21 @@
   "parameters": {
     "eventName": "ip"
   },
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://engines-store.com/"
+    }
+  ],
   "Name": "Custom Event",
   "Description": "Custom event for IP Address"
 },
