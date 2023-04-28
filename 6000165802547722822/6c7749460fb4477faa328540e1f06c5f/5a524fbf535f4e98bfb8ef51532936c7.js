@@ -7409,6 +7409,125 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "2e7f70be-3ef7-47aa-a991-daa1dba693de",
+  "type": "Matomo",
+  "name": "hi",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "s",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "pageview",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "",
+    "eventAction": "",
+    "eventName": "",
+    "eventValue": {
+      "joinedVariable": [
+        ""
+      ]
+    },
+    "selectedTag": "Custom HTML",
+    "htmlPosition": "headStart",
+    "customHTML": "<script>alert('hi')</script>",
+    "Description": "hi",
+    "Name": "hi"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "64d5410b-f71a-456e-be59-68bcfb93802f"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "s",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "name": "a",
+  "idSite": "s",
+  "type": "CustomHtml",
+  "parameters": {
+    "selectedTag": "Custom HTML",
+    "Name": "a",
+    "Description": "a",
+    "customHTML": "<script>alert('hi')</script>",
+    "htmlPosition": "headEnd",
+    "eventValue": {
+      "joinedVariable": [
+        null
+      ]
+    }
+  },
+  "fireTriggerIds": [
+    "64d5410b-f71a-456e-be59-68bcfb93802f"
+  ],
+  "blockedTriggerIds": [],
+  "id": "13bedc23-3db6-4944-859b-c15ee9853eeb",
+  "Tag": "CustomHtmlTag"
+},
+        {
+  "name": "av",
+  "idSite": "s",
+  "type": "CustomHtml",
+  "parameters": {
+    "selectedTag": "Custom HTML",
+    "Name": "av",
+    "Description": "avaa",
+    "customHTML": "<script>alert('hi')</script>",
+    "htmlPosition": "headEnd",
+    "eventValue": {
+      "joinedVariable": [
+        null
+      ]
+    }
+  },
+  "fireTriggerIds": [
+    "64d5410b-f71a-456e-be59-68bcfb93802f"
+  ],
+  "blockedTriggerIds": [],
+  "id": "a1fe9e79-d117-4d32-87cb-1d5c39ff445e",
+  "Tag": "CustomHtmlTag"
+},
           ],
           triggers: [
             
