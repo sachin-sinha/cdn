@@ -7529,6 +7529,29 @@
   "id": "a1fe9e79-d117-4d32-87cb-1d5c39ff445e",
   "Tag": "CustomHtmlTag"
 },
+        {
+  "name": "aaa",
+  "idSite": "s",
+  "type": "CustomHtml",
+  "parameters": {
+    "selectedTag": "Custom HTML",
+    "Name": "aaa",
+    "Description": "aaa",
+    "customHTML": "aaa",
+    "htmlPosition": "headEnd",
+    "eventValue": {
+      "joinedVariable": [
+        null
+      ]
+    }
+  },
+  "fireTriggerIds": [
+    "64d5410b-f71a-456e-be59-68bcfb93802f"
+  ],
+  "blockedTriggerIds": [],
+  "id": "f70bd7a6-52cd-4aa9-b73d-efcd73fa46f6",
+  "Tag": "CustomHtmlTag"
+},
           ],
           triggers: [
             
