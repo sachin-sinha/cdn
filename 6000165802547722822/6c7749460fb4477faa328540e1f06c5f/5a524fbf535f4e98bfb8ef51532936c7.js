@@ -6955,7 +6955,7 @@
     secureFilters.css = function (val) {
         var str = String(val);
         str = convertControlCharacters(str);
-        return str.replace(/[^a-zA-Z0-9\uD800-\uDFFF]/g, function (match) {
+        return str.replace(/[^a-zA-Z0-9]/g, function (match) {
             var code = match.charCodeAt(0);
             if (code === 0) {
                 return "\\fffd ";
@@ -7165,14 +7165,14 @@
           tags: [
             
         {
-  "name": "html",
+  "name": "hnh",
   "idSite": "s",
   "type": "CustomHtml",
   "parameters": {
     "selectedTag": "Custom HTML",
-    "Name": "html",
-    "Description": "html",
-    "customHTML": "<script>alert('hi'); console.log('hi');</script>",
+    "Name": "hnh",
+    "Description": "hn",
+    "customHTML": "<script>alert(\"hi\");</script>",
     "htmlPosition": "headEnd",
     "eventValue": {
       "joinedVariable": [
@@ -7184,7 +7184,7 @@
     "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
   ],
   "blockedTriggerIds": [],
-  "id": "6fe481a4-5fd0-4eaa-97b9-f0d7093193aa",
+  "id": "dbdf1c7f-e380-42cc-b8a8-a7daaa54e5de",
   "Tag": "CustomHtmlTag"
 },
           ],
