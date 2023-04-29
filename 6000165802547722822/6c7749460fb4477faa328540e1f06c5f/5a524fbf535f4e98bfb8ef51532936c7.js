@@ -7187,6 +7187,29 @@
   "id": "001294e9-a9fd-4ac2-a476-b83e9f2828a5",
   "Tag": "CustomHtmlTag"
 },
+        {
+  "name": "a",
+  "idSite": "s",
+  "type": "CustomHtml",
+  "parameters": {
+    "selectedTag": "Custom HTML",
+    "Name": "a",
+    "Description": "a",
+    "customHtml": "<style>\nh1 {\ncolor: \"red !important\";\nbox-shadow: \"light-blue\"\n}\n</style>\n<script>\nconsole.log(\"working\");\n</script>",
+    "htmlPosition": "headEnd",
+    "eventValue": {
+      "joinedVariable": [
+        null
+      ]
+    }
+  },
+  "fireTriggerIds": [
+    "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
+  ],
+  "blockedTriggerIds": [],
+  "id": "4e2b6fd6-0864-4646-8a70-085502746e5b",
+  "Tag": "CustomHtmlTag"
+},
           ],
           triggers: [
             
