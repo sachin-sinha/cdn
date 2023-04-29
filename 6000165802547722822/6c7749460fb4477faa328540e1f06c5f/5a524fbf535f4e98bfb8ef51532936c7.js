@@ -6955,7 +6955,7 @@
     secureFilters.css = function (val) {
         var str = String(val);
         str = convertControlCharacters(str);
-        return str.replace(/[^a-zA-Z0-9/uD800-/uDFFF]/g, function (match) {
+        return str.replace(/[^a-zA-Z0-9\uD800-\uDFFF]/g, function (match) {
             var code = match.charCodeAt(0);
             if (code === 0) {
                 return "\\fffd ";
@@ -7185,6 +7185,29 @@
   ],
   "blockedTriggerIds": [],
   "id": "e0edefc7-02fc-492b-9297-43f9334974e2",
+  "Tag": "CustomHtmlTag"
+},
+        {
+  "name": "a",
+  "idSite": "s",
+  "type": "CustomHtml",
+  "parameters": {
+    "selectedTag": "Custom HTML",
+    "htmlPosition": "headStart",
+    "customHTML": "a",
+    "Name": "a",
+    "Description": "a",
+    "eventValue": {
+      "joinedVariable": [
+        null
+      ]
+    }
+  },
+  "fireTriggerIds": [
+    "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
+  ],
+  "blockedTriggerIds": [],
+  "id": "5ede5481-5f2f-4940-b12a-0eb269aaf857",
   "Tag": "CustomHtmlTag"
 },
           ],
