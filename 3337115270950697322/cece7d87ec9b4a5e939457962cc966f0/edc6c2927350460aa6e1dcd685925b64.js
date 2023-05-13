@@ -6668,6 +6668,36 @@
       });
     }
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
+})();Templates["CustomEventTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        function isMatchingEvent(value) {
+            var eventName = parameters.get("eventName");
+            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
+        }
+        var missedEvents = [];
+        var index = parameters.container.dataLayer.on(function (value) {
+            if (isMatchingEvent(value)) {
+                missedEvents.push(value.event);
+            }
+        });
+        this.setUp = function (triggerEvent) {
+            parameters.container.dataLayer.off(index);
+            for (var i = 0; i < missedEvents.length; i++) {
+                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
+            }
+            parameters.container.dataLayer.on(function (value) {
+                if (isMatchingEvent(value)) {
+                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
+                }
+            });
+        };
+    };
 })();Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6700,51 +6730,7 @@
       });
     }
   };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["CustomEventTrigger"] = (function () {
-    return function (parameters, TagManager) {
-        function isMatchingEvent(value) {
-            var eventName = parameters.get("eventName");
-            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
-        }
-        var missedEvents = [];
-        var index = parameters.container.dataLayer.on(function (value) {
-            if (isMatchingEvent(value)) {
-                missedEvents.push(value.event);
-            }
-        });
-        this.setUp = function (triggerEvent) {
-            parameters.container.dataLayer.off(index);
-            for (var i = 0; i < missedEvents.length; i++) {
-                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
-            }
-            parameters.container.dataLayer.on(function (value) {
-                if (isMatchingEvent(value)) {
-                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
-                }
-            });
-        };
-    };
-})();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
-  })();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
-  })();Templates["DataLayerVariable"] = (function () {
+})();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -7196,6 +7182,7 @@
       };
   };
 })();
+      
       window.MatomoTagManager.addContainer(
         {
           id: "tfVMgnzD",
@@ -7768,6 +7755,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "9509bebb-8311-4a48-97d4-db4e67e0eda5",
+  "type": "Matomo",
+  "name": "CallButton",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "CallButton",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "CallButton",
+    "Description": "Sends data, when call button is clicked on the website."
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "5e992411-4c8a-452c-80cc-7ccb1974bc8e"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7852,31 +7918,6 @@
   "Description": "PageClick"
 },
             {
-  "id": "f50bb915-b249-480c-835a-7998e69a2d14",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "regexp",
-      "expected": "^(getstarted|fa-phone-square)$"
-    }
-  ],
-  "Name": "CallButton",
-  "Description": "CallButton"
-},
-            {
   "id": "717b4f6c-48ea-4396-a497-2e1c063c2b91",
   "type": "PageView",
   "name": "PageView",
@@ -7914,47 +7955,47 @@
   "Name": "Custom IP Event",
   "Description": "Custom event to get the IP Adress of the visitor."
 },
+            {
+  "id": "5e992411-4c8a-452c-80cc-7ccb1974bc8e",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "regexp",
+      "expected": "^(getstarted|fa-phone-square|jss236)$"
+    },
+    {
+      "actual": {
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "callnowbutton"
+    }
+  ],
+  "Name": "Call Button",
+  "Description": "Sends data, when call button is clicked on the website."
+},
           ],
           variables: [
             
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Name": "campaignid",
-  "Description": "campaignid",
-  "parameterName": "campaignid",
-  "id": "9b4086f5-b2ca-461d-8cab-ffccaf088a8a",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Name": "campaignid",
-    "Description": "campaignid",
-    "parameterName": "campaignid"
-  }
-}, Variable: "UrlParameterVariable"},
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Name": "loc_physical_ms",
-  "Description": "loc_physical_ms",
-  "parameterName": "loc_physical_ms",
-  "id": "ff1a5c07-7228-4e91-aacb-d76ff059bf82",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Name": "loc_physical_ms",
-    "Description": "loc_physical_ms",
-    "parameterName": "loc_physical_ms"
-  }
-}, Variable: "UrlParameterVariable"},
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
