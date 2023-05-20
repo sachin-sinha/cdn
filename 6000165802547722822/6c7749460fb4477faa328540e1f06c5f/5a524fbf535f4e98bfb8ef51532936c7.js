@@ -6500,7 +6500,107 @@
       });
     }
   };
+})();Templates["ScrollReachTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var self = this;
+    var numTriggers = 0;
+    this.setUp = function (triggerEvent) {
+      var scrollType = parameters.get("scrollType");
+      var pixels = parameters.get("pixels", 1000);
+      var percentage = parameters.get("percentage", 50);
+      if (!scrollType) {
+        return;
+      }
+      this.scrollIndex = TagManager.window.onScroll(function (event) {
+        var hasReachedScrollPosition = false;
+        var dom = TagManager.dom;
+        var lastScrollTop = parseInt(dom.getScrollTop(), 10) + TagManager.window.getViewportHeight();
+        var lastScrollLeft = parseInt(dom.getScrollLeft(), 10) + TagManager.window.getViewportWidth();
+        var docHeight = dom.getDocumentHeight();
+        var docWidth = dom.getDocumentWidth();
+        var scrollPercentageVertical = (lastScrollTop / docHeight) * 100;
+        var scrollPercentageHorizontal = (lastScrollLeft / docWidth) * 100;
+        var eventType = event && event.type ? event.type : "";
+        switch (scrollType) {
+          case "verticalpixel":
+            if (lastScrollTop > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpixel":
+            if (lastScrollLeft > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "verticalpercentage":
+            if (scrollPercentageVertical >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpercentage":
+            if (scrollPercentageHorizontal >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+        }
+        if (hasReachedScrollPosition) {
+          if (!numTriggers) {
+            numTriggers++;
+            triggerEvent({
+              event: "mtm.ScrollReach",
+              "mtm.scrollSource": eventType,
+              "mtm.scrollLeftPx": lastScrollLeft,
+              "mtm.scrollTopPx": lastScrollTop,
+              "mtm.scrollVerticalPercentage": Math.round(scrollPercentageVertical * 100) / 100,
+              "mtm.scrollHorizontalPercentage": Math.round(scrollPercentageHorizontal * 100) / 100,
+              "mtm.scrollDocumentHeightPx": docHeight,
+              "mtm.scrollDocumentWidthPx": docWidth,
+            });
+          }
+          if (self.scrollIndex !== null) {
+            TagManager.window.offScroll(self.scrollIndex);
+            self.scrollIndex = null;
+          }
+        }
+      });
+    };
+  };
 })();
+  Templates["DomElementVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var selectionMethod = parameters.get("selectionMethod");
+        if (!selectionMethod) {
+          return;
+        }
+        var attributeName = parameters.get("attributeName");
+        var dom = TagManager.dom;
+        var ele;
+        if (selectionMethod === "elementId") {
+          ele = dom.byId(parameters.get("elementId"));
+        } else if (selectionMethod === "cssSelector") {
+          ele = dom.bySelector(parameters.get("cssSelector"));
+          if (ele && ele[0]) {
+            ele = ele[0];
+          } else {
+            ele = null;
+          }
+        }
+        if (ele) {
+          if (attributeName) {
+            if (String(attributeName).toLowerCase() === "value" && ele.nodeName === "INPUT") {
+              var type = dom.getElementAttribute(ele, "type");
+              if (type && type.toLowerCase() === "password") {
+                return;
+              }
+            }
+            return dom.getElementAttribute(ele, attributeName);
+          }
+          return TagManager.dom.getElementText(ele);
+        }
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7210,6 +7310,87 @@
   "id": "4e2b6fd6-0864-4646-8a70-085502746e5b",
   "Tag": "CustomHtmlTag"
 },
+        {
+  "id": "aa0db004-ae8c-4cdf-8dc8-c54a2e41f613",
+  "type": "Matomo",
+  "name": "newname",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "s",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "pageview",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "custom title",
+    "customUrl": "url",
+    "eventCategory": "",
+    "eventAction": "",
+    "eventName": "",
+    "eventValue": {
+      "joinedVariable": [
+        ""
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "newname",
+    "Description": "desc",
+    "id": "aa0db004-ae8c-4cdf-8dc8-c54a2e41f613",
+    "fireTriggerIds": [
+      "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
+    ],
+    "blockTriggerIds": [],
+    "blockedTriggerIds": [
+      "eac4fcab-3c0d-49db-8636-c0edbff5a224"
+    ]
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "s",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": [
+    "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
+  ]
+},
           ],
           triggers: [
             
@@ -7224,9 +7405,74 @@
   "Name": "allClick",
   "Description": "a"
 },
+            {
+  "id": "eac4fcab-3c0d-49db-8636-c0edbff5a224",
+  "type": "ScrollReach",
+  "name": "ScrollReach",
+  "Trigger": "ScrollReachTrigger",
+  "selectedTrigger": "Scroll Reach",
+  "parameters": {
+    "scrollType": "verticalpercentage",
+    "percentage": "32"
+  },
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Destination URL",
+        "name": "ClickDestinationUrl",
+        "type": "ClickDestinationUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickDestinationUrlVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "State"
+    }
+  ],
+  "Name": "new scroll",
+  "Description": "new desc"
+},
           ],
           variables: [
             
+          {name: "DomElement", type: "DomElement", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "DOM Element",
+  "Variable": "DomElementVariable",
+  "name": "DomElement",
+  "type": "DomElement",
+  "Name": "newname",
+  "Description": "desc",
+  "selectionMethod": "elementId",
+  "cssSelector": "selec",
+  "attributeName": "attr",
+  "id": "b26f5295-c3d9-4039-b01f-cc0604abb2ff",
+  "parameters": {
+    "selectedVariable": "DOM Element",
+    "Variable": "DomElementVariable",
+    "name": "DomElement",
+    "type": "DomElement",
+    "Name": "newname",
+    "Description": "desc",
+    "selectionMethod": "elementId",
+    "cssSelector": "selec",
+    "attributeName": "attr",
+    "id": "b26f5295-c3d9-4039-b01f-cc0604abb2ff",
+    "parameters": {
+      "selectedVariable": "DOM Element",
+      "Variable": "DomElementVariable",
+      "name": "DomElement",
+      "type": "DomElement",
+      "Name": "oldname",
+      "Description": "desc",
+      "selectionMethod": "cssSelector",
+      "cssSelector": "selec",
+      "attributeName": "attr"
+    },
+    "elementId": "meter"
+  },
+  "elementId": "meter"
+}, Variable: "DomElementVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
