@@ -7473,6 +7473,7 @@
   },
   "elementId": "meter"
 }, Variable: "DomElementVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: 'undefined' }, Variable: "CustomJsFunctionVariable" }
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
