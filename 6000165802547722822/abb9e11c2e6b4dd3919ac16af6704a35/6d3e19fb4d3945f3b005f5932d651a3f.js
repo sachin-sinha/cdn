@@ -7023,7 +7023,8 @@
             "type": "CustomJsFunction",
             "Name": "getFormData",
             "jsFunction": "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}"
-          }
+          },
+          "Variable": "CustomJsFunctionVariablef6786a71c3c9425c869d8a255e72120c"
         }
       ]
     },
