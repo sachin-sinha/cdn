@@ -6642,38 +6642,6 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6718,19 +6686,6 @@
       };
     };
   })();
-          Templates["CustomJsFunctionVariable"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {
-var fData = {};
-var fElement = document.getElementById('my-form');
-fData.name = fElement.elements['name'].value;
-fData.email = fElement.elements['email'].value;
-return JSON.stringify(fData);
-}
-
-            };
-        })()
-          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8100,93 +8055,6 @@ return JSON.stringify(fData);
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
-        {
-  "id": "a647114b-f5e8-4915-af52-ee0eaeaeaf63",
-  "type": "Matomo",
-  "name": "formData",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "test",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/FE_SHOP_IQ/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "formsubmit",
-    "eventAction": "formsubmit",
-    "eventName": "formsubmit",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "new var",
-          "Description": "new var",
-          "jsFunction": "function() {\nvar fData = {};\nvar fElement = document.getElementById('my-form');\nfData.name = fElement.elements['name'].value;\nfData.email = fElement.elements['email'].value;\nreturn JSON.stringify(fData);\n}\n",
-          "id": "61769d3e-b9e2-4636-8c03-b1729d688a9c",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "new var",
-            "Description": "new var",
-            "jsFunction": "function() {\nvar fData = {};\nvar fElement = document.getElementById('my-form');\nfData.name = fElement.elements['name'].value;\nfData.email = fElement.elements['email'].value;\nreturn JSON.stringify(fData);\n}\n"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "formData",
-    "Description": "desc"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "aacf21a8-9444-4c37-acc5-c02ea5023452"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "test",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
@@ -8269,30 +8137,6 @@ return JSON.stringify(fData);
   "conditions": [],
   "Name": "Pageview (All)",
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
-},
-            {
-  "id": "aacf21a8-9444-4c37-acc5-c02ea5023452",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "clicker"
-    }
-  ],
-  "Name": "formSubmit"
 },
           ],
           variables: [
@@ -8390,14 +8234,6 @@ return JSON.stringify(fData);
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: 'function() {
-var fData = {};
-var fElement = document.getElementById('my-form');
-fData.name = fElement.elements['name'].value;
-fData.email = fElement.elements['email'].value;
-return JSON.stringify(fData);
-}
-' }, Variable: "CustomJsFunctionVariable" }
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
