@@ -6601,6 +6601,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariable"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() { return 0 }
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7473,7 +7479,7 @@
   },
   "elementId": "meter"
 }, Variable: "DomElementVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: 'undefined' }, Variable: "CustomJsFunctionVariable" }
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: 'function() { return 0 }' }, Variable: "CustomJsFunctionVariable" }
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
