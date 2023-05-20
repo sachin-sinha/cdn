@@ -8160,27 +8160,13 @@
           }
         },
         {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "fetchFormData",
-          "jsFunction": "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}",
-          "id": "ca339c10-00a6-4526-a6ab-030d1d039189",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "fetchFormData",
-            "jsFunction": "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}",
-            "id": "ca339c10-00a6-4526-a6ab-030d1d039189",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "fetchFormData",
-              "jsFunction": "function() {var fd = {};var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}"
-            }
-          }
+          "Name": "Click Element",
+          "name": "ClickElement",
+          "type": "ClickElement",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickElementVariable"
         }
       ]
     },
