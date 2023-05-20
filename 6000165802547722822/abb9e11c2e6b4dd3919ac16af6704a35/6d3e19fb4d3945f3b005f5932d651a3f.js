@@ -8158,11 +8158,39 @@
             "Name": "fetchFormData",
             "jsFunction": "function() {var fd = {};var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}"
           }
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "fetchFormData",
+          "jsFunction": "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}",
+          "id": "ca339c10-00a6-4526-a6ab-030d1d039189",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "fetchFormData",
+            "jsFunction": "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}",
+            "id": "ca339c10-00a6-4526-a6ab-030d1d039189",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "fetchFormData",
+              "jsFunction": "function() {var fd = {};var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}"
+            }
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "form submit"
+    "Name": "form submit",
+    "id": "9082d1c5-1d9a-422b-89c2-f0b2e0fe3dfd",
+    "fireTriggerIds": [
+      "deb920fc-49b5-40e1-92e9-57b2f6ae4f18"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
