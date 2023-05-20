@@ -7073,7 +7073,7 @@
           ],
           variables: [
             
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable" }
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};console.log('triggered');var fe = document.getElementById('my-form');fd.name=fe.elements['name'].value;fd.email=fe.elements['email'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
