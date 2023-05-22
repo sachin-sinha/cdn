@@ -6601,7 +6601,7 @@
       };
     };
   })();
-          Templates["CustomJsFunctionVariable"] = (function () {
+          Templates["CustomJsFunctionVariableee52cdd89c424e60bc9e64e6a57da2bd"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() { return 0 }
             };
@@ -7397,6 +7397,112 @@
     "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
   ]
 },
+        {
+  "id": "27c3fbf9-1e0a-48fe-933a-e21c380f5c2e",
+  "type": "Matomo",
+  "name": "formdata",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "s",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ShopIQ/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "cat",
+    "eventAction": "act",
+    "eventName": "name",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "new javascript",
+          "Description": "desc",
+          "jsFunction": "function() { return 0 }",
+          "id": "ee52cdd8-9c42-4e60-bc9e-64e6a57da2bd",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "new javascript",
+            "Description": "desc",
+            "jsFunction": "function() { return 0 }",
+            "id": "ee52cdd8-9c42-4e60-bc9e-64e6a57da2bd",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "new javascript",
+              "Description": "desc",
+              "jsFunction": "function() { return 0 }",
+              "id": "ee52cdd8-9c42-4e60-bc9e-64e6a57da2bd",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "new javascript",
+                "Description": "desc",
+                "jsFunction": "function() { return 0 }"
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariableee52cdd89c424e60bc9e64e6a57da2bd"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "formdata",
+    "Description": "desc"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "605e80a6-fd08-4a79-9c5e-23ac2da4553c"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "s",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7479,7 +7585,7 @@
   },
   "elementId": "meter"
 }, Variable: "DomElementVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: 'function() { return 0 }' }, Variable: "CustomJsFunctionVariable" }
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() { return 0 }" }, Variable: "CustomJsFunctionVariableee52cdd89c424e60bc9e64e6a57da2bd" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
