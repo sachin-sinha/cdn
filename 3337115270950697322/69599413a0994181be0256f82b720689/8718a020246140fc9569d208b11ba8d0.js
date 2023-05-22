@@ -6642,6 +6642,38 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6686,6 +6718,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe = document.getElementById('quoteform');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8055,6 +8093,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "9e6609da-4874-4982-b12c-35a8e8c42595",
+  "type": "Matomo",
+  "name": "Order Form Submit",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Quality_autorecycling",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Quality_autorecycling/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "OrderForm",
+    "eventAction": "OrderForm",
+    "eventName": "OrderForm",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Order Form Data",
+          "jsFunction": "function() {var fd = {};var fe = document.getElementById('quoteform');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+          "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Order Form Data",
+            "jsFunction": "function() {var fd = {};var fe = document.getElementById('quoteform');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Order Form Submit"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "74962140-7fa1-48f3-9c6a-1cacae0297cc"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Quality_autorecycling",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8137,6 +8260,30 @@
   "conditions": [],
   "Name": "Pageview (All)",
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
+},
+            {
+  "id": "74962140-7fa1-48f3-9c6a-1cacae0297cc",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "submit_orderform"
+    }
+  ],
+  "Name": "Order Form Submit"
 },
           ],
           variables: [
@@ -8234,6 +8381,7 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('quoteform');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
