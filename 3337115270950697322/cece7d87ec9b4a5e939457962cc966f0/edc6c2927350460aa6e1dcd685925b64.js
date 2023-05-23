@@ -6730,6 +6730,38 @@
       });
     }
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6740,6 +6772,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariablee39df889118a4a0bb82af6dba448f413"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd={};var fe=document.querySelector('section#hero1').querySelector('form');fd.Makes=fe.elements['Makes'].value;fd.Model=fe.elements['Model'].value;fd.Years=fe.elements['Years'].value;fd.Years=fe.elements['Years'].value;fd.Parts=fe.elements['Parts'].value;fd.size=fe.elements['size'].value;fd.Name=fe.elements['Name'].value;fd.number=fe.elements['number'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7755,6 +7793,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "d02e2562-2f63-41cc-8899-abf54a62b597",
+  "type": "Matomo",
+  "name": "Quote Form Data",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "quoteForm",
+    "eventAction": "quoteForm",
+    "eventName": "quoteForm",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Quote Form Data",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('section#hero1').querySelector('form');fd.Makes=fe.elements['Makes'].value;fd.Model=fe.elements['Model'].value;fd.Years=fe.elements['Years'].value;fd.Years=fe.elements['Years'].value;fd.Parts=fe.elements['Parts'].value;fd.size=fe.elements['size'].value;fd.Name=fe.elements['Name'].value;fd.number=fe.elements['number'].value;return JSON.stringify(fd);}",
+          "id": "e39df889-118a-4a0b-b82a-f6dba448f413",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Quote Form Data",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('section#hero1').querySelector('form');fd.Makes=fe.elements['Makes'].value;fd.Model=fe.elements['Model'].value;fd.Years=fe.elements['Years'].value;fd.Years=fe.elements['Years'].value;fd.Parts=fe.elements['Parts'].value;fd.size=fe.elements['size'].value;fd.Name=fe.elements['Name'].value;fd.number=fe.elements['number'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariablee39df889118a4a0bb82af6dba448f413"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Quote Form Data"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "6b3a96a3-5ca2-4ae7-936a-fc5406be4f2e"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7914,6 +8037,30 @@
   "Name": "Call Button",
   "Description": "Sends data, when call button is clicked on the website."
 },
+            {
+  "id": "6b3a96a3-5ca2-4ae7-936a-fc5406be4f2e",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Node Name",
+        "name": "ClickNodeName",
+        "type": "ClickNodeName",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickNodeNameVariable"
+      },
+      "comparison": "equals",
+      "expected": "submit_quote"
+    }
+  ],
+  "Name": "Quote Form Submit"
+},
           ],
           variables: [
             
@@ -7936,6 +8083,7 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('section#hero1').querySelector('form');fd.Makes=fe.elements['Makes'].value;fd.Model=fe.elements['Model'].value;fd.Years=fe.elements['Years'].value;fd.Years=fe.elements['Years'].value;fd.Parts=fe.elements['Parts'].value;fd.size=fe.elements['size'].value;fd.Name=fe.elements['Name'].value;fd.number=fe.elements['number'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablee39df889118a4a0bb82af6dba448f413" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
