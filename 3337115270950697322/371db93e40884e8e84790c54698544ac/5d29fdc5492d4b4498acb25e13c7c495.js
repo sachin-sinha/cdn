@@ -6730,6 +6730,38 @@
       });
     }
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6828,6 +6860,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8257,6 +8295,85 @@
   "blockedTriggerIds": []
 },
         {
+  "id": "65a6976d-4fd9-4a2e-b504-aac983c3d20e",
+  "type": "Matomo",
+  "name": "CallButton",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-locator",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_locator/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "CallButton",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Text",
+          "name": "ClickText",
+          "type": "ClickText",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickTextVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "CallButton",
+    "Description": "Sends data, when call button is clicked on the website."
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "86ff3c64-4704-489f-ac19-04c47f55dafd"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-locator",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
   "id": "5fab3ba7-98b5-42e3-9688-bdd94d4b0981",
   "type": "Matomo",
   "name": "gclid",
@@ -9147,9 +9264,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "d752757b-128e-44fa-aa81-d061da59af4e",
+  "id": "e2f4b25f-ecdd-4555-a81e-76f132131ec5",
   "type": "Matomo",
-  "name": "CallButton",
+  "name": "Quote Form",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -9192,29 +9309,35 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "CallButton",
-    "eventAction": "CallButton",
-    "eventName": "CallButton",
+    "eventCategory": "quoteForm",
+    "eventAction": "quoteForm",
+    "eventName": "quoteForm",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Quote Form Data",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+          "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Quote Form Data",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CallButton",
-    "Description": "Sends data, when call button is clicked on the website."
+    "Name": "Quote Form"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "19c25b99-c86f-44c7-9ce6-a39bdf5fc083"
+    "aeaa2472-1447-40e0-9fd7-6178e42ca5b3"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -9370,6 +9493,30 @@
   ],
   "Name": "CallButton",
   "Description": "CallButton"
+},
+            {
+  "id": "aeaa2472-1447-40e0-9fd7-6178e42ca5b3",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Node Name",
+        "name": "ClickNodeName",
+        "type": "ClickNodeName",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickNodeNameVariable"
+      },
+      "comparison": "equals",
+      "expected": "submit_form"
+    }
+  ],
+  "Name": "Quote Form Submit"
 },
           ],
           variables: [
@@ -9619,6 +9766,7 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
