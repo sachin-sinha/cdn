@@ -6862,7 +6862,7 @@
   })();
           Templates["CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);return JSON.stringify('trig');}
+                this.get = function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -9329,15 +9329,68 @@
             "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
           },
           "Variable": "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Quote Form Data",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+          "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Quote Form Data",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+            "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Quote Form Data",
+              "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);return JSON.stringify('trig');}",
+              "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Quote Form Data",
+                "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+                "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "Quote Form Data",
+                  "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+                  "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                  "parameters": {
+                    "selectedVariable": "Custom JavaScript",
+                    "name": "CustomJsFunction",
+                    "type": "CustomJsFunction",
+                    "Name": "Quote Form Data",
+                    "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
+                  }
+                }
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form"
+    "Name": "Quote Form",
+    "id": "e2f4b25f-ecdd-4555-a81e-76f132131ec5",
+    "fireTriggerIds": [
+      "aeaa2472-1447-40e0-9fd7-6178e42ca5b3"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "aeaa2472-1447-40e0-9fd7-6178e42ca5b3"
+    "ed4fe210-9c05-4ec5-ad27-61c368d7694d"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -9766,7 +9819,7 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);return JSON.stringify('trig');}" }, Variable: "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
