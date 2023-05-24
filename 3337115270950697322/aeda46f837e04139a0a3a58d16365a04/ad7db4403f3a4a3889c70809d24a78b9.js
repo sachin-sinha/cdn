@@ -8271,16 +8271,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Node Name",
-        "name": "ClickNodeName",
-        "type": "ClickNodeName",
+        "Name": "Click Element",
+        "name": "ClickElement",
+        "type": "ClickElement",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickNodeNameVariable"
+        "Variable": "ClickElementVariable"
       },
       "comparison": "equals",
-      "expected": "submit_form"
+      "expected": "input.btn.btn-default"
     }
   ],
   "Name": "Order form Submit"
