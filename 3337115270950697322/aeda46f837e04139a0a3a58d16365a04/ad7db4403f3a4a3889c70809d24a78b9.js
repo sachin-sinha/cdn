@@ -8179,9 +8179,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "bbac966b-7dc3-4a97-abeb-9e5c8089709d",
+  "id": "ebc36cef-7745-46e3-be7e-633b8ec13652",
   "type": "Matomo",
-  "name": "custom event",
+  "name": "testEvent",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8224,29 +8224,24 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "testEvent",
-    "eventAction": "testEvent",
-    "eventName": "testEvent",
+    "eventCategory": "testEvent2",
+    "eventAction": "testEvent2",
+    "eventName": "testEvent2",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Click Node Name",
-          "name": "ClickNodeName",
-          "type": "ClickNodeName",
+          "Name": "Click Classes",
+          "name": "ClickClasses",
+          "type": "ClickClasses",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
-          "Variable": "ClickNodeNameVariable"
+          "Variable": "ClickClassesVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "custom event",
-    "id": "bbac966b-7dc3-4a97-abeb-9e5c8089709d",
-    "fireTriggerIds": [
-      "82cf4562-587d-4c12-acbc-bd6b98eb9d5e"
-    ],
-    "blockedTriggerIds": []
+    "Name": "testEvent"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
