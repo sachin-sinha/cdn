@@ -6721,8 +6721,7 @@
   })();
           Templates["CustomJsFunctionVariablec34e68e709854e0e95e78d1ad7eaa023"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.querySelector('form#f1');
-console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8173,8 +8172,7 @@ console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_ma
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#f1');
-console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec34e68e709854e0e95e78d1ad7eaa023" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec34e68e709854e0e95e78d1ad7eaa023" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
