@@ -6778,7 +6778,18 @@
                 this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}
             };
         })()
-          
+          Templates["ReferrerUrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var urlPart = parameters.get("urlPart", "href");
+        var urlReferrer = parameters.get("document.referrer");
+        if (!urlReferrer || !urlPart) {
+          return;
+        }
+        return TagManager.url.parseUrl(urlReferrer, urlPart);
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8453,6 +8464,23 @@
   }
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485" },
+          {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Referrer URL",
+  "Variable": "ReferrerUrlVariable",
+  "name": "ReferrerUrl",
+  "type": "ReferrerUrl",
+  "Name": "Referrer URL",
+  "Description": "Referrer URL",
+  "id": "9e0ced92-8028-412b-aaca-c3e74bf257f3",
+  "parameters": {
+    "selectedVariable": "Referrer URL",
+    "Variable": "ReferrerUrlVariable",
+    "name": "ReferrerUrl",
+    "type": "ReferrerUrl",
+    "Name": "Referrer URL",
+    "Description": "Referrer URL"
+  }
+}, Variable: "ReferrerUrlVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
