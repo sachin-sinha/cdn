@@ -7960,7 +7960,7 @@
         "parameters": [],
         "Variable": "ReferrerVariable"
       },
-      "comparison": "equals",
+      "comparison": "not_equals",
       "expected": "https://swap-motor.com/"
     }
   ],
@@ -8004,7 +8004,17 @@
     "type": "DataLayer",
     "Name": "IP",
     "Description": "Custom variable to get the IP Adress of the visitor.",
-    "dataLayerName": "ip"
+    "dataLayerName": "ip",
+    "id": "e4e83443-c9ee-48c9-8048-7b762da30bf8",
+    "parameters": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "IP",
+      "Description": "Custom variable to get the IP Adress of the visitor.",
+      "dataLayerName": "ip"
+    }
   }
 }, Variable: "DataLayerVariable"},
             {
