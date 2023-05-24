@@ -6642,38 +6642,6 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8093,91 +8061,6 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
-        {
-  "id": "dd207f82-17b5-425a-b4fa-ae7837bbe792",
-  "type": "Matomo",
-  "name": "Order Form collection",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Usedengineslocator",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Usedengineslocator/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "OrderForm",
-    "eventAction": "OrderForm",
-    "eventName": "OrderForm",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "OrderFormData",
-          "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
-          "id": "93a8f61c-a9de-4054-99a6-ef917289d659",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "OrderFormData",
-            "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable93a8f61ca9de405499a6ef917289d659"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Order Form collection"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "cc3343b5-fb9b-4177-9269-131a80167436"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Usedengineslocator",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
@@ -8260,30 +8143,6 @@
   "conditions": [],
   "Name": "Pageview (All)",
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
-},
-            {
-  "id": "cc3343b5-fb9b-4177-9269-131a80167436",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Element",
-        "name": "ClickElement",
-        "type": "ClickElement",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickElementVariable"
-      },
-      "comparison": "equals",
-      "expected": "input.btn.btn-default"
-    }
-  ],
-  "Name": "Order form Submit"
 },
           ],
           variables: [
