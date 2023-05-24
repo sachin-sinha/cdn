@@ -7863,11 +7863,16 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Data"
+    "Name": "Quote Form Data",
+    "id": "d02e2562-2f63-41cc-8899-abf54a62b597",
+    "fireTriggerIds": [
+      "6b3a96a3-5ca2-4ae7-936a-fc5406be4f2e"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "6b3a96a3-5ca2-4ae7-936a-fc5406be4f2e"
+    "52d812e0-d074-4f6a-b72d-5cf956ae3e1a"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
