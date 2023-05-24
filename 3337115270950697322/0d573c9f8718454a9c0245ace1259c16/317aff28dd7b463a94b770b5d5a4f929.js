@@ -7795,7 +7795,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -7818,7 +7818,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "PageViewURL",
-    "Description": "Returns the URL of the page."
+    "Description": "Returns the URL of the page.",
+    "id": "d4dbb02f-0ae8-4a9c-9722-32e3599f91c1",
+    "fireTriggerIds": [
+      "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
