@@ -8219,7 +8219,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -8241,7 +8241,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "custom event"
+    "Name": "custom event",
+    "id": "bbac966b-7dc3-4a97-abeb-9e5c8089709d",
+    "fireTriggerIds": [
+      "82cf4562-587d-4c12-acbc-bd6b98eb9d5e"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
