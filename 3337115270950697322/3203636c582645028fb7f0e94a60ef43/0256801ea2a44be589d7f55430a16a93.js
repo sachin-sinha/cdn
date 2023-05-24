@@ -6730,38 +6730,6 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8118,9 +8086,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "a93f5029-8e99-4b97-9beb-0efa5aacf68d",
+  "id": "66f94d8c-e175-4d75-966a-98c9334a56d8",
   "type": "Matomo",
-  "name": "AEC",
+  "name": "testEvent",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8163,9 +8131,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "testEvent3",
-    "eventAction": "testEvent3",
-    "eventName": "testEvent3",
+    "eventCategory": "newtestEvent",
+    "eventAction": "newtestEvent",
+    "eventName": "newtestEvent",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8180,11 +8148,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "AEC"
+    "Name": "testEvent"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "8666f163-7f8a-49a1-a25b-c8c93791e8f8"
+    "1ca5bd8b-d1ed-4a58-86c5-d5c82e22b66f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8379,16 +8347,6 @@
   ],
   "Name": "Call Button",
   "Description": "Sends data, when call button is clicked on the website."
-},
-            {
-  "id": "8666f163-7f8a-49a1-a25b-c8c93791e8f8",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [],
-  "Name": "AEC"
 },
           ],
           variables: [
