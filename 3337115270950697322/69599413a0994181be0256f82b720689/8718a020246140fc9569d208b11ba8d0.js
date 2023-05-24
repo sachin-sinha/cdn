@@ -6720,7 +6720,7 @@
   })();
           Templates["CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8178,6 +8178,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "1a9060ae-1d35-4d8b-8b4a-fdce24e67994",
+  "type": "Matomo",
+  "name": "PageViewURL",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Quality_autorecycling",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Quality_autorecycling/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "PageViewURL",
+    "eventAction": "PageViewURL",
+    "eventName": "PageViewURL",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "PageViewURL",
+    "Description": "Returns the URL of the page."
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Quality_autorecycling",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8381,7 +8460,7 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
