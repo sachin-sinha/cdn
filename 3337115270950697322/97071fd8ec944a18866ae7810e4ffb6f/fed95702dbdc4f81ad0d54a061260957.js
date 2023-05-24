@@ -7908,9 +7908,9 @@ console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_ma
   "blockedTriggerIds": []
 },
         {
-  "id": "eba9564c-2640-492f-a89a-935d0f57acf3",
+  "id": "80238dec-15c3-4339-a9a3-038cc14b684b",
   "type": "Matomo",
-  "name": "Quote Form",
+  "name": "quote form data collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7985,11 +7985,11 @@ console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_ma
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form"
+    "Name": "quote form data collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "0a49e44f-61b6-4310-9ede-99af30601fe9"
+    "99abfadc-8909-494d-8759-7f789dc131d1"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8111,7 +8111,7 @@ console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_ma
   "Description": "Custom event for IP Address"
 },
             {
-  "id": "0a49e44f-61b6-4310-9ede-99af30601fe9",
+  "id": "99abfadc-8909-494d-8759-7f789dc131d1",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -8120,19 +8120,19 @@ console.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_ma
   "conditions": [
     {
       "actual": {
-        "Name": "Click Text",
-        "name": "ClickText",
-        "type": "ClickText",
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickTextVariable"
+        "Variable": "ClickClassesVariable"
       },
       "comparison": "equals",
-      "expected": "Submit"
+      "expected": "btn btn1 block"
     }
   ],
-  "Name": "Quote Form Submit"
+  "Name": "quote Form submit"
 },
           ],
           variables: [
