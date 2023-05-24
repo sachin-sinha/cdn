@@ -6730,37 +6730,38 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
+})();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
       });
     };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8118,7 +8119,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "f92712f8-4504-476c-9c81-2c0a04756e57",
+  "id": "4add2330-6c7f-417a-910a-6a9a363ddab5",
   "type": "Matomo",
   "name": "Quote Form",
   "parameters": {
@@ -8195,16 +8196,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form",
-    "id": "f92712f8-4504-476c-9c81-2c0a04756e57",
-    "fireTriggerIds": [
-      "4c1fd351-90d7-4120-873d-493f7f7063d5"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Quote Form"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "4c1fd351-90d7-4120-873d-493f7f7063d5"
+    "fe8eb763-ac0f-41f0-b51f-4964c8931bec"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8401,28 +8397,28 @@
   "Description": "Sends data, when call button is clicked on the website."
 },
             {
-  "id": "4c1fd351-90d7-4120-873d-493f7f7063d5",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
+  "id": "fe8eb763-ac0f-41f0-b51f-4964c8931bec",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
   "parameters": {},
   "conditions": [
     {
       "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
+        "Name": "Form Name",
+        "name": "FormName",
+        "type": "FormName",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickClassesVariable"
+        "Variable": "FormNameVariable"
       },
       "comparison": "equals",
-      "expected": "btn-serch"
+      "expected": "quoteform"
     }
   ],
-  "Name": "quote form submit"
+  "Name": "quoteform submit"
 },
           ],
           variables: [
