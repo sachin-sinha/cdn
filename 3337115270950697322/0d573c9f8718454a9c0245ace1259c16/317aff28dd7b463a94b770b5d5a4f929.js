@@ -7960,7 +7960,7 @@
         "parameters": [],
         "Variable": "ReferrerVariable"
       },
-      "comparison": "not_equals",
+      "comparison": "not_contains",
       "expected": "https://swap-motor.com/"
     }
   ],
