@@ -8230,13 +8230,13 @@
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Click Element",
-          "name": "ClickElement",
-          "type": "ClickElement",
+          "Name": "Click Node Name",
+          "name": "ClickNodeName",
+          "type": "ClickNodeName",
           "lookUpTable": [],
           "defaultValue": null,
           "parameters": [],
-          "Variable": "ClickElementVariable"
+          "Variable": "ClickNodeNameVariable"
         }
       ]
     },
