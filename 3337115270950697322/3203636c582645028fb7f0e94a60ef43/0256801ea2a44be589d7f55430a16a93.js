@@ -8195,7 +8195,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form"
+    "Name": "Quote Form",
+    "id": "f92712f8-4504-476c-9c81-2c0a04756e57",
+    "fireTriggerIds": [
+      "4c1fd351-90d7-4120-873d-493f7f7063d5"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
