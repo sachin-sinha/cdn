@@ -8155,11 +8155,16 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "test Event"
+    "Name": "test Event",
+    "id": "460a7be3-55e9-444c-bcf1-5fd895cbb47f",
+    "fireTriggerIds": [
+      "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
+    "1ca5bd8b-d1ed-4a58-86c5-d5c82e22b66f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
