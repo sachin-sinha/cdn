@@ -8094,9 +8094,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "b586f1b3-38a8-4453-85eb-317371bb5a34",
+  "id": "035bc471-afd3-4a1b-8549-3167b69807da",
   "type": "Matomo",
-  "name": "orderForm",
+  "name": "orderFormcollector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8163,89 +8163,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "orderForm"
+    "Name": "orderFormcollector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "0e3fdb60-810d-4754-8698-4664240cc78a"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Usedengineslocator",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "ebc36cef-7745-46e3-be7e-633b8ec13652",
-  "type": "Matomo",
-  "name": "testEvent",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Usedengineslocator",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Usedengineslocator/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "testEvent2",
-    "eventAction": "testEvent2",
-    "eventName": "testEvent2",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Click Classes",
-          "name": "ClickClasses",
-          "type": "ClickClasses",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickClassesVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "testEvent"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "82cf4562-587d-4c12-acbc-bd6b98eb9d5e"
+    "8d800789-27b2-495b-af87-633d8c8a5d49"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8340,7 +8262,7 @@
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
-  "id": "0e3fdb60-810d-4754-8698-4664240cc78a",
+  "id": "8d800789-27b2-495b-af87-633d8c8a5d49",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -8349,16 +8271,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Node Name",
-        "name": "ClickNodeName",
-        "type": "ClickNodeName",
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickNodeNameVariable"
+        "Variable": "ClickClassesVariable"
       },
       "comparison": "equals",
-      "expected": "submit_form"
+      "expected": "btn btn-default"
     }
   ],
   "Name": "order form submit"
