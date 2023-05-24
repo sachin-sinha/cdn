@@ -6730,38 +6730,6 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8117,96 +8085,6 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
-        {
-  "id": "1594ed2f-32e5-4a8d-9149-8e68e7aefb1c",
-  "type": "Matomo",
-  "name": "Quote Form Data Collector",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "autoparts-miles",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Autoparts_miles/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "quoteForm",
-    "eventAction": "quoteForm",
-    "eventName": "quoteForm",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Quote Form",
-          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}",
-          "id": "c7edcbfa-3b4d-413d-81bc-e407ca887485",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Quote Form",
-            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Data Collector",
-    "id": "1594ed2f-32e5-4a8d-9149-8e68e7aefb1c",
-    "fireTriggerIds": [
-      "99528455-791d-4e9e-8475-f10031d31524"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "99528455-791d-4e9e-8475-f10031d31524"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "autoparts-miles",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
@@ -8391,30 +8269,6 @@
   ],
   "Name": "Call Button",
   "Description": "Sends data, when call button is clicked on the website."
-},
-            {
-  "id": "99528455-791d-4e9e-8475-f10031d31524",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "nsubmit_header"
-    }
-  ],
-  "Name": "Quote Form Submit"
 },
           ],
           variables: [
