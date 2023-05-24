@@ -8085,6 +8085,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "460a7be3-55e9-444c-bcf1-5fd895cbb47f",
+  "type": "Matomo",
+  "name": "test Event",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-miles",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_miles/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "testEvent",
+    "eventAction": "testEvent",
+    "eventName": "testEvent",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Quote Form",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}",
+          "id": "c7edcbfa-3b4d-413d-81bc-e407ca887485",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Quote Form",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "test Event"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-miles",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
