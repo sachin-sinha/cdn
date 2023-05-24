@@ -6674,6 +6674,30 @@
       });
     }
   };
+})();Templates["CustomEventTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        function isMatchingEvent(value) {
+            var eventName = parameters.get("eventName");
+            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
+        }
+        var missedEvents = [];
+        var index = parameters.container.dataLayer.on(function (value) {
+            if (isMatchingEvent(value)) {
+                missedEvents.push(value.event);
+            }
+        });
+        this.setUp = function (triggerEvent) {
+            parameters.container.dataLayer.off(index);
+            for (var i = 0; i < missedEvents.length; i++) {
+                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
+            }
+            parameters.container.dataLayer.on(function (value) {
+                if (isMatchingEvent(value)) {
+                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
+                }
+            });
+        };
+    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6723,7 +6747,16 @@
                 this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}
             };
         })()
-          
+          Templates["DataLayerVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var dataLayerName = parameters.get("dataLayerName");
+        if (dataLayerName && parameters.container) {
+          return parameters.container.dataLayer.get(dataLayerName);
+        }
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8257,6 +8290,95 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "cd2cf09d-1d8d-4f48-a2f9-7588a0f262c2",
+  "type": "Matomo",
+  "name": "IP",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Quality_autorecycling",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Quality_autorecycling/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "IP",
+    "eventAction": "IP",
+    "eventName": "IP",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "IP",
+          "dataLayerName": "ip",
+          "Description": "Custom variable to get the IP Adress of the visitor.",
+          "id": "d6a3ca69-4311-4b8e-b35c-305fe50c4a52",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "IP",
+            "dataLayerName": "ip",
+            "Description": "Custom variable to get the IP Adress of the visitor."
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "IP",
+    "Description": "IP"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "59126a8a-785b-470d-83d6-da3c9d32be7f"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Quality_autorecycling",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8364,6 +8486,33 @@
   ],
   "Name": "Order Form Submit"
 },
+            {
+  "id": "59126a8a-785b-470d-83d6-da3c9d32be7f",
+  "type": "CustomEvent",
+  "name": "CustomEvent",
+  "Trigger": "CustomEventTrigger",
+  "selectedTrigger": "Custom Event",
+  "parameters": {
+    "eventName": "ip"
+  },
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://www.quality-autorecycling.com/"
+    }
+  ],
+  "Name": "Custom IP Event",
+  "Description": "Custom event to get the IP Adress of the visitor."
+},
           ],
           variables: [
             
@@ -8461,6 +8610,25 @@
   }
 }, Variable: "UrlParameterVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
+          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Data layer",
+  "Variable": "DataLayerVariable",
+  "name": "DataLayer",
+  "type": "DataLayer",
+  "Name": "IP",
+  "dataLayerName": "ip",
+  "Description": "Custom variable to get the IP Adress of the visitor.",
+  "id": "d6a3ca69-4311-4b8e-b35c-305fe50c4a52",
+  "parameters": {
+    "selectedVariable": "Data layer",
+    "Variable": "DataLayerVariable",
+    "name": "DataLayer",
+    "type": "DataLayer",
+    "Name": "IP",
+    "dataLayerName": "ip",
+    "Description": "Custom variable to get the IP Adress of the visitor."
+  }
+}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
