@@ -6730,6 +6730,38 @@
       });
     }
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8086,9 +8118,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "66f94d8c-e175-4d75-966a-98c9334a56d8",
+  "id": "f657a37b-0fb5-4ccc-a9cc-f3654794e9e7",
   "type": "Matomo",
-  "name": "testEvent",
+  "name": "quote form data collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8131,28 +8163,35 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "newtestEvent",
-    "eventAction": "newtestEvent",
-    "eventName": "newtestEvent",
+    "eventCategory": "quoteForm",
+    "eventAction": "quoteForm",
+    "eventName": "quoteForm",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Click Classes",
-          "name": "ClickClasses",
-          "type": "ClickClasses",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickClassesVariable"
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Quote Form",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}",
+          "id": "c7edcbfa-3b4d-413d-81bc-e407ca887485",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Quote Form",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "testEvent"
+    "Name": "quote form data collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "1ca5bd8b-d1ed-4a58-86c5-d5c82e22b66f"
+    "e1a23786-0303-46ca-b708-94f2f5f6fdaa"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8347,6 +8386,30 @@
   ],
   "Name": "Call Button",
   "Description": "Sends data, when call button is clicked on the website."
+},
+            {
+  "id": "e1a23786-0303-46ca-b708-94f2f5f6fdaa",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "nsubmit_header"
+    }
+  ],
+  "Name": "Quote form submit"
 },
           ],
           variables: [
