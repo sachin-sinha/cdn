@@ -9264,7 +9264,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "e2f4b25f-ecdd-4555-a81e-76f132131ec5",
+  "id": "0af19190-3c26-40c5-b88b-bd2805178bb8",
   "type": "Matomo",
   "name": "Quote Form",
   "parameters": {
@@ -9326,22 +9326,6 @@
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
             "Name": "Quote Form Data",
-            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Quote Form Data",
-          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-          "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Quote Form Data",
             "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
             "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
             "parameters": {
@@ -9381,16 +9365,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form",
-    "id": "e2f4b25f-ecdd-4555-a81e-76f132131ec5",
-    "fireTriggerIds": [
-      "aeaa2472-1447-40e0-9fd7-6178e42ca5b3"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Quote Form"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "52d812e0-d074-4f6a-b72d-5cf956ae3e1a"
+    "2b04f137-c344-47f4-abd1-eb17b103a57f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -9548,7 +9527,7 @@
   "Description": "CallButton"
 },
             {
-  "id": "aeaa2472-1447-40e0-9fd7-6178e42ca5b3",
+  "id": "2b04f137-c344-47f4-abd1-eb17b103a57f",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -9557,16 +9536,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Node Name",
-        "name": "ClickNodeName",
-        "type": "ClickNodeName",
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickNodeNameVariable"
+        "Variable": "ClickClassesVariable"
       },
       "comparison": "equals",
-      "expected": "submit_form"
+      "expected": "btn btn-skin btn-block btn-lg"
     }
   ],
   "Name": "Quote Form Submit"
