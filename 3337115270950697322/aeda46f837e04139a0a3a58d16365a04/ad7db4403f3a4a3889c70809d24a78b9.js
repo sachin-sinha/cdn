@@ -6642,38 +6642,37 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["FormSubmitTrigger"] = (function () {
+})();Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
       });
     };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8095,9 +8094,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "aef157a5-1a27-4c77-837d-3bf559c81de5",
+  "id": "b586f1b3-38a8-4453-85eb-317371bb5a34",
   "type": "Matomo",
-  "name": "order Form",
+  "name": "orderForm",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8140,9 +8139,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "order Form",
-    "eventAction": "order Form",
-    "eventName": "order Form",
+    "eventCategory": "orderForm",
+    "eventAction": "orderForm",
+    "eventName": "orderForm",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8164,11 +8163,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "order Form"
+    "Name": "orderForm"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "f6de98b2-97e2-46bb-a385-a14e6533973a"
+    "0e3fdb60-810d-4754-8698-4664240cc78a"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8263,28 +8262,28 @@
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
-  "id": "f6de98b2-97e2-46bb-a385-a14e6533973a",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
+  "id": "0e3fdb60-810d-4754-8698-4664240cc78a",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
   "parameters": {},
   "conditions": [
     {
       "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
+        "Name": "Click Node Name",
+        "name": "ClickNodeName",
+        "type": "ClickNodeName",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "FormIdVariable"
+        "Variable": "ClickNodeNameVariable"
       },
       "comparison": "equals",
-      "expected": "form_xzpaow"
+      "expected": "submit_form"
     }
   ],
-  "Name": "order Form Submit"
+  "Name": "order form submit"
 },
           ],
           variables: [
