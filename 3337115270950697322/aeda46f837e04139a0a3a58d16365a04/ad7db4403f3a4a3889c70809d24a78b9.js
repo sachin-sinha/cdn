@@ -8093,6 +8093,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "1491d461-1c0c-4338-a13f-f19e94c340b2",
+  "type": "Matomo",
+  "name": "Order Form",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Usedengineslocator",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Usedengineslocator/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "orderForm",
+    "eventAction": "orderForm",
+    "eventName": "orderForm",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "OrderFormData",
+          "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
+          "id": "93a8f61c-a9de-4054-99a6-ef917289d659",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "OrderFormData",
+            "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable93a8f61ca9de405499a6ef917289d659"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Order Form"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "e3353ee0-2256-4737-9ff1-24c431860a1c"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Usedengineslocator",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
