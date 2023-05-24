@@ -8252,7 +8252,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -8285,7 +8285,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "IP",
-    "Description": "IP"
+    "Description": "IP",
+    "id": "6ecef9b1-965d-4913-b5bd-27c4ab3f43fc",
+    "fireTriggerIds": [
+      "eccbcca3-79f0-4008-bd0e-e05e9336ff90"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -8547,7 +8552,17 @@
     "type": "DataLayer",
     "Name": "IP",
     "Description": "IP",
-    "dataLayerName": "ip"
+    "dataLayerName": "ip",
+    "id": "6bd60a1d-999b-4a0e-9287-fada401e3a12",
+    "parameters": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "IP",
+      "Description": "IP",
+      "dataLayerName": "ip"
+    }
   }
 }, Variable: "DataLayerVariable"},
             {
