@@ -6674,25 +6674,31 @@
       });
     }
   };
-})();Templates["DataLayerVariable"] = (function () {
+})();Templates["CustomEventTrigger"] = (function () {
     return function (parameters, TagManager) {
-      this.get = function () {
-        var dataLayerName = parameters.get("dataLayerName");
-        if (dataLayerName && parameters.container) {
-          return parameters.container.dataLayer.get(dataLayerName);
+        function isMatchingEvent(value) {
+            var eventName = parameters.get("eventName");
+            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
         }
-      };
+        var missedEvents = [];
+        var index = parameters.container.dataLayer.on(function (value) {
+            if (isMatchingEvent(value)) {
+                missedEvents.push(value.event);
+            }
+        });
+        this.setUp = function (triggerEvent) {
+            parameters.container.dataLayer.off(index);
+            for (var i = 0; i < missedEvents.length; i++) {
+                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
+            }
+            parameters.container.dataLayer.on(function (value) {
+                if (isMatchingEvent(value)) {
+                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
+                }
+            });
+        };
     };
-  })();Templates["DataLayerVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var dataLayerName = parameters.get("dataLayerName");
-        if (dataLayerName && parameters.container) {
-          return parameters.container.dataLayer.get(dataLayerName);
-        }
-      };
-    };
-  })();Templates["ReferrerUrlVariable"] = (function () {
+})();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var urlPart = parameters.get("urlPart", "href");
@@ -6703,27 +6709,22 @@
         return TagManager.url.parseUrl(urlReferrer, urlPart);
       };
     };
-  })();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
-  })();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
   })();
           Templates["CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
             };
         })()
-          
+          Templates["DataLayerVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var dataLayerName = parameters.get("dataLayerName");
+        if (dataLayerName && parameters.container) {
+          return parameters.container.dataLayer.get(dataLayerName);
+        }
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7176,520 +7177,6 @@
           environment: "live",
           tags: [
             
-        {
-  "id": "bd1edc73-c273-49b7-87cc-a5dcae1bdcaf",
-  "type": "Matomo",
-  "name": "Latitude",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Latitude",
-    "eventAction": "Latitude",
-    "eventName": "Latitude",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Data layer",
-          "Variable": "DataLayerVariable",
-          "name": "DataLayer",
-          "type": "DataLayer",
-          "Name": "Latitude",
-          "Description": "Reads latitude value from the Data-Layer.",
-          "dataLayerName": "latitude",
-          "id": "dc30b068-0185-4e7f-8ac8-7c312ed78028",
-          "parameters": {
-            "selectedVariable": "Data layer",
-            "Variable": "DataLayerVariable",
-            "name": "DataLayer",
-            "type": "DataLayer",
-            "Name": "Latitude",
-            "Description": "Reads latitude value from the Data-Layer.",
-            "dataLayerName": "latitude"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Latitude",
-    "Description": "This tag lets you track latitude of the visitors into your tag manager."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "1218a789-dd45-4647-9756-ee735d8a366d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "09e16631-2b6c-42c2-898d-bb97f28b1d31",
-  "type": "Matomo",
-  "name": "Longitude",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Longitude",
-    "eventAction": "Longitude",
-    "eventName": "Longitude",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Data layer",
-          "Variable": "DataLayerVariable",
-          "name": "DataLayer",
-          "type": "DataLayer",
-          "Name": "Longitude",
-          "dataLayerName": "longitude",
-          "Description": "Reads longitude value from the Data-Layer.",
-          "id": "ea71c05d-9b67-443a-ae3b-46bf33a1a199",
-          "parameters": {
-            "selectedVariable": "Data layer",
-            "Variable": "DataLayerVariable",
-            "name": "DataLayer",
-            "type": "DataLayer",
-            "Name": "Longitude",
-            "dataLayerName": "longitude",
-            "Description": "Reads longitude value from the Data-Layer."
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Description": "This tag lets you track longitude of the visitors into your tag manager.",
-    "Name": "Longitude"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "1218a789-dd45-4647-9756-ee735d8a366d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "84563774-ae80-4104-b91e-5a7ad32c7920",
-  "type": "Matomo",
-  "name": "UTM Source",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "UTM Source",
-    "eventAction": "UTM Source",
-    "eventName": "UTM Source",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "URL Parameter",
-          "Variable": "UrlParameterVariable",
-          "name": "UrlParameter",
-          "type": "UrlParameter",
-          "Description": "Gets the value of utm_source URL parameter.",
-          "parameterName": "utm_source",
-          "Name": "UTM Source",
-          "id": "837f4ecf-8bae-4e18-8961-2291ac586ffa",
-          "parameters": {
-            "selectedVariable": "URL Parameter",
-            "Variable": "UrlParameterVariable",
-            "name": "UrlParameter",
-            "type": "UrlParameter",
-            "Description": "Gets the value of utm_source URL parameter.",
-            "parameterName": "utm_source",
-            "Name": "UTM Source"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "UTM Source",
-    "Description": "This tag lets you track utm_source URL parameter into your tag manager."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "1218a789-dd45-4647-9756-ee735d8a366d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "3e44ffa0-0494-4979-90ee-063a03ef2905",
-  "type": "Matomo",
-  "name": "UTM Medium",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "UTM Medium",
-    "eventAction": "UTM Medium",
-    "eventName": "UTM Medium",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "URL Parameter",
-          "Variable": "UrlParameterVariable",
-          "name": "UrlParameter",
-          "type": "UrlParameter",
-          "Description": "Gets the value of utm_medium URL parameter.",
-          "Name": "UTM Medium",
-          "parameterName": "utm_medium",
-          "id": "620e2f97-39ff-4790-8e05-a7e33ef359d3",
-          "parameters": {
-            "selectedVariable": "URL Parameter",
-            "Variable": "UrlParameterVariable",
-            "name": "UrlParameter",
-            "type": "UrlParameter",
-            "Description": "Gets the value of utm_medium URL parameter.",
-            "Name": "UTM Medium",
-            "parameterName": "utm_medium"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "UTM Medium",
-    "Description": "This tag lets you track utm_medium URL parameter into your tag manager."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "1218a789-dd45-4647-9756-ee735d8a366d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "6b04632f-767d-45b1-b694-c9a6f9e39c85",
-  "type": "Matomo",
-  "name": "PageClick",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "PageClick",
-    "eventAction": "PageClick",
-    "eventName": "PageClick",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "PageClick",
-    "Description": "This tag returns the current URL of the page, when a click happens."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "82cf4562-587d-4c12-acbc-bd6b98eb9d5e"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
-  "type": "Matomo",
-  "name": "FormSubmit",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "FormSubmit",
-    "eventAction": "FormSubmit",
-    "eventName": "FormSubmit",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Form Name",
-          "name": "FormName",
-          "type": "FormName",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "FormNameVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "FormSubmit",
-    "Description": "This tag returns name of the form, when a form is submitted."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
         {
   "id": "a3055fab-12c8-4523-ba1f-493730842fcb",
   "type": "Matomo",
@@ -8178,6 +7665,95 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "89c6322a-b7f3-4684-8798-96a1c4f0cf77",
+  "type": "Matomo",
+  "name": "IP",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Swap_motor",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Swap_motor/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "IP",
+    "eventAction": "IP",
+    "eventName": "IP",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "IP",
+          "Description": "Custom variable to get the IP Adress of the visitor.",
+          "dataLayerName": "ip",
+          "id": "e4e83443-c9ee-48c9-8048-7b762da30bf8",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "IP",
+            "Description": "Custom variable to get the IP Adress of the visitor.",
+            "dataLayerName": "ip"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "IP",
+    "Description": "IP"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "164eb525-e7ea-426d-8a22-c7f587cc7a9d"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Swap_motor",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8285,47 +7861,36 @@
   ],
   "Name": "Quote Form Submit"
 },
+            {
+  "id": "164eb525-e7ea-426d-8a22-c7f587cc7a9d",
+  "type": "CustomEvent",
+  "name": "CustomEvent",
+  "Trigger": "CustomEventTrigger",
+  "selectedTrigger": "Custom Event",
+  "parameters": {
+    "eventName": "ip"
+  },
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "equals",
+      "expected": "https://swap-motor.com/"
+    }
+  ],
+  "Name": "Custom IP Event",
+  "Description": "Custom event to get the IP Adress of the visitor."
+},
           ],
           variables: [
             
-          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Data layer",
-  "Variable": "DataLayerVariable",
-  "name": "DataLayer",
-  "type": "DataLayer",
-  "Name": "Latitude",
-  "Description": "Reads latitude value from the Data-Layer.",
-  "dataLayerName": "latitude",
-  "id": "dc30b068-0185-4e7f-8ac8-7c312ed78028",
-  "parameters": {
-    "selectedVariable": "Data layer",
-    "Variable": "DataLayerVariable",
-    "name": "DataLayer",
-    "type": "DataLayer",
-    "Name": "Latitude",
-    "Description": "Reads latitude value from the Data-Layer.",
-    "dataLayerName": "latitude"
-  }
-}, Variable: "DataLayerVariable"},
-          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Data layer",
-  "Variable": "DataLayerVariable",
-  "name": "DataLayer",
-  "type": "DataLayer",
-  "Name": "Longitude",
-  "dataLayerName": "longitude",
-  "Description": "Reads longitude value from the Data-Layer.",
-  "id": "ea71c05d-9b67-443a-ae3b-46bf33a1a199",
-  "parameters": {
-    "selectedVariable": "Data layer",
-    "Variable": "DataLayerVariable",
-    "name": "DataLayer",
-    "type": "DataLayer",
-    "Name": "Longitude",
-    "dataLayerName": "longitude",
-    "Description": "Reads longitude value from the Data-Layer."
-  }
-}, Variable: "DataLayerVariable"},
           {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Referrer URL",
   "Variable": "ReferrerUrlVariable",
@@ -8343,45 +7908,26 @@
     "Name": "Referrer URL"
   }
 }, Variable: "ReferrerUrlVariable"},
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Description": "Gets the value of utm_source URL parameter.",
-  "parameterName": "utm_source",
-  "Name": "UTM Source",
-  "id": "837f4ecf-8bae-4e18-8961-2291ac586ffa",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Description": "Gets the value of utm_source URL parameter.",
-    "parameterName": "utm_source",
-    "Name": "UTM Source"
-  }
-}, Variable: "UrlParameterVariable"},
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Description": "Gets the value of utm_medium URL parameter.",
-  "Name": "UTM Medium",
-  "parameterName": "utm_medium",
-  "id": "620e2f97-39ff-4790-8e05-a7e33ef359d3",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Description": "Gets the value of utm_medium URL parameter.",
-    "Name": "UTM Medium",
-    "parameterName": "utm_medium"
-  }
-}, Variable: "UrlParameterVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0" },
+          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Data layer",
+  "Variable": "DataLayerVariable",
+  "name": "DataLayer",
+  "type": "DataLayer",
+  "Name": "IP",
+  "Description": "Custom variable to get the IP Adress of the visitor.",
+  "dataLayerName": "ip",
+  "id": "e4e83443-c9ee-48c9-8048-7b762da30bf8",
+  "parameters": {
+    "selectedVariable": "Data layer",
+    "Variable": "DataLayerVariable",
+    "name": "DataLayer",
+    "type": "DataLayer",
+    "Name": "IP",
+    "Description": "Custom variable to get the IP Adress of the visitor.",
+    "dataLayerName": "ip"
+  }
+}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
