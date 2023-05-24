@@ -8118,9 +8118,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "f657a37b-0fb5-4ccc-a9cc-f3654794e9e7",
+  "id": "eb8cf178-1793-47b4-8e52-9cd224d94c6a",
   "type": "Matomo",
-  "name": "quote form data collector",
+  "name": "Quote Form",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8187,7 +8187,7 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "quote form data collector"
+    "Name": "Quote Form"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -8397,16 +8397,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickIdVariable"
+        "Variable": "ClickClassesVariable"
       },
       "comparison": "equals",
-      "expected": "nsubmit_header"
+      "expected": "btn-serch"
     }
   ],
   "Name": "Quote form submit"
