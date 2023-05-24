@@ -7794,7 +7794,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "d02e2562-2f63-41cc-8899-abf54a62b597",
+  "id": "e179240b-9eba-4fc7-b7ba-db56d8173c06",
   "type": "Matomo",
   "name": "Quote Form Data",
   "parameters": {
@@ -7863,16 +7863,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Data",
-    "id": "d02e2562-2f63-41cc-8899-abf54a62b597",
-    "fireTriggerIds": [
-      "6b3a96a3-5ca2-4ae7-936a-fc5406be4f2e"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Quote Form Data"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "52d812e0-d074-4f6a-b72d-5cf956ae3e1a"
+    "3a8d80a9-8b2e-456b-af0e-bb1a94a22254"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8043,7 +8038,7 @@
   "Description": "Sends data, when call button is clicked on the website."
 },
             {
-  "id": "6b3a96a3-5ca2-4ae7-936a-fc5406be4f2e",
+  "id": "3a8d80a9-8b2e-456b-af0e-bb1a94a22254",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -8052,16 +8047,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Node Name",
-        "name": "ClickNodeName",
-        "type": "ClickNodeName",
+        "Name": "Click Text",
+        "name": "ClickText",
+        "type": "ClickText",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickNodeNameVariable"
+        "Variable": "ClickTextVariable"
       },
       "comparison": "equals",
-      "expected": "submit_quote"
+      "expected": "Search"
     }
   ],
   "Name": "Quote Form Submit"
