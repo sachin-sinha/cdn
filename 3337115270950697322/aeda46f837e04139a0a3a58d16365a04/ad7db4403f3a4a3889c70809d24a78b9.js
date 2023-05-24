@@ -6718,7 +6718,7 @@
       };
     };
   })();
-          Templates["CustomJsFunctionVariable93a8f61ca9de405499a6ef917289d659"] = (function () {
+          Templates["CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}
             };
@@ -8094,9 +8094,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "5c3e0f5c-5f8d-4f6d-a45a-5ee8b5ef6577",
+  "id": "62fb4e5a-c20f-4aa1-9503-4eb1d2df66e4",
   "type": "Matomo",
-  "name": "Order form ",
+  "name": "Order Form",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8134,7 +8134,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -8148,27 +8148,26 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "OrderFormData",
+          "Name": "Order Form data",
           "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
-          "id": "93a8f61c-a9de-4054-99a6-ef917289d659",
+          "id": "72c3dc93-3cde-4395-9a2d-4339e9b67661",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "OrderFormData",
+            "Name": "Order Form data",
             "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}"
           },
-          "Variable": "CustomJsFunctionVariable93a8f61ca9de405499a6ef917289d659"
+          "Variable": "CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Order form "
+    "Name": "Order Form"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "82cf4562-587d-4c12-acbc-bd6b98eb9d5e",
-    "24eb7adb-7565-4464-9a97-5ba0b1a2006c"
+    "137ed66d-f284-4c8b-a83d-4de5abc04597"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8263,7 +8262,7 @@
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
-  "id": "24eb7adb-7565-4464-9a97-5ba0b1a2006c",
+  "id": "137ed66d-f284-4c8b-a83d-4de5abc04597",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -8382,7 +8381,7 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable93a8f61ca9de405499a6ef917289d659" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
