@@ -8094,9 +8094,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "1491d461-1c0c-4338-a13f-f19e94c340b2",
+  "id": "5c3e0f5c-5f8d-4f6d-a45a-5ee8b5ef6577",
   "type": "Matomo",
-  "name": "Order Form",
+  "name": "Order form ",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8134,7 +8134,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "event",
+    "trackingType": "pageview",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -8163,11 +8163,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Order Form"
+    "Name": "Order form "
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "e3353ee0-2256-4737-9ff1-24c431860a1c"
+    "82cf4562-587d-4c12-acbc-bd6b98eb9d5e",
+    "24eb7adb-7565-4464-9a97-5ba0b1a2006c"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8262,7 +8263,7 @@
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
-  "id": "e3353ee0-2256-4737-9ff1-24c431860a1c",
+  "id": "24eb7adb-7565-4464-9a97-5ba0b1a2006c",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -8271,19 +8272,19 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Element",
-        "name": "ClickElement",
-        "type": "ClickElement",
+        "Name": "Click Text",
+        "name": "ClickText",
+        "type": "ClickText",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickElementVariable"
+        "Variable": "ClickTextVariable"
       },
       "comparison": "equals",
-      "expected": "input[type=\"submit\"].btn.btn-default"
+      "expected": "Submit"
     }
   ],
-  "Name": "Order form Submit"
+  "Name": "Order Form Submit"
 },
           ],
           variables: [
