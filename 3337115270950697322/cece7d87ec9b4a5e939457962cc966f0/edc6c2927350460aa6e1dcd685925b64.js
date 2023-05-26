@@ -6730,37 +6730,38 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
+})();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
       });
     };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7794,9 +7795,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "e179240b-9eba-4fc7-b7ba-db56d8173c06",
+  "id": "32b2ba56-e3e3-4053-a839-8514817bbd6e",
   "type": "Matomo",
-  "name": "Quote Form Data",
+  "name": "Quote Form Collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7863,11 +7864,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Data"
+    "Name": "Quote Form Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "3a8d80a9-8b2e-456b-af0e-bb1a94a22254"
+    "8259104c-fcaf-4648-b5d9-de6c68356840"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8038,25 +8039,25 @@
   "Description": "Sends data, when call button is clicked on the website."
 },
             {
-  "id": "3a8d80a9-8b2e-456b-af0e-bb1a94a22254",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
+  "id": "8259104c-fcaf-4648-b5d9-de6c68356840",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
   "parameters": {},
   "conditions": [
     {
       "actual": {
-        "Name": "Click Text",
-        "name": "ClickText",
-        "type": "ClickText",
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickTextVariable"
+        "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
-      "expected": "Search"
+      "expected": "bangdbcollector"
     }
   ],
   "Name": "Quote Form Submit"
