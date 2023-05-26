@@ -6666,37 +6666,38 @@
             });
         };
     };
-})();Templates["AllElementsClickTrigger"] = (function () {
+})();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
       });
     };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
   };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7907,9 +7908,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "80238dec-15c3-4339-a9a3-038cc14b684b",
+  "id": "4aa94e82-2765-4eb4-a906-d39dc14f8756",
   "type": "Matomo",
-  "name": "quote form data collector",
+  "name": "Quote Form Data Collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7962,21 +7963,29 @@
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
           "Name": "Quote Form Data",
-          "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');\nconsole.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
           "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
             "Name": "Quote Form Data",
-            "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');\nconsole.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
             "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
             "parameters": {
               "selectedVariable": "Custom JavaScript",
               "name": "CustomJsFunction",
               "type": "CustomJsFunction",
               "Name": "Quote Form Data",
-              "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
+              "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');\nconsole.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+              "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Quote Form Data",
+                "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
+              }
             }
           },
           "Variable": "CustomJsFunctionVariablec34e68e709854e0e95e78d1ad7eaa023"
@@ -7984,11 +7993,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "quote form data collector"
+    "Name": "Quote Form Data Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "99abfadc-8909-494d-8759-7f789dc131d1"
+    "45e94bc3-f137-4132-a186-83d6c16964fb"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8110,28 +8119,28 @@
   "Description": "Custom event for IP Address"
 },
             {
-  "id": "99abfadc-8909-494d-8759-7f789dc131d1",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
+  "id": "45e94bc3-f137-4132-a186-83d6c16964fb",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
   "parameters": {},
   "conditions": [
     {
       "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
+        "Name": "Form Name",
+        "name": "FormName",
+        "type": "FormName",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickClassesVariable"
+        "Variable": "FormNameVariable"
       },
       "comparison": "equals",
-      "expected": "btn btn1 block"
+      "expected": "f1"
     }
   ],
-  "Name": "quote Form submit"
+  "Name": "Quote Form Submit"
 },
           ],
           variables: [
