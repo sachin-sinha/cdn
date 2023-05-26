@@ -6642,38 +6642,6 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["CustomEventTrigger"] = (function () {
     return function (parameters, TagManager) {
         function isMatchingEvent(value) {
@@ -6698,6 +6666,39 @@
             });
         };
     };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7581,91 +7582,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "7641b323-2a98-451e-ad57-df9f8666c8a2",
-  "type": "Matomo",
-  "name": "Quote Form ",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Swap_motor",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swap_motor/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "quoteForm",
-    "eventAction": "quoteForm",
-    "eventName": "quoteForm",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Quote Form Data",
-          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-          "id": "0011024d-60d4-460d-bd3f-6943f1e5a2f0",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Quote Form Data",
-            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form "
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "96f006ec-7aa7-45eb-9d40-82bc606be4fe"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Swap_motor",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "89c6322a-b7f3-4684-8798-96a1c4f0cf77",
   "type": "Matomo",
   "name": "IP",
@@ -7838,6 +7754,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "3b5ea4d5-dae2-4c73-9201-8c8b0e6ea1e8",
+  "type": "Matomo",
+  "name": "Quote Form Data Collector",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Swap_motor",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Swap_motor/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "quoteForm",
+    "eventAction": "quoteForm",
+    "eventName": "quoteForm",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Quote Form Data",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+          "id": "0011024d-60d4-460d-bd3f-6943f1e5a2f0",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Quote Form Data",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Quote Form Data Collector"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "1f5cf813-18b9-42a3-b255-5555fabb1582"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Swap_motor",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7922,30 +7923,6 @@
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
-  "id": "96f006ec-7aa7-45eb-9d40-82bc606be4fe",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "nsubmit"
-    }
-  ],
-  "Name": "Quote Form Submit"
-},
-            {
   "id": "164eb525-e7ea-426d-8a22-c7f587cc7a9d",
   "type": "CustomEvent",
   "name": "CustomEvent",
@@ -7971,6 +7948,30 @@
   ],
   "Name": "Custom IP Event",
   "Description": "Custom event to get the IP Adress of the visitor."
+},
+            {
+  "id": "1f5cf813-18b9-42a3-b255-5555fabb1582",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Name",
+        "name": "FormName",
+        "type": "FormName",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormNameVariable"
+      },
+      "comparison": "equals",
+      "expected": "quoteform"
+    }
+  ],
+  "Name": "Quote Form Submit"
 },
           ],
           variables: [
