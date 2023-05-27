@@ -6710,13 +6710,7 @@
         return TagManager.url.parseUrl(urlReferrer, urlPart);
       };
     };
-  })();
-          Templates["CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
-            };
-        })()
-          Templates["DataLayerVariable"] = (function () {
+  })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -6726,6 +6720,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7993,7 +7993,6 @@
     "Name": "Referrer URL"
   }
 }, Variable: "ReferrerUrlVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0" },
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
@@ -8023,6 +8022,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable0011024d60d4460dbd3f6943f1e5a2f0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
