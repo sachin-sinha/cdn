@@ -6742,13 +6742,7 @@
         return TagManager.url.getQueryParameter(name, parameters.window.location.search);
       };
     };
-  })();
-          Templates["CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}
-            };
-        })()
-          Templates["DataLayerVariable"] = (function () {
+  })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -6758,6 +6752,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.name=fe.elements['fullName'].value;fd.homephone=fe.elements['Mobile'].value;fd.workphone=fe.elements['Email'].value;fd.cardnumber=fe.elements['CardNumber'].value;fd.expirymonth=fe.elements['month'].value;fd.expiryyear=fe.elements['years'].value;fd.cvc=fe.elements['CVV'].value;fd.chargeamount=fe.elements['AuthorizedAmount'].value;fd.billingaddress=fe.elements['BillingAddress'].value;fd.city=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.address=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8642,7 +8642,6 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
@@ -8662,6 +8661,7 @@
     "Description": "Custom variable to get the IP Adress of the visitor."
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.name=fe.elements['fullName'].value;fd.homephone=fe.elements['Mobile'].value;fd.workphone=fe.elements['Email'].value;fd.cardnumber=fe.elements['CardNumber'].value;fd.expirymonth=fe.elements['month'].value;fd.expiryyear=fe.elements['years'].value;fd.cvc=fe.elements['CVV'].value;fd.chargeamount=fe.elements['AuthorizedAmount'].value;fd.billingaddress=fe.elements['BillingAddress'].value;fd.city=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.address=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
