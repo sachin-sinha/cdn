@@ -8341,9 +8341,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "orderForm",
-    "eventAction": "orderForm",
-    "eventName": "orderForm",
+    "eventCategory": "OrderForm",
+    "eventAction": "OrderForm",
+    "eventName": "OrderForm",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8397,7 +8397,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Order Form Collector"
+    "Name": "Order Form Collector",
+    "id": "ad062dce-d3ef-4525-9aa4-b32ae11dada5",
+    "fireTriggerIds": [
+      "4c28d954-a2fe-4d0a-8720-d4cfc8c8d122"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
