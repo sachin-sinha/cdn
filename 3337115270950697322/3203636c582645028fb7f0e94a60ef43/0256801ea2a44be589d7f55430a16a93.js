@@ -6772,13 +6772,7 @@
         }
       };
     };
-  })();
-          Templates["CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}
-            };
-        })()
-          Templates["ReferrerUrlVariable"] = (function () {
+  })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var urlPart = parameters.get("urlPart", "href");
@@ -6790,6 +6784,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_make=fe.elements['makes'].value;fd.sel_mode=fe.elements['models'].value;fd.sel_year=fe.elements['years'].value;fd.sel_part=fe.elements['parts'].value;fd.sel_size=fe.elements['size'].value;fd.txt_phon=fe.elements['phone'].value;fd.txt_name=fe.elements['fullname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8463,7 +8463,6 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.makes=fe.elements['makes'].value;fd.models=fe.elements['models'].value;fd.years=fe.elements['years'].value;fd.parts=fe.elements['parts'].value;fd.size=fe.elements['size'].value;fd.phone=fe.elements['phone'].value;fd.fullname=fe.elements['fullname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485" },
           {name: "ReferrerUrl", type: "ReferrerUrl", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Referrer URL",
   "Variable": "ReferrerUrlVariable",
@@ -8481,6 +8480,7 @@
     "Description": "Referrer URL"
   }
 }, Variable: "ReferrerUrlVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_make=fe.elements['makes'].value;fd.sel_mode=fe.elements['models'].value;fd.sel_year=fe.elements['years'].value;fd.sel_part=fe.elements['parts'].value;fd.sel_size=fe.elements['size'].value;fd.txt_phon=fe.elements['phone'].value;fd.txt_name=fe.elements['fullname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec7edcbfa3b4d413d81bce407ca887485" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
