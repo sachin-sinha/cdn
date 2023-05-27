@@ -6754,7 +6754,7 @@
   })();
           Templates["CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.elements['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8644,7 +8644,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.elements['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
