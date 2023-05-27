@@ -6742,13 +6742,7 @@
         return TagManager.url.getQueryParameter(name, parameters.window.location.search);
       };
     };
-  })();
-          Templates["CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}
-            };
-        })()
-          Templates["DataLayerVariable"] = (function () {
+  })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -6758,6 +6752,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.element['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8615,7 +8615,6 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661" },
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
@@ -8645,6 +8644,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.element['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable72c3dc933cde43959a2d4339e9b67661" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
