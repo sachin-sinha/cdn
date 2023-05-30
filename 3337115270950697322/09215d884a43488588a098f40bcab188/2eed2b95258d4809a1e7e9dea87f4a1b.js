@@ -6774,20 +6774,6 @@
         return TagManager.url.parseUrl(urlReferrer, urlPart);
       };
     };
-  })();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
-  })();Templates["UrlParameterVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var name = parameters.get("parameterName");
-        return TagManager.url.getQueryParameter(name, parameters.window.location.search);
-      };
-    };
   })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8349,44 +8335,6 @@
     "Description": "Referrer URL"
   }
 }, Variable: "ReferrerUrlVariable"},
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Name": "campaignid",
-  "Description": "campaignid",
-  "parameterName": "campaignid",
-  "id": "9b4086f5-b2ca-461d-8cab-ffccaf088a8a",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Name": "campaignid",
-    "Description": "campaignid",
-    "parameterName": "campaignid"
-  }
-}, Variable: "UrlParameterVariable"},
-          {name: "UrlParameter", type: "UrlParameter", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "URL Parameter",
-  "Variable": "UrlParameterVariable",
-  "name": "UrlParameter",
-  "type": "UrlParameter",
-  "Name": "loc_physical_ms",
-  "Description": "loc_physical_ms",
-  "parameterName": "loc_physical_ms",
-  "id": "ff1a5c07-7228-4e91-aacb-d76ff059bf82",
-  "parameters": {
-    "selectedVariable": "URL Parameter",
-    "Variable": "UrlParameterVariable",
-    "name": "UrlParameter",
-    "type": "UrlParameter",
-    "Name": "loc_physical_ms",
-    "Description": "loc_physical_ms",
-    "parameterName": "loc_physical_ms"
-  }
-}, Variable: "UrlParameterVariable"},
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
