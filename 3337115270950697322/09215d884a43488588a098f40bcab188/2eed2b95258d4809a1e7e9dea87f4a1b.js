@@ -8061,7 +8061,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "76b78053-4c9b-4cff-800d-e8fe36afadfb",
+  "id": "d61f9a96-39dc-43e4-9677-803d7a561658",
   "type": "Matomo",
   "name": "Quote Form Data Collector",
   "parameters": {
@@ -8116,22 +8116,6 @@
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
           "Name": "Quote Form Data",
-          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.year=fe.elements['year'].value;fd.make=fe.elements['make'].value;fd.model=fe.elements['model'].value;fd.part=fe.elements['part'].value;fd.size=fe.elements['size'].value;fd.name=fe.elements['name'].value;fd.phone=fe.elements['phone'].value;return JSON.stringify(fd);}",
-          "id": "b9b2649c-d55d-4199-b54e-798d06595360",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Quote Form Data",
-            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.year=fe.elements['year'].value;fd.make=fe.elements['make'].value;fd.model=fe.elements['model'].value;fd.part=fe.elements['part'].value;fd.size=fe.elements['size'].value;fd.name=fe.elements['name'].value;fd.phone=fe.elements['phone'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariableb9b2649cd55d4199b54e798d06595360"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Quote Form Data",
           "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['year'].value;fd.sel_make=fe.elements['make'].value;fd.sel_mode=fe.elements['model'].value;fd.sel_part=fe.elements['part'].value;fd.sel_size=fe.elements['size'].value;fd.txt_name=fe.elements['name'].value;fd.txt_phon=fe.elements['phone'].value;return JSON.stringify(fd);}",
           "id": "b9b2649c-d55d-4199-b54e-798d06595360",
           "parameters": {
@@ -8154,12 +8138,7 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Data Collector",
-    "id": "76b78053-4c9b-4cff-800d-e8fe36afadfb",
-    "fireTriggerIds": [
-      "58aeb672-e89a-429e-92c4-828afdb837a5"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Quote Form Data Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
