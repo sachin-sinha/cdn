@@ -6721,7 +6721,7 @@
   })();
           Templates["CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}
+                this.get = function(event) {event.preventDefault();var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8382,7 +8382,7 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(event) {event.preventDefault();var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
