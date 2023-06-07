@@ -6721,7 +6721,7 @@
   })();
           Templates["CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;sessionStorage.setItem('formData', JSON.stringify(fd));return JSON.stringify(fd);}
             };
         })()
           
@@ -7341,184 +7341,6 @@
     "selectedTag": "BangDB Analytics",
     "Description": "This tag lets you track longitude of the visitors into your tag manager.",
     "Name": "Longitude"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "1218a789-dd45-4647-9756-ee735d8a366d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "test",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "84563774-ae80-4104-b91e-5a7ad32c7920",
-  "type": "Matomo",
-  "name": "UTM Source",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "test",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/TestSchema/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "UTM Source",
-    "eventAction": "UTM Source",
-    "eventName": "UTM Source",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "URL Parameter",
-          "Variable": "UrlParameterVariable",
-          "name": "UrlParameter",
-          "type": "UrlParameter",
-          "Description": "Gets the value of utm_source URL parameter.",
-          "parameterName": "utm_source",
-          "Name": "UTM Source",
-          "id": "837f4ecf-8bae-4e18-8961-2291ac586ffa",
-          "parameters": {
-            "selectedVariable": "URL Parameter",
-            "Variable": "UrlParameterVariable",
-            "name": "UrlParameter",
-            "type": "UrlParameter",
-            "Description": "Gets the value of utm_source URL parameter.",
-            "parameterName": "utm_source",
-            "Name": "UTM Source"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "UTM Source",
-    "Description": "This tag lets you track utm_source URL parameter into your tag manager."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "1218a789-dd45-4647-9756-ee735d8a366d"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "test",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "3e44ffa0-0494-4979-90ee-063a03ef2905",
-  "type": "Matomo",
-  "name": "UTM Medium",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "test",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/TestSchema/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "UTM Medium",
-    "eventAction": "UTM Medium",
-    "eventName": "UTM Medium",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "URL Parameter",
-          "Variable": "UrlParameterVariable",
-          "name": "UrlParameter",
-          "type": "UrlParameter",
-          "Description": "Gets the value of utm_medium URL parameter.",
-          "Name": "UTM Medium",
-          "parameterName": "utm_medium",
-          "id": "620e2f97-39ff-4790-8e05-a7e33ef359d3",
-          "parameters": {
-            "selectedVariable": "URL Parameter",
-            "Variable": "UrlParameterVariable",
-            "name": "UrlParameter",
-            "type": "UrlParameter",
-            "Description": "Gets the value of utm_medium URL parameter.",
-            "Name": "UTM Medium",
-            "parameterName": "utm_medium"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "UTM Medium",
-    "Description": "This tag lets you track utm_medium URL parameter into your tag manager."
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -8382,7 +8204,7 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;sessionStorage.setItem('formData', JSON.stringify(fd));return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
