@@ -8000,9 +8000,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "a4b39634-0a3b-4d28-a876-c72f210325b6",
+  "id": "b2078d19-ad37-4b17-8d22-635dd60dd2fd",
   "type": "Matomo",
-  "name": "Quote Form Collector",
+  "name": "Session Data collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8062,22 +8062,6 @@
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
             "Name": "Session Store Data",
-            "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}"
-          },
-          "Variable": "CustomJsFunctionVariable2c752ced9c634fe090fa1f8031cb62c2"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Session Store Data",
-          "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
-          "id": "2c752ced-9c63-4fe0-90fa-1f8031cb62c2",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Session Store Data",
             "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
             "id": "2c752ced-9c63-4fe0-90fa-1f8031cb62c2",
             "parameters": {
@@ -8093,12 +8077,7 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Collector",
-    "id": "a4b39634-0a3b-4d28-a876-c72f210325b6",
-    "fireTriggerIds": [
-      "ffcc0386-a766-4ed9-89bd-3419d1d96ce2"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Session Data collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
