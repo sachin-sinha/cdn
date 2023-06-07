@@ -6735,7 +6735,7 @@
           
           Templates["CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {return sessionStorage.getItem('formData');}
+                this.get = function() {var obj = sessionStorage.getItem('formData'); sessionStorage.removeItem('formData'); return obj}
             };
         })()
           
@@ -8328,7 +8328,7 @@
   }
 }, Variable: "UrlParameterVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;sessionStorage.setItem('formData', JSON.stringify(fd));return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {return sessionStorage.getItem('formData');}" }, Variable: "CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj = sessionStorage.getItem('formData'); sessionStorage.removeItem('formData'); return obj}" }, Variable: "CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
