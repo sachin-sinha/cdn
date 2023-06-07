@@ -8222,9 +8222,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "453a8b5d-6d7c-431a-8908-715212fe964f",
+  "id": "2faf9392-2ef7-44b0-99a1-dd1d07694f7f",
   "type": "Matomo",
-  "name": "Order form collector",
+  "name": "Order form Collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8276,46 +8276,6 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm'}",
-          "Name": "Order Form Data",
-          "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm'}",
-            "Name": "Order Form Data",
-            "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd);}",
-              "Name": "Order Form Data",
-              "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.elements['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
-                "Name": "Order Form Data",
-                "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.element['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
-                  "Name": "Order Form Data"
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
           "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd)}",
           "Name": "Order Form Data",
           "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
@@ -8363,12 +8323,7 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Order form collector",
-    "id": "453a8b5d-6d7c-431a-8908-715212fe964f",
-    "fireTriggerIds": [
-      "b35298cc-057e-438c-8aa6-dc1dcf991011"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Order form Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
