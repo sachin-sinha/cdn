@@ -6754,7 +6754,7 @@
   })();
           Templates["CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd)}
             };
         })()
           
@@ -7567,85 +7567,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "6b04632f-767d-45b1-b694-c9a6f9e39c85",
-  "type": "Matomo",
-  "name": "PageClick",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Usedengineslocator",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Usedengineslocator/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "PageClick",
-    "eventAction": "PageClick",
-    "eventName": "PageClick",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "PageClick",
-    "Description": "This tag returns the current URL of the page, when a click happens."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "82cf4562-587d-4c12-acbc-bd6b98eb9d5e"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Usedengineslocator",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
   "type": "Matomo",
   "name": "FormSubmit",
@@ -8301,9 +8222,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "0710ddf1-8d47-4867-bd87-879e2ad7ce71",
+  "id": "453a8b5d-6d7c-431a-8908-715212fe964f",
   "type": "Matomo",
-  "name": "Order Form Data Collector",
+  "name": "Order form collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8346,31 +8267,55 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "orderForm",
-    "eventAction": "orderForm",
-    "eventName": "orderForm",
+    "eventCategory": "sessionForm",
+    "eventAction": "sessionForm",
+    "eventName": "sessionForm",
     "eventValue": {
       "joinedVariable": [
         {
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.element['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
+          "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm'}",
           "Name": "Order Form Data",
           "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.element['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
-            "Name": "Order Form Data"
+            "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm'}",
+            "Name": "Order Form Data",
+            "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd);}",
+              "Name": "Order Form Data",
+              "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.elements['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
+                "Name": "Order Form Data",
+                "id": "15c84beb-4a96-47cd-9adc-55ca509892d6",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "jsFunction": "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.name=fe.elements['name'].value;fd.homephone=fe.elements['homephone'].value;fd.workphone=fe.elements['workphone'].value;fd.billingaddress=fe.elements['billingaddress'].value;fd.city=fe.elements['city'].value;fd.cardnumber=fe.elements['cardnumber'].value;fd.cvc=fe.elements['cvc'].value;fd.expirymonth=fe.element['expirymonth'].value;fd.expiryyear=fe.elements['expiryyear'].value;fd.chargeamount=fe.elements['chargeamount'].value;fd.address=fe.elements['address'].value;return JSON.stringify(fd);}",
+                  "Name": "Order Form Data"
+                }
+              }
+            }
           },
           "Variable": "CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Order Form Data Collector"
+    "Name": "Order form collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -8644,7 +8589,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.getElementById('form_xzpaow');fd.fullName=fe.elements['name'].value;fd.Mobile=fe.elements['homephone'].value;fd.Email=fe.elements['workphone'].value;fd.BillingAddress=fe.elements['billingaddress'].value;fd.ShippingAddress=fe.elements['city'].value;fd.CardNumber=fe.elements['cardnumber'].value;fd.CVV=fe.elements['cvc'].value;fd.month=fe.elements['expirymonth'].value;fd.years=fe.elements['expiryyear'].value;fd.AuthorizedAmount=fe.elements['chargeamount'].value;fd.AdditionalDetails=fe.elements['address'].value;return JSON.stringify(fd)}" }, Variable: "CustomJsFunctionVariable15c84beb4a9647cd9adc55ca509892d6" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
