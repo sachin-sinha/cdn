@@ -6789,7 +6789,7 @@
           
           Templates["CustomJsFunctionVariable5fc3eb62a1724d06bd155dc05546f963"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var obj = sessionStorage.getItem('bangDBForm');console.log(obj, 'test');sessionStorage.removeItem('bangDBForm');return obj;}
+                this.get = function() {var obj = sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}
             };
         })()
           
@@ -8232,7 +8232,7 @@
   }
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('.bangdbcollector');fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm',JSON.stringify(fd));return 'formSubmit';}" }, Variable: "CustomJsFunctionVariablee39df889118a4a0bb82af6dba448f413" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj = sessionStorage.getItem('bangDBForm');console.log(obj, 'test');sessionStorage.removeItem('bangDBForm');return obj;}" }, Variable: "CustomJsFunctionVariable5fc3eb62a1724d06bd155dc05546f963" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj = sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}" }, Variable: "CustomJsFunctionVariable5fc3eb62a1724d06bd155dc05546f963" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
