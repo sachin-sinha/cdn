@@ -6675,6 +6675,14 @@
       });
     };
   };
+})();Templates["DomReadyTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        triggerEvent({ event: "DOMReady" });
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6722,6 +6730,12 @@
           Templates["CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;sessionStorage.setItem('formData', JSON.stringify(fd));return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {return sessionStorage.getItem('formData');}
             };
         })()
           
@@ -8001,6 +8015,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "d1c33374-3e19-4124-b25c-daaa60e7cd29",
+  "type": "Matomo",
+  "name": "sessionForm",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "test",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/TestSchema/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "sessionForm",
+    "eventAction": "sessionForm",
+    "eventName": "sessionForm",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "sessionForm",
+          "jsFunction": "function() {return sessionStorage.getItem('formData');}",
+          "id": "b0bf498a-6241-463a-92f9-c44b9bdab2e0",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "sessionForm",
+            "jsFunction": "function() {return sessionStorage.getItem('formData');}"
+          },
+          "Variable": "CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "sessionForm"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a7328e43-a31f-4849-abfe-467c0f890cdd"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "test",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8108,6 +8207,30 @@
   ],
   "Name": "Form Submit"
 },
+            {
+  "id": "a7328e43-a31f-4849-abfe-467c0f890cdd",
+  "type": "DomReady",
+  "name": "DomReady",
+  "Trigger": "DomReadyTrigger",
+  "selectedTrigger": "DOM Ready",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Page URL",
+        "name": "PageUrl",
+        "type": "PageUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "PageUrlVariable"
+      },
+      "comparison": "contains",
+      "expected": "/success"
+    }
+  ],
+  "Name": "successTrigger"
+},
           ],
           variables: [
             
@@ -8205,6 +8328,7 @@
   }
 }, Variable: "UrlParameterVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;sessionStorage.setItem('formData', JSON.stringify(fd));return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {return sessionStorage.getItem('formData');}" }, Variable: "CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
