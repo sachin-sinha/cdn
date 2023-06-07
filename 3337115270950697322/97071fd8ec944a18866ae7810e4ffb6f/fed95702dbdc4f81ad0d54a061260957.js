@@ -8093,49 +8093,17 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Session Form Data",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'submitForm';}",
-          "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
+          "Name": "Quote Form Data",
+          "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
+          "id": "67d75ad1-1cc6-4053-8780-2e57b7663c11",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Session Form Data",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'submitForm';}",
-            "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Quote Form Data",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-              "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Quote Form Data",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-                "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Quote Form Data",
-                  "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');\nconsole.log('triggered', fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-                  "id": "c34e68e7-0985-4e0e-95e7-8d1ad7eaa023",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "Name": "Quote Form Data",
-                    "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_size=fe.elements['sel_size'].value;fd.sel_part=fe.elements['sel_part'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
-                  }
-                }
-              }
-            }
+            "Name": "Quote Form Data",
+            "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}"
           },
-          "Variable": "CustomJsFunctionVariablec34e68e709854e0e95e78d1ad7eaa023"
+          "Variable": "CustomJsFunctionVariable67d75ad11cc6405387802e57b7663c11"
         }
       ]
     },
@@ -8143,7 +8111,7 @@
     "Name": "Quote Form Data Collector",
     "id": "13f29061-0892-4af3-879c-e1c016140b66",
     "fireTriggerIds": [
-      "45e94bc3-f137-4132-a186-83d6c16964fb"
+      "02de1369-00d0-447f-9c75-1c24ea02e916"
     ],
     "blockedTriggerIds": []
   },
