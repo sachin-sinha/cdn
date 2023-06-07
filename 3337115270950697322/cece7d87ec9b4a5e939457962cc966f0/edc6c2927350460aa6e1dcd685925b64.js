@@ -6763,10 +6763,12 @@
       });
     };
   };
-})();Templates["PageViewTrigger"] = (function () {
+})();Templates["DomReadyTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
+      TagManager.dom.onReady(function () {
+        triggerEvent({ event: "DOMReady" });
+      });
     };
   };
 })();Templates["DataLayerVariable"] = (function () {
@@ -7916,9 +7918,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "5ebd34f1-afb7-45f9-b450-d2b8aff23b7a",
+  "id": "73f6287d-133d-4fa4-b3c7-c04e0ef9aa8b",
   "type": "Matomo",
-  "name": "Quote Form Collector",
+  "name": "Form Data Collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7956,7 +7958,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -7985,11 +7987,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Quote Form Collector"
+    "Name": "Form Data Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "b308fca0-dd5a-4002-97bf-442af21be6de"
+    "5fce02cb-22cd-47d9-a703-9c191cf90928"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8184,11 +8186,11 @@
   "Name": "Quote Form Submit"
 },
             {
-  "id": "b308fca0-dd5a-4002-97bf-442af21be6de",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
+  "id": "5fce02cb-22cd-47d9-a703-9c191cf90928",
+  "type": "DomReady",
+  "name": "DomReady",
+  "Trigger": "DomReadyTrigger",
+  "selectedTrigger": "DOM Ready",
   "parameters": {},
   "conditions": [
     {
@@ -8202,10 +8204,10 @@
         "Variable": "PageUrlVariable"
       },
       "comparison": "contains",
-      "expected": "thankyou"
+      "expected": "/thankyou"
     }
   ],
-  "Name": "Get Quote Form"
+  "Name": "Get Form Data"
 },
           ],
           variables: [
