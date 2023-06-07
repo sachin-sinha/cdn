@@ -8317,7 +8317,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -8346,7 +8346,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Session Store Collector"
+    "Name": "Session Store Collector",
+    "id": "80e6a7e3-9d45-4e11-ab58-a42d6f194854",
+    "fireTriggerIds": [
+      "27ff3e03-0fbe-4c6a-89e3-71f0a5df8030"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
