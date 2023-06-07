@@ -8065,6 +8065,30 @@
             "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}"
           },
           "Variable": "CustomJsFunctionVariable2c752ced9c634fe090fa1f8031cb62c2"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Session Store Data",
+          "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
+          "id": "2c752ced-9c63-4fe0-90fa-1f8031cb62c2",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Session Store Data",
+            "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
+            "id": "2c752ced-9c63-4fe0-90fa-1f8031cb62c2",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Session Store Data",
+              "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable2c752ced9c634fe090fa1f8031cb62c2"
         }
       ]
     },
