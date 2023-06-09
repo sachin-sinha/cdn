@@ -6763,14 +6763,6 @@
       });
     };
   };
-})();Templates["DomReadyTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        triggerEvent({ event: "DOMReady" });
-      });
-    };
-  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6794,13 +6786,7 @@
   })();
           Templates["CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariable1ebd70c98e494c3598a508db2761718e"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}
+                this.get = function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8144,142 +8130,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "0a065b53-d8b7-410e-97a1-18eb1871e5f3",
+  "id": "fe6c5ff4-7fc0-4d9e-b4fe-e0b2015a13b7",
   "type": "Matomo",
-  "name": "quote form collector",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "autoparts-locator",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Autoparts_locator/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "sessionForm",
-    "eventAction": "sessionForm",
-    "eventName": "sessionForm",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Quote Form Data",
-          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}",
-          "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Quote Form Data",
-            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}",
-            "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Quote Form Data",
-              "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-              "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Quote Form Data",
-                "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-                "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Quote Form Data",
-                  "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);return JSON.stringify('trig');}",
-                  "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "Name": "Quote Form Data",
-                    "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-                    "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-                    "parameters": {
-                      "selectedVariable": "Custom JavaScript",
-                      "name": "CustomJsFunction",
-                      "type": "CustomJsFunction",
-                      "Name": "Quote Form Data",
-                      "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
-                      "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
-                      "parameters": {
-                        "selectedVariable": "Custom JavaScript",
-                        "name": "CustomJsFunction",
-                        "type": "CustomJsFunction",
-                        "Name": "Quote Form Data",
-                        "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "quote form collector"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "e53db84f-0329-421c-b918-ff8970fc541c"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "autoparts-locator",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "80e6a7e3-9d45-4e11-ab58-a42d6f194854",
-  "type": "Matomo",
-  "name": "Session Store Collector",
+  "name": "Quote Form Data Collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8324,38 +8177,89 @@
     "customUrl": "",
     "eventCategory": "quoteForm",
     "eventAction": "quoteForm",
-    "eventName": "quoteForm",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Session Form Data",
-          "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
-          "id": "1ebd70c9-8e49-4c35-98a5-08db2761718e",
+          "Name": "Quote Form Data",
+          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+          "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Session Form Data",
-            "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}"
+            "Name": "Quote Form Data",
+            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+            "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Quote Form Data",
+              "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}",
+              "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Quote Form Data",
+                "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+                "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "Quote Form Data",
+                  "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+                  "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                  "parameters": {
+                    "selectedVariable": "Custom JavaScript",
+                    "name": "CustomJsFunction",
+                    "type": "CustomJsFunction",
+                    "Name": "Quote Form Data",
+                    "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);return JSON.stringify('trig');}",
+                    "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                    "parameters": {
+                      "selectedVariable": "Custom JavaScript",
+                      "name": "CustomJsFunction",
+                      "type": "CustomJsFunction",
+                      "Name": "Quote Form Data",
+                      "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+                      "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                      "parameters": {
+                        "selectedVariable": "Custom JavaScript",
+                        "name": "CustomJsFunction",
+                        "type": "CustomJsFunction",
+                        "Name": "Quote Form Data",
+                        "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');console.log(fe);fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}",
+                        "id": "b66031dd-bfb5-4c22-a8f1-b0c8352107fd",
+                        "parameters": {
+                          "selectedVariable": "Custom JavaScript",
+                          "name": "CustomJsFunction",
+                          "type": "CustomJsFunction",
+                          "Name": "Quote Form Data",
+                          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#f1');fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
-          "Variable": "CustomJsFunctionVariable1ebd70c98e494c3598a508db2761718e"
+          "Variable": "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Session Store Collector",
-    "id": "80e6a7e3-9d45-4e11-ab58-a42d6f194854",
-    "fireTriggerIds": [
-      "27ff3e03-0fbe-4c6a-89e3-71f0a5df8030"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Quote Form Data Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "27ff3e03-0fbe-4c6a-89e3-71f0a5df8030"
+    "e53db84f-0329-421c-b918-ff8970fc541c"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8536,30 +8440,6 @@
   ],
   "Name": "Quote Form Submit"
 },
-            {
-  "id": "27ff3e03-0fbe-4c6a-89e3-71f0a5df8030",
-  "type": "DomReady",
-  "name": "DomReady",
-  "Trigger": "DomReadyTrigger",
-  "selectedTrigger": "DOM Ready",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Page URL",
-        "name": "PageUrl",
-        "type": "PageUrl",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "PageUrlVariable"
-      },
-      "comparison": "contains",
-      "expected": "/thankyou"
-    }
-  ],
-  "Name": "Session Form Trigger"
-},
           ],
           variables: [
             
@@ -8599,8 +8479,7 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}" }, Variable: "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}" }, Variable: "CustomJsFunctionVariable1ebd70c98e494c3598a508db2761718e" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#f1');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['sel_year'].value;fd.sel_make=fe.elements['sel_make'].value;fd.sel_mode=fe.elements['sel_mode'].value;fd.sel_part=fe.elements['sel_part'].value;fd.sel_size=fe.elements['sel_size'].value;fd.txt_name=fe.elements['txt_name'].value;fd.txt_phon=fe.elements['txt_phon'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableb66031ddbfb54c22a8f1b0c8352107fd" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
