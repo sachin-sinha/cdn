@@ -2988,8 +2988,11 @@ if (typeof window.Matomo !== 'object') {
           xhr.open('POST', configTrackerUrl, isAsyncCall);
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
-	        xhr.setRequestHeader('x-bang-api-key', '2863199089451966548');
-
+	  xhr.setRequestHeader('x-bang-api-key', '2863199089451966548');
+	  xhr.timeout = 15000;
+          xhr.ontimeout = function () {
+            console.log('Request Timed out.');
+          };
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
             }
