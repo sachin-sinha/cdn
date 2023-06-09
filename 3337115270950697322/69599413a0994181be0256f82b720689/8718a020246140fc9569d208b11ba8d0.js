@@ -6699,14 +6699,6 @@
       });
     };
   };
-})();Templates["DomReadyTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        triggerEvent({ event: "DOMReady" });
-      });
-    };
-  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6762,13 +6754,8 @@
   })();
           Templates["CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariable2eedd95a2d6a465a981cee1799c10e81"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}
+                this.get = function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return 
+ JSON.stringify(fd);}
             };
         })()
           
@@ -8231,150 +8218,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "31a423dd-9f99-4319-9717-f2bf989689b7",
+  "id": "e9e5d34d-b8cf-4f0c-b727-b6e7742754b8",
   "type": "Matomo",
-  "name": "order Form Data",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "Quality_autorecycling",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Quality_autorecycling/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "sessionForm",
-    "eventAction": "sessionForm",
-    "eventName": "sessionForm",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Order Form Data",
-          "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}",
-          "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Order Form Data",
-            "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}",
-            "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Order Form Data",
-              "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
-              "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Order Form Data",
-                "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.name=fe.elements['fullName'].value;fd.homephone=fe.elements['Mobile'].value;fd.workphone=fe.elements['Email'].value;fd.cardnumber=fe.elements['CardNumber'].value;fd.expirymonth=fe.elements['month'].value;fd.expiryyear=fe.elements['years'].value;fd.cvc=fe.elements['CVV'].value;fd.chargeamount=fe.elements['AuthorizedAmount'].value;fd.billingaddress=fe.elements['BillingAddress'].value;fd.city=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.address=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
-                "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Order Form Data",
-                  "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
-                  "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "Name": "Order Form Data",
-                    "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
-                    "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-                    "parameters": {
-                      "selectedVariable": "Custom JavaScript",
-                      "name": "CustomJsFunction",
-                      "type": "CustomJsFunction",
-                      "Name": "Order Form Data",
-                      "jsFunction": "function() {var fd = {};var fe = document.getElementById('submit_orderForm');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
-                      "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-                      "parameters": {
-                        "selectedVariable": "Custom JavaScript",
-                        "name": "CustomJsFunction",
-                        "type": "CustomJsFunction",
-                        "Name": "Order Form Data",
-                        "jsFunction": "function() {var fd = {};var fe = document.getElementById('quoteform');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
-                        "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
-                        "parameters": {
-                          "selectedVariable": "Custom JavaScript",
-                          "name": "CustomJsFunction",
-                          "type": "CustomJsFunction",
-                          "Name": "Order Form Data",
-                          "jsFunction": "function() {var fd = {};var fe = document.getElementById('quoteform');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "order Form Data"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "4c28d954-a2fe-4d0a-8720-d4cfc8c8d122"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Quality_autorecycling",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "822ff6b0-44b1-49bd-97c1-2ace10e662fb",
-  "type": "Matomo",
-  "name": "Session Store collector",
+  "name": "Order form Collector",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8419,33 +8265,97 @@
     "customUrl": "",
     "eventCategory": "OrderForm",
     "eventAction": "OrderForm",
-    "eventName": "OrderForm",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Session Order Submit",
-          "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}",
-          "id": "2eedd95a-2d6a-465a-981c-ee1799c10e81",
+          "Name": "Order Form Data",
+          "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return \n JSON.stringify(fd);}",
+          "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Session Order Submit",
-            "jsFunction": "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}"
+            "Name": "Order Form Data",
+            "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return \n JSON.stringify(fd);}",
+            "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Order Form Data",
+              "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}",
+              "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Order Form Data",
+                "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+                "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "Order Form Data",
+                  "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.name=fe.elements['fullName'].value;fd.homephone=fe.elements['Mobile'].value;fd.workphone=fe.elements['Email'].value;fd.cardnumber=fe.elements['CardNumber'].value;fd.expirymonth=fe.elements['month'].value;fd.expiryyear=fe.elements['years'].value;fd.cvc=fe.elements['CVV'].value;fd.chargeamount=fe.elements['AuthorizedAmount'].value;fd.billingaddress=fe.elements['BillingAddress'].value;fd.city=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.address=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+                  "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+                  "parameters": {
+                    "selectedVariable": "Custom JavaScript",
+                    "name": "CustomJsFunction",
+                    "type": "CustomJsFunction",
+                    "Name": "Order Form Data",
+                    "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+                    "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+                    "parameters": {
+                      "selectedVariable": "Custom JavaScript",
+                      "name": "CustomJsFunction",
+                      "type": "CustomJsFunction",
+                      "Name": "Order Form Data",
+                      "jsFunction": "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+                      "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+                      "parameters": {
+                        "selectedVariable": "Custom JavaScript",
+                        "name": "CustomJsFunction",
+                        "type": "CustomJsFunction",
+                        "Name": "Order Form Data",
+                        "jsFunction": "function() {var fd = {};var fe = document.getElementById('submit_orderForm');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+                        "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+                        "parameters": {
+                          "selectedVariable": "Custom JavaScript",
+                          "name": "CustomJsFunction",
+                          "type": "CustomJsFunction",
+                          "Name": "Order Form Data",
+                          "jsFunction": "function() {var fd = {};var fe = document.getElementById('quoteform');console.log('triggered');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}",
+                          "id": "c823dcf6-b46e-4c56-abf4-40e15c6fc227",
+                          "parameters": {
+                            "selectedVariable": "Custom JavaScript",
+                            "name": "CustomJsFunction",
+                            "type": "CustomJsFunction",
+                            "Name": "Order Form Data",
+                            "jsFunction": "function() {var fd = {};var fe = document.getElementById('quoteform');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return JSON.stringify(fd);}"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
-          "Variable": "CustomJsFunctionVariable2eedd95a2d6a465a981cee1799c10e81"
+          "Variable": "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Session Store collector"
+    "Name": "Order form Collector"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "30f25d94-0957-4acd-b036-06e8a1d3b1d9"
+    "4c28d954-a2fe-4d0a-8720-d4cfc8c8d122"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8590,30 +8500,6 @@
   ],
   "Name": "Order Form Submit"
 },
-            {
-  "id": "30f25d94-0957-4acd-b036-06e8a1d3b1d9",
-  "type": "DomReady",
-  "name": "DomReady",
-  "Trigger": "DomReadyTrigger",
-  "selectedTrigger": "DOM Ready",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Page URL",
-        "name": "PageUrl",
-        "type": "PageUrl",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "PageUrlVariable"
-      },
-      "comparison": "contains",
-      "expected": "/thankyou"
-    }
-  ],
-  "Name": "Session Store Trigger"
-},
           ],
           variables: [
             
@@ -8729,8 +8615,8 @@
     "Description": "Custom variable to get the IP Adress of the visitor."
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;sessionStorage.setItem('bangDBForm', JSON.stringify(fd));return 'sessionForm';}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}" }, Variable: "CustomJsFunctionVariable2eedd95a2d6a465a981cee1799c10e81" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#submit_orderForm');fd.fullName=fe.elements['fullName'].value;fd.Mobile=fe.elements['Mobile'].value;fd.Email=fe.elements['Email'].value;fd.CardNumber=fe.elements['CardNumber'].value;fd.month=fe.elements['month'].value;fd.years=fe.elements['years'].value;fd.CVV=fe.elements['CVV'].value;fd.AuthorizedAmount=fe.elements['AuthorizedAmount'].value;fd.BillingAddress=fe.elements['BillingAddress'].value;fd.ShippingAddress=fe.elements['ShippingAddress'].value;fd.Businessname=fe.elements['Businessname'].value;fd.shippingType=fe.elements['shippingType'].value;fd.AdditionalDetails=fe.elements['AdditionalDetails'].value;return 
+ JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablec823dcf6b46e4c56abf440e15c6fc227" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
