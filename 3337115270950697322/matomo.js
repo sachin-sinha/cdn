@@ -2961,9 +2961,14 @@ if (typeof window.Matomo !== 'object') {
             ); // ...and ensure strings of whitespace fail
           }
 
+          let isAsyncCall = true;
           function VlaCal(Obj) {
             const NewOBjs = {};
             Object?.entries(Obj)?.forEach(([key, value]) => {
+              if(key === 'e_n' && value === 'sync'){
+                console.log('async call set to false');
+                isAsyncCall = false;
+              }
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
               } else {
@@ -2980,15 +2985,13 @@ if (typeof window.Matomo !== 'object') {
           const DataToSend = VlaCal(dataSenda);
 
           let xhr = new XMLHttpRequest();
-          xhr.open('POST', configTrackerUrl);
+          xhr.open('POST', configTrackerUrl, isAsyncCall);
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
 	        xhr.setRequestHeader('x-bang-api-key', '2863199089451966548');
 
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
-              console.log(xhr.status);
-              console.log(xhr.responseText);
             }
           };
 
