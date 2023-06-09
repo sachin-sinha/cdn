@@ -2970,8 +2970,11 @@ if (typeof window.Matomo !== 'object') {
               } else {
                 if (value[0] === '{' && value[value.length - 1] === '}') {
                   NewOBjs[key] = JSON.parse(value);
+                    console.log(NewOBjs[key], 2973)
                   if (NewOBjs[key].e_n) {
+                      console.log(NewOBjs[key], 2975)
                     if (NewOBjs[key].e_n === 'sync') {
+                        console.log('this also got triggered')
                       isAsyncCall = false
                     }
                   }
