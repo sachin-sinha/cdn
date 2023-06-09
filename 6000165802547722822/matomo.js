@@ -2965,19 +2965,15 @@ if (typeof window.Matomo !== 'object') {
           function VlaCal(Obj) {
             const NewOBjs = {};
             Object?.entries(Obj)?.forEach(([key, value]) => {
+              if(key === 'e_n' && value === 'sync'){
+                console.log('async call set to false')
+                isAsyncCall = false
+              }
               if (isNumeric(value)) {
                 NewOBjs[key] = Number(value);
               } else {
                 if (value[0] === '{' && value[value.length - 1] === '}') {
                   NewOBjs[key] = JSON.parse(value);
-                    console.log(NewOBjs[key], 2973)
-                  if (NewOBjs[key].e_n) {
-                      console.log(NewOBjs[key], 2975)
-                    if (NewOBjs[key].e_n === 'sync') {
-                        console.log('this also got triggered')
-                      isAsyncCall = false
-                    }
-                  }
                 } else {
                   NewOBjs[key] = value
                 }
