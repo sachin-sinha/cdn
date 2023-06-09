@@ -8269,7 +8269,7 @@
     "customUrl": "",
     "eventCategory": "orderForm",
     "eventAction": "orderForm",
-    "eventName": "orderForm",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8323,7 +8323,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Order form Collector"
+    "Name": "Order form Collector",
+    "id": "2faf9392-2ef7-44b0-99a1-dd1d07694f7f",
+    "fireTriggerIds": [
+      "b35298cc-057e-438c-8aa6-dc1dcf991011"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
