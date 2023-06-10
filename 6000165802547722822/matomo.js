@@ -2966,7 +2966,6 @@ if (typeof window.Matomo !== 'object') {
             const NewOBjs = {};
             Object?.entries(Obj)?.forEach(([key, value]) => {
               if(key === 'e_n' && value === 'sync'){
-                console.log('async call set to false')
                 isAsyncCall = false
               }
               if (isNumeric(value)) {
@@ -2985,11 +2984,13 @@ if (typeof window.Matomo !== 'object') {
           const DataToSend = VlaCal(dataSenda);
 
           let xhr = new XMLHttpRequest();
-          console.log(isAsyncCall, 'this is async call')
           xhr.open('POST', configTrackerUrl, isAsyncCall);
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
           xhr.setRequestHeader('x-bang-api-key', '4335340168759954796');
+          if(!isAsyncCall){
+            xhr.timeout = 15000;
+          }
 
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
