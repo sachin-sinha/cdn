@@ -2992,15 +2992,16 @@ if (typeof window.Matomo !== 'object') {
             xhr.timeout = 15000;
           }
 
+          let data = JSON.stringify(DataToSend);
+          
+          xhr.send(data);
           xhr.onreadystatechange = function () {
+            console.log('ready state change triggered', xhr.status)
             if (xhr.readyState === 4) {
               console.log(xhr.status);
               console.log(xhr.responseText);
             }
           };
-          let data = JSON.stringify(DataToSend);
-
-          xhr.send(data);
           // returns true if the user agent is able to successfully queue the data for transfer,
           // Otherwise it returns false and we need to try the regular way
         } catch (e) {
