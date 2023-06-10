@@ -3002,28 +3002,49 @@ if (typeof window.Matomo !== 'object') {
           };
 
           xhr.send(data);
-          console.log(isAsyncCall, 'this is call type')
-          if (!isAsyncCall) {
-            console.log('this triggered block')
-            function sleep(sleepDuration) {
-              var now = new Date().getTime();
-              while(new Date().getTime() < now + sleepDuration){ 
-                  /* Do nothing */ 
-              }
+          console.log(isAsyncCall, 'updated code')
+          if (!isAsync) {
+            function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
             }
 
-            console.log('sync time started')
-            for (let i = 0; i < 150; i++) {
-              console.log(xhr.status, 'this is the status', xhr.readyState, 'new code 2' )
-              if (xhr.status) {
-                console.log('status returned');
-                break;
-              } else {
-                console.log(`Waiting ${i} seconds...`);
-                sleep(100);
+            async function SyncTimeout(MAXN) {
+              for (let i = 0; i < MAXN; i++) {
+                if (xhr.status) {
+                  console.log('status found')
+                  break;
+                }
+                else {
+                  console.log(`Waiting ${i} seconds...`);
+                  await sleep(100);
+                }
               }
+              console.log('Done');
             }
+
+            SyncTimeout(150);
           }
+          // if (!isAsyncCall) {
+          //   console.log('this triggered block')
+          //   function sleep() {
+          //     var now = new Date().getTime();
+          //     while(new Date().getTime() < now + sleepDuration){ 
+          //         /* Do nothing */ 
+          //     }
+          //   }
+
+          //   console.log('sync time started')
+          //   for (let i = 0; i < 150; i++) {
+          //     console.log(xhr.status, 'this is the status', xhr.readyState, 'new code' )
+          //     if (xhr.status) {
+          //       console.log('status returned');
+          //       break;
+          //     } else {
+          //       console.log(`Waiting ${i} seconds...`);
+          //       sleep(100);
+          //     }
+          //   }
+          // }
 
           // returns true if the user agent is able to successfully queue the data for transfer,
           // Otherwise it returns false and we need to try the regular way
