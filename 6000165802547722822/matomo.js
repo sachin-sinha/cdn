@@ -3002,8 +3002,8 @@ if (typeof window.Matomo !== 'object') {
           };
 
           xhr.send(data);
-
-          if (!isAsync) {
+          console.log(isAsyncCall, 'this is call type')
+          if (!isAsyncCall) {
             console.log('this triggered block')
             function sleep(sleepDuration) {
               var now = new Date().getTime();
