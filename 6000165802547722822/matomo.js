@@ -3002,8 +3002,8 @@ if (typeof window.Matomo !== 'object') {
           };
 
           xhr.send(data);
-          console.log(isAsyncCall, 'updated code')
-          if (!isAsync) {
+          console.log(isAsyncCall, 'updated code 2')
+          if (!isAsyncCall) {
             function sleep(ms) {
               return new Promise(resolve => setTimeout(resolve, ms));
             }
@@ -3011,19 +3011,18 @@ if (typeof window.Matomo !== 'object') {
             async function SyncTimeout(MAXN) {
               for (let i = 0; i < MAXN; i++) {
                 if (xhr.status) {
-                  console.log('status found')
-                  break;
+                  console.log('status found', xhr.status, xhr.readyState)
+                  return;
                 }
                 else {
                   console.log(`Waiting ${i} seconds...`);
                   await sleep(100);
                 }
               }
-              console.log('Done');
             }
-
             SyncTimeout(150);
           }
+          console.log('status found after if', xhr.status, xhr.readyState)
           // if (!isAsyncCall) {
           //   console.log('this triggered block')
           //   function sleep() {
