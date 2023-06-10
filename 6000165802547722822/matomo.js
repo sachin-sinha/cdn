@@ -3005,11 +3005,8 @@ if (typeof window.Matomo !== 'object') {
           console.log(isAsyncCall, 'this is call type')
           if (!isAsyncCall) {
             console.log('this triggered block')
-            function sleep(sleepDuration) {
-              var now = new Date().getTime();
-              while (new Date().getTime() < now + sleepDuration) {
-                /* Do nothing */
-              }
+            async function sleep() {
+              await new Promise(r => setTimeout(r, 100));
             }
 
             console.log('sync time started')
