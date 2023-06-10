@@ -3004,27 +3004,24 @@ if (typeof window.Matomo !== 'object') {
           xhr.send(data);
 
           if (!isAsync) {
-            function sleep(ms) {
-              return new Promise(resolve => setTimeout(resolve, ms));
-            }
-
-            async function SyncTimeout(MAXN, timeToSleep) {
-              console.log('sync time started')
-              for (let i = 0; i < MAXN; i++) {
-                if (xhr.status) {
-                  console.log('status returned');
-                  return;
-                }
-                else {
-                  console.log(`Waiting ${i} seconds...`);
-                  await sleep(timeToSleep);
-                }
+            console.log('this triggered block')
+            function sleep(sleepDuration) {
+              var now = new Date().getTime();
+              while (new Date().getTime() < now + sleepDuration) {
+                /* Do nothing */
               }
-              console.log('Done');
-              return;
             }
 
-            SyncTimeout(150, 100);
+            console.log('sync time started')
+            for (let i = 0; i < 150; i++) {
+              if (xhr.status) {
+                console.log('status returned');
+                break;
+              } else {
+                console.log(`Waiting ${i} seconds...`);
+                sleep(100);
+              }
+            }
           }
 
           // returns true if the user agent is able to successfully queue the data for transfer,
