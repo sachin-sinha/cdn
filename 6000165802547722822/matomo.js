@@ -3003,8 +3003,8 @@ if (typeof window.Matomo !== 'object') {
 
           xhr.send(data);
           console.log(isAsyncCall, 'this is call type')
-          // if (!isAsyncCall) {
-          //   console.log('this triggered block')
+          if (!isAsyncCall) {    
+          console.log('this triggered block')
           //   function sleep(sleepDuration) {
           //     var now = new Date().getTime();
           //     while (new Date().getTime() < now + sleepDuration) {
@@ -3022,7 +3022,7 @@ if (typeof window.Matomo !== 'object') {
           //       sleep(100);
           //     }
           //   }
-          // }
+          }
 
           // returns true if the user agent is able to successfully queue the data for transfer,
           // Otherwise it returns false and we need to try the regular way
