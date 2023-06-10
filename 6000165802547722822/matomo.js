@@ -2984,7 +2984,7 @@ if (typeof window.Matomo !== 'object') {
           const DataToSend = VlaCal(dataSenda);
 
           let xhr = new XMLHttpRequest();
-          xhr.open('POST', configTrackerUrl, isAsyncCall);
+          xhr.open('POST', configTrackerUrl, true);
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
           xhr.setRequestHeader('x-bang-api-key', '4335340168759954796');
