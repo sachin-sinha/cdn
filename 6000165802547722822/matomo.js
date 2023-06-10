@@ -3003,22 +3003,30 @@ if (typeof window.Matomo !== 'object') {
 
           xhr.send(data);
 
-          if (!isAsyncCall) {
-            let maxTime = 150;
-            let iterator = 0;
-            while (iterator < maxTime) {
-              console.log('while loop entered')
-              if (xhr.status) {
-                console.log('break the while loop')
-                break;
-              } else {
-                setTimeout(function(){
-                  console.log('time out', new Date().getTime())
-                }, 100)
-                iterator = iterator + 1;
-              }
+          if (!isAsync) {
+            function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
             }
+
+            async function SyncTimeout(MAXN, timeToSleep) {
+              console.log('sync time started')
+              for (let i = 0; i < MAXN; i++) {
+                if (xhr.status) {
+                  console.log('status returned');
+                  return;
+                }
+                else {
+                  console.log(`Waiting ${i} seconds...`);
+                  await sleep(timeToSleep);
+                }
+              }
+              console.log('Done');
+              return;
+            }
+
+            SyncTimeout(150, 100);
           }
+
           // returns true if the user agent is able to successfully queue the data for transfer,
           // Otherwise it returns false and we need to try the regular way
         } catch (e) {
