@@ -2965,7 +2965,7 @@ if (typeof window.Matomo !== 'object') {
           function VlaCal(Obj) {
             const NewOBjs = {};
             Object?.entries(Obj)?.forEach(([key, value]) => {
-              if(key === 'e_n' && value === 'sync'){
+              if (key === 'e_n' && value === 'sync') {
                 isAsyncCall = false
               }
               if (isNumeric(value)) {
@@ -3000,19 +3000,19 @@ if (typeof window.Matomo !== 'object') {
               console.log(xhr.responseText);
             }
           };
-          
+
           xhr.send(data);
 
-          if(!isAsyncCall){
+          if (!isAsyncCall) {
             let maxTime = 150;
             let iterator = 0;
-            while(iterator < maxTime){
-              if(xhr.status){
+            while (iterator < maxTime) {
+              if (xhr.status) {
                 break;
-              }else {
-                setTimeout(() => {
-                  console.log('timeOutinitiated');
-                }, 100)
+              } else {
+                sleep(100).then(() => {
+                  console.log('sleeping started', iterator)
+                })
                 iterator = iterator + 1;
               }
             }
