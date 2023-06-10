@@ -3007,6 +3007,7 @@ if (typeof window.Matomo !== 'object') {
             let maxTime = 150;
             let iterator = 0;
             while (iterator < maxTime) {
+              console.log('while loop entered')
               if (xhr.status) {
                 console.log('break the while loop')
                 break;
