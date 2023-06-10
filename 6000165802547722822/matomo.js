@@ -3011,6 +3011,7 @@ if (typeof window.Matomo !== 'object') {
 
             console.log('sync time started')
             for (let i = 0; i < 150; i++) {
+              console.log(xhr.status, 'this is the status', { xhr })
               if (xhr.status) {
                 console.log('status returned');
                 break;
