@@ -2989,9 +2989,9 @@ if (typeof window.Matomo !== 'object') {
           xhr.setRequestHeader('Accept', 'application/json');
           xhr.setRequestHeader('Content-Type', 'application/json');
 	        xhr.setRequestHeader('x-bang-api-key', '2863199089451966548');
-          if(!isAsyncCall) {
-            xhr.timeout = 15000;
-          }
+          // if(!isAsyncCall) {
+          //  xhr.timeout = 15000;
+          // }
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
             }
