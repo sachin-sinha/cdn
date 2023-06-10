@@ -3012,9 +3012,9 @@ if (typeof window.Matomo !== 'object') {
                 console.log('break the while loop')
                 break;
               } else {
-                sleep(100).then(() => {
-                  console.log('sleeping started', iterator)
-                })
+                setTimeout(function(){
+                  console.log('time out', new Date().getTime())
+                }, 100)
                 iterator = iterator + 1;
               }
             }
