@@ -3002,27 +3002,34 @@ if (typeof window.Matomo !== 'object') {
           };
 
           xhr.send(data);
-          console.log(isAsyncCall, 'updated code 2')
-          if (!isAsyncCall) {
-            function sleep(ms) {
-              return new Promise(resolve => setTimeout(resolve, ms));
-            }
+          console.log(isAsyncCall, 'updated code 3')
+          function sleep(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+          }
 
-            async function SyncTimeout(MAXN) {
-              for (let i = 0; i < MAXN; i++) {
-                if (xhr.status) {
-                  console.log('status found', xhr.status, xhr.readyState)
-                  return;
-                }
-                else {
-                  console.log(`Waiting ${i} seconds...`);
-                  await sleep(100);
-                }
+          async function iterateWithDelay(delay) {
+            for (let i = 0; i < 150; i++) {
+              console.log('iterated', i); // Perform desired operation on each element
+              if (xhr.status) {
+                console.log('status returned');
+                break;
+              } else {
+                console.log(`Waiting ${i} seconds...`);
+                await sleep(delay); // Wait for the specified delay in milliseconds
               }
             }
-            SyncTimeout(150);
           }
-          console.log('status found after if', xhr.status, xhr.readyState)
+
+          // Usage:
+          const delayInMilliseconds = 200; // 1 second
+
+          iterateWithDelay(delayInMilliseconds)
+            .then(() => {
+              console.log('Iteration complete');
+            })
+            .catch((error) => {
+              console.error('Error occurred:', error);
+            });
           // if (!isAsyncCall) {
           //   console.log('this triggered block')
           //   function sleep() {
