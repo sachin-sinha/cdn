@@ -3003,27 +3003,25 @@ if (typeof window.Matomo !== 'object') {
 
           xhr.send(data);
           console.log(isAsyncCall, 'this is call type')
-          if (!isAsyncCall) {    
-          console.log('this triggered block')
-          //   function sleep(sleepDuration) {
-          //     var now = new Date().getTime();
-          //     while (new Date().getTime() < now + sleepDuration) {
-          //       /* Do nothing */
-          //     }
-          //   }
+          if (!isAsyncCall) {
+            console.log('this triggered block')
+            function sleep(sleepDuration) {
+              var now = new Date().getTime();
+              while (new Date().getTime() < now + sleepDuration) {
+                /* Do nothing */
+              }
+            }
 
-          //   console.log('sync time started')
-          //   for (let i = 0; i < 150; i++) {
-          //     if (xhr.status) {
-          //       console.log('status returned');
-          //       break;
-          //     } else {
-          //       console.log(`Waiting ${i} seconds...`);
-          //       sleep(100);
-          //     }
-          //   }
-          } else { 
-            console.log('else block triggered', isAsyncCall)
+            console.log('sync time started')
+            for (let i = 0; i < 150; i++) {
+              if (xhr.status) {
+                console.log('status returned');
+                break;
+              } else {
+                console.log(`Waiting ${i} seconds...`);
+                sleep(100);
+              }
+            }
           }
 
           // returns true if the user agent is able to successfully queue the data for transfer,
