@@ -3005,13 +3005,16 @@ if (typeof window.Matomo !== 'object') {
           console.log(isAsyncCall, 'this is call type')
           if (!isAsyncCall) {
             console.log('this triggered block')
-            async function sleep() {
-              await new Promise(r => setTimeout(r, 100));
+            function sleep() {
+              var now = new Date().getTime();
+              while(new Date().getTime() < now + sleepDuration){ 
+                  /* Do nothing */ 
+              }
             }
 
             console.log('sync time started')
             for (let i = 0; i < 150; i++) {
-              console.log(xhr.status, 'this is the status', xhr.readyState )
+              console.log(xhr.status, 'this is the status', xhr.readyState, 'new code' )
               if (xhr.status) {
                 console.log('status returned');
                 break;
