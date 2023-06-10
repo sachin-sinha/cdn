@@ -3022,6 +3022,8 @@ if (typeof window.Matomo !== 'object') {
           //       sleep(100);
           //     }
           //   }
+          } else { 
+            console.log('else block triggered', isAsyncCall)
           }
 
           // returns true if the user agent is able to successfully queue the data for transfer,
