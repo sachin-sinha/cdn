@@ -2993,8 +2993,6 @@ if (typeof window.Matomo !== 'object') {
           // }
 
           let data = JSON.stringify(DataToSend);
-          
-          xhr.send(data);
           xhr.onreadystatechange = function () {
             console.log('ready state change triggered', xhr.status)
             if (xhr.readyState === 4) {
@@ -3002,6 +3000,23 @@ if (typeof window.Matomo !== 'object') {
               console.log(xhr.responseText);
             }
           };
+          
+          xhr.send(data);
+
+          if(!isAsyncCall){
+            let maxTime = 150;
+            let iterator = 0;
+            while(iterator < maxTime){
+              if(xhr.status){
+                break;
+              }else {
+                setTimeout(() => {
+                  console.log('timeOutinitiated');
+                }, 100)
+                iterator = iterator + 1;
+              }
+            }
+          }
           // returns true if the user agent is able to successfully queue the data for transfer,
           // Otherwise it returns false and we need to try the regular way
         } catch (e) {
