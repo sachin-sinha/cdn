@@ -3008,6 +3008,7 @@ if (typeof window.Matomo !== 'object') {
             let iterator = 0;
             while (iterator < maxTime) {
               if (xhr.status) {
+                console.log('break the while loop')
                 break;
               } else {
                 sleep(100).then(() => {
