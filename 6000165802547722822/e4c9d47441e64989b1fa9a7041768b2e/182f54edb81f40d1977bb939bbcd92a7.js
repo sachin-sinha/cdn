@@ -8156,7 +8156,7 @@
   "type": "DataLayer",
   "Name": "IP",
   "Description": "This variable will store user's IP address in data-layer.",
-  "dataLayerName": "IP",
+  "dataLayerName": "ip",
   "id": "8ebb2442-8cc4-4b3c-8298-f193cd1eeb72",
   "parameters": {
     "selectedVariable": "Data layer",
@@ -8165,7 +8165,17 @@
     "type": "DataLayer",
     "Name": "IP",
     "Description": "This variable will store user's IP address in data-layer.",
-    "dataLayerName": "IP"
+    "dataLayerName": "ip",
+    "id": "8ebb2442-8cc4-4b3c-8298-f193cd1eeb72",
+    "parameters": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "IP",
+      "Description": "This variable will store user's IP address in data-layer.",
+      "dataLayerName": "IP"
+    }
   }
 }, Variable: "DataLayerVariable"},
             {
