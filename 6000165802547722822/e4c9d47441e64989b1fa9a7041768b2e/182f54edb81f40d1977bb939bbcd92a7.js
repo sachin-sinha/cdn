@@ -6667,6 +6667,15 @@
         return TagManager.url.getQueryParameter(name, parameters.window.location.search);
       };
     };
+  })();Templates["DataLayerVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var dataLayerName = parameters.get("dataLayerName");
+        if (dataLayerName && parameters.container) {
+          return parameters.container.dataLayer.get(dataLayerName);
+        }
+      };
+    };
   })();
       
       Templates["ClickClassesVariable"] = (function () {
@@ -8000,6 +8009,25 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
+          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "Data layer",
+  "Variable": "DataLayerVariable",
+  "name": "DataLayer",
+  "type": "DataLayer",
+  "Name": "IP",
+  "Description": "This variable will store user's IP address in data-layer.",
+  "dataLayerName": "IP",
+  "id": "8ebb2442-8cc4-4b3c-8298-f193cd1eeb72",
+  "parameters": {
+    "selectedVariable": "Data layer",
+    "Variable": "DataLayerVariable",
+    "name": "DataLayer",
+    "type": "DataLayer",
+    "Name": "IP",
+    "Description": "This variable will store user's IP address in data-layer.",
+    "dataLayerName": "IP"
+  }
+}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
