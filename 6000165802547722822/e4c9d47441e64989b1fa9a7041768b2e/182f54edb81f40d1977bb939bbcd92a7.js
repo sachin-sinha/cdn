@@ -6736,7 +6736,7 @@
   })();
           Templates["CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe=document.getElementById('hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8068,7 +8068,7 @@
     "customUrl": "",
     "eventCategory": "contact_us",
     "eventAction": "contact_us",
-    "eventName": "contact_us",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8088,6 +8088,33 @@
             "Description": "Variable for collecting contact-us form data."
           },
           "Variable": "CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
+          "Name": "Contact Us Form Collection",
+          "Description": "Variable for collecting contact-us form data.",
+          "id": "ca8aa71c-aa67-49ce-853b-0592d9516188",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
+            "Name": "Contact Us Form Collection",
+            "Description": "Variable for collecting contact-us form data.",
+            "id": "ca8aa71c-aa67-49ce-853b-0592d9516188",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}",
+              "Name": "Contact Us Form Collection",
+              "Description": "Variable for collecting contact-us form data."
+            }
+          },
+          "Variable": "CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188"
         }
       ]
     },
@@ -8096,7 +8123,7 @@
     "Description": "This tag will return contact form data.",
     "id": "d9969a35-da8a-440e-99dd-4d333494ee8c",
     "fireTriggerIds": [
-      "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
+      "9c2fabf6-230f-4508-a9cd-faadd5bd5f28"
     ],
     "blockedTriggerIds": []
   },
@@ -8334,7 +8361,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
