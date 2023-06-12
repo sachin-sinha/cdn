@@ -8394,16 +8394,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "FormIdVariable"
+        "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
-      "expected": "hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76"
+      "expected": "wpcf7-form init"
     }
   ],
   "Name": "Contact Form Submit"
@@ -8427,7 +8427,7 @@
         "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
-      "expected": "wpcf7-form"
+      "expected": "wpcf7-form init"
     }
   ],
   "Name": "Download Page Submit"
