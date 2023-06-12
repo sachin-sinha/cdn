@@ -6666,6 +6666,39 @@
             });
         };
     };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8060,11 +8093,16 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "ContactForm",
-    "Description": "This tag will return contact form data."
+    "Description": "This tag will return contact form data.",
+    "id": "d9969a35-da8a-440e-99dd-4d333494ee8c",
+    "fireTriggerIds": [
+      "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
+    "9c2fabf6-230f-4508-a9cd-faadd5bd5f28"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8184,6 +8222,30 @@
   ],
   "Name": "Custom event (IP)",
   "Description": "Custom event for IP Address"
+},
+            {
+  "id": "9c2fabf6-230f-4508-a9cd-faadd5bd5f28",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76"
+    }
+  ],
+  "Name": "Contact Form Submit"
 },
           ],
           variables: [
