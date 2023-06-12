@@ -8422,7 +8422,7 @@
         "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
-      "expected": ".wpcf7-form.init"
+      "expected": "wpcf7-form"
     }
   ],
   "Name": "Download Page Submit"
