@@ -6701,6 +6701,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7981,6 +7987,94 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "d9969a35-da8a-440e-99dd-4d333494ee8c",
+  "type": "Matomo",
+  "name": "ContactForm",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "contact_us",
+    "eventAction": "contact_us",
+    "eventName": "contact_us",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}",
+          "Name": "Contact Us Form Collection",
+          "Description": "Variable for collecting contact-us form data.",
+          "id": "ca8aa71c-aa67-49ce-853b-0592d9516188",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}",
+            "Name": "Contact Us Form Collection",
+            "Description": "Variable for collecting contact-us form data."
+          },
+          "Variable": "CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "ContactForm",
+    "Description": "This tag will return contact form data."
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8178,6 +8272,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#hsForm_8b00279f-1400-48cb-b649-08d7ef1a2a76');fd.source_website=fe.elements['source_website'].value;fd.email=fe.elements['email'].value;fd.fname=fe.elements['fname'].value;fd.lname=fe.elements['lname'].value;fd.msg=fe.elements['msg'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableca8aa71caa6749ce853b0592d9516188" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
