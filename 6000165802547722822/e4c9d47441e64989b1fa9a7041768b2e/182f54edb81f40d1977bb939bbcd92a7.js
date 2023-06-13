@@ -9812,94 +9812,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "e9cd9e20-c2d3-4fec-b570-e676376ac951",
-  "type": "Matomo",
-  "name": "Top Data Science Service Providers in India 2020",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "pageview",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Top Data Science Service Providers in India 2020",
-    "eventAction": "Top Data Science Service Providers in India 2020",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Top Data Science Service Providers in India 2020",
-          "Description": "Top Data Science Service Providers in India 2020",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3259');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "c105dafd-8602-46e1-aeeb-c9e55173bb55",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Top Data Science Service Providers in India 2020",
-            "Description": "Top Data Science Service Providers in India 2020",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3259');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariablec105dafd860246e1aeebc9e55173bb55"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Top Data Science Service Providers in India 2020",
-    "Description": "Top Data Science Service Providers in India 2020"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "4f1a775a-2de8-44a3-a3d4-1d089abdf7db"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "7af2a814-9881-4d22-bbe4-7e7be102e04b",
   "type": "Matomo",
   "name": "Gartner FrontRunners 2019",
@@ -10922,6 +10834,99 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "a18f4270-cc9e-4892-aaa9-635815c42b6a"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "e9cd9e20-c2d3-4fec-b570-e676376ac951",
+  "type": "Matomo",
+  "name": "Top Data Science Service Providers in India 2020",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Top Data Science Service Providers in India 2020",
+    "eventAction": "Top Data Science Service Providers in India 2020",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Top Data Science Service Providers in India 2020",
+          "Description": "Top Data Science Service Providers in India 2020",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3259');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "c105dafd-8602-46e1-aeeb-c9e55173bb55",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Top Data Science Service Providers in India 2020",
+            "Description": "Top Data Science Service Providers in India 2020",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3259');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariablec105dafd860246e1aeebc9e55173bb55"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Top Data Science Service Providers in India 2020",
+    "Description": "Top Data Science Service Providers in India 2020",
+    "id": "e9cd9e20-c2d3-4fec-b570-e676376ac951",
+    "fireTriggerIds": [
+      "4f1a775a-2de8-44a3-a3d4-1d089abdf7db"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "4f1a775a-2de8-44a3-a3d4-1d089abdf7db"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
