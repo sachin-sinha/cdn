@@ -7392,39 +7392,6 @@
       });
     };
   };
-})();Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
-      });
-    };
-  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7589,12 +7556,6 @@
           Templates["CustomJsFunctionVariable53132328d7dc41b5a9d3a8fb960e06ee"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariable90d1f86ad4a94841a9bef1fcb5fae6e0"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -10842,139 +10803,6 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
-        {
-  "id": "22270709-0c2e-4ce5-8fd5-d758e778a51b",
-  "type": "Matomo",
-  "name": "About - Get In Touch",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "About - Get In Touch",
-    "eventAction": "About - Get In Touch",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "JavaScript Variable",
-          "Variable": "JavaScriptVariable",
-          "name": "JavaScript",
-          "type": "JavaScript",
-          "Name": "Get In Touch",
-          "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-          "id": "4a85c355-2fe4-4713-a9e4-63a7d6b567c1",
-          "parameters": {
-            "selectedVariable": "JavaScript Variable",
-            "Variable": "JavaScriptVariable",
-            "name": "JavaScript",
-            "type": "JavaScript",
-            "Name": "Get In Touch",
-            "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}"
-          }
-        },
-        {
-          "selectedVariable": "JavaScript Variable",
-          "Variable": "JavaScriptVariable",
-          "name": "JavaScript",
-          "type": "JavaScript",
-          "Name": "About - Get In Touch",
-          "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-          "id": "4a85c355-2fe4-4713-a9e4-63a7d6b567c1",
-          "parameters": {
-            "selectedVariable": "JavaScript Variable",
-            "Variable": "JavaScriptVariable",
-            "name": "JavaScript",
-            "type": "JavaScript",
-            "Name": "About - Get In Touch",
-            "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-            "id": "4a85c355-2fe4-4713-a9e4-63a7d6b567c1",
-            "parameters": {
-              "selectedVariable": "JavaScript Variable",
-              "Variable": "JavaScriptVariable",
-              "name": "JavaScript",
-              "type": "JavaScript",
-              "Name": "Get In Touch",
-              "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}"
-            }
-          }
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-          "Name": "About - Get In Touch",
-          "id": "90d1f86a-d4a9-4841-a9be-f1fcb5fae6e0",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-            "Name": "About - Get In Touch"
-          },
-          "Variable": "CustomJsFunctionVariable90d1f86ad4a94841a9bef1fcb5fae6e0"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "About - Get In Touch",
-    "id": "22270709-0c2e-4ce5-8fd5-d758e778a51b",
-    "fireTriggerIds": [
-      "9fba3eac-362f-4bdf-b137-5ed091b03390"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "9fba3eac-362f-4bdf-b137-5ed091b03390"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
@@ -11620,30 +11448,6 @@
   ],
   "Name": "BANGDB ENTERPRISE"
 },
-            {
-  "id": "9fba3eac-362f-4bdf-b137-5ed091b03390",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "about-get-in-touch"
-    }
-  ],
-  "Name": "About - Get In Touch"
-},
           ],
           variables: [
             
@@ -11753,7 +11557,6 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable1daf4e0a60044ba8990c5537ef01abb0" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable53132328d7dc41b5a9d3a8fb960e06ee" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable90d1f86ad4a94841a9bef1fcb5fae6e0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
