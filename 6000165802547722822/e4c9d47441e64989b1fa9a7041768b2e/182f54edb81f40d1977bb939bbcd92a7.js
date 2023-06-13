@@ -7194,6 +7194,138 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7322,6 +7454,30 @@
           Templates["CustomJsFunctionVariable8dd725ce53f845908f4e7c220efe0d0e"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.getElementById('3303');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable4eb22d2365c944bd8165563aac2303aa"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('3304');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablecc9b988fbbc046e1ac45b55f1d0d9158"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('3456');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable23973e98075545a9840f76f6485d6a0c"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('3314');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -10556,6 +10712,102 @@
   "Name": "Accenture - Lead scoring for higher conversion",
   "Description": "Accenture - Lead scoring for higher conversion"
 },
+            {
+  "id": "dc35685e-765f-456b-b8a0-2111c981a492",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "3304"
+    }
+  ],
+  "Name": "Cisco - Ontology using BangDB AI/IE"
+},
+            {
+  "id": "99093109-104c-4670-b79d-837cc05c7c68",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "3456"
+    }
+  ],
+  "Name": "NetApp - Case study"
+},
+            {
+  "id": "ea0d6d2c-6921-4211-b42f-1a94ec8028fa",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "3314"
+    }
+  ],
+  "Name": "Banking - Case study"
+},
+            {
+  "id": "113611c8-b984-4096-b648-5fe6b86d5549",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "3318"
+    }
+  ],
+  "Name": "DataCenter - Case study"
+},
           ],
           variables: [
             
@@ -10659,6 +10911,10 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3296');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable29f880913eac48119d138f707978b668" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3297');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablededd94c6448c4f9b8e7051e73026eef3" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3303');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8dd725ce53f845908f4e7c220efe0d0e" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3304');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable4eb22d2365c944bd8165563aac2303aa" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3456');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablecc9b988fbbc046e1ac45b55f1d0d9158" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3314');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable23973e98075545a9840f76f6485d6a0c" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
