@@ -7591,28 +7591,13 @@
                 this.get = function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
             };
         })()
-          Templates["JavaScriptVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var varName = parameters.get("variableName");
-        if (varName) {
-          var parts = varName.split(".");
-          var i;
-          var obj = parameters.window;
-          for (i = 0; i < parts.length; i++) {
-            if (parts[i] in obj) {
-              obj = obj[parts[i]];
-            } else {
-              return;
-            }
-          }
-          if (obj !== parameters.window) {
-            return "" + obj;
-          }
-        }
-      };
-    };
-  })();
+          
+          Templates["CustomJsFunctionVariable6296f6609a9f491db836ec7822aed4ca"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -11724,32 +11709,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable1daf4e0a60044ba8990c5537ef01abb0" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable53132328d7dc41b5a9d3a8fb960e06ee" },
-          {name: "JavaScript", type: "JavaScript", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "JavaScript Variable",
-  "Variable": "JavaScriptVariable",
-  "name": "JavaScript",
-  "type": "JavaScript",
-  "Name": "About - Get In Touch",
-  "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-  "id": "4a85c355-2fe4-4713-a9e4-63a7d6b567c1",
-  "parameters": {
-    "selectedVariable": "JavaScript Variable",
-    "Variable": "JavaScriptVariable",
-    "name": "JavaScript",
-    "type": "JavaScript",
-    "Name": "About - Get In Touch",
-    "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-    "id": "4a85c355-2fe4-4713-a9e4-63a7d6b567c1",
-    "parameters": {
-      "selectedVariable": "JavaScript Variable",
-      "Variable": "JavaScriptVariable",
-      "name": "JavaScript",
-      "type": "JavaScript",
-      "Name": "Get In Touch",
-      "variableName": "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}"
-    }
-  }
-}, Variable: "JavaScriptVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable6296f6609a9f491db836ec7822aed4ca" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
