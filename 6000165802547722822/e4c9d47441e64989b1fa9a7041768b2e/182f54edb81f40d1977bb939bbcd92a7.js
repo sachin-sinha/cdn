@@ -11577,7 +11577,7 @@
     }
   ],
   "Name": "Download centos7",
-  "Description": "Download centos7"
+  "Description": ""
 },
           ],
           variables: [
