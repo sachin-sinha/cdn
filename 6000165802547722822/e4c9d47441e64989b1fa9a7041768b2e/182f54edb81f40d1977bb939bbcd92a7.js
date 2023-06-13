@@ -10326,91 +10326,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "828e376c-e7ce-49e4-80e9-394a417ce502",
-  "type": "Matomo",
-  "name": "DataCenter - Case study",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "pageview",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "DataCenter - Case study",
-    "eventAction": "DataCenter - Case study",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "DataCenter - Case study",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "924b9a78-c71b-43a0-8dc4-38e2b2facdaa",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "DataCenter - Case study",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "DataCenter - Case study"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "113611c8-b984-4096-b648-5fe6b86d5549"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "20ec8b56-cc10-4efb-89ca-79d2056afd3f",
   "type": "Matomo",
   "name": "Help Form - Get in Touch",
@@ -10932,6 +10847,96 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "ca9a69f5-d543-4c07-b830-5da65303e19b"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "828e376c-e7ce-49e4-80e9-394a417ce502",
+  "type": "Matomo",
+  "name": "DataCenter - Case study",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "DataCenter - Case study",
+    "eventAction": "DataCenter - Case study",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "DataCenter - Case study",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "924b9a78-c71b-43a0-8dc4-38e2b2facdaa",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "DataCenter - Case study",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "DataCenter - Case study",
+    "id": "828e376c-e7ce-49e4-80e9-394a417ce502",
+    "fireTriggerIds": [
+      "113611c8-b984-4096-b648-5fe6b86d5549"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "113611c8-b984-4096-b648-5fe6b86d5549"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
