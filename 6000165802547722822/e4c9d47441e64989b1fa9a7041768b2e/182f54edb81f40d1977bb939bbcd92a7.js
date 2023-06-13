@@ -7326,6 +7326,39 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7478,6 +7511,12 @@
           Templates["CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable1daf4e0a60044ba8990c5537ef01abb0"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -10552,6 +10591,94 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "20ec8b56-cc10-4efb-89ca-79d2056afd3f",
+  "type": "Matomo",
+  "name": "Help Form - Get in Touch",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Help Form - Get in Touch",
+    "eventAction": "Help Form - Get in Touch",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Help Form - Get in Touch",
+          "Description": "Help Form - Get in Touch",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
+          "id": "1daf4e0a-6004-4ba8-990c-5537ef01abb0",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Help Form - Get in Touch",
+            "Description": "Help Form - Get in Touch",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable1daf4e0a60044ba8990c5537ef01abb0"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Help Form - Get in Touch",
+    "Description": "Help Form - Get in Touch"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "2ceafbe6-870c-49fa-b13e-27d83d2bfff2"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -11149,6 +11276,30 @@
   ],
   "Name": "DataCenter - Case study"
 },
+            {
+  "id": "2ceafbe6-870c-49fa-b13e-27d83d2bfff2",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "1023-custom"
+    }
+  ],
+  "Name": "Help Form - Get in Touch"
+},
           ],
           variables: [
             
@@ -11256,6 +11407,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3456');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablecc9b988fbbc046e1ac45b55f1d0d9158" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3314');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable23973e98075545a9840f76f6485d6a0c" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('3318');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable924b9a78c71b43a08dc438e2b2facdaa" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable1daf4e0a60044ba8990c5537ef01abb0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
