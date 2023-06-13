@@ -9898,92 +9898,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "af8e2f5c-7527-42bf-9109-1a6a28762504",
-  "type": "Matomo",
-  "name": "Gartner FrontRunners 2018",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "pageview",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Gartner FrontRunners 2018",
-    "eventAction": "Gartner FrontRunners 2018",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3296');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "Name": "Gartner FrontRunners 2018",
-          "id": "29f88091-3eac-4811-9d13-8f707978b668",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3296');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "Name": "Gartner FrontRunners 2018"
-          },
-          "Variable": "CustomJsFunctionVariable29f880913eac48119d138f707978b668"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Gartner FrontRunners 2018",
-    "Description": "Gartner FrontRunners 2018"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "ca9a69f5-d543-4c07-b830-5da65303e19b"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "7e1e7a08-f3cb-4fca-9bb2-d5cb77ce7a02",
   "type": "Matomo",
   "name": "Gartner FrontRunners 2017",
@@ -10927,6 +10841,97 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "4f1a775a-2de8-44a3-a3d4-1d089abdf7db"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "af8e2f5c-7527-42bf-9109-1a6a28762504",
+  "type": "Matomo",
+  "name": "Gartner FrontRunners 2018",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Gartner FrontRunners 2018",
+    "eventAction": "Gartner FrontRunners 2018",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3296');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "Name": "Gartner FrontRunners 2018",
+          "id": "29f88091-3eac-4811-9d13-8f707978b668",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3296');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "Name": "Gartner FrontRunners 2018"
+          },
+          "Variable": "CustomJsFunctionVariable29f880913eac48119d138f707978b668"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Gartner FrontRunners 2018",
+    "Description": "Gartner FrontRunners 2018",
+    "id": "af8e2f5c-7527-42bf-9109-1a6a28762504",
+    "fireTriggerIds": [
+      "ca9a69f5-d543-4c07-b830-5da65303e19b"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "ca9a69f5-d543-4c07-b830-5da65303e19b"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
