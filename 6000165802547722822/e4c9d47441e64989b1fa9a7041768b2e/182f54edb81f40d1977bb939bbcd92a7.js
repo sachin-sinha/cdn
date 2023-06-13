@@ -9004,300 +9004,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
-  "type": "Matomo",
-  "name": "Download centos7",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Download centos7",
-    "eventAction": "Download centos7",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download Page Form",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download Page Form",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download centos7",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download centos7",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download Page Form",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download centos7",
-    "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
-    "fireTriggerIds": [
-      "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
-    ],
-    "blockedTriggerIds": [],
-    "Description": "Download centos7"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "cde2a560-07ca-41bd-8664-71b7aa8623dc",
-  "type": "Matomo",
-  "name": "Download rhel8",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "pageview",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Download rhel8",
-    "eventAction": "Download rhel8",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download rhel8",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download rhel8",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download rhel8",
-    "Description": "Download rhel8"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "c6aff977-7418-45b9-917f-eaa4375e24d3"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "fee27a3f-42c8-411a-a0da-658b41047a3d",
-  "type": "Matomo",
-  "name": "Download centos8",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Download centos8",
-    "eventAction": "Download centos8",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download centos8",
-          "Description": "",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "82605240-d05e-4d6c-9bf6-1179a476289f",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download centos8",
-            "Description": "",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable82605240d05e4d6c9bf61179a476289f"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download centos8",
-    "Description": "Download centos8",
-    "id": "fee27a3f-42c8-411a-a0da-658b41047a3d",
-    "fireTriggerIds": [
-      "abba42ce-4113-4288-b82a-967a0e8e41d5"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "abba42ce-4113-4288-b82a-967a0e8e41d5"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "14065f15-cb10-4672-ab0c-a188e92e5b99",
   "type": "Matomo",
   "name": "Download ubuntu16",
@@ -10937,6 +10643,388 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "113611c8-b984-4096-b648-5fe6b86d5549"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
+  "type": "Matomo",
+  "name": "Download centos7",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download centos7",
+    "eventAction": "Download centos7",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download Page Form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download Page Form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos7",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos7",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download Page Form",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos7",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos7",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download centos7",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+              "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Download Page Form",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download centos7",
+    "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
+    "fireTriggerIds": [
+      "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
+    ],
+    "blockedTriggerIds": [],
+    "Description": "Download centos7"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "fee27a3f-42c8-411a-a0da-658b41047a3d",
+  "type": "Matomo",
+  "name": "Download centos8",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download centos8",
+    "eventAction": "Download centos8",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos8",
+          "Description": "",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "82605240-d05e-4d6c-9bf6-1179a476289f",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos8",
+            "Description": "",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable82605240d05e4d6c9bf61179a476289f"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos8",
+          "Description": "",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "82605240-d05e-4d6c-9bf6-1179a476289f",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos8",
+            "Description": "",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "82605240-d05e-4d6c-9bf6-1179a476289f",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download centos8",
+              "Description": "",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable82605240d05e4d6c9bf61179a476289f"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download centos8",
+    "Description": "Download centos8",
+    "id": "fee27a3f-42c8-411a-a0da-658b41047a3d",
+    "fireTriggerIds": [
+      "abba42ce-4113-4288-b82a-967a0e8e41d5"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "abba42ce-4113-4288-b82a-967a0e8e41d5"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "cde2a560-07ca-41bd-8664-71b7aa8623dc",
+  "type": "Matomo",
+  "name": "Download rhel8",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download rhel8",
+    "eventAction": "Download rhel8",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download rhel8",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download rhel8",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download rhel8",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download rhel8",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download rhel8",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download rhel8",
+    "Description": "Download rhel8",
+    "id": "cde2a560-07ca-41bd-8664-71b7aa8623dc",
+    "fireTriggerIds": [
+      "c6aff977-7418-45b9-917f-eaa4375e24d3"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "c6aff977-7418-45b9-917f-eaa4375e24d3"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
