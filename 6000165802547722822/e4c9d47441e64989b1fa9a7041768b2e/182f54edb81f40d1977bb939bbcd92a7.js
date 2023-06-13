@@ -10211,6 +10211,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "0e843e7b-c39f-4a3a-bc9c-588161a2d47d",
+  "type": "Matomo",
+  "name": "Cisco - Ontology using BangDB AI/IE",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Cisco - Ontology using BangDB AI/IE",
+    "eventAction": "Cisco - Ontology using BangDB AI/IE",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Cisco - Ontology using BangDB AI/IE",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('3304');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "4eb22d23-65c9-44bd-8165-563aac2303aa",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Cisco - Ontology using BangDB AI/IE",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('3304');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable4eb22d2365c944bd8165563aac2303aa"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Cisco - Ontology using BangDB AI/IE"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "dc35685e-765f-456b-b8a0-2111c981a492"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
