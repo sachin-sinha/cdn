@@ -6798,6 +6798,105 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8530,6 +8629,106 @@
   "Name": "Contact Form Submit"
 },
             {
+  "id": "01260251-0ca3-4e5a-bb8a-d88e497e5167",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "2661"
+    }
+  ],
+  "Name": "Download ubuntu18",
+  "Description": "Download ubuntu18"
+},
+            {
+  "id": "fc261d9c-70be-41be-9297-160b6c071ef0",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "2655"
+    }
+  ],
+  "Name": "Download ubuntu16",
+  "Description": "Download ubuntu16"
+},
+            {
+  "id": "c6aff977-7418-45b9-917f-eaa4375e24d3",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "2655"
+    }
+  ],
+  "Name": "Download rhel8",
+  "Description": "Download rhel8"
+},
+            {
+  "id": "abba42ce-4113-4288-b82a-967a0e8e41d5",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "2651"
+    }
+  ],
+  "Name": "Download centos8",
+  "Description": "Download centos8"
+},
+            {
   "id": "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc",
   "type": "FormSubmit",
   "name": "FormSubmit",
@@ -8548,14 +8747,14 @@
         "Variable": "FormIdVariable"
       },
       "comparison": "equals",
-      "expected": "2644"
+      "expected": "2647"
     }
   ],
   "Name": "Download centos7",
   "Description": "Download centos7"
 },
             {
-  "id": "abba42ce-4113-4288-b82a-967a0e8e41d5",
+  "id": "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f",
   "type": "FormSubmit",
   "name": "FormSubmit",
   "Trigger": "FormSubmitTrigger",
@@ -8564,45 +8763,20 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickIdVariable"
+        "Variable": "FormIdVariable"
       },
       "comparison": "equals",
-      "expected": "2647"
+      "expected": "2664"
     }
   ],
-  "Name": "Download centos8",
-  "Description": "Download centos8"
-},
-            {
-  "id": "c6aff977-7418-45b9-917f-eaa4375e24d3",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "2651"
-    }
-  ],
-  "Name": "Download rhel8",
-  "Description": "Download rhel8"
+  "Name": "Download ubuntu20",
+  "Description": "Download ubuntu20"
 },
           ],
           variables: [
