@@ -9705,91 +9705,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "8c23992a-be82-4acd-bc51-0070f744bf3a",
-  "type": "Matomo",
-  "name": "BANGDB ENTERPRISE",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "pageview",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "BANGDB ENTERPRISE",
-    "eventAction": "BANGDB ENTERPRISE",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "BANGDB ENTERPRISE",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
-          "id": "53132328-d7dc-41b5-a9d3-a8fb960e06ee",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "BANGDB ENTERPRISE",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable53132328d7dc41b5a9d3a8fb960e06ee"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "BANGDB ENTERPRISE"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "d2c1035d-758c-4512-aac2-67745cf9f582"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "42196a8b-c838-4a68-a7bd-aaefa36592d8",
   "type": "Matomo",
   "name": "Get In Touch - About",
@@ -10924,6 +10839,96 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "8c23992a-be82-4acd-bc51-0070f744bf3a",
+  "type": "Matomo",
+  "name": "BANGDB ENTERPRISE",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "BANGDB ENTERPRISE",
+    "eventAction": "BANGDB ENTERPRISE",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "BANGDB ENTERPRISE",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}",
+          "id": "53132328-d7dc-41b5-a9d3-a8fb960e06ee",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "BANGDB ENTERPRISE",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable53132328d7dc41b5a9d3a8fb960e06ee"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "BANGDB ENTERPRISE",
+    "id": "8c23992a-be82-4acd-bc51-0070f744bf3a",
+    "fireTriggerIds": [
+      "d2c1035d-758c-4512-aac2-67745cf9f582"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d2c1035d-758c-4512-aac2-67745cf9f582"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
