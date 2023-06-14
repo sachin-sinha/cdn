@@ -7433,12 +7433,6 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
-            };
-        })()
-          
           Templates["CustomJsFunctionVariable82605240d05e4d6c9bf61179a476289f"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.getElementById('2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
@@ -7556,6 +7550,12 @@
           Templates["CustomJsFunctionVariable976bbf860ed04e99ad98989e03cba70a"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -11536,31 +11536,6 @@
   "Name": "Get In Touch - About"
 },
             {
-  "id": "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "2644"
-    }
-  ],
-  "Name": "Download centos7",
-  "Description": ""
-},
-            {
   "id": "6dbc0fe5-6644-40ea-aa51-c2c7d7ad9a3c",
   "type": "FormSubmit",
   "name": "FormSubmit",
@@ -11583,6 +11558,31 @@
     }
   ],
   "Name": "IQLect Platform"
+},
+            {
+  "id": "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "download2644"
+    }
+  ],
+  "Name": "Download centos7",
+  "Description": ""
 },
           ],
           variables: [
@@ -11672,7 +11672,6 @@
   }
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2206');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable6c516bec17d2467fb55853c437e65c4a" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable82605240d05e4d6c9bf61179a476289f" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1" },
@@ -11693,6 +11692,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('1023-custom');fd.email=fe.elements['email'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable1daf4e0a60044ba8990c5537ef01abb0" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('2711');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.company=fe.elements['company'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable53132328d7dc41b5a9d3a8fb960e06ee" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable976bbf860ed04e99ad98989e03cba70a" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
