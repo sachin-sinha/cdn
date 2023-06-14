@@ -6779,6 +6779,12 @@
             };
         })()
           
+          Templates["CustomJsFunctionVariable008a0d2de7a648b198d890dc5cd36db1"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = asdf
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7553,6 +7559,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "cc" }, Variable: "CustomJsFunctionVariablef7f3af16ff7349bea978c346a0ac5a5f" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "abc" }, Variable: "CustomJsFunctionVariable23cf81dafc884f52860a2ce9ea38cb80" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "ests" }, Variable: "CustomJsFunctionVariablea8c5a46708344993b500c92f37070658" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "asdf" }, Variable: "CustomJsFunctionVariable008a0d2de7a648b198d890dc5cd36db1" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
