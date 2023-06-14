@@ -6731,6 +6731,54 @@
             };
         })()
           
+          Templates["CustomJsFunctionVariable0b6da6c302444463b84f61119041020f"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = s
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable451464a74ea94ffca2259bf4c48605e9"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = da
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable2daf7f6632484d6d9715f91377052530"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = da
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable4dcb1c9db2f745369281372e508512cd"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = da
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariabledaa3023ff79d491d87b130a4834f6436"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = aa
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablef7f3af16ff7349bea978c346a0ac5a5f"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = cc
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable23cf81dafc884f52860a2ce9ea38cb80"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = abc
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablea8c5a46708344993b500c92f37070658"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = ests
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7497,6 +7545,14 @@
 }, Variable: "UrlParameterVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#formID');fd.name=fe.elements['username'].value;fd.password=fe.elements['password'].value;sessionStorage.setItem('formData', JSON.stringify(fd));return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable588ab48405624599b7a2d6fe70e97e87" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj = sessionStorage.getItem('formData'); if(!obj){obj='null'};sessionStorage.removeItem('formData'); return obj}" }, Variable: "CustomJsFunctionVariableb0bf498a6241463a92f9c44b9bdab2e0" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "s" }, Variable: "CustomJsFunctionVariable0b6da6c302444463b84f61119041020f" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "da" }, Variable: "CustomJsFunctionVariable451464a74ea94ffca2259bf4c48605e9" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "da" }, Variable: "CustomJsFunctionVariable2daf7f6632484d6d9715f91377052530" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "da" }, Variable: "CustomJsFunctionVariable4dcb1c9db2f745369281372e508512cd" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "aa" }, Variable: "CustomJsFunctionVariabledaa3023ff79d491d87b130a4834f6436" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "cc" }, Variable: "CustomJsFunctionVariablef7f3af16ff7349bea978c346a0ac5a5f" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "abc" }, Variable: "CustomJsFunctionVariable23cf81dafc884f52860a2ce9ea38cb80" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "ests" }, Variable: "CustomJsFunctionVariablea8c5a46708344993b500c92f37070658" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
