@@ -10064,153 +10064,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
-  "type": "Matomo",
-  "name": "Download centos7",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Download centos7",
-    "eventAction": "Download centos7",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download Page Form",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download Page Form",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download centos7",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download centos7",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download Page Form",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download centos7",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download centos7",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download centos7",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Download Page Form",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download centos7",
-    "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
-    "fireTriggerIds": [
-      "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
-    ],
-    "blockedTriggerIds": [],
-    "Description": "Download centos7"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "fee27a3f-42c8-411a-a0da-658b41047a3d",
   "type": "Matomo",
   "name": "Download centos8",
@@ -10939,6 +10792,153 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
+  "type": "Matomo",
+  "name": "Download centos7",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download centos7",
+    "eventAction": "Download centos7",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download Page Form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download Page Form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos7",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos7",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download Page Form",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos7",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos7",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download centos7",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+              "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Download Page Form",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download centos7",
+    "id": "c411e3e8-fe3a-4095-91a6-078a057ccefb",
+    "fireTriggerIds": [
+      "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
+    ],
+    "blockedTriggerIds": [],
+    "Description": "Download centos7"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "c1b8c7a5-617a-47ac-92aa-6f20f24f16cc"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -11577,7 +11577,7 @@
         "parameters": [],
         "Variable": "FormIdVariable"
       },
-      "comparison": "equals_exactly",
+      "comparison": "equals",
       "expected": "2644"
     }
   ],
