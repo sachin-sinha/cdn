@@ -10914,6 +10914,46 @@
             }
           },
           "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download centos7",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download centos7",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download centos7",
+              "jsFunction": "function() {var fd = {};var fe=document.getElementById('2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+              "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Download centos7",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+                "id": "2c7642a5-16c5-4f56-a31b-85bfda168ad1",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "Download Page Form",
+                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.wpcf7-form.init');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+                }
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable2c7642a516c54f56a31b85bfda168ad1"
         }
       ]
     },
