@@ -8083,16 +8083,30 @@
           "defaultValue": null,
           "parameters": [],
           "Variable": "ClickTextVariable"
+        },
+        {
+          "Name": "Click Classes",
+          "name": "ClickClasses",
+          "type": "ClickClasses",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickClassesVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "CallButton",
-    "Description": ""
+    "Description": "",
+    "id": "10b00b00-b3ce-4986-bf1a-45f80f1840f1",
+    "fireTriggerIds": [
+      "9e975d20-d64a-4b30-b39f-66bf5dc07a63"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "9e975d20-d64a-4b30-b39f-66bf5dc07a63"
+    "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
