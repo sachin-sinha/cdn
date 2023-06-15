@@ -8077,7 +8077,7 @@
     "customUrl": "",
     "eventCategory": "CallButton",
     "eventAction": "CallButton",
-    "eventName": "CallButton",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8092,7 +8092,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CallButton"
+    "Name": "CallButton",
+    "id": "90ae6cd5-2abc-41ea-8d58-703b81941fc7",
+    "fireTriggerIds": [
+      "c2b9d594-01fb-434a-99fc-e7ecb4fec163"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
