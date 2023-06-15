@@ -8027,7 +8027,7 @@
         {
   "id": "10b00b00-b3ce-4986-bf1a-45f80f1840f1",
   "type": "Matomo",
-  "name": "CallButton",
+  "name": "CallButtonTest",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8070,9 +8070,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "CallButton",
-    "eventAction": "CallButton",
-    "eventName": "CallButton",
+    "eventCategory": "CallButtonTest",
+    "eventAction": "CallButtonTest",
+    "eventName": "CallButtonTest",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8096,11 +8096,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CallButton",
+    "Name": "CallButtonTest",
     "Description": "",
     "id": "10b00b00-b3ce-4986-bf1a-45f80f1840f1",
     "fireTriggerIds": [
-      "9e975d20-d64a-4b30-b39f-66bf5dc07a63"
+      "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
     ],
     "blockedTriggerIds": []
   },
