@@ -7946,99 +7946,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "10b00b00-b3ce-4986-bf1a-45f80f1840f1",
-  "type": "Matomo",
-  "name": "CallButtonTest",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "engines-store",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Engines_store/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "CallButtonTest",
-    "eventAction": "CallButtonTest",
-    "eventName": "CallButtonTest",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Click Text",
-          "name": "ClickText",
-          "type": "ClickText",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickTextVariable"
-        },
-        {
-          "Name": "Click Classes",
-          "name": "ClickClasses",
-          "type": "ClickClasses",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickClassesVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "CallButtonTest",
-    "Description": "",
-    "id": "10b00b00-b3ce-4986-bf1a-45f80f1840f1",
-    "fireTriggerIds": [
-      "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "engines-store",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "acc02ce2-813e-4ccc-9027-397b1a6985c6",
   "type": "Matomo",
   "name": "FormSubmit",
@@ -8123,9 +8030,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "60ddf290-61c1-4818-b166-07f5f6162952",
+  "id": "c3515b58-0444-4e8b-9463-3e53301fb0e3",
   "type": "Matomo",
-  "name": "CC",
+  "name": "CallButton",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8168,9 +8075,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "CC",
-    "eventAction": "CC",
-    "eventName": "CC",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "CallButton",
     "eventValue": {
       "joinedVariable": [
         {
@@ -8181,24 +8088,15 @@
           "defaultValue": null,
           "parameters": [],
           "Variable": "ClickTextVariable"
-        },
-        {
-          "Name": "Click Classes",
-          "name": "ClickClasses",
-          "type": "ClickClasses",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickClassesVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "CC"
+    "Name": "CallButton"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "7c3a6f15-41bc-4b5f-b5d3-9063d84a97c4"
+    "9e975d20-d64a-4b30-b39f-66bf5dc07a63"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
