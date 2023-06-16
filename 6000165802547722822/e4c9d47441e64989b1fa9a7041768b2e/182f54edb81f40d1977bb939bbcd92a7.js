@@ -11574,16 +11574,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Form Classes",
-        "name": "FormClasses",
-        "type": "FormClasses",
+        "Name": "Form Name",
+        "name": "FormName",
+        "type": "FormName",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "FormClassesVariable"
+        "Variable": "FormNameVariable"
       },
       "comparison": "equals",
-      "expected": "wpcf7-form download2644 init"
+      "expected": "downloadForm2644"
     }
   ],
   "Name": "centos7 download",
