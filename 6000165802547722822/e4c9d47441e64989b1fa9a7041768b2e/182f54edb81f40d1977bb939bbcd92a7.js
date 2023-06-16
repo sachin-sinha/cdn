@@ -10533,90 +10533,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
-  "type": "Matomo",
-  "name": "FormSubmit",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "FormSubmit",
-    "eventAction": "FormSubmit",
-    "eventName": "FormSubmit",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Form ID",
-          "name": "FormId",
-          "type": "FormId",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "FormIdVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "FormSubmit",
-    "Description": "This tag returns name of the form, when a form is submitted.",
-    "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
-    "fireTriggerIds": [
-      "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "8c23992a-be82-4acd-bc51-0070f744bf3a",
   "type": "Matomo",
   "name": "BANGDB ENTERPRISE",
@@ -10897,6 +10813,90 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "fc261d9c-70be-41be-9297-160b6c071ef0"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
+  "type": "Matomo",
+  "name": "FormSubmit",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "FormSubmit",
+    "eventAction": "FormSubmit",
+    "eventName": "FormSubmit",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Form Classes",
+          "name": "FormClasses",
+          "type": "FormClasses",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "FormClassesVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "FormSubmit",
+    "Description": "This tag returns name of the form, when a form is submitted.",
+    "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
+    "fireTriggerIds": [
+      "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
