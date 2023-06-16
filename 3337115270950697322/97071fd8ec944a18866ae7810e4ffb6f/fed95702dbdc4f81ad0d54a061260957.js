@@ -8268,19 +8268,6 @@
       },
       "comparison": "equals",
       "expected": "slide-btn"
-    },
-    {
-      "actual": {
-        "Name": "Form Classes",
-        "name": "FormClasses",
-        "type": "FormClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "tel"
     }
   ],
   "Name": "CallButton"
