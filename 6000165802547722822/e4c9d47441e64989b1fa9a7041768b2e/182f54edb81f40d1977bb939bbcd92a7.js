@@ -11043,31 +11043,6 @@
   "Description": "Download ubuntu18"
 },
             {
-  "id": "fc261d9c-70be-41be-9297-160b6c071ef0",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "2655"
-    }
-  ],
-  "Name": "Download ubuntu16",
-  "Description": "Download ubuntu16"
-},
-            {
   "id": "c6aff977-7418-45b9-917f-eaa4375e24d3",
   "type": "FormSubmit",
   "name": "FormSubmit",
@@ -11551,6 +11526,31 @@
   ],
   "Name": "centos7 download",
   "Description": "centos7 download"
+},
+            {
+  "id": "fc261d9c-70be-41be-9297-160b6c071ef0",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "download2655"
+    }
+  ],
+  "Name": "Download ubuntu16",
+  "Description": "Download ubuntu16"
 },
           ],
           variables: [
