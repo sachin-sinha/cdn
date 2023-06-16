@@ -6675,6 +6675,39 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7681,6 +7714,56 @@
     }
   ],
   "Name": "Form Submit"
+},
+            {
+  "id": "893cf9be-1353-4b4f-a86d-53e3003709fd",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "My"
+    },
+    {
+      "actual": {
+        "Name": "Form Element",
+        "name": "FormElement",
+        "type": "FormElement",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormElementVariable"
+      },
+      "comparison": "starts_with",
+      "expected": "My2"
+    },
+    {
+      "actual": {
+        "Name": "Form Destination",
+        "name": "FormDestination",
+        "type": "FormDestination",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormDestinationVariable"
+      },
+      "comparison": "contains",
+      "expected": "My3"
+    }
+  ],
+  "Name": "My"
 },
           ],
           variables: [
