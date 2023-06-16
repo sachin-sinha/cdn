@@ -6668,38 +6668,6 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["PageViewTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6770,6 +6738,71 @@
         triggerEvent({ event: "DOMReady" });
       });
     };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
   };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7660,85 +7693,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "ac497a63-0218-4c08-870e-dd0502aa59e7",
-  "type": "Matomo",
-  "name": "CallButton",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "swapengines",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Swapengines/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "CallButton",
-    "eventAction": "CallButton",
-    "eventName": "CallButton",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Click Text",
-          "name": "ClickText",
-          "type": "ClickText",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickTextVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "CallButton",
-    "Description": "Sends data, when call button is clicked on the website."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "f6a9fb91-17d2-4376-abc4-e67878e6f662"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "swapengines",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "d7c8aa74-e777-42e2-8873-ca04280db85e",
   "type": "Matomo",
   "name": "PageViewURL",
@@ -8007,6 +7961,92 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "ac497a63-0218-4c08-870e-dd0502aa59e7",
+  "type": "Matomo",
+  "name": "CallButton",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "swapengines",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Swapengines/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Text",
+          "name": "ClickText",
+          "type": "ClickText",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickTextVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "CallButton",
+    "Description": "Sends data, when call button is clicked on the website.",
+    "id": "ac497a63-0218-4c08-870e-dd0502aa59e7",
+    "fireTriggerIds": [
+      "f6a9fb91-17d2-4376-abc4-e67878e6f662"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "f6a9fb91-17d2-4376-abc4-e67878e6f662",
+    "b33d061a-1c54-4c79-b6e5-b76cf67c339b",
+    "f73da3f4-cbdd-417a-b54b-fc320284cfda"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "swapengines",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8078,31 +8118,6 @@
   "conditions": [],
   "Name": "History Change",
   "Description": "History Change"
-},
-            {
-  "id": "f6a9fb91-17d2-4376-abc4-e67878e6f662",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "regexp",
-      "expected": "^(contact_button_header|fa-phone)$"
-    }
-  ],
-  "Name": "CallButton",
-  "Description": "CallButton"
 },
             {
   "id": "b63e4782-69bd-41f0-909f-ca9f53746706",
@@ -8200,6 +8215,67 @@
     }
   ],
   "Name": "Collect session store"
+},
+            {
+  "id": "b33d061a-1c54-4c79-b6e5-b76cf67c339b",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "tel"
+    },
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "callnowbutton"
+    }
+  ],
+  "Name": "CallButton"
+},
+            {
+  "id": "f73da3f4-cbdd-417a-b54b-fc320284cfda",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "click_mobile_number"
+    }
+  ],
+  "Name": "CallButton - Thank you page"
 },
           ],
           variables: [
