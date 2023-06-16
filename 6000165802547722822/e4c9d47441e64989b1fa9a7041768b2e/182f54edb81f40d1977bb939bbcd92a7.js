@@ -10869,7 +10869,7 @@
     "customUrl": "",
     "eventCategory": "centos7 download",
     "eventAction": "centos7 download",
-    "eventName": "centos7 download",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -11583,7 +11583,7 @@
         "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
-      "expected": "wpcf7-form download2644 sent"
+      "expected": "wpcf7-form init download2644"
     }
   ],
   "Name": "centos7 download",
