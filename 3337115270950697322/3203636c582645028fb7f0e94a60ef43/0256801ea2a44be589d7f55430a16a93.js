@@ -6698,38 +6698,6 @@
             });
         };
     };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6762,6 +6730,38 @@
         );
       });
     };
+  };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8294,70 +8294,6 @@
   "Description": "Custom event to get the IP Adress of the visitor."
 },
             {
-  "id": "e8cb1493-0da6-429c-87d1-a257a71aa225",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "jss236"
-    },
-    {
-      "actual": {
-        "Name": "Click Text",
-        "name": "ClickText",
-        "type": "ClickText",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickTextVariable"
-      },
-      "comparison": "equals",
-      "expected": "1-888-855-1808"
-    },
-    {
-      "actual": {
-        "Name": "Click Text",
-        "name": "ClickText",
-        "type": "ClickText",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickTextVariable"
-      },
-      "comparison": "equals",
-      "expected": "Call Now"
-    },
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "smoothscroll"
-    }
-  ],
-  "Name": "Call Button",
-  "Description": "Sends data, when call button is clicked on the website."
-},
-            {
   "id": "fe8eb763-ac0f-41f0-b51f-4964c8931bec",
   "type": "FormSubmit",
   "name": "FormSubmit",
@@ -8380,6 +8316,31 @@
     }
   ],
   "Name": "quoteform submit"
+},
+            {
+  "id": "e8cb1493-0da6-429c-87d1-a257a71aa225",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "contains",
+      "expected": "calltracker"
+    }
+  ],
+  "Name": "Call Button",
+  "Description": "Sends data, when call button is clicked on the website."
 },
           ],
           variables: [
