@@ -8281,19 +8281,6 @@
       },
       "comparison": "equals",
       "expected": "tel"
-    },
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "callnowbutton"
     }
   ],
   "Name": "CallButton"
