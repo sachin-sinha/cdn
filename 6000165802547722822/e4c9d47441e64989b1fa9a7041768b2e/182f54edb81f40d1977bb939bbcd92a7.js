@@ -11583,7 +11583,7 @@
         "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
-      "expected": "wpcf7-form init download2644"
+      "expected": "wpcf7-form download2644 init"
     }
   ],
   "Name": "centos7 download",
