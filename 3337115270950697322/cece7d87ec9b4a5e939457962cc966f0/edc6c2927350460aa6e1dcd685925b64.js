@@ -6698,38 +6698,6 @@
             });
         };
     };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
 })();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6762,6 +6730,38 @@
         );
       });
     };
+  };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7716,85 +7716,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "9509bebb-8311-4a48-97d4-db4e67e0eda5",
-  "type": "Matomo",
-  "name": "CallButton",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "autoparts-pro",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Autoparts_pro/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "CallButton",
-    "eventAction": "CallButton",
-    "eventName": "CallButton",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "CallButton",
-    "Description": "Sends data, when call button is clicked on the website."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "5e992411-4c8a-452c-80cc-7ccb1974bc8e"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "autoparts-pro",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "37f6f713-1cbb-4826-bcfe-10ee0a6da323",
   "type": "Matomo",
   "name": "Quote Form Data Collector",
@@ -7869,6 +7790,90 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "8259104c-fcaf-4648-b5d9-de6c68356840"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-pro",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "9509bebb-8311-4a48-97d4-db4e67e0eda5",
+  "type": "Matomo",
+  "name": "CallButton",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-pro",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_pro/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "CallButton",
+    "eventAction": "CallButton",
+    "eventName": "CallButton",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Text",
+          "name": "ClickText",
+          "type": "ClickText",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickTextVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "CallButton",
+    "Description": "Sends data, when call button is clicked on the website.",
+    "id": "9509bebb-8311-4a48-97d4-db4e67e0eda5",
+    "fireTriggerIds": [
+      "5e992411-4c8a-452c-80cc-7ccb1974bc8e"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "5e992411-4c8a-452c-80cc-7ccb1974bc8e"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8001,44 +8006,6 @@
   "Description": "Custom event to get the IP Adress of the visitor."
 },
             {
-  "id": "5e992411-4c8a-452c-80cc-7ccb1974bc8e",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "regexp",
-      "expected": "^(getstarted|fa-phone-square|jss236)$"
-    },
-    {
-      "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "callnowbutton"
-    }
-  ],
-  "Name": "Call Button",
-  "Description": "Sends data, when call button is clicked on the website."
-},
-            {
   "id": "8259104c-fcaf-4648-b5d9-de6c68356840",
   "type": "FormSubmit",
   "name": "FormSubmit",
@@ -8061,6 +8028,31 @@
     }
   ],
   "Name": "Quote Form Submit"
+},
+            {
+  "id": "5e992411-4c8a-452c-80cc-7ccb1974bc8e",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "calltracker"
+    }
+  ],
+  "Name": "Call Button",
+  "Description": "Sends data, when call button is clicked on the website."
 },
           ],
           variables: [
