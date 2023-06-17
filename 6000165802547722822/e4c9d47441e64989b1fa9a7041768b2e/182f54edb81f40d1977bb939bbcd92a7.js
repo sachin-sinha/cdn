@@ -7553,7 +7553,7 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"] = (function () {
+          Templates["CustomJsFunctionVariable57cef3e1b462480b8972a798c811a00e"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('#download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
             };
@@ -10703,7 +10703,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "cde2a560-07ca-41bd-8664-71b7aa8623dc",
+  "id": "ff8a0dfe-251b-4d67-b46e-99fcdeb6424b",
   "type": "Matomo",
   "name": "Download rhel8",
   "parameters": {
@@ -10757,96 +10757,26 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Download rhel8",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download rhel8",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download rhel8",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download rhel8",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download rhel8",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download rhel8",
           "jsFunction": "function() {var fd = {};var fe=document.querySelector('#download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
+          "Name": "Download rhel8",
+          "id": "57cef3e1-b462-480b-8972-a798c811a00e",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Download rhel8",
             "jsFunction": "function() {var fd = {};var fe=document.querySelector('#download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download rhel8",
-              "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Download rhel8",
-                "jsFunction": "function() {var fd = {};var fe=document.getElementById('2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-                "id": "5ddf9859-d612-4e24-b783-88defb4f4d4b",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Download rhel8",
-                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-                }
-              }
-            }
+            "Name": "Download rhel8"
           },
-          "Variable": "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"
+          "Variable": "CustomJsFunctionVariable57cef3e1b462480b8972a798c811a00e"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Download rhel8",
-    "Description": "Download rhel8",
-    "id": "cde2a560-07ca-41bd-8664-71b7aa8623dc",
-    "fireTriggerIds": [
-      "c6aff977-7418-45b9-917f-eaa4375e24d3"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Download rhel8"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "c6aff977-7418-45b9-917f-eaa4375e24d3"
+    "4c41eaad-2baa-4747-9e21-d3250266d494"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -11475,7 +11405,7 @@
   "Name": "Download ubuntu20.04"
 },
             {
-  "id": "c6aff977-7418-45b9-917f-eaa4375e24d3",
+  "id": "4c41eaad-2baa-4747-9e21-d3250266d494",
   "type": "FormSubmit",
   "name": "FormSubmit",
   "Trigger": "FormSubmitTrigger",
@@ -11496,8 +11426,7 @@
       "expected": "downloadForm2651"
     }
   ],
-  "Name": "Download rhel8",
-  "Description": "Download rhel8"
+  "Name": "Download rhel8"
 },
           ],
           variables: [
@@ -11607,7 +11536,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea3bca70eec0e4e66840f1c5626d3ed31" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablee3a96f2da01648e583633200bdcfc97f" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('#download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable6827171878ce407cb0873aabde691db8" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('#download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('#download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable57cef3e1b462480b8972a798c811a00e" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
