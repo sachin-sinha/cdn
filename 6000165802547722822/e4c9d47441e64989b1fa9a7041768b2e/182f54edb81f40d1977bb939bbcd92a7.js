@@ -7535,27 +7535,27 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
-            };
-        })()
-          
           Templates["CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.getElementById('download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
             };
         })()
           
-          Templates["CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"] = (function () {
+          Templates["CustomJsFunctionVariable6827171878ce407cb0873aabde691db8"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablea3bca70eec0e4e66840f1c5626d3ed31"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablee3a96f2da01648e583633200bdcfc97f"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -10563,9 +10563,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "14065f15-cb10-4672-ab0c-a188e92e5b99",
+  "id": "d5183d8e-8426-49f6-b6bb-ba452496084b",
   "type": "Matomo",
-  "name": "Download ubuntu16",
+  "name": "Download ubuntu16.04",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -10608,8 +10608,8 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Download ubuntu16",
-    "eventAction": "Download ubuntu16",
+    "eventCategory": "Download ubuntu16.04",
+    "eventAction": "Download ubuntu16.04",
     "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
@@ -10617,144 +10617,26 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "Name": "Download ubuntu16",
-          "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "Name": "Download ubuntu16.04",
+          "id": "68271718-78ce-407c-b087-3aabde691db8",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "Name": "Download ubuntu16"
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "Name": "Download ubuntu16.04"
           },
-          "Variable": "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "Name": "Download ubuntu16",
-          "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "Name": "Download ubuntu16",
-            "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "Name": "Download ubuntu16"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "Name": "Download ubuntu16",
-          "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "Name": "Download ubuntu16",
-            "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "Name": "Download ubuntu16",
-              "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "jsFunction": "function() {var fd = {};var fe=document.getElementById('2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-                "Name": "Download ubuntu16",
-                "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-                  "Name": "Download ubuntu16"
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "Name": "Download ubuntu16",
-          "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "Name": "Download ubuntu16",
-            "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "Name": "Download ubuntu16",
-              "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-                "Name": "Download ubuntu16",
-                "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "jsFunction": "function() {var fd = {};var fe=document.getElementById('2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-                  "Name": "Download ubuntu16",
-                  "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-                    "Name": "Download ubuntu16"
-                  }
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"
+          "Variable": "CustomJsFunctionVariable6827171878ce407cb0873aabde691db8"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Download ubuntu16",
-    "Description": "Download ubuntu16",
-    "id": "14065f15-cb10-4672-ab0c-a188e92e5b99",
-    "fireTriggerIds": [
-      "fc261d9c-70be-41be-9297-160b6c071ef0"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Download ubuntu16.04"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "fc261d9c-70be-41be-9297-160b6c071ef0"
+    "bb83387d-2db2-4337-952e-d37674066b29"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -10766,9 +10648,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "cb829d34-4555-498b-b45d-1a8c3d670540",
+  "id": "2a511d04-dc8c-4c04-8e78-44f21b17e0a0",
   "type": "Matomo",
-  "name": "Download ubuntu18",
+  "name": "Download ubuntu18.04",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -10811,8 +10693,8 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Download ubuntu18",
-    "eventAction": "Download ubuntu18",
+    "eventCategory": "Download ubuntu18.04",
+    "eventAction": "Download ubuntu18.04",
     "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
@@ -10820,88 +10702,26 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Download ubuntu18",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu18",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu18",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu18",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download ubuntu18",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu18",
+          "Name": "Download ubuntu18.04",
           "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+          "id": "a3bca70e-ec0e-4e66-840f-1c5626d3ed31",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Download ubuntu18",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download ubuntu18",
-              "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Download ubuntu18",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-              }
-            }
+            "Name": "Download ubuntu18.04",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
           },
-          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
+          "Variable": "CustomJsFunctionVariablea3bca70eec0e4e66840f1c5626d3ed31"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Download ubuntu18",
-    "Description": "Download ubuntu18",
-    "id": "cb829d34-4555-498b-b45d-1a8c3d670540",
-    "fireTriggerIds": [
-      "01260251-0ca3-4e5a-bb8a-d88e497e5167"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Download ubuntu18.04"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "01260251-0ca3-4e5a-bb8a-d88e497e5167"
+    "02e038b5-294f-4bc8-8071-69948e61faa2"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -10913,9 +10733,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "2f8a9da0-3c54-4ebc-b436-ffb495845343",
+  "id": "a874c18e-8ef5-48ed-9bee-76c2b9d01db0",
   "type": "Matomo",
-  "name": "Download ubuntu20",
+  "name": "Download ubuntu20.04",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -10958,8 +10778,8 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Download ubuntu20",
-    "eventAction": "Download ubuntu20",
+    "eventCategory": "Download ubuntu20.04",
+    "eventAction": "Download ubuntu20.04",
     "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
@@ -10967,88 +10787,26 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Download ubuntu20",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu20",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu20",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu20",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download ubuntu20",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu20",
+          "Name": "Download ubuntu20.04",
           "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+          "id": "e3a96f2d-a016-48e5-8363-3200bdcfc97f",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Download ubuntu20",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download ubuntu20",
-              "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-              "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Download ubuntu20",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-              }
-            }
+            "Name": "Download ubuntu20.04",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
           },
-          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
+          "Variable": "CustomJsFunctionVariablee3a96f2da01648e583633200bdcfc97f"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Download ubuntu20",
-    "Description": "Download ubuntu20",
-    "id": "2f8a9da0-3c54-4ebc-b436-ffb495845343",
-    "fireTriggerIds": [
-      "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Download ubuntu20.04"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f"
+    "e244fecf-d931-49f4-8e6e-329c2c319f7d"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -11630,7 +11388,31 @@
   "Description": "Download centos8"
 },
             {
-  "id": "01260251-0ca3-4e5a-bb8a-d88e497e5167",
+  "id": "bb83387d-2db2-4337-952e-d37674066b29",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Name",
+        "name": "FormName",
+        "type": "FormName",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormNameVariable"
+      },
+      "comparison": "equals",
+      "expected": "downloadForm2655"
+    }
+  ],
+  "Name": "Download ubuntu16.04"
+},
+            {
+  "id": "02e038b5-294f-4bc8-8071-69948e61faa2",
   "type": "FormSubmit",
   "name": "FormSubmit",
   "Trigger": "FormSubmitTrigger",
@@ -11651,11 +11433,10 @@
       "expected": "downloadForm2661"
     }
   ],
-  "Name": "Download ubuntu18",
-  "Description": "Download ubuntu18"
+  "Name": "Download ubuntu18.04"
 },
             {
-  "id": "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f",
+  "id": "e244fecf-d931-49f4-8e6e-329c2c319f7d",
   "type": "FormSubmit",
   "name": "FormSubmit",
   "Trigger": "FormSubmitTrigger",
@@ -11676,33 +11457,7 @@
       "expected": "downloadForm2664"
     }
   ],
-  "Name": "Download ubuntu20",
-  "Description": "Download ubuntu20"
-},
-            {
-  "id": "fc261d9c-70be-41be-9297-160b6c071ef0",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "contains",
-      "expected": "download2655"
-    }
-  ],
-  "Name": "Download ubuntu16",
-  "Description": "Download ubuntu16"
+  "Name": "Download ubuntu20.04"
 },
           ],
           variables: [
@@ -11809,10 +11564,10 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('about-get-in-touch');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.message=fe.elements['message'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable976bbf860ed04e99ad98989e03cba70a" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable1c50763928e645ba83afd70dd75de0d9" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2647');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable82605240d05e4d6c9bf61179a476289f" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2651');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable5ddf9859d6124e24b78388defb4f4d4b" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2644');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable6827171878ce407cb0873aabde691db8" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea3bca70eec0e4e66840f1c5626d3ed31" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablee3a96f2da01648e583633200bdcfc97f" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
