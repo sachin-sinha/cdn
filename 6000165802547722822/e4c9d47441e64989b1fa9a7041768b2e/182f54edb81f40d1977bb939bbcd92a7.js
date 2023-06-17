@@ -10922,6 +10922,54 @@
             }
           },
           "Variable": "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "Name": "Download ubuntu16",
+          "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "Name": "Download ubuntu16",
+            "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+              "Name": "Download ubuntu16",
+              "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+                "Name": "Download ubuntu16",
+                "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "jsFunction": "function() {var fd = {};var fe=document.getElementById('2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+                  "Name": "Download ubuntu16",
+                  "id": "5fd528d7-3110-4ce9-ac20-cf5b400ccec1",
+                  "parameters": {
+                    "selectedVariable": "Custom JavaScript",
+                    "name": "CustomJsFunction",
+                    "type": "CustomJsFunction",
+                    "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2655');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+                    "Name": "Download ubuntu16"
+                  }
+                }
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable5fd528d731104ce9ac20cf5b400ccec1"
         }
       ]
     },
@@ -11585,7 +11633,7 @@
         "parameters": [],
         "Variable": "FormIdVariable"
       },
-      "comparison": "equals",
+      "comparison": "contains",
       "expected": "download2655"
     }
   ],
