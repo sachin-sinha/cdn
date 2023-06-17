@@ -11537,16 +11537,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Form Name",
-        "name": "FormName",
-        "type": "FormName",
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "FormNameVariable"
+        "Variable": "FormIdVariable"
       },
       "comparison": "equals",
-      "expected": "downloadForm2655"
+      "expected": "download2655"
     }
   ],
   "Name": "Download ubuntu16",
