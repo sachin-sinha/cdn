@@ -10093,236 +10093,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "cb829d34-4555-498b-b45d-1a8c3d670540",
-  "type": "Matomo",
-  "name": "Download ubuntu18",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Download ubuntu18",
-    "eventAction": "Download ubuntu18",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu18",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu18",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu18",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu18",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download ubuntu18",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download ubuntu18",
-    "Description": "Download ubuntu18",
-    "id": "cb829d34-4555-498b-b45d-1a8c3d670540",
-    "fireTriggerIds": [
-      "01260251-0ca3-4e5a-bb8a-d88e497e5167"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "01260251-0ca3-4e5a-bb8a-d88e497e5167"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "2f8a9da0-3c54-4ebc-b436-ffb495845343",
-  "type": "Matomo",
-  "name": "Download ubuntu20",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "BangDB : Real-time data platform",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Download ubuntu20",
-    "eventAction": "Download ubuntu20",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu20",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu20",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Download ubuntu20",
-          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Download ubuntu20",
-            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
-            "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Download ubuntu20",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Download ubuntu20",
-    "Description": "Download ubuntu20",
-    "id": "2f8a9da0-3c54-4ebc-b436-ffb495845343",
-    "fireTriggerIds": [
-      "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "BangDB : Real-time data platform",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "828e376c-e7ce-49e4-80e9-394a417ce502",
   "type": "Matomo",
   "name": "DataCenter - Case study",
@@ -10985,6 +10755,300 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "fc261d9c-70be-41be-9297-160b6c071ef0"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "cb829d34-4555-498b-b45d-1a8c3d670540",
+  "type": "Matomo",
+  "name": "Download ubuntu18",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download ubuntu18",
+    "eventAction": "Download ubuntu18",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download ubuntu18",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download ubuntu18",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download ubuntu18",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download ubuntu18",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download ubuntu18",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download ubuntu18",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download ubuntu18",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download ubuntu18",
+              "jsFunction": "function() {var fd = {};var fe=document.getElementById('2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+              "id": "14a8d903-291b-4735-9234-ef024f6b89d3",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Download ubuntu18",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2661');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable14a8d903291b47359234ef024f6b89d3"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download ubuntu18",
+    "Description": "Download ubuntu18",
+    "id": "cb829d34-4555-498b-b45d-1a8c3d670540",
+    "fireTriggerIds": [
+      "01260251-0ca3-4e5a-bb8a-d88e497e5167"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "01260251-0ca3-4e5a-bb8a-d88e497e5167"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "BangDB : Real-time data platform",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "2f8a9da0-3c54-4ebc-b436-ffb495845343",
+  "type": "Matomo",
+  "name": "Download ubuntu20",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "BangDB : Real-time data platform",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Bangdb_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Download ubuntu20",
+    "eventAction": "Download ubuntu20",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download ubuntu20",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download ubuntu20",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download ubuntu20",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download ubuntu20",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download ubuntu20",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Download ubuntu20",
+          "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+          "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Download ubuntu20",
+            "jsFunction": "function() {var fd = {};var fe=document.getElementById('download2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+            "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Download ubuntu20",
+              "jsFunction": "function() {var fd = {};var fe=document.getElementById('2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}",
+              "id": "5e17b968-575d-4a1c-9cc7-5935540ffcb5",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Download ubuntu20",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#2664');fd.email=fe.elements['email'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;return JSON.stringify(fd);}"
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable5e17b968575d4a1c9cc75935540ffcb5"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Download ubuntu20",
+    "Description": "Download ubuntu20",
+    "id": "2f8a9da0-3c54-4ebc-b436-ffb495845343",
+    "fireTriggerIds": [
+      "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "8ffbdd96-ab8c-4b92-b2f1-d281b39fa90f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
