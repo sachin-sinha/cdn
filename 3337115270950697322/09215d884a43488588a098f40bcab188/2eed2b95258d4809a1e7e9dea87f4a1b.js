@@ -6739,6 +6739,38 @@
       });
     };
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6772,37 +6804,38 @@
       });
     };
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
+})();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
       });
     };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
   };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8028,7 +8061,9 @@
     "Description": "Sends data, when call button is clicked on the website.",
     "id": "ac497a63-0218-4c08-870e-dd0502aa59e7",
     "fireTriggerIds": [
-      "f6a9fb91-17d2-4376-abc4-e67878e6f662"
+      "f6a9fb91-17d2-4376-abc4-e67878e6f662",
+      "b33d061a-1c54-4c79-b6e5-b76cf67c339b",
+      "f73da3f4-cbdd-417a-b54b-fc320284cfda"
     ],
     "blockedTriggerIds": []
   },
@@ -8036,7 +8071,8 @@
   "fireTriggerIds": [
     "f6a9fb91-17d2-4376-abc4-e67878e6f662",
     "b33d061a-1c54-4c79-b6e5-b76cf67c339b",
-    "f73da3f4-cbdd-417a-b54b-fc320284cfda"
+    "f73da3f4-cbdd-417a-b54b-fc320284cfda",
+    "2ab55667-6adc-48d8-a1ae-d228226ad48c"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8217,43 +8253,6 @@
   "Name": "Collect session store"
 },
             {
-  "id": "b33d061a-1c54-4c79-b6e5-b76cf67c339b",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form Classes",
-        "name": "FormClasses",
-        "type": "FormClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "tel"
-    },
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "callnowbutton"
-    }
-  ],
-  "Name": "CallButton"
-},
-            {
   "id": "f73da3f4-cbdd-417a-b54b-fc320284cfda",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
@@ -8276,6 +8275,54 @@
     }
   ],
   "Name": "CallButton - Thank you page"
+},
+            {
+  "id": "b33d061a-1c54-4c79-b6e5-b76cf67c339b",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "tel"
+    }
+  ],
+  "Name": "CallButton"
+},
+            {
+  "id": "2ab55667-6adc-48d8-a1ae-d228226ad48c",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "callnowbutton"
+    }
+  ],
+  "Name": "CallButton2"
 },
           ],
           variables: [
