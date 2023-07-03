@@ -6678,7 +6678,7 @@
 })();
           Templates["CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('form#form-register');fd.source_website=fe.elements['source_website'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd = {};}var fe=document.querySelector('form#form-register');}fd.firstname=fe.elements['firstname'].value;}fd.lastname=fe.elements['lastname'].value;}fd.email=fe.elements['email'].value;}fd.password=fe.elements['password'].value;}fd.newsletter=fe.elements['newsletter'].value;}fd.agree=fe.elements['agree'].value;}return JSON.stringify(fd);}
             };
         })()
           
@@ -7570,7 +7570,7 @@
           ],
           variables: [
             
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.source_website=fe.elements['source_website'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};}var fe=document.querySelector('form#form-register');}fd.firstname=fe.elements['firstname'].value;}fd.lastname=fe.elements['lastname'].value;}fd.email=fe.elements['email'].value;}fd.password=fe.elements['password'].value;}fd.newsletter=fe.elements['newsletter'].value;}fd.agree=fe.elements['agree'].value;}return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
