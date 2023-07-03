@@ -6642,7 +6642,46 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();
+          Templates["CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('form#form-register');fd.source_website=fe.elements['source_website'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7332,6 +7371,94 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "95f0237e-b284-4030-8d81-57c787d8b399",
+  "type": "Matomo",
+  "name": "Registraion_Page",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Registration",
+    "eventAction": "Registration",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Registration_Page",
+          "Description": "Page",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.source_website=fe.elements['source_website'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}",
+          "id": "20d3d2ca-e2d0-4636-80ea-cc2dc346a9e0",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Registration_Page",
+            "Description": "Page",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.source_website=fe.elements['source_website'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Registraion_Page",
+    "Description": "Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "6e4f5e1f-a45c-4f63-a18b-82fb2005f9c0"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7415,9 +7542,35 @@
   "Name": "Pageview (All)",
   "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
+            {
+  "id": "6e4f5e1f-a45c-4f63-a18b-82fb2005f9c0",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "form-register"
+    }
+  ],
+  "Name": "Registraion_Page",
+  "Description": "Page"
+},
           ],
           variables: [
             
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.source_website=fe.elements['source_website'].value;fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
