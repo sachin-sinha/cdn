@@ -7514,9 +7514,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "e3263916-6672-47f5-b1f5-7fce8d1df6d3",
+  "id": "ae77add0-a364-4689-a1ae-26fc0c5c7350",
   "type": "Matomo",
-  "name": "Login_Page",
+  "name": "Login",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7564,21 +7564,16 @@
     "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
-        []
+        ""
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Login_Page",
-    "Description": "Page",
-    "id": "e3263916-6672-47f5-b1f5-7fce8d1df6d3",
-    "fireTriggerIds": [
-      "f01375a1-a878-4021-a014-4c82f59e691c"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Login",
+    "Description": "Page"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "f01375a1-a878-4021-a014-4c82f59e691c"
+    "b287df2e-ed1d-4f18-b645-9116ad61e82b"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7698,7 +7693,7 @@
   "Description": "Page"
 },
             {
-  "id": "f01375a1-a878-4021-a014-4c82f59e691c",
+  "id": "b287df2e-ed1d-4f18-b645-9116ad61e82b",
   "type": "FormSubmit",
   "name": "FormSubmit",
   "Trigger": "FormSubmitTrigger",
@@ -7706,21 +7701,13 @@
   "parameters": {},
   "conditions": [
     {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
+      "actual": {},
       "comparison": "equals",
       "expected": "form-login"
     }
   ],
-  "Description": "Login_Page",
-  "Name": "Login_Page"
+  "Name": "Login_Page",
+  "Description": "Page"
 },
           ],
           variables: [
@@ -7731,98 +7718,18 @@
   "Variable": "JavaScriptVariable",
   "name": "JavaScript",
   "type": "JavaScript",
-  "Name": "Login_Page",
-  "Description": "Login",
+  "Name": "Login",
+  "Description": "page",
   "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-  "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
+  "id": "05c82f6f-f6d1-41f2-9d1d-90fa3c5198ac",
   "parameters": {
     "selectedVariable": "JavaScript Variable",
     "Variable": "JavaScriptVariable",
     "name": "JavaScript",
     "type": "JavaScript",
-    "Name": "Login_Page",
-    "Description": "Login",
-    "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-    "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-    "parameters": {
-      "selectedVariable": "JavaScript Variable",
-      "Variable": "JavaScriptVariable",
-      "name": "JavaScript",
-      "type": "JavaScript",
-      "Name": "Login_Page",
-      "Description": "Login",
-      "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-      "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-      "parameters": {
-        "selectedVariable": "JavaScript Variable",
-        "Variable": "JavaScriptVariable",
-        "name": "JavaScript",
-        "type": "JavaScript",
-        "Name": "Login_Page",
-        "Description": "Login",
-        "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-        "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-        "parameters": {
-          "selectedVariable": "JavaScript Variable",
-          "Variable": "JavaScriptVariable",
-          "name": "JavaScript",
-          "type": "JavaScript",
-          "Name": "Login_Page",
-          "Description": "Login",
-          "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-          "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-          "parameters": {
-            "selectedVariable": "JavaScript Variable",
-            "Variable": "JavaScriptVariable",
-            "name": "JavaScript",
-            "type": "JavaScript",
-            "Name": "Login_Page",
-            "Description": "Login",
-            "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-            "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-            "parameters": {
-              "selectedVariable": "JavaScript Variable",
-              "Variable": "JavaScriptVariable",
-              "name": "JavaScript",
-              "type": "JavaScript",
-              "Name": "Login_Page",
-              "Description": "Login",
-              "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-              "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-              "parameters": {
-                "selectedVariable": "JavaScript Variable",
-                "Variable": "JavaScriptVariable",
-                "name": "JavaScript",
-                "type": "JavaScript",
-                "Name": "Login_Page",
-                "Description": "Login",
-                "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-                "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-                "parameters": {
-                  "selectedVariable": "JavaScript Variable",
-                  "Variable": "JavaScriptVariable",
-                  "name": "JavaScript",
-                  "type": "JavaScript",
-                  "Name": "Login_Page",
-                  "Description": "Login",
-                  "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-                  "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
-                  "parameters": {
-                    "selectedVariable": "JavaScript Variable",
-                    "Variable": "JavaScriptVariable",
-                    "name": "JavaScript",
-                    "type": "JavaScript",
-                    "Name": "Login_Page",
-                    "Description": "Login",
-                    "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    "Name": "Login",
+    "Description": "page",
+    "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
   }
 }, Variable: "JavaScriptVariable"},
             {
