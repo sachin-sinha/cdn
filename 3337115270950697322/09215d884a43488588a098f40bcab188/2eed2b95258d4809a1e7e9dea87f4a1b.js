@@ -6866,7 +6866,7 @@
           
           Templates["CustomJsFunctionVariable186a6792be86489d859c8e1379f7ec9b"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['year'].value;fd.sel_make=fe.elements['make'].value;fd.sel_mode=fe.elements['model'].value;fd.sel_part=fe.elements['part'].value;fd.sel_size=fe.elements['size'].value;fd.txt_name=fe.elements['name'].value;fd.txt_phon=fe.elements['phone'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['year'].value;fd.sel_make=fe.elements['make'].value;fd.sel_mode=fe.elements['model'].value;fd.sel_part=fe.elements['part'].value;fd.sel_size=fe.elements['size'].value;fd.txt_name=fe.elements['name'].value;fd.email=fe.elements['email'].value;fd.txt_phon=fe.elements['phone'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -8364,7 +8364,7 @@
   }
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var obj;obj=sessionStorage.getItem('bangDBForm');sessionStorage.removeItem('bangDBForm');return obj;}" }, Variable: "CustomJsFunctionVariable2c752ced9c634fe090fa1f8031cb62c2" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['year'].value;fd.sel_make=fe.elements['make'].value;fd.sel_mode=fe.elements['model'].value;fd.sel_part=fe.elements['part'].value;fd.sel_size=fe.elements['size'].value;fd.txt_name=fe.elements['name'].value;fd.txt_phon=fe.elements['phone'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable186a6792be86489d859c8e1379f7ec9b" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quoteform');fd.source_website=fe.elements['source_website'].value;fd.sel_year=fe.elements['year'].value;fd.sel_make=fe.elements['make'].value;fd.sel_mode=fe.elements['model'].value;fd.sel_part=fe.elements['part'].value;fd.sel_size=fe.elements['size'].value;fd.txt_name=fe.elements['name'].value;fd.email=fe.elements['email'].value;fd.txt_phon=fe.elements['phone'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable186a6792be86489d859c8e1379f7ec9b" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
