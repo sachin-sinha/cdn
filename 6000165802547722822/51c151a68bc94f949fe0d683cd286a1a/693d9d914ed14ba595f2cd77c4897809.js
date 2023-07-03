@@ -7569,7 +7569,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Login",
-    "Description": "Page"
+    "Description": "Page",
+    "id": "ae77add0-a364-4689-a1ae-26fc0c5c7350",
+    "fireTriggerIds": [
+      "b287df2e-ed1d-4f18-b645-9116ad61e82b"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7701,7 +7706,15 @@
   "parameters": {},
   "conditions": [
     {
-      "actual": {},
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
       "comparison": "equals",
       "expected": "form-login"
     }
