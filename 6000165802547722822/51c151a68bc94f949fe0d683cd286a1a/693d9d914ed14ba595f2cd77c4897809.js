@@ -7787,7 +7787,17 @@
               "type": "JavaScript",
               "Name": "Login_Page",
               "Description": "Login",
-              "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
+              "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
+              "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
+              "parameters": {
+                "selectedVariable": "JavaScript Variable",
+                "Variable": "JavaScriptVariable",
+                "name": "JavaScript",
+                "type": "JavaScript",
+                "Name": "Login_Page",
+                "Description": "Login",
+                "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
+              }
             }
           }
         }
