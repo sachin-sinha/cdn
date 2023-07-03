@@ -7559,25 +7559,60 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Login",
-    "eventAction": "Login",
+    "eventCategory": "login",
+    "eventAction": "login",
     "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Form Name",
-          "name": "FormName",
-          "type": "FormName",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "FormNameVariable"
+          "selectedVariable": "JavaScript Variable",
+          "Variable": "JavaScriptVariable",
+          "name": "JavaScript",
+          "type": "JavaScript",
+          "Name": "Login_Page",
+          "Description": "Login",
+          "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
+          "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
+          "parameters": {
+            "selectedVariable": "JavaScript Variable",
+            "Variable": "JavaScriptVariable",
+            "name": "JavaScript",
+            "type": "JavaScript",
+            "Name": "Login_Page",
+            "Description": "Login",
+            "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
+            "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
+            "parameters": {
+              "selectedVariable": "JavaScript Variable",
+              "Variable": "JavaScriptVariable",
+              "name": "JavaScript",
+              "type": "JavaScript",
+              "Name": "Login_Page",
+              "Description": "Login",
+              "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
+              "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
+              "parameters": {
+                "selectedVariable": "JavaScript Variable",
+                "Variable": "JavaScriptVariable",
+                "name": "JavaScript",
+                "type": "JavaScript",
+                "Name": "Login_Page",
+                "Description": "Login",
+                "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
+              }
+            }
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Login_Page",
-    "Description": "Page"
+    "Description": "Page",
+    "id": "60a1cec5-055b-4ac4-8be3-a9d6c2f5fa01",
+    "fireTriggerIds": [
+      "f01375a1-a878-4021-a014-4c82f59e691c"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7754,7 +7789,17 @@
       "type": "JavaScript",
       "Name": "Login_Page",
       "Description": "Login",
-      "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
+      "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
+      "id": "a6813e50-c7b8-4639-aa63-ad5f4f3bb4cc",
+      "parameters": {
+        "selectedVariable": "JavaScript Variable",
+        "Variable": "JavaScriptVariable",
+        "name": "JavaScript",
+        "type": "JavaScript",
+        "Name": "Login_Page",
+        "Description": "Login",
+        "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
+      }
     }
   }
 }, Variable: "JavaScriptVariable"},
