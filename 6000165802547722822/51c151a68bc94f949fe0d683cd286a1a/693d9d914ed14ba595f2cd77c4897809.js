@@ -6714,28 +6714,13 @@
                 this.get = function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}
             };
         })()
-          Templates["JavaScriptVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var varName = parameters.get("variableName");
-        if (varName) {
-          var parts = varName.split(".");
-          var i;
-          var obj = parameters.window;
-          for (i = 0; i < parts.length; i++) {
-            if (parts[i] in obj) {
-              obj = obj[parts[i]];
-            } else {
-              return;
-            }
-          }
-          if (obj !== parameters.window) {
-            return "" + obj;
-          }
-        }
-      };
-    };
-  })();
+          
+          Templates["CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7513,6 +7498,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "caabe347-b876-46a6-a058-e102996b6f2e",
+  "type": "Matomo",
+  "name": "Login Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Login",
+    "eventAction": "Login",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Login Variable",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}",
+          "id": "a0500822-4c7c-4ea1-9c7b-cfb9626b1596",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Login Variable",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Login Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "b287df2e-ed1d-4f18-b645-9116ad61e82b"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7650,55 +7720,7 @@
           variables: [
             
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
-          {name: "JavaScript", type: "JavaScript", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "JavaScript Variable",
-  "Variable": "JavaScriptVariable",
-  "name": "JavaScript",
-  "type": "JavaScript",
-  "Name": "Login",
-  "Description": "page",
-  "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}",
-  "id": "05c82f6f-f6d1-41f2-9d1d-90fa3c5198ac",
-  "parameters": {
-    "selectedVariable": "JavaScript Variable",
-    "Variable": "JavaScriptVariable",
-    "name": "JavaScript",
-    "type": "JavaScript",
-    "Name": "Login",
-    "Description": "page",
-    "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}",
-    "id": "05c82f6f-f6d1-41f2-9d1d-90fa3c5198ac",
-    "parameters": {
-      "selectedVariable": "JavaScript Variable",
-      "Variable": "JavaScriptVariable",
-      "name": "JavaScript",
-      "type": "JavaScript",
-      "Name": "Login",
-      "Description": "page",
-      "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}",
-      "id": "05c82f6f-f6d1-41f2-9d1d-90fa3c5198ac",
-      "parameters": {
-        "selectedVariable": "JavaScript Variable",
-        "Variable": "JavaScriptVariable",
-        "name": "JavaScript",
-        "type": "JavaScript",
-        "Name": "Login",
-        "Description": "page",
-        "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}",
-        "id": "05c82f6f-f6d1-41f2-9d1d-90fa3c5198ac",
-        "parameters": {
-          "selectedVariable": "JavaScript Variable",
-          "Variable": "JavaScriptVariable",
-          "name": "JavaScript",
-          "type": "JavaScript",
-          "Name": "Login",
-          "Description": "page",
-          "variableName": "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;return JSON.stringify(fd);}"
-        }
-      }
-    }
-  }
-}, Variable: "JavaScriptVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
