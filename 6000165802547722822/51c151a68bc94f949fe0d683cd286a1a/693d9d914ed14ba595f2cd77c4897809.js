@@ -7679,7 +7679,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Cart",
-    "Description": "Cart_Btn"
+    "Description": "Cart_Btn",
+    "id": "bd5f8bd5-28cb-4ceb-baab-acbeef2e63d0",
+    "fireTriggerIds": [
+      "b7921ff5-8419-44f5-879b-701646c7e1fa"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7837,16 +7842,16 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Button",
-        "name": "ClickButton",
-        "type": "ClickButton",
+        "Name": "Visible Element Text",
+        "name": "VisibleElementText",
+        "type": "VisibleElementText",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickButtonVariable"
+        "Variable": "VisibleElementTextVariable"
       },
       "comparison": "equals",
-      "expected": "submit"
+      "expected": "Add to Cart"
     }
   ],
   "Name": "Cart",
