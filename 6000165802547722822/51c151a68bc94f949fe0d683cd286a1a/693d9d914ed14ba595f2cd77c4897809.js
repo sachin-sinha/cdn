@@ -8266,7 +8266,7 @@
         "parameters": [],
         "Variable": "FormClassesVariable"
       },
-      "comparison": "equals",
+      "comparison": "not_equals",
       "expected": "sandy-product"
     }
   ],
