@@ -6838,15 +6838,15 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
-            };
-        })()
-          
           Templates["CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
             };
         })()
           
@@ -8270,8 +8270,8 @@
             
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
