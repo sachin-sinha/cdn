@@ -6792,6 +6792,39 @@
       }
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();
           Templates["CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"] = (function () {
             return function (parameters, TagManager) {
@@ -6811,33 +6844,9 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariablece893a1fbd6a4c6ea6c1554b9b064d49"] = (function () {
+          Templates["CustomJsFunctionVariable7132e27450064d8983d3828780dfa639"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariableb9886b1245184ce0bed750c685e775bd"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariable31324ed4b4064c2bb0589d6b7e058eb2"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariablea66262daf1f74bb7b9093feb599c1f59"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
-            };
-        })()
-          
-          Templates["CustomJsFunctionVariable100056a5877642cbb9f826938e83f36f"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
+                this.get = function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.tax = fe.getElementsByClassName('price-tax')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}
             };
         })()
           
@@ -7953,6 +7962,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "d694a2a7-1d5b-44e5-bcaa-f9ddfe2bdaa9",
+  "type": "Matomo",
+  "name": "Cart",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "add_to_cart",
+    "eventAction": "add_to_cart",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Cart",
+          "Description": "",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.tax = fe.getElementsByClassName('price-tax')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
+          "id": "7132e274-5006-4d89-83d3-828780dfa639",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Cart",
+            "Description": "",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.tax = fe.getElementsByClassName('price-tax')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable7132e27450064d8983d3828780dfa639"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Cart"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "09c914a3-4908-4225-acb2-e2483151e8d1"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8147,17 +8243,37 @@
   "Name": "View",
   "Description": "Page view"
 },
+            {
+  "id": "09c914a3-4908-4225-acb2-e2483151e8d1",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "sandy-product"
+    }
+  ],
+  "Name": "Cart"
+},
           ],
           variables: [
             
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablece893a1fbd6a4c6ea6c1554b9b064d49" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariableb9886b1245184ce0bed750c685e775bd" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable31324ed4b4064c2bb0589d6b7e058eb2" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea66262daf1f74bb7b9093feb599c1f59" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable100056a5877642cbb9f826938e83f36f" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.tax = fe.getElementsByClassName('price-tax')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable7132e27450064d8983d3828780dfa639" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
