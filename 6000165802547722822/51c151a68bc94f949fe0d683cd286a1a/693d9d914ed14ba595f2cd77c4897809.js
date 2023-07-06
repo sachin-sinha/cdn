@@ -7781,7 +7781,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "0d8bec3d-1f64-4930-9196-fe6d14956038",
+  "id": "d99716af-6393-499f-a85d-34029a377316",
   "type": "Matomo",
   "name": "Location",
   "parameters": {
@@ -7836,25 +7836,6 @@
           "Variable": "DataLayerVariable",
           "name": "DataLayer",
           "type": "DataLayer",
-          "Name": "Location",
-          "Description": "Service Provider Location",
-          "dataLayerName": "ip",
-          "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
-          "parameters": {
-            "selectedVariable": "Data layer",
-            "Variable": "DataLayerVariable",
-            "name": "DataLayer",
-            "type": "DataLayer",
-            "Name": "Location",
-            "Description": "Service Provider Location",
-            "dataLayerName": "ip"
-          }
-        },
-        {
-          "selectedVariable": "Data layer",
-          "Variable": "DataLayerVariable",
-          "name": "DataLayer",
-          "type": "DataLayer",
           "Name": "ip",
           "Description": "Service Provider Location",
           "dataLayerName": "ip",
@@ -7892,17 +7873,11 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Location",
-    "Description": "Users Service Provider Location",
-    "id": "0d8bec3d-1f64-4930-9196-fe6d14956038",
-    "fireTriggerIds": [
-      "7bc63868-8481-42cd-a07a-533a34e88b9c"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Location"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "7bc63868-8481-42cd-a07a-533a34e88b9c"
+    "bb16b704-943d-446b-a701-0a895f76b79f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8063,7 +8038,7 @@
   "Name": "Cart"
 },
             {
-  "id": "7bc63868-8481-42cd-a07a-533a34e88b9c",
+  "id": "bb16b704-943d-446b-a701-0a895f76b79f",
   "type": "CustomEvent",
   "name": "CustomEvent",
   "Trigger": "CustomEventTrigger",
@@ -8071,23 +8046,9 @@
   "parameters": {
     "eventName": "ip"
   },
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://ecomm.bangdb.com/"
-    }
-  ],
+  "conditions": [],
   "Name": "Location",
-  "Description": "User Service Provider Location"
+  "Description": "Service Provider Location"
 },
           ],
           variables: [
