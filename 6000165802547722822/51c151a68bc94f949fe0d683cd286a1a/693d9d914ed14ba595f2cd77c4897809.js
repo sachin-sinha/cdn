@@ -7821,7 +7821,7 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
@@ -7849,12 +7849,56 @@
             "Description": "Service Provider Location",
             "dataLayerName": "ip"
           }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "ip",
+          "Description": "Service Provider Location",
+          "dataLayerName": "ip",
+          "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "ip",
+            "Description": "Service Provider Location",
+            "dataLayerName": "ip",
+            "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+            "parameters": {
+              "selectedVariable": "Data layer",
+              "Variable": "DataLayerVariable",
+              "name": "DataLayer",
+              "type": "DataLayer",
+              "Name": "Location",
+              "Description": "Service Provider Location",
+              "dataLayerName": "ip",
+              "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+              "parameters": {
+                "selectedVariable": "Data layer",
+                "Variable": "DataLayerVariable",
+                "name": "DataLayer",
+                "type": "DataLayer",
+                "Name": "Location",
+                "Description": "Service Provider Location",
+                "dataLayerName": "ip"
+              }
+            }
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Location",
-    "Description": "Users Service Provider Location"
+    "Description": "Users Service Provider Location",
+    "id": "0d8bec3d-1f64-4930-9196-fe6d14956038",
+    "fireTriggerIds": [
+      "7bc63868-8481-42cd-a07a-533a34e88b9c"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -8057,7 +8101,7 @@
   "Variable": "DataLayerVariable",
   "name": "DataLayer",
   "type": "DataLayer",
-  "Name": "Location",
+  "Name": "ip",
   "Description": "Service Provider Location",
   "dataLayerName": "ip",
   "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
@@ -8066,7 +8110,7 @@
     "Variable": "DataLayerVariable",
     "name": "DataLayer",
     "type": "DataLayer",
-    "Name": "Location",
+    "Name": "ip",
     "Description": "Service Provider Location",
     "dataLayerName": "ip",
     "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
@@ -8077,7 +8121,17 @@
       "type": "DataLayer",
       "Name": "Location",
       "Description": "Service Provider Location",
-      "dataLayerName": "ip"
+      "dataLayerName": "ip",
+      "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+      "parameters": {
+        "selectedVariable": "Data layer",
+        "Variable": "DataLayerVariable",
+        "name": "DataLayer",
+        "type": "DataLayer",
+        "Name": "Location",
+        "Description": "Service Provider Location",
+        "dataLayerName": "ip"
+      }
     }
   }
 }, Variable: "DataLayerVariable"},
