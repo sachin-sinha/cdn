@@ -7873,7 +7873,13 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Location"
+    "Name": "Location",
+    "id": "d99716af-6393-499f-a85d-34029a377316",
+    "fireTriggerIds": [
+      "bb16b704-943d-446b-a701-0a895f76b79f"
+    ],
+    "blockedTriggerIds": [],
+    "Description": "User Service Provider Location"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -8046,7 +8052,21 @@
   "parameters": {
     "eventName": "ip"
   },
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://ecomm.bangdb.com/"
+    }
+  ],
   "Name": "Location",
   "Description": "Service Provider Location"
 },
