@@ -6468,143 +6468,7 @@
         };
       })();
       //change location
-      Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["WindowUnloadTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      var triggered = false;
-      TagManager.dom.addEventListener(parameters.window, "beforeunload", function () {
-        if (triggered) {
-          return;
-        }
-        triggered = true;
-        triggerEvent({ event: "WindowUnload" });
-      });
-    };
-  };
-})();Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
-      });
-    };
-  };
-})();Templates["HistoryChangeTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    function getCurrentUrl() {
-      return parameters.window.location.href;
-    }
-    function getEventUrl(event) {
-      if (event && event.target && event.target.location && event.target.location.href) {
-        return event.target.location.href;
-      }
-      return getCurrentUrl();
-    }
-    this.setUp = function (triggerEvent) {
-      var initialUrl = getCurrentUrl();
-      var url = TagManager.url;
-      var origin = url.parseUrl(initialUrl, "origin");
-      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
-      function trigger(eventType, newUrl, newState) {
-        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
-        var shouldForceEvent =
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
-          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
-          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
-        shouldForceEvent = !shouldForceEvent;
-        var oldUrl = lastEvent.path;
-        if (lastEvent.search) {
-          oldUrl += "?" + lastEvent.search;
-        }
-        if (lastEvent.hash) {
-          oldUrl += "#" + lastEvent.hash;
-        }
-        var nowUrl = newEvent.path;
-        if (newEvent.search) {
-          nowUrl += "?" + newEvent.search;
-        }
-        if (newEvent.hash) {
-          nowUrl += "#" + newEvent.hash;
-        }
-        if (shouldForceEvent || oldUrl !== nowUrl) {
-          var tmpLast = lastEvent;
-          lastEvent = newEvent;
-          triggerEvent({
-            event: "mtm.HistoryChange",
-            "mtm.historyChangeSource": newEvent.eventType,
-            "mtm.oldUrl": origin + oldUrl,
-            "mtm.newUrl": origin + nowUrl,
-            "mtm.oldUrlHash": tmpLast.hash,
-            "mtm.newUrlHash": newEvent.hash,
-            "mtm.oldUrlPath": tmpLast.path,
-            "mtm.newUrlPath": newEvent.path,
-            "mtm.oldUrlSearch": tmpLast.search,
-            "mtm.newUrlSearch": newEvent.search,
-            "mtm.oldHistoryState": tmpLast.state,
-            "mtm.newHistoryState": newEvent.state,
-          });
-        }
-      }
-      function replaceHistoryMethod(methodNameToReplace) {
-        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
-          trigger(methodNameToReplace, getCurrentUrl(), state);
-        });
-      }
-      replaceHistoryMethod("replaceState");
-      replaceHistoryMethod("pushState");
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "hashchange",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("hashchange", newUrl, null);
-        },
-        false
-      );
-      TagManager.dom.addEventListener(
-        parameters.window,
-        "popstate",
-        function (event) {
-          var newUrl = getEventUrl(event);
-          trigger("popstate", newUrl, event.state);
-        },
-        false
-      );
-    };
-  };
-})();Templates["AllElementsClickTrigger"] = (function () {
+      Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
@@ -6635,12 +6499,6 @@
         "mtm.clickButton": clickButton,
       });
     }
-  };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
   };
 })();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
@@ -6826,12 +6684,6 @@
     };
   };
 })();
-          Templates["CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}
-            };
-        })()
-          
           Templates["CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
@@ -6847,6 +6699,12 @@
           Templates["CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -7382,164 +7240,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
-  "type": "Matomo",
-  "name": "FormSubmit",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecomm - test website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ecomm_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "FormSubmit",
-    "eventAction": "FormSubmit",
-    "eventName": "FormSubmit",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Form Name",
-          "name": "FormName",
-          "type": "FormName",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "FormNameVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "FormSubmit",
-    "Description": "This tag returns name of the form, when a form is submitted."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecomm - test website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "a3055fab-12c8-4523-ba1f-493730842fcb",
-  "type": "Matomo",
-  "name": "WindowUnload",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecomm - test website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ecomm_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "WindowUnload",
-    "eventAction": "WindowUnload",
-    "eventName": "WindowUnload",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "WindowUnload",
-    "Description": "This tag returns data when the window is unloaded."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "e4d3831c-66cc-4209-ae40-19ccbdd3f095"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecomm - test website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "95f0237e-b284-4030-8d81-57c787d8b399",
   "type": "Matomo",
   "name": "Registraion_Page",
@@ -8051,64 +7751,6 @@
           triggers: [
             
             {
-  "id": "1218a789-dd45-4647-9756-ee735d8a366d",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://ecomm.bangdb.com/"
-    }
-  ],
-  "Description": "Triggered as soon as the website is loaded for the first time.",
-  "Name": "Pageview"
-},
-            {
-  "id": "e4d3831c-66cc-4209-ae40-19ccbdd3f095",
-  "type": "WindowUnload",
-  "name": "WindowUnload",
-  "Trigger": "WindowUnloadTrigger",
-  "selectedTrigger": "Window Unload",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Window Unload",
-  "Description": "Triggered just before the browser window is closed or when the user navigates to a different page. This trigger identifies the event when a user is actually closing the current page compared to the \"Window Leave\" trigger which triggers when the user is about to leave your page. Either by navigating to another page within the current browser tab, or by completely closing the tab."
-},
-            {
-  "id": "4bf26ce8-8cfb-4793-8add-36c4eecd40b8",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Form Submit",
-  "Description": "Triggered when any form is submitted. Triggered when any form on the current page is submitted. To listen only to specific forms, please add conditions based on a \"form\" variable in the advanced settings."
-},
-            {
-  "id": "8614c969-9e94-4cc2-89bd-17c13254491e",
-  "type": "HistoryChange",
-  "name": "HistoryChange",
-  "Trigger": "HistoryChangeTrigger",
-  "selectedTrigger": "History Change",
-  "parameters": {},
-  "conditions": [],
-  "Description": "Triggered when the current URL changes.",
-  "Name": "History Change"
-},
-            {
   "id": "82cf4562-587d-4c12-acbc-bd6b98eb9d5e",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
@@ -8118,17 +7760,6 @@
   "conditions": [],
   "Name": "All Elements Click",
   "Description": "Triggered when any element is clicked. It will be triggered on left, middle and right click. Triggered on any click on any element. To listen to clicks on specific elements or specific click button, please add conditions based on a \"Click\" variable or on a \"ClickButton\" variable in the advanced settings."
-},
-            {
-  "id": "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Pageview (All)",
-  "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
   "id": "6e4f5e1f-a45c-4f63-a18b-82fb2005f9c0",
@@ -8268,10 +7899,10 @@
           ],
           variables: [
             
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('div#product-info');fd.brand=fe.elements['Brand'].value;fd.product_id=fe.elements['Product Code'].value;fd.in_stock=fe.elements['Availability'].value;fd.price_per_unit=fe.elements['price-new'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
