@@ -8025,7 +8025,7 @@
   "Trigger": "CustomEventTrigger",
   "selectedTrigger": "Custom Event",
   "parameters": {
-    "eventName": "Location"
+    "eventName": "ip"
   },
   "conditions": [
     {
@@ -8068,7 +8068,17 @@
     "type": "DataLayer",
     "Name": "Location",
     "Description": "Service Provider Location",
-    "dataLayerName": "ip"
+    "dataLayerName": "ip",
+    "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+    "parameters": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "Location",
+      "Description": "Service Provider Location",
+      "dataLayerName": "ip"
+    }
   }
 }, Variable: "DataLayerVariable"},
             {
