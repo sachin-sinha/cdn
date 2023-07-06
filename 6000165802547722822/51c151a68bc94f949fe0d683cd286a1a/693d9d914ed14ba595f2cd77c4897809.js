@@ -8030,13 +8030,13 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Destination URL",
-        "name": "ClickDestinationUrl",
-        "type": "ClickDestinationUrl",
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickDestinationUrlVariable"
+        "Variable": "ReferrerVariable"
       },
       "comparison": "not_contains",
       "expected": "https://ecomm.bangdb.com/"
