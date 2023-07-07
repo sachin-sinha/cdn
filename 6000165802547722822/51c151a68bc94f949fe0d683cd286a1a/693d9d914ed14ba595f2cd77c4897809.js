@@ -6631,39 +6631,6 @@
       });
     };
   };
-})();Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
-      });
-    };
-  };
 })();Templates["CustomEventTrigger"] = (function () {
     return function (parameters, TagManager) {
         function isMatchingEvent(value) {
@@ -6705,6 +6672,39 @@
       for (var i = 0, iLen = eventNames.length; i < iLen; i++) {
         windowAlias.addEventListener(eventNames[i], init, { once: true });
       }
+    };
+  };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
     };
   };
 })();
@@ -7608,91 +7608,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "495b3b4f-8573-4151-b0f9-d937591b3dfe",
-  "type": "Matomo",
-  "name": "Cart",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecomm - test website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ecomm_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "add_to_cart",
-    "eventAction": "add_to_cart",
-    "eventName": "sync",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Cart",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Cart",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Cart"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecomm - test website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "d99716af-6393-499f-a85d-34029a377316",
   "type": "Matomo",
   "name": "Location",
@@ -7935,6 +7850,136 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "495b3b4f-8573-4151-b0f9-d937591b3dfe",
+  "type": "Matomo",
+  "name": "Cart",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "add_to_cart",
+    "eventAction": "add_to_cart",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Cart",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
+          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Cart",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Cart",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
+          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Cart",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
+            "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Cart",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
+              "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "Cart",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
+                "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "Cart",
+                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
+                }
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Cart",
+    "id": "495b3b4f-8573-4151-b0f9-d937591b3dfe",
+    "fireTriggerIds": [
+      "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8036,30 +8081,6 @@
   "Description": ""
 },
             {
-  "id": "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form Classes",
-        "name": "FormClasses",
-        "type": "FormClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "sandy-product"
-    }
-  ],
-  "Name": "Cart"
-},
-            {
   "id": "bb16b704-943d-446b-a701-0a895f76b79f",
   "type": "CustomEvent",
   "name": "CustomEvent",
@@ -8110,6 +8131,30 @@
   ],
   "Name": "View",
   "Description": "Product view"
+},
+            {
+  "id": "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "sandy-product"
+    }
+  ],
+  "Name": "Cart"
 },
           ],
           variables: [
