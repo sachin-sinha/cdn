@@ -6703,7 +6703,7 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"] = (function () {
+          Templates["CustomJsFunctionVariable657d64443b144825ad3fd13c1026bc2f"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}
             };
@@ -7735,7 +7735,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "495b3b4f-8573-4151-b0f9-d937591b3dfe",
+  "id": "5f35e3be-c58d-48e0-9423-c6defb3abd29",
   "type": "Matomo",
   "name": "Cart",
   "parameters": {
@@ -7790,174 +7790,33 @@
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
           "Name": "Cart",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Cart",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Cart",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Cart",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-            "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Cart",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-              "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Cart",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-                "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Cart",
-                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Cart",
           "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+          "id": "657d6444-3b14-4825-ad3f-d13c1026bc2f",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
             "Name": "Cart",
             "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-            "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
+            "id": "657d6444-3b14-4825-ad3f-d13c1026bc2f",
             "parameters": {
               "selectedVariable": "Custom JavaScript",
               "name": "CustomJsFunction",
               "type": "CustomJsFunction",
               "Name": "Cart",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-              "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Cart",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-                "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Cart",
-                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-                  "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "Name": "Cart",
-                    "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
-                  }
-                }
-              }
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
             }
           },
-          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Cart",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-          "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Cart",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-            "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Cart",
-              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-              "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "Cart",
-                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-                "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "Cart",
-                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-                  "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "Name": "Cart",
-                    "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}",
-                    "id": "8522cad1-11c0-4540-80fa-e9e3046b6042",
-                    "parameters": {
-                      "selectedVariable": "Custom JavaScript",
-                      "name": "CustomJsFunction",
-                      "type": "CustomJsFunction",
-                      "Name": "Cart",
-                      "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new'[0].innerText;fd.product_id=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042"
+          "Variable": "CustomJsFunctionVariable657d64443b144825ad3fd13c1026bc2f"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Cart",
-    "id": "495b3b4f-8573-4151-b0f9-d937591b3dfe",
-    "fireTriggerIds": [
-      "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Cart"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9"
+    "77682883-f224-482f-86e9-b8b60a4d8221"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8096,7 +7955,7 @@
   "Description": "Product view"
 },
             {
-  "id": "5dc81ab1-eea2-4ae5-9926-fbeb1ad52fb9",
+  "id": "77682883-f224-482f-86e9-b8b60a4d8221",
   "type": "FormSubmit",
   "name": "FormSubmit",
   "Trigger": "FormSubmitTrigger",
@@ -8164,7 +8023,7 @@
   }
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}" }, Variable: "CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8522cad111c0454080fae9e3046b6042" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable657d64443b144825ad3fd13c1026bc2f" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
