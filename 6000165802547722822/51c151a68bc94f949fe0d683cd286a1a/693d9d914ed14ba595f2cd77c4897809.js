@@ -7694,6 +7694,103 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "fadf875c-3a9c-4c54-a7ff-2621c6da23d7",
+  "type": "Matomo",
+  "name": "Add to wishlist",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "add_wishlist",
+    "eventAction": "add_wishlist",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "product form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+          "Description": "product form",
+          "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "product form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+            "Description": "product form",
+            "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Add to Cart",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+              "Description": "Add To Cart"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Add to wishlist",
+    "Description": "Add to wishlist"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "a88d9927-7d10-4cf3-887b-689ae38d0ea2"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
