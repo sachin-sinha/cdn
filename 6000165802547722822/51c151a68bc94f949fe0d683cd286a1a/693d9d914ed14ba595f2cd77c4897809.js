@@ -6792,7 +6792,7 @@
   })();
           Templates["CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 3');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}
+                this.get = function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}
             };
         })()
           
@@ -7683,7 +7683,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 3');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
