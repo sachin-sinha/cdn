@@ -8017,13 +8017,13 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickClassesVariable"
+        "Variable": "ClickIdVariable"
       },
       "comparison": "equals",
       "expected": "bdb-tracker-remove-wishlist"
