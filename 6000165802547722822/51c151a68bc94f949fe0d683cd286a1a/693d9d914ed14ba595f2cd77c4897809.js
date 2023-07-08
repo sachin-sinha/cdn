@@ -7614,7 +7614,7 @@
     "customUrl": "",
     "eventCategory": "add_cart",
     "eventAction": "add_cart",
-    "eventName": "add_cart",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7639,7 +7639,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Add to Cart Tag",
-    "Description": "Add to cart"
+    "Description": "Add to cart",
+    "id": "a4ed175f-f19e-4f10-8b42-d66e2327a520",
+    "fireTriggerIds": [
+      "9a89ebe6-aebe-4762-b909-b2635ad3c992"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7709,13 +7714,13 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickClassesVariable"
+        "Variable": "FormClassesVariable"
       },
       "comparison": "equals",
       "expected": "sandy-product"
