@@ -7708,13 +7708,13 @@
   "conditions": [
     {
       "actual": {
-        "Name": "Click ID",
-        "name": "ClickId",
-        "type": "ClickId",
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "ClickIdVariable"
+        "Variable": "ClickClassesVariable"
       },
       "comparison": "equals",
       "expected": "bdb-tracker-add-cart"
