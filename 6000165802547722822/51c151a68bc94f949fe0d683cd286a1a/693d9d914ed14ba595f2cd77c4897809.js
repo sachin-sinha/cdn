@@ -7612,24 +7612,38 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "check",
-    "eventAction": "check",
-    "eventName": "check",
+    "eventCategory": "add_cart",
+    "eventAction": "add_cart",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Form Destination",
-          "name": "FormDestination",
-          "type": "FormDestination",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "FormDestinationVariable"
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Product Form",
+          "Description": "Product Form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+          "id": "8db27dd2-2001-4b69-aec0-09d97027e5f3",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Product Form",
+            "Description": "Product Form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Add to cart"
+    "Name": "Add to cart",
+    "id": "6c2be49d-1251-41d6-995a-34824e4fcf83",
+    "fireTriggerIds": [
+      "f65b2491-04c7-4bfd-867e-89b57f898d08"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
@@ -7696,7 +7710,21 @@
   "Trigger": "FormSubmitTrigger",
   "selectedTrigger": "Form Submit",
   "parameters": {},
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form Classes",
+        "name": "FormClasses",
+        "type": "FormClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "bdb-tracker-productform"
+    }
+  ],
   "Name": "Add to cart",
   "Description": "add to cart"
 },
