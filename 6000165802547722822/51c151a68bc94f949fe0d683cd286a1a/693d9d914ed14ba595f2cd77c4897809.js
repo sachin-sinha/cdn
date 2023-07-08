@@ -6780,37 +6780,38 @@
             });
         };
     };
-})();Templates["AllElementsClickTrigger"] = (function () {
+})();Templates["FormSubmitTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
       });
     };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7566,9 +7567,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "1645993a-7eb9-4801-8b98-7b58b24c3412",
+  "id": "6c2be49d-1251-41d6-995a-34824e4fcf83",
   "type": "Matomo",
-  "name": "Add to Cart",
+  "name": "Add to cart",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7611,38 +7612,28 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "add_cart",
-    "eventAction": "add_cart",
-    "eventName": "sync",
+    "eventCategory": "check",
+    "eventAction": "check",
+    "eventName": "check",
     "eventValue": {
       "joinedVariable": [
         {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Product Form",
-          "Description": "Product Form",
-          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
-          "id": "8db27dd2-2001-4b69-aec0-09d97027e5f3",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Product Form",
-            "Description": "Product Form",
-            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3"
+          "Name": "Form Destination",
+          "name": "FormDestination",
+          "type": "FormDestination",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "FormDestinationVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Add to Cart",
-    "Description": "Add to Cart"
+    "Name": "Add to cart"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "95f2501f-d0ff-4865-80b1-4bf04c7f5ab6"
+    "f65b2491-04c7-4bfd-867e-89b57f898d08"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7699,29 +7690,15 @@
   "Description": "Location"
 },
             {
-  "id": "95f2501f-d0ff-4865-80b1-4bf04c7f5ab6",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
+  "id": "f65b2491-04c7-4bfd-867e-89b57f898d08",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
   "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "bdb-tracker-add-cart"
-    }
-  ],
-  "Name": "Add to Cart trigger",
-  "Description": "Add to cart trigger"
+  "conditions": [],
+  "Name": "Add to cart",
+  "Description": "add to cart"
 },
           ],
           variables: [
