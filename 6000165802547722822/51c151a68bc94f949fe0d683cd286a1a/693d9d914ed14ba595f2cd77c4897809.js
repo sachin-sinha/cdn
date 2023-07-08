@@ -7736,19 +7736,28 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "class",
-    "eventAction": "class",
-    "eventName": "class",
+    "eventCategory": "add_cart",
+    "eventAction": "add_cart",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
-          "Name": "Click Classes",
-          "name": "ClickClasses",
-          "type": "ClickClasses",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickClassesVariable"
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Product Form",
+          "Description": "Product Form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+          "id": "8db27dd2-2001-4b69-aec0-09d97027e5f3",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Product Form",
+            "Description": "Product Form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3"
         }
       ]
     },
