@@ -7710,6 +7710,60 @@
             }
           },
           "Variable": "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "product form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('this is what got triggered', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+          "Description": "product form",
+          "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "product form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('this is what got triggered', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+            "Description": "product form",
+            "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "product form",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');console.log('this is what got triggered', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+              "Description": "product form",
+              "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "product form",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+                "Description": "product form",
+                "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "product form",
+                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+                  "Description": "product form",
+                  "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+                  "parameters": {
+                    "selectedVariable": "Custom JavaScript",
+                    "name": "CustomJsFunction",
+                    "type": "CustomJsFunction",
+                    "Name": "Add to Cart",
+                    "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+                    "Description": "Add To Cart"
+                  }
+                }
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"
         }
       ]
     },
@@ -7844,6 +7898,60 @@
                 "Name": "Add to Cart",
                 "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
                 "Description": "Add To Cart"
+              }
+            }
+          },
+          "Variable": "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"
+        },
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "product form",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('this is what got triggered', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+          "Description": "product form",
+          "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "product form",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('this is what got triggered', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+            "Description": "product form",
+            "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "product form",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');console.log('this is what got triggered', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+              "Description": "product form",
+              "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+              "parameters": {
+                "selectedVariable": "Custom JavaScript",
+                "name": "CustomJsFunction",
+                "type": "CustomJsFunction",
+                "Name": "product form",
+                "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+                "Description": "product form",
+                "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+                "parameters": {
+                  "selectedVariable": "Custom JavaScript",
+                  "name": "CustomJsFunction",
+                  "type": "CustomJsFunction",
+                  "Name": "product form",
+                  "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+                  "Description": "product form",
+                  "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+                  "parameters": {
+                    "selectedVariable": "Custom JavaScript",
+                    "name": "CustomJsFunction",
+                    "type": "CustomJsFunction",
+                    "Name": "Add to Cart",
+                    "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+                    "Description": "Add To Cart"
+                  }
+                }
               }
             }
           },
