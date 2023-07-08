@@ -7850,7 +7850,21 @@
   "Trigger": "AllElementsClickTrigger",
   "selectedTrigger": "All Elements Click",
   "parameters": {},
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "bdb-tracker-add-cart"
+    }
+  ],
   "Name": "All elements classes"
 },
           ],
