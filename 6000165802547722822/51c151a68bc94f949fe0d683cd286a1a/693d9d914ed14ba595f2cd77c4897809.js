@@ -6780,38 +6780,69 @@
             });
         };
     };
-})();Templates["FormSubmitTrigger"] = (function () {
+})();Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
       });
     };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
   };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7567,9 +7598,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "a4ed175f-f19e-4f10-8b42-d66e2327a520",
+  "id": "fbf3aba5-29d3-45d4-a923-4268115dd997",
   "type": "Matomo",
-  "name": "Add to Cart Tag",
+  "name": "Add to Cart",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -7621,34 +7652,38 @@
           "selectedVariable": "Custom JavaScript",
           "name": "CustomJsFunction",
           "type": "CustomJsFunction",
-          "Name": "Add to Cart",
+          "Name": "product form",
           "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
-          "Description": "Add To Cart",
+          "Description": "product form",
           "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
-            "Name": "Add to Cart",
+            "Name": "product form",
             "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
-            "Description": "Add To Cart"
+            "Description": "product form",
+            "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Add to Cart",
+              "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+              "Description": "Add To Cart"
+            }
           },
           "Variable": "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Add to Cart Tag",
-    "Description": "Add to cart",
-    "id": "a4ed175f-f19e-4f10-8b42-d66e2327a520",
-    "fireTriggerIds": [
-      "9a89ebe6-aebe-4762-b909-b2635ad3c992"
-    ],
-    "blockedTriggerIds": []
+    "Name": "Add to Cart",
+    "Description": "add to cart"
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "9a89ebe6-aebe-4762-b909-b2635ad3c992"
+    "cd65e9ae-5ca4-4e70-bfb8-74544cf96039"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7705,29 +7740,54 @@
   "Description": "Location"
 },
             {
-  "id": "9a89ebe6-aebe-4762-b909-b2635ad3c992",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
+  "id": "cd65e9ae-5ca4-4e70-bfb8-74544cf96039",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
   "parameters": {},
   "conditions": [
     {
       "actual": {
-        "Name": "Form Classes",
-        "name": "FormClasses",
-        "type": "FormClasses",
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
         "lookUpTable": [],
         "defaultValue": null,
         "parameters": [],
-        "Variable": "FormClassesVariable"
+        "Variable": "ClickIdVariable"
       },
       "comparison": "equals",
-      "expected": "sandy-product"
+      "expected": "bdb-tracker-add-cart"
     }
   ],
-  "Name": "Add to Cart Trigger",
-  "Description": "Add to Cart"
+  "Name": "Add to Cart",
+  "Description": "add to cart"
+},
+            {
+  "id": "a88d9927-7d10-4cf3-887b-689ae38d0ea2",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "bdb-tracker-add-wishlist"
+    }
+  ],
+  "Name": "Add to wishlist",
+  "Description": "Add to Wishlist"
 },
           ],
           variables: [
