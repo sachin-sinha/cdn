@@ -7737,7 +7737,7 @@
     "customUrl": "",
     "eventCategory": "add_wishlist",
     "eventAction": "add_wishlist",
-    "eventName": "add_wishlist",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7761,7 +7761,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Add wishlist"
+    "Name": "Add wishlist",
+    "id": "77ffda9e-d9e9-4de7-bcb6-34e9ee70a3fd",
+    "fireTriggerIds": [
+      "42ee1601-ab73-428f-a884-e61e0c964cb3"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
