@@ -7482,7 +7482,21 @@
   "parameters": {
     "eventName": "ip"
   },
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://ecomm.bangdb.com/"
+    }
+  ],
   "Name": "Location",
   "Description": "Location"
 },
