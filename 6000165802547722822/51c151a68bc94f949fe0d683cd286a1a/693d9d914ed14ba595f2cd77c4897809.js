@@ -7249,6 +7249,94 @@
           tags: [
             
         {
+  "id": "8089dfff-1b95-4689-8be9-31a9bf2a7671",
+  "type": "Matomo",
+  "name": "product_view",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "product-info",
+    "eventAction": "product-info",
+    "eventName": "product_view",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "product_view",
+          "Description": "Product viewed",
+          "jsFunction": "function() {const elements = document.querySelectorAll('[id^=\"bdb-tracker\"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}",
+          "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "product_view",
+            "Description": "Product viewed",
+            "jsFunction": "function() {const elements = document.querySelectorAll('[id^=\"bdb-tracker\"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}"
+          },
+          "Variable": "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "product_view",
+    "Description": "Product viewed"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "9b3b79e4-3f58-4649-85d6-3e51459b9b54"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
   "id": "d99716af-6393-499f-a85d-34029a377316",
   "type": "Matomo",
   "name": "Location",
@@ -7337,6 +7425,55 @@
               }
             }
           }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "ip",
+          "Description": "Service Provider Location",
+          "dataLayerName": "ip",
+          "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "ip",
+            "Description": "Service Provider Location",
+            "dataLayerName": "ip",
+            "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+            "parameters": {
+              "selectedVariable": "Data layer",
+              "Variable": "DataLayerVariable",
+              "name": "DataLayer",
+              "type": "DataLayer",
+              "Name": "ip",
+              "Description": "Service Provider Location",
+              "dataLayerName": "ip",
+              "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+              "parameters": {
+                "selectedVariable": "Data layer",
+                "Variable": "DataLayerVariable",
+                "name": "DataLayer",
+                "type": "DataLayer",
+                "Name": "Location",
+                "Description": "Service Provider Location",
+                "dataLayerName": "ip",
+                "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+                "parameters": {
+                  "selectedVariable": "Data layer",
+                  "Variable": "DataLayerVariable",
+                  "name": "DataLayer",
+                  "type": "DataLayer",
+                  "Name": "Location",
+                  "Description": "Service Provider Location",
+                  "dataLayerName": "ip"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -7352,94 +7489,6 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "bb16b704-943d-446b-a701-0a895f76b79f"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecomm - test website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "8089dfff-1b95-4689-8be9-31a9bf2a7671",
-  "type": "Matomo",
-  "name": "product_view",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecomm - test website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ecomm_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "product-info",
-    "eventAction": "product-info",
-    "eventName": "product_view",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "product_view",
-          "Description": "Product viewed",
-          "jsFunction": "function() {const elements = document.querySelectorAll('[id^=\"bdb-tracker\"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}",
-          "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "product_view",
-            "Description": "Product viewed",
-            "jsFunction": "function() {const elements = document.querySelectorAll('[id^=\"bdb-tracker\"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}"
-          },
-          "Variable": "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "product_view",
-    "Description": "Product viewed"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "9b3b79e4-3f58-4649-85d6-3e51459b9b54"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
