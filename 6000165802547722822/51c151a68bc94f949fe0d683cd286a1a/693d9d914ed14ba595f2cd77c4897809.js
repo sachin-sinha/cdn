@@ -6780,7 +6780,13 @@
       TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
     };
   };
-})();Templates["DataLayerVariable"] = (function () {
+})();
+          Templates["CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}
+            };
+        })()
+          Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -6790,12 +6796,6 @@
       };
     };
   })();
-          Templates["CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}
-            };
-        })()
-          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7498,6 +7498,7 @@
           ],
           variables: [
             
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
@@ -7521,7 +7522,7 @@
       "Variable": "DataLayerVariable",
       "name": "DataLayer",
       "type": "DataLayer",
-      "Name": "Location",
+      "Name": "ip",
       "Description": "Service Provider Location",
       "dataLayerName": "ip",
       "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
@@ -7532,12 +7533,21 @@
         "type": "DataLayer",
         "Name": "Location",
         "Description": "Service Provider Location",
-        "dataLayerName": "ip"
+        "dataLayerName": "ip",
+        "id": "3a3b2412-bd34-4c33-b1cf-3597bd35df20",
+        "parameters": {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "Location",
+          "Description": "Service Provider Location",
+          "dataLayerName": "ip"
+        }
       }
     }
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
