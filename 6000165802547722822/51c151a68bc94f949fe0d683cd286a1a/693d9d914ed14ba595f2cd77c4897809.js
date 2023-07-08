@@ -6566,39 +6566,6 @@
       });
     };
   };
-})();Templates["FormSubmitTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.addEventListener(
-          parameters.document.body,
-          "submit",
-          function (event) {
-            if (!event.target) {
-              return;
-            }
-            var target = event.target;
-            if (target.nodeName === "FORM") {
-              var dom = TagManager.dom;
-              var formAction = dom.getElementAttribute(target, "action");
-              if (!formAction) {
-                formAction = parameters.window.location.href;
-              }
-              triggerEvent({
-                event: "mtm.FormSubmit",
-                "mtm.formElement": target,
-                "mtm.formElementId": dom.getElementAttribute(target, "id"),
-                "mtm.formElementName": dom.getElementAttribute(target, "name"),
-                "mtm.formElementClasses": dom.getElementClassNames(target),
-                "mtm.formElementAction": formAction,
-              });
-            }
-          },
-          true
-        );
-      });
-    };
-  };
 })();Templates["CustomEventTrigger"] = (function () {
     return function (parameters, TagManager) {
         function isMatchingEvent(value) {
@@ -6675,13 +6642,40 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();
-          Templates["CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
-            };
-        })()
-          
           Templates["CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}
@@ -6706,6 +6700,12 @@
           Templates["CustomJsFunctionVariable657d64443b144825ad3fd13c1026bc2f"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}
             };
         })()
           
@@ -7867,31 +7867,6 @@
   "Description": "Page"
 },
             {
-  "id": "b287df2e-ed1d-4f18-b645-9116ad61e82b",
-  "type": "FormSubmit",
-  "name": "FormSubmit",
-  "Trigger": "FormSubmitTrigger",
-  "selectedTrigger": "Form Submit",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Form ID",
-        "name": "FormId",
-        "type": "FormId",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "FormIdVariable"
-      },
-      "comparison": "equals",
-      "expected": "form-login"
-    }
-  ],
-  "Name": "Login_Page",
-  "Description": "Page"
-},
-            {
   "id": "5a28a028-401c-4cff-9a9f-338d9dc07c1a",
   "type": "FormSubmit",
   "name": "FormSubmit",
@@ -7978,10 +7953,34 @@
   ],
   "Name": "Cart"
 },
+            {
+  "id": "b287df2e-ed1d-4f18-b645-9116ad61e82b",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "form-login"
+    }
+  ],
+  "Name": "Login_Page",
+  "Description": "Login details"
+},
           ],
           variables: [
             
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-register');fd.firstname=fe.elements['firstname'].value;fd.lastname=fe.elements['lastname'].value;fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;fd.newsletter=fe.elements['newsletter'].value;fd.agree=fe.elements['agree'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable20d3d2cae2d0463680eacc2dc346a9e0" },
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
@@ -8024,6 +8023,7 @@
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}" }, Variable: "CustomJsFunctionVariablefb394f0d10094fdf8505064ae37b843e" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;console.log(fd);return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable657d64443b144825ad3fd13c1026bc2f" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form#form-login');fd.email=fe.elements['email'].value;fd.password=fe.elements['password'].value;console.log(fd, 'newTrig');return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariablea05008224c7c4ea19c7bcfb9626b1596" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
