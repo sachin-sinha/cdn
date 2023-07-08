@@ -7753,7 +7753,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "all elements classes"
+    "Name": "all elements classes",
+    "id": "0efb5759-4c2a-4e9f-9624-d2f0f0ce456e",
+    "fireTriggerIds": [
+      "a19c4c9b-8f6b-43c2-a7bb-4930ceab4b57"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
