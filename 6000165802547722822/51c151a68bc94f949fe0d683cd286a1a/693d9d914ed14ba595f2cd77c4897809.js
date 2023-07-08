@@ -6780,6 +6780,39 @@
             });
         };
     };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6793,6 +6826,12 @@
           Templates["CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -7527,6 +7566,94 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "a4ed175f-f19e-4f10-8b42-d66e2327a520",
+  "type": "Matomo",
+  "name": "Add to Cart Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "add_cart",
+    "eventAction": "add_cart",
+    "eventName": "add_cart",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Add to Cart",
+          "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+          "Description": "Add To Cart",
+          "id": "9d6ec855-6ac5-44cd-96ea-1c63678ae2f7",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Add to Cart",
+            "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}",
+            "Description": "Add To Cart"
+          },
+          "Variable": "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Add to Cart Tag",
+    "Description": "Add to cart"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "9a89ebe6-aebe-4762-b909-b2635ad3c992"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7571,6 +7698,31 @@
   ],
   "Name": "Location",
   "Description": "Location"
+},
+            {
+  "id": "9a89ebe6-aebe-4762-b909-b2635ad3c992",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "sandy-product"
+    }
+  ],
+  "Name": "Add to Cart Trigger",
+  "Description": "Add to Cart"
 },
           ],
           variables: [
@@ -7625,6 +7777,7 @@
   }
 }, Variable: "DataLayerVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe=document.querySelector('form.sandy-product');fd.price = fe.getElementsByClassName('price-new')[0].innerText;fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable9d6ec8556ac544cd96ea1c63678ae2f7" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
