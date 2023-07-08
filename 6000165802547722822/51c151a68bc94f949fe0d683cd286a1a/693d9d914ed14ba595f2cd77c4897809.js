@@ -6780,13 +6780,7 @@
       TagManager.dom.onLoad(setIntersectionObserver(triggerEvent));
     };
   };
-})();
-          Templates["CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}
-            };
-        })()
-          Templates["DataLayerVariable"] = (function () {
+})();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
         var dataLayerName = parameters.get("dataLayerName");
@@ -6796,6 +6790,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {const elements = document.querySelectorAll('[id^='bdb-tracker']');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7547,7 +7547,6 @@
           ],
           variables: [
             
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll('[id^="bdb-tracker"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
           {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
   "selectedVariable": "Data layer",
   "Variable": "DataLayerVariable",
@@ -7597,6 +7596,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll('[id^='bdb-tracker']');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
