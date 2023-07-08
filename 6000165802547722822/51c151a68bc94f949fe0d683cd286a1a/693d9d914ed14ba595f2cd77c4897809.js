@@ -7634,6 +7634,15 @@
             "jsFunction": "function() {var fd = {};var fe=document.querySelector('form.bdb-tracker-productform');console.log('new variable for form', fd);fd.product=fe.elements['product_id'].value;fd.quantity=fe.elements['quantity'].value;return JSON.stringify(fd);}"
           },
           "Variable": "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3"
+        },
+        {
+          "Name": "Click Classes",
+          "name": "ClickClasses",
+          "type": "ClickClasses",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickClassesVariable"
         }
       ]
     },
