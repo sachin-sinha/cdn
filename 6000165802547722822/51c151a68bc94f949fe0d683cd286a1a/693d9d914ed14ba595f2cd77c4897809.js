@@ -7894,7 +7894,12 @@
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Remove Wishlist"
+    "Name": "Remove Wishlist",
+    "id": "b6ed8c01-361c-4601-bcc8-46c5da0a8bbe",
+    "fireTriggerIds": [
+      "bfcd31ad-0209-4312-8c63-5e6ea04ea046"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
