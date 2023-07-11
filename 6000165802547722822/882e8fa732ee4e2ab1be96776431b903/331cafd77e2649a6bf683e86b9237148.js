@@ -6468,13 +6468,7 @@
         };
       })();
       //change location
-      Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["WindowUnloadTrigger"] = (function () {
+      Templates["WindowUnloadTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       var triggered = false;
@@ -6636,12 +6630,6 @@
       });
     }
   };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
 })();Templates["AllElementsClickTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -6674,62 +6662,6 @@
       });
     }
   };
-})();Templates["AllElementsClickTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      TagManager.dom.onReady(function () {
-        TagManager.dom.onClick(function (event, clickButton) {
-          clickCallback(event, triggerEvent, clickButton);
-        });
-      });
-    };
-    function clickCallback(event, triggerEvent, clickButton) {
-      if (!event.target) {
-        return;
-      }
-      var target = event.target;
-      if (target.shadowRoot) {
-        var composedPath = event.composedPath();
-        if (composedPath.length) {
-          target = composedPath[0];
-        }
-      }
-      triggerEvent({
-        event: "mtm.AllElementsClick",
-        "mtm.clickElement": target,
-        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
-        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
-        "mtm.clickText": TagManager.dom.getElementText(target),
-        "mtm.clickNodeName": target.nodeName,
-        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
-        "mtm.clickButton": clickButton,
-      });
-    }
-  };
-})();Templates["CustomEventTrigger"] = (function () {
-    return function (parameters, TagManager) {
-        function isMatchingEvent(value) {
-            var eventName = parameters.get("eventName");
-            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
-        }
-        var missedEvents = [];
-        var index = parameters.container.dataLayer.on(function (value) {
-            if (isMatchingEvent(value)) {
-                missedEvents.push(value.event);
-            }
-        });
-        this.setUp = function (triggerEvent) {
-            parameters.container.dataLayer.off(index);
-            for (var i = 0; i < missedEvents.length; i++) {
-                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
-            }
-            parameters.container.dataLayer.on(function (value) {
-                if (isMatchingEvent(value)) {
-                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
-                }
-            });
-        };
-    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6779,21 +6711,6 @@
         var urlPart = parameters.get("urlPart", "href");
         var loc = parameters.window.location;
         return TagManager.url.parseUrl(loc.href, urlPart);
-      };
-    };
-  })();
-          Templates["CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9"] = (function () {
-            return function (parameters, TagManager) {
-                this.get = 
-            };
-        })()
-          Templates["DataLayerVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var dataLayerName = parameters.get("dataLayerName");
-        if (dataLayerName && parameters.container) {
-          return parameters.container.dataLayer.get(dataLayerName);
-        }
       };
     };
   })();
@@ -8559,31 +8476,6 @@
           triggers: [
             
             {
-  "id": "1218a789-dd45-4647-9756-ee735d8a366d",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://gold-narwhal-705514.builder-preview.com/"
-    }
-  ],
-  "Description": "Triggered as soon as the website is loaded for the first time.",
-  "Name": "Pageview"
-},
-            {
   "id": "e4d3831c-66cc-4209-ae40-19ccbdd3f095",
   "type": "WindowUnload",
   "name": "WindowUnload",
@@ -8628,17 +8520,6 @@
   "Description": "Triggered when any element is clicked. It will be triggered on left, middle and right click. Triggered on any click on any element. To listen to clicks on specific elements or specific click button, please add conditions based on a \"Click\" variable or on a \"ClickButton\" variable in the advanced settings."
 },
             {
-  "id": "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Pageview (All)",
-  "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
-},
-            {
   "id": "1c7b3cb5-7be0-42c4-bc1f-df9a0a88dc50",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
@@ -8648,43 +8529,6 @@
   "conditions": [],
   "Name": "PageViewURL",
   "Description": "page view "
-},
-            {
-  "id": "44ab2e43-f4a4-44e7-b04b-15bda4aecaea",
-  "type": "AllElementsClick",
-  "name": "AllElementsClick",
-  "Trigger": "AllElementsClickTrigger",
-  "selectedTrigger": "All Elements Click",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Click Classes",
-        "name": "ClickClasses",
-        "type": "ClickClasses",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickClassesVariable"
-      },
-      "comparison": "equals",
-      "expected": "block-product__content-wrapper"
-    }
-  ],
-  "Name": "cart"
-},
-            {
-  "id": "1b185315-2645-45ad-b41a-f23337e43eeb",
-  "type": "CustomEvent",
-  "name": "CustomEvent",
-  "Trigger": "CustomEventTrigger",
-  "selectedTrigger": "Custom Event",
-  "parameters": {
-    "eventName": "ip"
-  },
-  "conditions": [],
-  "Name": "Location",
-  "Description": "ip"
 },
           ],
           variables: [
@@ -8808,36 +8652,6 @@
     "Description": "Page URL"
   }
 }, Variable: "UrlVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "" }, Variable: "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9" },
-          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Data layer",
-  "Variable": "DataLayerVariable",
-  "name": "DataLayer",
-  "type": "DataLayer",
-  "Name": "ip",
-  "Description": "Service Provider Location",
-  "dataLayerName": "ip",
-  "id": "d28fec8d-2a11-4dda-a685-c4d1edf98285",
-  "parameters": {
-    "selectedVariable": "Data layer",
-    "Variable": "DataLayerVariable",
-    "name": "DataLayer",
-    "type": "DataLayer",
-    "Name": "ip",
-    "Description": "Service Provider Location",
-    "dataLayerName": "ip",
-    "id": "d28fec8d-2a11-4dda-a685-c4d1edf98285",
-    "parameters": {
-      "selectedVariable": "Data layer",
-      "Variable": "DataLayerVariable",
-      "name": "DataLayer",
-      "type": "DataLayer",
-      "Name": "ip",
-      "Description": "Service Provider Location",
-      "dataLayerName": "ip"
-    }
-  }
-}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
