@@ -8257,98 +8257,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "dbd70018-571f-4bd2-9cd5-6e3d8cb362d5",
-  "type": "Matomo",
-  "name": "PageViewURL",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "gold-n",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/64950165_ClickStream_2/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "PageViewURL",
-    "eventAction": "PageViewURL",
-    "eventName": "PageViewURL",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "URL Variable",
-          "Variable": "UrlVariable",
-          "name": "Url",
-          "type": "Url",
-          "Name": "PageViewURL",
-          "Description": "Page URL",
-          "id": "472ccbaa-34b2-46c9-ae0b-79e99758d93d",
-          "parameters": {
-            "selectedVariable": "URL Variable",
-            "Variable": "UrlVariable",
-            "name": "Url",
-            "type": "Url",
-            "Name": "PageViewURL",
-            "Description": "Page URL"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "PageViewURL",
-    "Description": "page view",
-    "id": "dbd70018-571f-4bd2-9cd5-6e3d8cb362d5",
-    "fireTriggerIds": [
-      "1c7b3cb5-7be0-42c4-bc1f-df9a0a88dc50"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "gold-n",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "2bd8af45-0f01-40c0-b8f7-4f2ee803edbd",
   "type": "Matomo",
   "name": "Location",
@@ -8462,6 +8370,99 @@
   "fireTriggerIds": [
     "0c9585e9-03b8-4639-ad12-6ef3f68d5bdc",
     "1b185315-2645-45ad-b41a-f23337e43eeb"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "gold-n",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "dbd70018-571f-4bd2-9cd5-6e3d8cb362d5",
+  "type": "Matomo",
+  "name": "PageViewURL",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "gold-n",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/64950165_ClickStream_2/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "PageViewURL",
+    "eventAction": "PageViewURL",
+    "eventName": "PageViewURL",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Variable",
+          "Variable": "UrlVariable",
+          "name": "Url",
+          "type": "Url",
+          "Name": "PageViewURL",
+          "Description": "Page URL",
+          "id": "472ccbaa-34b2-46c9-ae0b-79e99758d93d",
+          "parameters": {
+            "selectedVariable": "URL Variable",
+            "Variable": "UrlVariable",
+            "name": "Url",
+            "type": "Url",
+            "Name": "PageViewURL",
+            "Description": "Page URL"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "PageViewURL",
+    "Description": "page view",
+    "id": "dbd70018-571f-4bd2-9cd5-6e3d8cb362d5",
+    "fireTriggerIds": [
+      "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa",
+    "1c7b3cb5-7be0-42c4-bc1f-df9a0a88dc50"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
