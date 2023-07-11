@@ -7504,14 +7504,14 @@
       },
       "Variable": "MatomoConfigurationVariable"
     },
-    "trackingType": "pageview",
+    "trackingType": "event",
     "idGoal": "",
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Location",
-    "eventAction": "Location",
-    "eventName": "Location",
+    "eventCategory": "Location_Data",
+    "eventAction": "Location_Data",
+    "eventName": "Location_Data",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7537,7 +7537,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Location",
-    "Description": "Location"
+    "Description": "Location",
+    "id": "c623ecb8-7576-4463-b7fa-6dea7f9a5273",
+    "fireTriggerIds": [
+      "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
