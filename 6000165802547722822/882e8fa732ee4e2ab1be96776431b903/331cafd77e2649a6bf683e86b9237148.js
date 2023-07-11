@@ -7597,7 +7597,21 @@
   "parameters": {
     "eventName": "ip"
   },
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://gold-narwhal-705514.builder-preview.com/"
+    }
+  ],
   "Name": "Location",
   "Description": "Location"
 },
