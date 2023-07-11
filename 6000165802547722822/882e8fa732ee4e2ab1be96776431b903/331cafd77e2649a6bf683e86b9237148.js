@@ -6760,7 +6760,7 @@
   })();
           Templates["CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}
+                this.get = 
             };
         })()
           
@@ -8221,9 +8221,9 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "d5bf39a3-6a85-41ad-9b59-fcd9712c2e81",
+  "id": "d567686a-5c5d-4c1a-8c46-46a04f67024e",
   "type": "Matomo",
-  "name": "Cart",
+  "name": "BrowserLanguage",
   "parameters": {
     "matomoConfig": {
       "name": "Matomo Configuration",
@@ -8266,35 +8266,29 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "add_to_cart",
-    "eventAction": "add_cart",
-    "eventName": "sync",
+    "eventCategory": "BrowserLanguage",
+    "eventAction": "BrowserLanguage",
+    "eventName": "BrowserLanguage",
     "eventValue": {
       "joinedVariable": [
         {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Cart",
-          "jsFunction": "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}",
-          "id": "101e8230-5a78-4fbd-899b-2e9874b27af9",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Cart",
-            "jsFunction": "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}"
-          },
-          "Variable": "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9"
+          "Name": "Browser Language",
+          "name": "BrowserLanguage",
+          "type": "BrowserLanguage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "BrowserLanguageVariable"
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
-    "Name": "Cart"
+    "Name": "BrowserLanguage",
+    "Description": "Returns the preferred language of the user, which is usually the language of browser UI."
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "44ab2e43-f4a4-44e7-b04b-15bda4aecaea"
+    "1218a789-dd45-4647-9756-ee735d8a366d"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8545,7 +8539,7 @@
     "Description": "Page URL"
   }
 }, Variable: "UrlVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "" }, Variable: "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
