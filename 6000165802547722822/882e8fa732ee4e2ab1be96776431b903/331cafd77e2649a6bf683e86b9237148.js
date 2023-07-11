@@ -7561,6 +7561,45 @@
               "dataLayerName": "ip"
             }
           }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "ip",
+          "Description": "Service Provider Location",
+          "dataLayerName": "ip",
+          "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "ip",
+            "Description": "Service Provider Location",
+            "dataLayerName": "ip",
+            "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+            "parameters": {
+              "selectedVariable": "Data layer",
+              "Variable": "DataLayerVariable",
+              "name": "DataLayer",
+              "type": "DataLayer",
+              "Name": "ip",
+              "Description": "Service Provider Location",
+              "dataLayerName": "ip",
+              "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+              "parameters": {
+                "selectedVariable": "Data layer",
+                "Variable": "DataLayerVariable",
+                "name": "DataLayer",
+                "type": "DataLayer",
+                "Name": "ip",
+                "Description": "Service Provider Location",
+                "dataLayerName": "ip"
+              }
+            }
+          }
         }
       ]
     },
@@ -7569,14 +7608,16 @@
     "Description": "Location",
     "id": "c623ecb8-7576-4463-b7fa-6dea7f9a5273",
     "fireTriggerIds": [
-      "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f"
+      "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f",
+      "3cf08ee1-1632-4d06-9c57-59be036f5cf8"
     ],
     "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f",
-    "3cf08ee1-1632-4d06-9c57-59be036f5cf8"
+    "3cf08ee1-1632-4d06-9c57-59be036f5cf8",
+    "41084c04-f690-4ce4-b911-af042a02533c"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7624,13 +7665,13 @@
   "Description": "page view "
 },
             {
-  "id": "3cf08ee1-1632-4d06-9c57-59be036f5cf8",
+  "id": "41084c04-f690-4ce4-b911-af042a02533c",
   "type": "CustomEvent",
   "name": "CustomEvent",
   "Trigger": "CustomEventTrigger",
   "selectedTrigger": "Custom Event",
   "parameters": {
-    "eventName": "Location"
+    "eventName": "ip"
   },
   "conditions": [
     {
@@ -7647,8 +7688,8 @@
       "expected": "https://gold-narwhal-705514.builder-preview.com/blog"
     }
   ],
-  "Name": "Loaction",
-  "Description": "Loaction"
+  "Name": "Location",
+  "Description": "Service Provider Location"
 },
           ],
           variables: [
@@ -7695,7 +7736,17 @@
       "type": "DataLayer",
       "Name": "ip",
       "Description": "Service Provider Location",
-      "dataLayerName": "ip"
+      "dataLayerName": "ip",
+      "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+      "parameters": {
+        "selectedVariable": "Data layer",
+        "Variable": "DataLayerVariable",
+        "name": "DataLayer",
+        "type": "DataLayer",
+        "Name": "ip",
+        "Description": "Service Provider Location",
+        "dataLayerName": "ip"
+      }
     }
   }
 }, Variable: "DataLayerVariable"},
