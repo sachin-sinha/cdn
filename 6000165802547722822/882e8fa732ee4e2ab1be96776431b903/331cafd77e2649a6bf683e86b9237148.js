@@ -7575,7 +7575,8 @@
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f"
+    "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f",
+    "3cf08ee1-1632-4d06-9c57-59be036f5cf8"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7623,13 +7624,13 @@
   "Description": "page view "
 },
             {
-  "id": "d6d0fdc2-b98e-4a91-8fea-91a70d938b7f",
+  "id": "3cf08ee1-1632-4d06-9c57-59be036f5cf8",
   "type": "CustomEvent",
   "name": "CustomEvent",
   "Trigger": "CustomEventTrigger",
   "selectedTrigger": "Custom Event",
   "parameters": {
-    "eventName": "ip"
+    "eventName": "Location"
   },
   "conditions": [
     {
@@ -7643,11 +7644,11 @@
         "Variable": "ReferrerVariable"
       },
       "comparison": "not_contains",
-      "expected": "https://gold-narwhal-705514.builder-preview.com/"
+      "expected": "https://gold-narwhal-705514.builder-preview.com/blog"
     }
   ],
-  "Name": "Location",
-  "Description": "Location"
+  "Name": "Loaction",
+  "Description": "Loaction"
 },
           ],
           variables: [
