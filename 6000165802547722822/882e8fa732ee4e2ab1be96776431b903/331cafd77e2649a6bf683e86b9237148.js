@@ -6674,6 +6674,38 @@
       });
     }
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6726,6 +6758,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8182,6 +8220,91 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "d5bf39a3-6a85-41ad-9b59-fcd9712c2e81",
+  "type": "Matomo",
+  "name": "Cart",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "gold-n",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/64950165_ClickStream_2/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "add_to_cart",
+    "eventAction": "add_cart",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Cart",
+          "jsFunction": "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}",
+          "id": "101e8230-5a78-4fbd-899b-2e9874b27af9",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Cart",
+            "jsFunction": "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}"
+          },
+          "Variable": "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Cart"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "44ab2e43-f4a4-44e7-b04b-15bda4aecaea"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "gold-n",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8275,6 +8398,30 @@
   "conditions": [],
   "Name": "PageViewURL",
   "Description": "page view "
+},
+            {
+  "id": "44ab2e43-f4a4-44e7-b04b-15bda4aecaea",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Classes",
+        "name": "ClickClasses",
+        "type": "ClickClasses",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickClassesVariable"
+      },
+      "comparison": "equals",
+      "expected": "block-product__content-wrapper"
+    }
+  ],
+  "Name": "cart"
 },
           ],
           variables: [
@@ -8398,6 +8545,7 @@
     "Description": "Page URL"
   }
 }, Variable: "UrlVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
