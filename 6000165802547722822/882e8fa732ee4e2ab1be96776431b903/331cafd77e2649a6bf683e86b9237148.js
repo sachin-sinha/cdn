@@ -7509,9 +7509,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "Location_Data",
-    "eventAction": "Location_Data",
-    "eventName": "Location_Data",
+    "eventCategory": "Location",
+    "eventAction": "Location",
+    "eventName": "Location",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7531,6 +7531,35 @@
             "Name": "ip",
             "Description": "Service Provider Location",
             "dataLayerName": "ip"
+          }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "ip",
+          "Description": "Service Provider Location",
+          "dataLayerName": "ip",
+          "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "ip",
+            "Description": "Service Provider Location",
+            "dataLayerName": "ip",
+            "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+            "parameters": {
+              "selectedVariable": "Data layer",
+              "Variable": "DataLayerVariable",
+              "name": "DataLayer",
+              "type": "DataLayer",
+              "Name": "ip",
+              "Description": "Service Provider Location",
+              "dataLayerName": "ip"
+            }
           }
         }
       ]
@@ -7656,7 +7685,17 @@
     "type": "DataLayer",
     "Name": "ip",
     "Description": "Service Provider Location",
-    "dataLayerName": "ip"
+    "dataLayerName": "ip",
+    "id": "95d7ad09-9b56-4af0-b090-705b4206bb26",
+    "parameters": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "ip",
+      "Description": "Service Provider Location",
+      "dataLayerName": "ip"
+    }
   }
 }, Variable: "DataLayerVariable"},
             {
