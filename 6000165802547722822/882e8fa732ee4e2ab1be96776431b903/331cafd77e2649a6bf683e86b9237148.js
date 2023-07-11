@@ -8299,6 +8299,100 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "4fa6905f-f947-422e-aa3c-592ba856eb5d",
+  "type": "Matomo",
+  "name": "Added_to_cart",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "gold-n",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/64950165_ClickStream_2/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Added_to_cart",
+    "eventAction": "Added_to_cart",
+    "eventName": "Added_to_cart",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "Cart",
+          "jsFunction": "",
+          "id": "101e8230-5a78-4fbd-899b-2e9874b27af9",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "Cart",
+            "jsFunction": "",
+            "id": "101e8230-5a78-4fbd-899b-2e9874b27af9",
+            "parameters": {
+              "selectedVariable": "Custom JavaScript",
+              "name": "CustomJsFunction",
+              "type": "CustomJsFunction",
+              "Name": "Cart",
+              "jsFunction": "function() {var fd = {};var fe = document.querySelector('form.block-product__content-wrapper');if (fe.elements['block-product__title']) {fd.product = fe.elements['block-product__title'].value;};if (fe.elements['block-product__price body-large']) {fd.price = fe.elements['block-product__price body-large'].value;};if (fe.elements['quantity-picker__amount']) {fd.quantity = fe.elements['quantity-picker__amount'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}"
+            }
+          },
+          "Variable": "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Added_to_cart",
+    "Description": "Added_to_cart"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "44ab2e43-f4a4-44e7-b04b-15bda4aecaea"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "gold-n",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
