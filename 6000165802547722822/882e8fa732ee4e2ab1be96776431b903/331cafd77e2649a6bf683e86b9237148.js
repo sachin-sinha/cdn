@@ -6706,30 +6706,6 @@
       });
     }
   };
-})();Templates["CustomEventTrigger"] = (function () {
-    return function (parameters, TagManager) {
-        function isMatchingEvent(value) {
-            var eventName = parameters.get("eventName");
-            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
-        }
-        var missedEvents = [];
-        var index = parameters.container.dataLayer.on(function (value) {
-            if (isMatchingEvent(value)) {
-                missedEvents.push(value.event);
-            }
-        });
-        this.setUp = function (triggerEvent) {
-            parameters.container.dataLayer.off(index);
-            for (var i = 0; i < missedEvents.length; i++) {
-                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
-            }
-            parameters.container.dataLayer.on(function (value) {
-                if (isMatchingEvent(value)) {
-                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
-                }
-            });
-        };
-    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6787,16 +6763,7 @@
                 this.get = 
             };
         })()
-          Templates["DataLayerVariable"] = (function () {
-    return function (parameters, TagManager) {
-      this.get = function () {
-        var dataLayerName = parameters.get("dataLayerName");
-        if (dataLayerName && parameters.container) {
-          return parameters.container.dataLayer.get(dataLayerName);
-        }
-      };
-    };
-  })();
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8431,95 +8398,6 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
-        {
-  "id": "2bd8af45-0f01-40c0-b8f7-4f2ee803edbd",
-  "type": "Matomo",
-  "name": "Location",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "gold-n",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/64950165_ClickStream_2/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Location",
-    "eventAction": "Location",
-    "eventName": "Location",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Data layer",
-          "Variable": "DataLayerVariable",
-          "name": "DataLayer",
-          "type": "DataLayer",
-          "Name": "ip",
-          "Description": "Service Provider Location",
-          "dataLayerName": "ip",
-          "id": "d28fec8d-2a11-4dda-a685-c4d1edf98285",
-          "parameters": {
-            "selectedVariable": "Data layer",
-            "Variable": "DataLayerVariable",
-            "name": "DataLayer",
-            "type": "DataLayer",
-            "Name": "ip",
-            "Description": "Service Provider Location",
-            "dataLayerName": "ip"
-          }
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Location",
-    "Description": "Location"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "0c9585e9-03b8-4639-ad12-6ef3f68d5bdc"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "gold-n",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
@@ -8637,33 +8515,6 @@
     }
   ],
   "Name": "cart"
-},
-            {
-  "id": "0c9585e9-03b8-4639-ad12-6ef3f68d5bdc",
-  "type": "CustomEvent",
-  "name": "CustomEvent",
-  "Trigger": "CustomEventTrigger",
-  "selectedTrigger": "Custom Event",
-  "parameters": {
-    "eventName": "ip"
-  },
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://gold-narwhal-705514.builder-preview.com"
-    }
-  ],
-  "Name": "Location",
-  "Description": "Location"
 },
           ],
           variables: [
@@ -8788,25 +8639,6 @@
   }
 }, Variable: "UrlVariable"},
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "" }, Variable: "CustomJsFunctionVariable101e82305a784fbd899b2e9874b27af9" },
-          {name: "DataLayer", type: "DataLayer", lookUpTable: [], defaultValue: "", parameters: {
-  "selectedVariable": "Data layer",
-  "Variable": "DataLayerVariable",
-  "name": "DataLayer",
-  "type": "DataLayer",
-  "Name": "ip",
-  "Description": "Service Provider Location",
-  "dataLayerName": "ip",
-  "id": "d28fec8d-2a11-4dda-a685-c4d1edf98285",
-  "parameters": {
-    "selectedVariable": "Data layer",
-    "Variable": "DataLayerVariable",
-    "name": "DataLayer",
-    "type": "DataLayer",
-    "Name": "ip",
-    "Description": "Service Provider Location",
-    "dataLayerName": "ip"
-  }
-}, Variable: "DataLayerVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
