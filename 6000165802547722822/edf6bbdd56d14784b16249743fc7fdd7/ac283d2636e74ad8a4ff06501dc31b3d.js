@@ -6517,6 +6517,25 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["UserInteractionTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      var eventNames = ["touchstart", "mouseover", "wheel", "scroll", "keydown"];
+      var windowAlias = parameters.window;
+      var init = function () {
+        triggerEvent({ event: "UserInteraction" });
+        removeListeners();
+      };
+      var removeListeners = function () {
+        for (var i = 0, iLen = eventNames.length; i < iLen; i++) {
+          windowAlias.removeEventListener(eventNames[i], init);
+        }
+      };
+      for (var i = 0, iLen = eventNames.length; i < iLen; i++) {
+        windowAlias.addEventListener(eventNames[i], init, { once: true });
+      }
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7148,85 +7167,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "c233c220-95a3-4572-bfd6-6e9e54763d54",
-  "type": "Matomo",
-  "name": "Browser Language",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Palevioletred mule : Test website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/palevioletred_mule_cs/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "BrowserLanguage",
-    "eventAction": "BrowserLanguage",
-    "eventName": "BrowserLanguage",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Browser Language",
-          "name": "BrowserLanguage",
-          "type": "BrowserLanguage",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "BrowserLanguageVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Browser Language",
-    "Description": "To get Browser Language"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "58f7629b-d2d6-4c58-9d33-3ac73e78c89e"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Palevioletred mule : Test website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "3030963c-8cb3-4538-804f-fb12f1d8d639",
   "type": "Matomo",
   "name": "Pageview",
@@ -7305,6 +7245,266 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "067bcd88-730d-42dc-abde-5c6ca292b259",
+  "type": "Matomo",
+  "name": "JavaScript Errors",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Palevioletred mule : Test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/palevioletred_mule_cs/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "JavaScript Errors",
+    "eventAction": "JavaScript Errors",
+    "eventName": "JavaScript Errors",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Error Message",
+          "name": "ErrorMessage",
+          "type": "ErrorMessage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ErrorMessageVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "JavaScript Errors",
+    "Description": "Return JavaScript Errors"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "3d70a807-a154-4ba4-8b28-f64b081a2d53"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Palevioletred mule : Test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "c233c220-95a3-4572-bfd6-6e9e54763d54",
+  "type": "Matomo",
+  "name": "Browser Language",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Palevioletred mule : Test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/palevioletred_mule_cs/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "BrowserLanguage",
+    "eventAction": "BrowserLanguage",
+    "eventName": "BrowserLanguage",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Browser Language",
+          "name": "BrowserLanguage",
+          "type": "BrowserLanguage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "BrowserLanguageVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Browser Language",
+    "Description": "To get Browser Language",
+    "id": "c233c220-95a3-4572-bfd6-6e9e54763d54",
+    "fireTriggerIds": [
+      "58f7629b-d2d6-4c58-9d33-3ac73e78c89e"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "58f7629b-d2d6-4c58-9d33-3ac73e78c89e"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Palevioletred mule : Test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "94b64db0-219f-4283-8b8a-710634d7415f",
+  "type": "Matomo",
+  "name": "Actions",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Palevioletred mule : Test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/palevioletred_mule_cs/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "pageview",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Actions",
+    "eventAction": "Actions",
+    "eventName": "Actions",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page Title",
+          "name": "PageTitle",
+          "type": "PageTitle",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageTitleVariable"
+        },
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        },
+        {
+          "Name": "Page Path",
+          "name": "PagePath",
+          "type": "PagePath",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PagePathVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Actions",
+    "Description": "Return Interactions"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "f66078dc-2c65-415e-bd83-e9ea37b52022"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Palevioletred mule : Test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7333,6 +7533,17 @@
   "Description": "Service Provider Location"
 },
             {
+  "id": "5c7b69f3-3ca2-4fb5-8811-926251dcf783",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Pageview",
+  "Description": "Returns URL of the current page"
+},
+            {
   "id": "58f7629b-d2d6-4c58-9d33-3ac73e78c89e",
   "type": "PageView",
   "name": "PageView",
@@ -7344,15 +7555,15 @@
   "Description": "Trigger to control for browser language etc"
 },
             {
-  "id": "5c7b69f3-3ca2-4fb5-8811-926251dcf783",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
+  "id": "f66078dc-2c65-415e-bd83-e9ea37b52022",
+  "type": "UserInteraction",
+  "name": "UserInteraction",
+  "Trigger": "UserInteractionTrigger",
+  "selectedTrigger": "User Interaction",
   "parameters": {},
   "conditions": [],
-  "Name": "Pageview",
-  "Description": "Returns URL of the current page"
+  "Name": "Actions",
+  "Description": "Return Interaction"
 },
           ],
           variables: [
