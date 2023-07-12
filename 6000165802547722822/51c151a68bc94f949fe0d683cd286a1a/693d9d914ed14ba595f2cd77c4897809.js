@@ -6946,6 +6946,12 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8235,11 +8241,16 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "BrowserLanguage",
-    "Description": "BrowserLanguage"
+    "Description": "BrowserLanguage",
+    "id": "5d7c1a48-341b-40d1-9a04-966290f76c29",
+    "fireTriggerIds": [
+      "acfe285e-7f51-4dd5-bf2b-bd26f1120173"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "acfe285e-7f51-4dd5-bf2b-bd26f1120173"
+    "94b77ef1-b878-46b8-865c-c6ff43ee50e7"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8425,6 +8436,31 @@
   "conditions": [],
   "Name": "Pageview",
   "Description": "Pageview"
+},
+            {
+  "id": "94b77ef1-b878-46b8-865c-c6ff43ee50e7",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://ecomm.bangdb.com/"
+    }
+  ],
+  "Name": "inital_Trigger",
+  "Description": "Trigger to control Language"
 },
           ],
           variables: [
