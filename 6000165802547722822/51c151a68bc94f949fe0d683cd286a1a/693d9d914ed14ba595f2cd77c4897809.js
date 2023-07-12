@@ -6940,6 +6940,12 @@
       });
     }
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8329,6 +8335,17 @@
     }
   ],
   "Name": "Confirm Order"
+},
+            {
+  "id": "acfe285e-7f51-4dd5-bf2b-bd26f1120173",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Pageview",
+  "Description": "Pageview"
 },
           ],
           variables: [
