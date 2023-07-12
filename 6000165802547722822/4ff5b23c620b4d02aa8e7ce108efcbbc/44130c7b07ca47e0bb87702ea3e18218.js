@@ -8236,16 +8236,51 @@
             "Description": "Service Provider Location",
             "dataLayerName": "ip"
           }
+        },
+        {
+          "selectedVariable": "Data layer",
+          "Variable": "DataLayerVariable",
+          "name": "DataLayer",
+          "type": "DataLayer",
+          "Name": "ip",
+          "Description": "Service Provider Location",
+          "dataLayerName": "ip",
+          "id": "5fac4183-2698-4cef-9839-63ef5eb11359",
+          "parameters": {
+            "selectedVariable": "Data layer",
+            "Variable": "DataLayerVariable",
+            "name": "DataLayer",
+            "type": "DataLayer",
+            "Name": "ip",
+            "Description": "Service Provider Location",
+            "dataLayerName": "ip",
+            "id": "5fac4183-2698-4cef-9839-63ef5eb11359",
+            "parameters": {
+              "selectedVariable": "Data layer",
+              "Variable": "DataLayerVariable",
+              "name": "DataLayer",
+              "type": "DataLayer",
+              "Name": "ip",
+              "Description": "Service Provider Location",
+              "dataLayerName": "ip"
+            }
+          }
         }
       ]
     },
     "selectedTag": "BangDB Analytics",
     "Name": "Location",
-    "Description": "User service Provider Location"
+    "Description": "User service Provider Location",
+    "id": "d0ba7ce4-fadb-4002-a68b-4511582b4780",
+    "fireTriggerIds": [
+      "5fe95142-6d51-4105-bba7-1b695d1968b0"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "5fe95142-6d51-4105-bba7-1b695d1968b0"
+    "5fe95142-6d51-4105-bba7-1b695d1968b0",
+    "7d79e229-06b2-4891-abeb-ca0fd2057005"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8340,7 +8375,7 @@
   "Name": "Pageview"
 },
             {
-  "id": "5fe95142-6d51-4105-bba7-1b695d1968b0",
+  "id": "7d79e229-06b2-4891-abeb-ca0fd2057005",
   "type": "CustomEvent",
   "name": "CustomEvent",
   "Trigger": "CustomEventTrigger",
@@ -8348,23 +8383,9 @@
   "parameters": {
     "eventName": "ip"
   },
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://darkseagreen-antelope-359451.builder-preview.com/"
-    }
-  ],
+  "conditions": [],
   "Name": "Location",
-  "Description": "Service Provider Location"
+  "Description": "service provider location"
 },
           ],
           variables: [
@@ -8478,7 +8499,17 @@
     "type": "DataLayer",
     "Name": "ip",
     "Description": "Service Provider Location",
-    "dataLayerName": "ip"
+    "dataLayerName": "ip",
+    "id": "5fac4183-2698-4cef-9839-63ef5eb11359",
+    "parameters": {
+      "selectedVariable": "Data layer",
+      "Variable": "DataLayerVariable",
+      "name": "DataLayer",
+      "type": "DataLayer",
+      "Name": "ip",
+      "Description": "Service Provider Location",
+      "dataLayerName": "ip"
+    }
   }
 }, Variable: "DataLayerVariable"},
             {
