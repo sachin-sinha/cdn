@@ -7019,6 +7019,12 @@
             };
         })()
           
+          Templates["CustomJsFunctionVariablef84639de487a447ca9c76ca5e3dee729"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {};if(document.querySelector('li#bdb-tracker-product_id')){data.product=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){data.stock=document.querySelector('li#bdb-tracker-stock').innerHTML}; return JSON.stringify(data)}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7580,166 +7586,6 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "e24eb80b-6070-4d67-a4b0-16ea95289ec1"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecomm - test website",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
-  "id": "98937003-b74e-47a2-9f59-6b789a065e8f",
-  "type": "Matomo",
-  "name": "Product View",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecomm - test website",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/ecomm_clickstream/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "product_info",
-    "eventAction": "product_info",
-    "eventName": "product_view",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "product_view",
-          "Description": "Product viewed",
-          "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}",
-          "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "product_view",
-            "Description": "Product viewed",
-            "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}",
-            "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "product_view",
-              "Description": "Product viewed",
-              "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 3');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}",
-              "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-              "parameters": {
-                "selectedVariable": "Custom JavaScript",
-                "name": "CustomJsFunction",
-                "type": "CustomJsFunction",
-                "Name": "product_view",
-                "Description": "Product viewed",
-                "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 2');const elementData = {};elements.forEach(element => {console.log(element.id, element);const temp = element.id.replace('bdb-tracker-', '');const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}",
-                "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-                "parameters": {
-                  "selectedVariable": "Custom JavaScript",
-                  "name": "CustomJsFunction",
-                  "type": "CustomJsFunction",
-                  "Name": "product_view",
-                  "Description": "Product viewed",
-                  "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});console.log(elementData);return JSON.stringify(elementData)}",
-                  "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-                  "parameters": {
-                    "selectedVariable": "Custom JavaScript",
-                    "name": "CustomJsFunction",
-                    "type": "CustomJsFunction",
-                    "Name": "product_view",
-                    "Description": "Product viewed",
-                    "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});console.log(elementData);return JSON.stringify(elementData)}",
-                    "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-                    "parameters": {
-                      "selectedVariable": "Custom JavaScript",
-                      "name": "CustomJsFunction",
-                      "type": "CustomJsFunction",
-                      "Name": "product_view",
-                      "Description": "Product viewed",
-                      "jsFunction": "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}",
-                      "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-                      "parameters": {
-                        "selectedVariable": "Custom JavaScript",
-                        "name": "CustomJsFunction",
-                        "type": "CustomJsFunction",
-                        "Name": "product_view",
-                        "Description": "Product viewed",
-                        "jsFunction": "function() {const elements = document.querySelectorAll('[id^='bdb-tracker']');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}",
-                        "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-                        "parameters": {
-                          "selectedVariable": "Custom JavaScript",
-                          "name": "CustomJsFunction",
-                          "type": "CustomJsFunction",
-                          "Name": "product_view",
-                          "Description": "Product viewed",
-                          "jsFunction": "function() {const elements = document.querySelectorAll('[id^=\"bdb-tracker\"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}",
-                          "id": "70a5f886-fc74-4985-aaaf-ea10d3a2a4fa",
-                          "parameters": {
-                            "selectedVariable": "Custom JavaScript",
-                            "name": "CustomJsFunction",
-                            "type": "CustomJsFunction",
-                            "Name": "product_view",
-                            "Description": "Product viewed",
-                            "jsFunction": "function() {const elements = document.querySelectorAll('[id^=\"bdb-tracker\"]');const elementData = {};elements.forEach(element => {element.id.replace('bdb-tracker-', '');const arr = element?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;});return JSON.stringify(elementData)}"
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "Variable": "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "Product View",
-    "Description": "Product View"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "9b3b79e4-3f58-4649-85d6-3e51459b9b54"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -8466,6 +8312,99 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "98937003-b74e-47a2-9f59-6b789a065e8f",
+  "type": "Matomo",
+  "name": "Product View",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "product_info",
+    "eventAction": "product_info",
+    "eventName": "product_view",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "pageCollect Variable",
+          "Description": "Created Via Page Collection template",
+          "jsFunction": "function(){const data = {};if(document.querySelector('li#bdb-tracker-product_id')){data.product=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){data.stock=document.querySelector('li#bdb-tracker-stock').innerHTML}; return JSON.stringify(data)}",
+          "id": "f84639de-487a-447c-a9c7-6ca5e3dee729",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "pageCollect Variable",
+            "Description": "Created Via Page Collection template",
+            "jsFunction": "function(){const data = {};if(document.querySelector('li#bdb-tracker-product_id')){data.product=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){data.stock=document.querySelector('li#bdb-tracker-stock').innerHTML}; return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariablef84639de487a447ca9c76ca5e3dee729"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Product View",
+    "Description": "Product View",
+    "id": "98937003-b74e-47a2-9f59-6b789a065e8f",
+    "fireTriggerIds": [
+      "9b3b79e4-3f58-4649-85d6-3e51459b9b54"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "9b3b79e4-3f58-4649-85d6-3e51459b9b54"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8747,6 +8686,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form.bdb-tracker-productform');if (fe.elements['product_id']) {fd.product = fe.elements['product_id'].value;};if (fe.elements['quantity']) {fd.quantity = fe.elements['quantity'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#form-shipping-method');if (fe.elements['shipping_method']) {fd.shipping_method = fe.elements['shipping_method'].value;};var ff = document.querySelector('form#form-payment-method');if (ff.elements['payment_method']) {fd.payment_method = ff.elements['payment_method'].value;};var fg = document.getElementById('input-comment');if (fg.value) {fd.comment = fg.value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable68254554389b47779f17bb280808e75b" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#productform');if(formElement.elements['quantity']){if(formElement.elements['product_id']){data.product_id=formElement.elements['product_id'].value;};data.quantity=formElement.elements['quantity'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable01c51e4e1efd4d9b96fa2f2d1786cd01" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};if(document.querySelector('li#bdb-tracker-product_id')){data.product=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){data.stock=document.querySelector('li#bdb-tracker-stock').innerHTML}; return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariablef84639de487a447ca9c76ca5e3dee729" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
