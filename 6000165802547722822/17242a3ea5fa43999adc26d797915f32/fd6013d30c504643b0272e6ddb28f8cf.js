@@ -6546,12 +6546,6 @@
       });
     }
   };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
 })();Templates["CustomEventTrigger"] = (function () {
     return function (parameters, TagManager) {
         function isMatchingEvent(value) {
@@ -7528,91 +7522,6 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
-        {
-  "id": "c892f95f-f983-4cf1-8c24-18dba3b86163",
-  "type": "Matomo",
-  "name": "PageViewURL",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecommerse_sandeep",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/Ecommerce_v10/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "ageViewURL",
-    "eventAction": "PageViewURL",
-    "eventName": "PageViewURL",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "PageViewURL",
-    "Description": "Pageview (ALL)",
-    "id": "c892f95f-f983-4cf1-8c24-18dba3b86163",
-    "fireTriggerIds": [
-      "d953faaf-1454-4f8d-b96c-55ef69df214c"
-    ],
-    "blockedTriggerIds": []
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "d953faaf-1454-4f8d-b96c-55ef69df214c",
-    "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecommerse_sandeep",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
           ],
           triggers: [
             
@@ -7648,17 +7557,6 @@
   "conditions": [],
   "Name": "All Elements Click",
   "Description": "Triggered when any element is clicked. It will be triggered on left, middle and right click. Triggered on any click on any element. To listen to clicks on specific elements or specific click button, please add conditions based on a \"Click\" variable or on a \"ClickButton\" variable in the advanced settings."
-},
-            {
-  "id": "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Pageview (All)",
-  "Description": "Triggered every time a new page is visited. (Only for the websites which are not single page / which reload the page while navigating. Such as websites built with: WordPress, HTML, PHP etc)."
 },
             {
   "id": "4da45874-b725-4c00-a695-78268c565fdd",
