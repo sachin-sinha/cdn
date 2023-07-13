@@ -6468,13 +6468,7 @@
         };
       })();
       //change location
-      Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["WindowUnloadTrigger"] = (function () {
+      Templates["WindowUnloadTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       var triggered = false;
@@ -6582,12 +6576,6 @@
             });
         };
     };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
 })();Templates["PageViewTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
@@ -7604,11 +7592,17 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "PageViewURL",
-    "Description": "Pageview (ALL)"
+    "Description": "Pageview (ALL)",
+    "id": "c892f95f-f983-4cf1-8c24-18dba3b86163",
+    "fireTriggerIds": [
+      "d953faaf-1454-4f8d-b96c-55ef69df214c"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "d953faaf-1454-4f8d-b96c-55ef69df214c"
+    "d953faaf-1454-4f8d-b96c-55ef69df214c",
+    "d5075d4e-27c8-4c0d-91c9-e8f2ddc369aa"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7622,31 +7616,6 @@
           ],
           triggers: [
             
-            {
-  "id": "1218a789-dd45-4647-9756-ee735d8a366d",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://blueviolet-hare-975805.builder-preview.com/"
-    }
-  ],
-  "Description": "Triggered as soon as the website is loaded for the first time.",
-  "Name": "Pageview"
-},
             {
   "id": "e4d3831c-66cc-4209-ae40-19ccbdd3f095",
   "type": "WindowUnload",
@@ -7714,17 +7683,6 @@
   "conditions": [],
   "Name": "initial_Trigger",
   "Description": "Trigger to control from browserLanguage etc"
-},
-            {
-  "id": "d953faaf-1454-4f8d-b96c-55ef69df214c",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "Pageview (ALL)",
-  "Description": "Pageview"
 },
           ],
           variables: [
