@@ -6568,6 +6568,39 @@
       });
     }
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6578,6 +6611,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariablecf83ea5b7b22434f8d64f72b99476126"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {}; const formElement = document.querySelector('form#data-v-426a228c');if(formElement.elements['Your name']){if(formElement.elements['Your email address']){data.Email=formElement.elements['Your email address'].value;};data.Name=formElement.elements['Your name'].value;};return JSON.stringify(data)}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7547,6 +7586,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "4813bf64-3139-4a59-9e4a-a7d19a9edeb1",
+  "type": "Matomo",
+  "name": "In-queries  Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Palevioletred mule : Test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/palevioletred_mule_cs/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Inqueries",
+    "eventAction": "Inqueries",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "In-queries  Variable",
+          "Description": "Created Via Form Submit template",
+          "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#data-v-426a228c');if(formElement.elements['Your name']){if(formElement.elements['Your email address']){data.Email=formElement.elements['Your email address'].value;};data.Name=formElement.elements['Your name'].value;};return JSON.stringify(data)}",
+          "id": "cf83ea5b-7b22-434f-8d64-f72b99476126",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "In-queries  Variable",
+            "Description": "Created Via Form Submit template",
+            "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#data-v-426a228c');if(formElement.elements['Your name']){if(formElement.elements['Your email address']){data.Email=formElement.elements['Your email address'].value;};data.Name=formElement.elements['Your name'].value;};return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariablecf83ea5b7b22434f8d64f72b99476126"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "In-queries  Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "4826e82f-f822-4532-b377-d36e99bcceab"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Palevioletred mule : Test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7618,6 +7744,30 @@
   "Name": "Click Event",
   "Description": "Trigger on Click"
 },
+            {
+  "id": "4826e82f-f822-4532-b377-d36e99bcceab",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "data-v-426a228c"
+    }
+  ],
+  "Name": "In-queries  Trigger"
+},
           ],
           variables: [
             
@@ -7640,6 +7790,7 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#data-v-426a228c');if(formElement.elements['Your name']){if(formElement.elements['Your email address']){data.Email=formElement.elements['Your email address'].value;};data.Name=formElement.elements['Your name'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariablecf83ea5b7b22434f8d64f72b99476126" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
