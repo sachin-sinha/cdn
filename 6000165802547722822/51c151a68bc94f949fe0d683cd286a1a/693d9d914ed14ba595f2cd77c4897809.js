@@ -6952,6 +6952,39 @@
       triggerEvent({ event: "mtm.PageView" });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6977,6 +7010,12 @@
           Templates["CustomJsFunctionVariable68254554389b47779f17bb280808e75b"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function() {var fd = {};var fe = document.querySelector('form#form-shipping-method');if (fe.elements['shipping_method']) {fd.shipping_method = fe.elements['shipping_method'].value;};var ff = document.querySelector('form#form-payment-method');if (ff.elements['payment_method']) {fd.payment_method = ff.elements['payment_method'].value;};var fg = document.getElementById('input-comment');if (fg.value) {fd.comment = fg.value;};return JSON.stringify(fd);}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable01c51e4e1efd4d9b96fa2f2d1786cd01"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {}; const formElement = document.querySelector('form#productform');if(formElement.elements['quantity']){if(formElement.elements['product_id']){data.product_id=formElement.elements['product_id'].value;};data.quantity=formElement.elements['quantity'].value;};return JSON.stringify(data)}
             };
         })()
           
@@ -8340,6 +8379,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "590332cf-1637-4d6e-b204-64cca1ab0d48",
+  "type": "Matomo",
+  "name": "newTEMP Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "product_id",
+    "eventAction": "quantity",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "newTEMP Variable",
+          "Description": "Created Via Form Submit template",
+          "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#productform');if(formElement.elements['quantity']){if(formElement.elements['product_id']){data.product_id=formElement.elements['product_id'].value;};data.quantity=formElement.elements['quantity'].value;};return JSON.stringify(data)}",
+          "id": "01c51e4e-1efd-4d9b-96fa-2f2d1786cd01",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "newTEMP Variable",
+            "Description": "Created Via Form Submit template",
+            "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#productform');if(formElement.elements['quantity']){if(formElement.elements['product_id']){data.product_id=formElement.elements['product_id'].value;};data.quantity=formElement.elements['quantity'].value;};return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariable01c51e4e1efd4d9b96fa2f2d1786cd01"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "newTEMP Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "9b7ae295-135e-4654-a52f-e444ef656638"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8541,6 +8667,30 @@
   "Name": "inital_Trigger",
   "Description": "Trigger to control Language"
 },
+            {
+  "id": "9b7ae295-135e-4654-a52f-e444ef656638",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "productform"
+    }
+  ],
+  "Name": "newTEMP Trigger"
+},
           ],
           variables: [
             
@@ -8596,6 +8746,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {const elements = document.querySelectorAll(`[id^='bdb-tracker']`);console.log('new tag got triggered 4');const elementData = {};elements.forEach(element => {const temp = element.id.replace('bdb-tracker-', '');if (temp.includes('-')) {const arr = temp?.split('-') || [];const id = arr[0] || 'NA';const text = arr[1] || 'NA';elementData[id] = text;}});console.log(JSON.stringify(elementData), elementData); return JSON.stringify(elementData);}" }, Variable: "CustomJsFunctionVariable70a5f886fc744985aaafea10d3a2a4fa" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form.bdb-tracker-productform');if (fe.elements['product_id']) {fd.product = fe.elements['product_id'].value;};if (fe.elements['quantity']) {fd.quantity = fe.elements['quantity'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#form-shipping-method');if (fe.elements['shipping_method']) {fd.shipping_method = fe.elements['shipping_method'].value;};var ff = document.querySelector('form#form-payment-method');if (ff.elements['payment_method']) {fd.payment_method = ff.elements['payment_method'].value;};var fg = document.getElementById('input-comment');if (fg.value) {fd.comment = fg.value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable68254554389b47779f17bb280808e75b" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#productform');if(formElement.elements['quantity']){if(formElement.elements['product_id']){data.product_id=formElement.elements['product_id'].value;};data.quantity=formElement.elements['quantity'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable01c51e4e1efd4d9b96fa2f2d1786cd01" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
