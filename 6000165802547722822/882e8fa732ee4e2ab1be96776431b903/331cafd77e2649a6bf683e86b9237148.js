@@ -6569,6 +6569,12 @@
             });
         };
     };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
 })();Templates["UrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -6587,6 +6593,12 @@
       };
     };
   })();
+          Templates["CustomJsFunctionVariable4a259ef5f23a447193103acf45049c8c"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {};if(document.querySelector('h1.block-product__title')){data.key1=document.querySelector('h1.block-product__title').innerHTML};if(document.querySelector('p.block-product__price.body-large')){data.key2=document.querySelector('p.block-product__price.body-large').innerHTML}; return JSON.stringify(data)}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -7628,6 +7640,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "af296c35-e584-4633-93ec-51810d40b9b2",
+  "type": "Matomo",
+  "name": "New page view tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "gold-n",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/64950165_ClickStream_2/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "newPageView",
+    "eventAction": "newPageView",
+    "eventName": "newPageView",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Variable",
+          "Variable": "UrlVariable",
+          "name": "Url",
+          "type": "Url",
+          "Name": "PageViewURL",
+          "Description": "Page URL",
+          "id": "472ccbaa-34b2-46c9-ae0b-79e99758d93d",
+          "parameters": {
+            "selectedVariable": "URL Variable",
+            "Variable": "UrlVariable",
+            "name": "Url",
+            "type": "Url",
+            "Name": "PageViewURL",
+            "Description": "Page URL"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "New page view tag",
+    "Description": "this is the new pageview tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "54907261-5462-4f05-a917-b34119f625b0"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "gold-n",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7691,6 +7790,17 @@
   "Name": "Location",
   "Description": "Service Provider Location"
 },
+            {
+  "id": "54907261-5462-4f05-a917-b34119f625b0",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [],
+  "Name": "New page view trigger",
+  "Description": "This is the new page view trigger"
+},
           ],
           variables: [
             
@@ -7750,6 +7860,7 @@
     }
   }
 }, Variable: "DataLayerVariable"},
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};if(document.querySelector('h1.block-product__title')){data.key1=document.querySelector('h1.block-product__title').innerHTML};if(document.querySelector('p.block-product__price.body-large')){data.key2=document.querySelector('p.block-product__price.body-large').innerHTML}; return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable4a259ef5f23a447193103acf45049c8c" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
