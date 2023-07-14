@@ -6985,6 +6985,90 @@
       });
     };
   };
+})();Templates["HistoryChangeTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    function getCurrentUrl() {
+      return parameters.window.location.href;
+    }
+    function getEventUrl(event) {
+      if (event && event.target && event.target.location && event.target.location.href) {
+        return event.target.location.href;
+      }
+      return getCurrentUrl();
+    }
+    this.setUp = function (triggerEvent) {
+      var initialUrl = getCurrentUrl();
+      var url = TagManager.url;
+      var origin = url.parseUrl(initialUrl, "origin");
+      var lastEvent = { eventType: null, hash: url.parseUrl(initialUrl, "hash"), search: url.parseUrl(initialUrl, "search"), path: url.parseUrl(initialUrl, "pathname"), state: parameters.window.state || null };
+      function trigger(eventType, newUrl, newState) {
+        var newEvent = { eventType: eventType, hash: url.parseUrl(newUrl, "hash"), search: url.parseUrl(newUrl, "search"), path: url.parseUrl(newUrl, "pathname"), state: newState };
+        var shouldForceEvent =
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "popstate") ||
+          (lastEvent.eventType === "hashchange" && newEvent.eventType === "hashchange") ||
+          (lastEvent.eventType === "popstate" && newEvent.eventType === "popstate");
+        shouldForceEvent = !shouldForceEvent;
+        var oldUrl = lastEvent.path;
+        if (lastEvent.search) {
+          oldUrl += "?" + lastEvent.search;
+        }
+        if (lastEvent.hash) {
+          oldUrl += "#" + lastEvent.hash;
+        }
+        var nowUrl = newEvent.path;
+        if (newEvent.search) {
+          nowUrl += "?" + newEvent.search;
+        }
+        if (newEvent.hash) {
+          nowUrl += "#" + newEvent.hash;
+        }
+        if (shouldForceEvent || oldUrl !== nowUrl) {
+          var tmpLast = lastEvent;
+          lastEvent = newEvent;
+          triggerEvent({
+            event: "mtm.HistoryChange",
+            "mtm.historyChangeSource": newEvent.eventType,
+            "mtm.oldUrl": origin + oldUrl,
+            "mtm.newUrl": origin + nowUrl,
+            "mtm.oldUrlHash": tmpLast.hash,
+            "mtm.newUrlHash": newEvent.hash,
+            "mtm.oldUrlPath": tmpLast.path,
+            "mtm.newUrlPath": newEvent.path,
+            "mtm.oldUrlSearch": tmpLast.search,
+            "mtm.newUrlSearch": newEvent.search,
+            "mtm.oldHistoryState": tmpLast.state,
+            "mtm.newHistoryState": newEvent.state,
+          });
+        }
+      }
+      function replaceHistoryMethod(methodNameToReplace) {
+        TagManager.utils.setMethodWrapIfNeeded(parameters.window.history, methodNameToReplace, function (state, title, urlParam) {
+          trigger(methodNameToReplace, getCurrentUrl(), state);
+        });
+      }
+      replaceHistoryMethod("replaceState");
+      replaceHistoryMethod("pushState");
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "hashchange",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("hashchange", newUrl, null);
+        },
+        false
+      );
+      TagManager.dom.addEventListener(
+        parameters.window,
+        "popstate",
+        function (event) {
+          var newUrl = getEventUrl(event);
+          trigger("popstate", newUrl, event.state);
+        },
+        false
+      );
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7018,7 +7102,15 @@
                 this.get = function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['password']){if(formElement.elements['email']){if(formElement.elements['lastname']){if(formElement.elements['firstname']){data.FirstName=formElement.elements['firstname'].value;};data.LastName=formElement.elements['lastname'].value;};data.email=formElement.elements['email'].value;};data.Password=formElement.elements['password'].value;};return JSON.stringify(data)}
             };
         })()
-          
+          Templates["UrlVariable"] = (function () {
+    return function (parameters, TagManager) {
+      this.get = function () {
+        var urlPart = parameters.get("urlPart", "href");
+        var loc = parameters.window.location;
+        return TagManager.url.parseUrl(loc.href, urlPart);
+      };
+    };
+  })();
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -8399,6 +8491,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "043b6a25-01f1-4ddd-9a79-98263c719607",
+  "type": "Matomo",
+  "name": "historyChange",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm - test website",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/ecomm_clickstream/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "historyChange",
+    "eventAction": "historyChange",
+    "eventName": "historyChange",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "URL Variable",
+          "Variable": "UrlVariable",
+          "name": "Url",
+          "type": "Url",
+          "Name": "historyChangeVariable",
+          "Description": "description",
+          "id": "68c4ca99-36dc-4f54-8f49-7e58a40ccc3c",
+          "parameters": {
+            "selectedVariable": "URL Variable",
+            "Variable": "UrlVariable",
+            "name": "Url",
+            "type": "Url",
+            "Name": "historyChangeVariable",
+            "Description": "description"
+          }
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "historyChange",
+    "Description": "desc"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "15f6a975-004e-413d-b458-5cce4ffdf73f"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm - test website",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8624,6 +8803,17 @@
   ],
   "Name": "Registration Trigger"
 },
+            {
+  "id": "15f6a975-004e-413d-b458-5cce4ffdf73f",
+  "type": "HistoryChange",
+  "name": "HistoryChange",
+  "Trigger": "HistoryChangeTrigger",
+  "selectedTrigger": "History Change",
+  "parameters": {},
+  "conditions": [],
+  "Name": "historyChange",
+  "Description": "desc"
+},
           ],
           variables: [
             
@@ -8680,6 +8870,23 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form.bdb-tracker-productform');if (fe.elements['product_id']) {fd.product = fe.elements['product_id'].value;};if (fe.elements['quantity']) {fd.quantity = fe.elements['quantity'].value;};if (fe.elements['key']) {fd.product = fe.elements['key'].value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable8db27dd220014b69aec009d97027e5f3" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd = {};var fe = document.querySelector('form#form-shipping-method');if (fe.elements['shipping_method']) {fd.shipping_method = fe.elements['shipping_method'].value;};var ff = document.querySelector('form#form-payment-method');if (ff.elements['payment_method']) {fd.payment_method = ff.elements['payment_method'].value;};var fg = document.getElementById('input-comment');if (fg.value) {fd.comment = fg.value;};return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable68254554389b47779f17bb280808e75b" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['password']){if(formElement.elements['email']){if(formElement.elements['lastname']){if(formElement.elements['firstname']){data.FirstName=formElement.elements['firstname'].value;};data.LastName=formElement.elements['lastname'].value;};data.email=formElement.elements['email'].value;};data.Password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable99c293d43e584a2599260c6a47c0340e" },
+          {name: "Url", type: "Url", lookUpTable: [], defaultValue: "", parameters: {
+  "selectedVariable": "URL Variable",
+  "Variable": "UrlVariable",
+  "name": "Url",
+  "type": "Url",
+  "Name": "historyChangeVariable",
+  "Description": "description",
+  "id": "68c4ca99-36dc-4f54-8f49-7e58a40ccc3c",
+  "parameters": {
+    "selectedVariable": "URL Variable",
+    "Variable": "UrlVariable",
+    "name": "Url",
+    "type": "Url",
+    "Name": "historyChangeVariable",
+    "Description": "description"
+  }
+}, Variable: "UrlVariable"},
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
