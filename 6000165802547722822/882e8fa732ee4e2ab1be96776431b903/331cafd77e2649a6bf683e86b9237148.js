@@ -7770,9 +7770,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "newPageView2",
-    "eventAction": "newPageView2",
-    "eventName": "newPageView2",
+    "eventCategory": "historyChange",
+    "eventAction": "historyChange",
+    "eventName": "historyChange",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7799,7 +7799,7 @@
     "Description": "this is the new pageview tag",
     "id": "af296c35-e584-4633-93ec-51810d40b9b2",
     "fireTriggerIds": [
-      "54907261-5462-4f05-a917-b34119f625b0"
+      "d7d7bfb3-bb98-45e0-998e-ff754f39c627"
     ],
     "blockedTriggerIds": []
   },
