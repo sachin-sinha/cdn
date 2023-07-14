@@ -7712,7 +7712,12 @@
     },
     "selectedTag": "BangDB Analytics",
     "Name": "New page view tag",
-    "Description": "this is the new pageview tag"
+    "Description": "this is the new pageview tag",
+    "id": "af296c35-e584-4633-93ec-51810d40b9b2",
+    "fireTriggerIds": [
+      "54907261-5462-4f05-a917-b34119f625b0"
+    ],
+    "blockedTriggerIds": []
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
