@@ -6501,10 +6501,49 @@
       });
     };
   };
+})();Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
 })();
           Templates["CustomJsFunctionVariable702186d6cc8f43429f53017a37bd7898"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable06d218664104481d8413f774411b5b30"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}
             };
         })()
           
@@ -7047,6 +7086,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "62169c22-6696-4d4b-9ae3-762a177fce50",
+  "type": "Matomo",
+  "name": "registration Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecommerce_Sandeep",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/58d5ceca_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "registration",
+    "eventAction": "registration",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "registration Variable",
+          "Description": "Created Via Form Submit template",
+          "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}",
+          "id": "06d21866-4104-481d-8413-f774411b5b30",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "registration Variable",
+            "Description": "Created Via Form Submit template",
+            "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariable06d218664104481d8413f774411b5b30"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "registration Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "ebf8961a-c89f-4104-862e-8790591f73d4"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecommerce_Sandeep",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7074,10 +7200,35 @@
   ],
   "Name": "login Trigger"
 },
+            {
+  "id": "ebf8961a-c89f-4104-862e-8790591f73d4",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "form-register"
+    }
+  ],
+  "Name": "registration Trigger"
+},
           ],
           variables: [
             
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable702186d6cc8f43429f53017a37bd7898" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable06d218664104481d8413f774411b5b30" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
