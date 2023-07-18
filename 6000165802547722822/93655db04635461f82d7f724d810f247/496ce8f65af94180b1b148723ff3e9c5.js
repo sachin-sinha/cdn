@@ -6468,37 +6468,7 @@
         };
       })();
       //change location
-      Templates["CustomEventTrigger"] = (function () {
-    return function (parameters, TagManager) {
-        function isMatchingEvent(value) {
-            var eventName = parameters.get("eventName");
-            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
-        }
-        var missedEvents = [];
-        var index = parameters.container.dataLayer.on(function (value) {
-            if (isMatchingEvent(value)) {
-                missedEvents.push(value.event);
-            }
-        });
-        this.setUp = function (triggerEvent) {
-            parameters.container.dataLayer.off(index);
-            for (var i = 0; i < missedEvents.length; i++) {
-                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
-            }
-            parameters.container.dataLayer.on(function (value) {
-                if (isMatchingEvent(value)) {
-                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
-                }
-            });
-        };
-    };
-})();Templates["PageViewTrigger"] = (function () {
-  return function (parameters, TagManager) {
-    this.setUp = function (triggerEvent) {
-      triggerEvent({ event: "mtm.PageView" });
-    };
-  };
-})();Templates["PageViewTrigger"] = (function () {
+      Templates["PageViewTrigger"] = (function () {
   return function (parameters, TagManager) {
     this.setUp = function (triggerEvent) {
       triggerEvent({ event: "mtm.PageView" });
@@ -6601,6 +6571,36 @@
       });
     };
   };
+})();Templates["PageViewTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      triggerEvent({ event: "mtm.PageView" });
+    };
+  };
+})();Templates["CustomEventTrigger"] = (function () {
+    return function (parameters, TagManager) {
+        function isMatchingEvent(value) {
+            var eventName = parameters.get("eventName");
+            return eventName && TagManager.utils.isObject(value) && "event" in value && value.event === eventName;
+        }
+        var missedEvents = [];
+        var index = parameters.container.dataLayer.on(function (value) {
+            if (isMatchingEvent(value)) {
+                missedEvents.push(value.event);
+            }
+        });
+        this.setUp = function (triggerEvent) {
+            parameters.container.dataLayer.off(index);
+            for (var i = 0; i < missedEvents.length; i++) {
+                triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": missedEvents[i] });
+            }
+            parameters.container.dataLayer.on(function (value) {
+                if (isMatchingEvent(value)) {
+                    triggerEvent({ event: "mtm.CustomEvent", "mtm.customEventMatch": value.event });
+                }
+            });
+        };
+    };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7472,33 +7472,6 @@
           triggers: [
             
             {
-  "id": "829b72a2-d300-4f54-8eee-f0c52307eb37",
-  "type": "CustomEvent",
-  "name": "CustomEvent",
-  "Trigger": "CustomEventTrigger",
-  "selectedTrigger": "Custom Event",
-  "parameters": {
-    "eventName": "ip"
-  },
-  "conditions": [
-    {
-      "actual": {
-        "Name": "Referrer URL",
-        "name": "Referrer",
-        "type": "Referrer",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ReferrerVariable"
-      },
-      "comparison": "not_contains",
-      "expected": "https://freshshop.netlify.app"
-    }
-  ],
-  "Name": "Location",
-  "Description": "This gets triggered when IP info is successfully fetched and is ready to be sent."
-},
-            {
   "id": "ef20b60a-1294-49d1-92d5-a428c1377f02",
   "type": "PageView",
   "name": "PageView",
@@ -7524,17 +7497,6 @@
   "Description": "This gets triggered when the website page is loaded."
 },
             {
-  "id": "a5824543-fda0-4466-ab92-957941dc56af",
-  "type": "PageView",
-  "name": "PageView",
-  "Trigger": "PageViewTrigger",
-  "selectedTrigger": "Pageview",
-  "parameters": {},
-  "conditions": [],
-  "Name": "PageView",
-  "Description": "This is triggered when any new page is viewed on the website."
-},
-            {
   "id": "dd51687a-507e-4e13-a764-74c1dba90af8",
   "type": "HistoryChange",
   "name": "HistoryChange",
@@ -7555,6 +7517,58 @@
   "conditions": [],
   "Name": "WindowUnload",
   "Description": "Triggered just before the browser window is closed."
+},
+            {
+  "id": "a5824543-fda0-4466-ab92-957941dc56af",
+  "type": "PageView",
+  "name": "PageView",
+  "Trigger": "PageViewTrigger",
+  "selectedTrigger": "Pageview",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://freshshops.netlify.app/"
+    }
+  ],
+  "Name": "PageView",
+  "Description": "This is triggered when any new page is viewed on the website."
+},
+            {
+  "id": "829b72a2-d300-4f54-8eee-f0c52307eb37",
+  "type": "CustomEvent",
+  "name": "CustomEvent",
+  "Trigger": "CustomEventTrigger",
+  "selectedTrigger": "Custom Event",
+  "parameters": {
+    "eventName": "ip"
+  },
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Referrer URL",
+        "name": "Referrer",
+        "type": "Referrer",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ReferrerVariable"
+      },
+      "comparison": "not_contains",
+      "expected": "https://freshshops.netlify.app/"
+    }
+  ],
+  "Name": "Location",
+  "Description": "This gets triggered when IP info is successfully fetched and is ready to be sent."
 },
           ],
           variables: [
