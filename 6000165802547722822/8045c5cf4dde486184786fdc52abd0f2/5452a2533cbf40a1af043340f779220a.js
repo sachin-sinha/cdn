@@ -6835,9 +6835,9 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariable49e9b33019ce4873bd57cec847e1f2b3"] = (function () {
+          Templates["CustomJsFunctionVariable58f11ef5c7404272bad6d4b6cf99f9aa"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function(){const data = {}; if(document.querySelector('productfrom')){data.producd_id=document.querySelector('productfrom').innerHTML};if(document.querySelector('span.price-new')){data.price_per_unit=document.querySelector('span.price-new').innerHTML};return JSON.stringify(data)}
+                this.get = function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('img.img-fluid')){data.producd_id=document.querySelector('img.img-fluid').innerHTML};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}
             };
         })()
           
@@ -7468,7 +7468,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "3e13d5a9-6991-44ab-be40-6137c4f36d05",
+  "id": "7bbc788f-b7ea-414e-8043-cd06e1bf8b8f",
   "type": "Matomo",
   "name": "product_view Tag",
   "parameters": {
@@ -7524,17 +7524,17 @@
           "type": "CustomJsFunction",
           "Name": "product_view Variable",
           "Description": "Created Via Form Submit template",
-          "jsFunction": "function(){const data = {}; if(document.querySelector('productfrom')){data.producd_id=document.querySelector('productfrom').innerHTML};if(document.querySelector('span.price-new')){data.price_per_unit=document.querySelector('span.price-new').innerHTML};return JSON.stringify(data)}",
-          "id": "49e9b330-19ce-4873-bd57-cec847e1f2b3",
+          "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('img.img-fluid')){data.producd_id=document.querySelector('img.img-fluid').innerHTML};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}",
+          "id": "58f11ef5-c740-4272-bad6-d4b6cf99f9aa",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
             "Name": "product_view Variable",
             "Description": "Created Via Form Submit template",
-            "jsFunction": "function(){const data = {}; if(document.querySelector('productfrom')){data.producd_id=document.querySelector('productfrom').innerHTML};if(document.querySelector('span.price-new')){data.price_per_unit=document.querySelector('span.price-new').innerHTML};return JSON.stringify(data)}"
+            "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('img.img-fluid')){data.producd_id=document.querySelector('img.img-fluid').innerHTML};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}"
           },
-          "Variable": "CustomJsFunctionVariable49e9b33019ce4873bd57cec847e1f2b3"
+          "Variable": "CustomJsFunctionVariable58f11ef5c7404272bad6d4b6cf99f9aa"
         }
       ]
     },
@@ -7543,7 +7543,7 @@
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "3a5c28d1-9dae-43ad-8643-9ceb0b797771"
+    "a1f67524-4a23-47b9-9ba9-44cdbe038a7c"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7606,14 +7606,14 @@
   "Name": "registration Trigger"
 },
             {
-  "id": "3a5c28d1-9dae-43ad-8643-9ceb0b797771",
+  "id": "a1f67524-4a23-47b9-9ba9-44cdbe038a7c",
   "type": "ElementVisibility",
   "name": "ElementVisibility",
   "Trigger": "ElementVisibilityTrigger",
   "selectedTrigger": "Element Visibility",
   "parameters": {
     "selectionMethod": "elementId",
-    "elementId": "",
+    "elementId": "productfrom",
     "fireTriggerWhen": "oncePage",
     "minPercentVisible": "50"
   },
@@ -7625,7 +7625,7 @@
             
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable3ab2ebfa69b74ae8b2223cf50c6b7d81" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable75f0c564a9e6422bb40a7011708eb83d" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; if(document.querySelector('productfrom')){data.producd_id=document.querySelector('productfrom').innerHTML};if(document.querySelector('span.price-new')){data.price_per_unit=document.querySelector('span.price-new').innerHTML};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable49e9b33019ce4873bd57cec847e1f2b3" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('img.img-fluid')){data.producd_id=document.querySelector('img.img-fluid').innerHTML};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable58f11ef5c7404272bad6d4b6cf99f9aa" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
