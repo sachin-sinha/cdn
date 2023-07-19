@@ -6566,6 +6566,38 @@
       });
     }
   };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();
           Templates["CustomJsFunctionVariable57fd1613371b4339a077041857055c66"] = (function () {
             return function (parameters, TagManager) {
@@ -6582,6 +6614,12 @@
           Templates["CustomJsFunctionVariableadf1c83364dc4de0bfefc0165640a1f8"] = (function () {
             return function (parameters, TagManager) {
                 this.get = function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#pudct')){data.producd_id=document.querySelector('li#pudct').innerHTML};if(document.querySelector('li#prd3')){const matches = document.querySelector('li#prd3').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}
+            };
+        })()
+          
+          Templates["CustomJsFunctionVariable4f2a59b14cef485e9e1c15dcc8a04298"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#pudct')){data.producd_id=document.querySelector('li#pudct').innerHTML};if(document.querySelector('span#sa1.span.price-new')){const matches = document.querySelector('span#sa1.span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}
             };
         })()
           
@@ -7298,6 +7336,93 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "52ad3aeb-ef8d-4728-b901-051cd20c4e56",
+  "type": "Matomo",
+  "name": "add_wishlist Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecomm_testing",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/3cd8d4b5_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "add_wishlist",
+    "eventAction": "add_wishlist",
+    "eventName": "add_wishlist",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "add_wishlist Variable",
+          "Description": "Created Via Form Submit template",
+          "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('li#pudct')){data.producd_id=document.querySelector('li#pudct').innerHTML};if(document.querySelector('span#sa1.span.price-new')){const matches = document.querySelector('span#sa1.span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}",
+          "id": "4f2a59b1-4cef-485e-9e1c-15dcc8a04298",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "add_wishlist Variable",
+            "Description": "Created Via Form Submit template",
+            "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('li#pudct')){data.producd_id=document.querySelector('li#pudct').innerHTML};if(document.querySelector('span#sa1.span.price-new')){const matches = document.querySelector('span#sa1.span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariable4f2a59b14cef485e9e1c15dcc8a04298"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "add_wishlist Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "fd9c79e6-4210-4fe7-a548-5df8e51f84b4"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecomm_testing",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7373,12 +7498,37 @@
   ],
   "Name": "add_cart Trigger"
 },
+            {
+  "id": "fd9c79e6-4210-4fe7-a548-5df8e51f84b4",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click ID",
+        "name": "ClickId",
+        "type": "ClickId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "sandeep-whst"
+    }
+  ],
+  "Name": "add_wishlist Trigger"
+},
           ],
           variables: [
             
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable57fd1613371b4339a077041857055c66" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable942c0518cb7b4207a5db47682ca8e709" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#pudct')){data.producd_id=document.querySelector('li#pudct').innerHTML};if(document.querySelector('li#prd3')){const matches = document.querySelector('li#prd3').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariableadf1c83364dc4de0bfefc0165640a1f8" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#pudct')){data.producd_id=document.querySelector('li#pudct').innerHTML};if(document.querySelector('span#sa1.span.price-new')){const matches = document.querySelector('span#sa1.span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable4f2a59b14cef485e9e1c15dcc8a04298" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
