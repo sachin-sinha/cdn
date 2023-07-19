@@ -7613,7 +7613,7 @@
   "selectedTrigger": "Element Visibility",
   "parameters": {
     "selectionMethod": "elementId",
-    "elementId": "productform",
+    "elementId": "bdb-tracker-product_id",
     "fireTriggerWhen": "oncePage",
     "minPercentVisible": "50"
   },
