@@ -8,7 +8,7 @@
     .then(scriptText => {
       const script = document.createElement('script');
       script.type = 'text/javascript';
-      script.async = true;
+      // script.async = true;
       script.text = scriptText;
       s.parentNode.insertBefore(script, s);
     });
