@@ -6721,7 +6721,7 @@
   })();
           Templates["CustomJsFunctionVariable00b64f6bc5dd4b52b543bb04de072b9f"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['email']){if(formElement.elements['lastname']){if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};data.last_name=formElement.elements['lastname'].value;};data.email=formElement.elements['email'].value;};console.log({data});return JSON.stringify(data)}
+                this.get = function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['email']){if(formElement.elements['lastname']){if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};data.last_name=formElement.elements['lastname'].value;};data.email=formElement.elements['email'].value;};console.log(JSON.stringify(data));return JSON.stringify(data)}
             };
         })()
           
@@ -8384,7 +8384,7 @@
     "parameterName": "utm_medium"
   }
 }, Variable: "UrlParameterVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['email']){if(formElement.elements['lastname']){if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};data.last_name=formElement.elements['lastname'].value;};data.email=formElement.elements['email'].value;};console.log({data});return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable00b64f6bc5dd4b52b543bb04de072b9f" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['email']){if(formElement.elements['lastname']){if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};data.last_name=formElement.elements['lastname'].value;};data.email=formElement.elements['email'].value;};console.log(JSON.stringify(data));return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable00b64f6bc5dd4b52b543bb04de072b9f" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
