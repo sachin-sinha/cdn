@@ -6468,7 +6468,46 @@
         };
       })();
       //change location
-      
+      Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();
+          Templates["CustomJsFunctionVariable917bd0fa0ee048e3b4de3d5ba2599cf3"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6921,12 +6960,124 @@
           environment: "live",
           tags: [
             
+        {
+  "id": "11adba95-23c9-42f6-a26c-36e2035e634c",
+  "type": "Matomo",
+  "name": "login Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecommerce_BangDb_v1",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/44d2255b_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "login",
+    "eventAction": "login",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "login Variable",
+          "Description": "Created Via Form Submit template",
+          "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}",
+          "id": "917bd0fa-0ee0-48e3-b4de-3d5ba2599cf3",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "login Variable",
+            "Description": "Created Via Form Submit template",
+            "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariable917bd0fa0ee048e3b4de3d5ba2599cf3"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "login Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "5a51dc88-edfb-4c13-b9e9-9295eeb5820a"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecommerce_BangDb_v1",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
+            {
+  "id": "5a51dc88-edfb-4c13-b9e9-9295eeb5820a",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "form-login"
+    }
+  ],
+  "Name": "login Trigger"
+},
           ],
           variables: [
             
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable917bd0fa0ee048e3b4de3d5ba2599cf3" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
