@@ -6873,9 +6873,9 @@
             };
         })()
           
-          Templates["CustomJsFunctionVariable44007542bd824746be7497d82a6941a7"] = (function () {
+          Templates["CustomJsFunctionVariable46916a5439664b2c90fcb25e7bcb57a1"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8')){data.seller_id=document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}
+                this.get = function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}
             };
         })()
           
@@ -7593,7 +7593,7 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "64fcffce-5fd9-494e-84ce-dedd5e3f7ef5",
+  "id": "30b37c3a-a8c2-4379-a6aa-8f511487bf87",
   "type": "Matomo",
   "name": "add_cart Tag",
   "parameters": {
@@ -7649,17 +7649,17 @@
           "type": "CustomJsFunction",
           "Name": "add_cart Variable",
           "Description": "Created Via Form Submit template",
-          "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8')){data.seller_id=document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}",
-          "id": "44007542-bd82-4746-be74-97d82a6941a7",
+          "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}",
+          "id": "46916a54-3966-4b2c-90fc-b25e7bcb57a1",
           "parameters": {
             "selectedVariable": "Custom JavaScript",
             "name": "CustomJsFunction",
             "type": "CustomJsFunction",
             "Name": "add_cart Variable",
             "Description": "Created Via Form Submit template",
-            "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8')){data.seller_id=document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}"
+            "jsFunction": "function(){const data = {};const regex = /[-+]?[0-9]*\\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}"
           },
-          "Variable": "CustomJsFunctionVariable44007542bd824746be7497d82a6941a7"
+          "Variable": "CustomJsFunctionVariable46916a5439664b2c90fcb25e7bcb57a1"
         }
       ]
     },
@@ -7668,7 +7668,7 @@
   },
   "blockTriggerIds": [],
   "fireTriggerIds": [
-    "8ae7ef38-8ea5-400d-ae28-3ff0c8a59472"
+    "7b872fa9-883a-43b7-835b-10f7b4c9f353"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7746,7 +7746,7 @@
   "Name": "product_view Trigger"
 },
             {
-  "id": "8ae7ef38-8ea5-400d-ae28-3ff0c8a59472",
+  "id": "7b872fa9-883a-43b7-835b-10f7b4c9f353",
   "type": "AllElementsClick",
   "name": "AllElementsClick",
   "Trigger": "AllElementsClickTrigger",
@@ -7775,7 +7775,7 @@
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-login');if(formElement.elements['email']){data.userid=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable917bd0fa0ee048e3b4de3d5ba2599cf3" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['firstname']){data.first_name=formElement.elements['firstname'].value;};if(formElement.elements['lastname']){data.last_name=formElement.elements['lastname'].value;};if(formElement.elements['email']){data.email=formElement.elements['email'].value;};if(formElement.elements['password']){data.password=formElement.elements['password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable4d3cbea54f554bbcbb4fbd859081e2f3" },
           { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('img.img-fluid')){data.producd_id=document.querySelector('img.img-fluid').innerHTML};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable4c7bf70d73304614960b024f6333a939" },
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8')){data.seller_id=document.querySelector('li#bdb-tracker-https://ecomm.bangdb.com/index.php?route=product/manufacturer.info&language=en-gb&manufacturer_id=8').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable44007542bd824746be7497d82a6941a7" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {};const regex = /[-+]?[0-9]*\.?[0-9]+/g; if(document.querySelector('li#bdb-tracker-product_id')){data.producd_id=document.querySelector('li#bdb-tracker-product_id').innerHTML};if(document.querySelector('li#bdb-tracker-stock')){const matches = document.querySelector('li#bdb-tracker-stock').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.stock=isNaN(number) ? '' : number};};if(document.querySelector('span.price-new')){const matches = document.querySelector('span.price-new').innerHTML.match(regex);if(matches && matches.length > 0) {const number = parseFloat(matches[0]); data.price_per_unit=isNaN(number) ? '' : number};};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariable46916a5439664b2c90fcb25e7bcb57a1" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
