@@ -8266,7 +8266,7 @@
                 bundleTracker: true,
                 registerAsDefaultTracker: true,
                 jsEndpoint: "matomo.js",
-                trackingEndpoint: "stream/ShopIQ/Data",
+                trackingEndpoint: "stream/FORM_DATA_TEST/Data",
               },
               Variable: "MatomoConfigurationVariable",
             },
