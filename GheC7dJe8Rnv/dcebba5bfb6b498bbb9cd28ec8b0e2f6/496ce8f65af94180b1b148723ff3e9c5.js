@@ -6666,6 +6666,48 @@
       });
     };
   };
+})();Templates["AllLinksClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        function isClickNode(nodeName) {
+          return nodeName === "A" || nodeName === "AREA";
+        }
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+        function clickCallback(event, triggerEvent, clickButton) {
+          if (!event.target) {
+            return;
+          }
+          var target = event.target;
+          if (target.shadowRoot) {
+            var composedPath = event.composedPath();
+            if (composedPath.length) {
+              target = composedPath[0];
+            }
+          }
+          var nodeName = target.nodeName;
+          while (!isClickNode(nodeName) && target && target.parentNode) {
+            target = target.parentNode;
+            nodeName = target.nodeName;
+          }
+          if (target && isClickNode(nodeName)) {
+            triggerEvent({
+              event: "mtm.AllLinksClick",
+              "mtm.clickElement": target,
+              "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+              "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+              "mtm.clickText": TagManager.dom.getElementText(target),
+              "mtm.clickNodeName": nodeName,
+              "mtm.clickElementUrl": TagManager.dom.getElementAttribute(target, "href"),
+              "mtm.clickButton": clickButton,
+            });
+          }
+        }
+      });
+    };
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7612,6 +7654,85 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "a506b4cf-06a4-434c-b576-d44ab4198f17",
+  "type": "Matomo",
+  "name": "Link_Clicked",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecom-Bangdb",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/cf3faa1f_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Link_Clicked",
+    "eventAction": "Link_Clicked",
+    "eventName": "Link_Clicked",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Link_Clicked",
+    "Description": "trigger when any link is clicked"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "477a56f4-81f7-48f6-a638-ff4ce8a26504"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecom-Bangdb",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7713,6 +7834,17 @@
   "conditions": [],
   "Name": "Scroll_25",
   "Description": "page scrolled more than 25 "
+},
+            {
+  "id": "477a56f4-81f7-48f6-a638-ff4ce8a26504",
+  "type": "AllLinksClick",
+  "name": "AllLinksClick",
+  "Trigger": "AllLinksClickTrigger",
+  "selectedTrigger": "All Links Click",
+  "parameters": {},
+  "conditions": [],
+  "Name": "Link_Clicked",
+  "Description": "When any linked is clicked"
 },
           ],
           variables: [
