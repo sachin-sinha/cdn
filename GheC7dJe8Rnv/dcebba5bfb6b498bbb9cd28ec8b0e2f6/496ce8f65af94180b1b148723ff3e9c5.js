@@ -7977,7 +7977,21 @@
   "Trigger": "AllElementsClickTrigger",
   "selectedTrigger": "All Elements Click",
   "parameters": {},
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Text",
+        "name": "ClickText",
+        "type": "ClickText",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickTextVariable"
+      },
+      "comparison": "contains",
+      "expected": "Click here"
+    }
+  ],
   "Name": "AEC"
 },
           ],
