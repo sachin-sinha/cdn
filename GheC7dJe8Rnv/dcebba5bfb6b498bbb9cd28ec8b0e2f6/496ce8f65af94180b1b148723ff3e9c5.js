@@ -7842,7 +7842,21 @@
   "Trigger": "AllLinksClickTrigger",
   "selectedTrigger": "All Links Click",
   "parameters": {},
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Element",
+        "name": "ClickElement",
+        "type": "ClickElement",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickElementVariable"
+      },
+      "comparison": "equals",
+      "expected": "a"
+    }
+  ],
   "Name": "Link_Clicked",
   "Description": "When any linked is clicked"
 },
