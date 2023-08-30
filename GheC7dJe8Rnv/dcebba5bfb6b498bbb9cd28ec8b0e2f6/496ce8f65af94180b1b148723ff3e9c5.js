@@ -7529,85 +7529,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "b3cc8dca-5254-43c9-b955-c860a5c34d4f",
-  "type": "Matomo",
-  "name": "scroll_tag",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecom-Bangdb",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/cf3faa1f_Ecommerce/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "Scroll",
-    "eventAction": "Scroll",
-    "eventName": "Scroll",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Page URL",
-          "name": "PageUrl",
-          "type": "PageUrl",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "PageUrlVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "scroll_tag",
-    "Description": "Page scroll more than 25"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "65c552a9-9802-4b55-ba00-2300f055804a"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecom-Bangdb",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "a506b4cf-06a4-434c-b576-d44ab4198f17",
   "type": "Matomo",
   "name": "Link_Clicked",
@@ -7754,6 +7675,90 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "0b25e357-a2fb-495b-b0a0-7a759db35a0f"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecom-Bangdb",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "b3cc8dca-5254-43c9-b955-c860a5c34d4f",
+  "type": "Matomo",
+  "name": "scroll_tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecom-Bangdb",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/cf3faa1f_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Scroll",
+    "eventAction": "Scroll",
+    "eventName": "Scroll",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Scroll Horizontal Percentage",
+          "name": "ScrollHorizontalPercentage",
+          "type": "ScrollHorizontalPercentage",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ScrollHorizontalPercentageVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "scroll_tag",
+    "Description": "Page scroll more than 25",
+    "id": "b3cc8dca-5254-43c9-b955-c860a5c34d4f",
+    "fireTriggerIds": [
+      "65c552a9-9802-4b55-ba00-2300f055804a"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "65c552a9-9802-4b55-ba00-2300f055804a"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
