@@ -7608,84 +7608,6 @@
   "blockedTriggerIds": []
 },
         {
-  "id": "2ff76007-2aa6-4901-9710-a1b32d57652f",
-  "type": "Matomo",
-  "name": "AECTag",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://testbe.bangdb.com:18080",
-        "idSite": "Ecom-Bangdb",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/cf3faa1f_Ecommerce/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "AEC",
-    "eventAction": "AEC",
-    "eventName": "AEC",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Click Element",
-          "name": "ClickElement",
-          "type": "ClickElement",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "ClickElementVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "AECTag"
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "0b25e357-a2fb-495b-b0a0-7a759db35a0f"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "Ecom-Bangdb",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
-        {
   "id": "b3cc8dca-5254-43c9-b955-c860a5c34d4f",
   "type": "Matomo",
   "name": "scroll_tag",
@@ -7768,6 +7690,89 @@
   "blockTriggerIds": [],
   "fireTriggerIds": [
     "65c552a9-9802-4b55-ba00-2300f055804a"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Ecom-Bangdb",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "2ff76007-2aa6-4901-9710-a1b32d57652f",
+  "type": "Matomo",
+  "name": "AECTag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "Ecom-Bangdb",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/cf3faa1f_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Link_click",
+    "eventAction": "Link_click",
+    "eventName": "Link_click",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Destination URL",
+          "name": "ClickDestinationUrl",
+          "type": "ClickDestinationUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickDestinationUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "AECTag",
+    "id": "2ff76007-2aa6-4901-9710-a1b32d57652f",
+    "fireTriggerIds": [
+      "0b25e357-a2fb-495b-b0a0-7a759db35a0f"
+    ],
+    "blockedTriggerIds": []
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "0b25e357-a2fb-495b-b0a0-7a759db35a0f"
   ],
   "fireLimit": "unlimited",
   "fireDelay": 0,
@@ -7912,7 +7917,21 @@
   "Trigger": "AllElementsClickTrigger",
   "selectedTrigger": "All Elements Click",
   "parameters": {},
-  "conditions": [],
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Destination URL",
+        "name": "ClickDestinationUrl",
+        "type": "ClickDestinationUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickDestinationUrlVariable"
+      },
+      "comparison": "contains",
+      "expected": "https://"
+    }
+  ],
   "Name": "AEC"
 },
           ],
