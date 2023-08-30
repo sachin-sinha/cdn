@@ -7744,6 +7744,15 @@
           "defaultValue": null,
           "parameters": [],
           "Variable": "ScrollHorizontalPercentageVariable"
+        },
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
         }
       ]
     },
