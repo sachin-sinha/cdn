@@ -3,9 +3,13 @@
   var d = document,
   s = d.getElementsByTagName('script')[0];
   containerList.forEach(container => {
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-    script.src = `https://cdn.jsdelivr.net/gh/sachin-sinha/cdn@master/GheC7dJe8Rnv/3aa1f5a40ca84ae295001b914c8a9362/${container}.js`;
-    s.parentNode.insertBefore(script, s);
+    fetch(`https://raw.githubusercontent.com/sachin-sinha/cdn/master/GheC7dJe8Rnv/3aa1f5a40ca84ae295001b914c8a9362/${container}.js`)
+    .then(response => response.text())
+    .then(scriptText => {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.text = scriptText;
+      s.parentNode.insertBefore(script, s);
+    });
   })
