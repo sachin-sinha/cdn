@@ -6468,7 +6468,46 @@
         };
       })();
       //change location
-      
+      Templates["FormSubmitTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.addEventListener(
+          parameters.document.body,
+          "submit",
+          function (event) {
+            if (!event.target) {
+              return;
+            }
+            var target = event.target;
+            if (target.nodeName === "FORM") {
+              var dom = TagManager.dom;
+              var formAction = dom.getElementAttribute(target, "action");
+              if (!formAction) {
+                formAction = parameters.window.location.href;
+              }
+              triggerEvent({
+                event: "mtm.FormSubmit",
+                "mtm.formElement": target,
+                "mtm.formElementId": dom.getElementAttribute(target, "id"),
+                "mtm.formElementName": dom.getElementAttribute(target, "name"),
+                "mtm.formElementClasses": dom.getElementClassNames(target),
+                "mtm.formElementAction": formAction,
+              });
+            }
+          },
+          true
+        );
+      });
+    };
+  };
+})();
+          Templates["CustomJsFunctionVariableda2c78c118be4610a9db0d7034130617"] = (function () {
+            return function (parameters, TagManager) {
+                this.get = function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['input-firstname']){data.first_name=formElement.elements['input-firstname'].value;};if(formElement.elements['input-lastname']){data.last_name=formElement.elements['input-lastname'].value;};if(formElement.elements['input-email']){data.email=formElement.elements['input-email'].value;};if(formElement.elements['input-password']){data.password=formElement.elements['input-password'].value;};return JSON.stringify(data)}
+            };
+        })()
+          
       
       Templates["ClickClassesVariable"] = (function () {
     return function (parameters, TagManager) {
@@ -6921,12 +6960,124 @@
           environment: "live",
           tags: [
             
+        {
+  "id": "c0d715f9-e470-4126-ab4a-e78169e62699",
+  "type": "Matomo",
+  "name": "registration Tag",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://testbe.bangdb.com:18080",
+        "idSite": "deletethis",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/cf3faa1f_Ecommerce/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "registration",
+    "eventAction": "registration",
+    "eventName": "sync",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "selectedVariable": "Custom JavaScript",
+          "name": "CustomJsFunction",
+          "type": "CustomJsFunction",
+          "Name": "registration Variable",
+          "Description": "Created Via Form Submit template",
+          "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['input-firstname']){data.first_name=formElement.elements['input-firstname'].value;};if(formElement.elements['input-lastname']){data.last_name=formElement.elements['input-lastname'].value;};if(formElement.elements['input-email']){data.email=formElement.elements['input-email'].value;};if(formElement.elements['input-password']){data.password=formElement.elements['input-password'].value;};return JSON.stringify(data)}",
+          "id": "da2c78c1-18be-4610-a9db-0d7034130617",
+          "parameters": {
+            "selectedVariable": "Custom JavaScript",
+            "name": "CustomJsFunction",
+            "type": "CustomJsFunction",
+            "Name": "registration Variable",
+            "Description": "Created Via Form Submit template",
+            "jsFunction": "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['input-firstname']){data.first_name=formElement.elements['input-firstname'].value;};if(formElement.elements['input-lastname']){data.last_name=formElement.elements['input-lastname'].value;};if(formElement.elements['input-email']){data.email=formElement.elements['input-email'].value;};if(formElement.elements['input-password']){data.password=formElement.elements['input-password'].value;};return JSON.stringify(data)}"
+          },
+          "Variable": "CustomJsFunctionVariableda2c78c118be4610a9db0d7034130617"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "registration Tag"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "5034322c-e5d3-4b3d-a93e-2277365bd3bc"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "deletethis",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
+            {
+  "id": "5034322c-e5d3-4b3d-a93e-2277365bd3bc",
+  "type": "FormSubmit",
+  "name": "FormSubmit",
+  "Trigger": "FormSubmitTrigger",
+  "selectedTrigger": "Form Submit",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Form ID",
+        "name": "FormId",
+        "type": "FormId",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "FormIdVariable"
+      },
+      "comparison": "equals",
+      "expected": "form-register"
+    }
+  ],
+  "Name": "registration Trigger"
+},
           ],
           variables: [
             
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function(){const data = {}; const formElement = document.querySelector('form#form-register');if(formElement.elements['input-firstname']){data.first_name=formElement.elements['input-firstname'].value;};if(formElement.elements['input-lastname']){data.last_name=formElement.elements['input-lastname'].value;};if(formElement.elements['input-email']){data.email=formElement.elements['input-email'].value;};if(formElement.elements['input-password']){data.password=formElement.elements['input-password'].value;};return JSON.stringify(data)}" }, Variable: "CustomJsFunctionVariableda2c78c118be4610a9db0d7034130617" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
