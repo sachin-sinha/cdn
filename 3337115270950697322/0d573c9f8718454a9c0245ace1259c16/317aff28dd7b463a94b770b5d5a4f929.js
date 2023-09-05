@@ -6699,6 +6699,103 @@
       });
     };
   };
+})();Templates["ScrollReachTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var self = this;
+    var numTriggers = 0;
+    this.setUp = function (triggerEvent) {
+      var scrollType = parameters.get("scrollType");
+      var pixels = parameters.get("pixels", 1000);
+      var percentage = parameters.get("percentage", 50);
+      if (!scrollType) {
+        return;
+      }
+      this.scrollIndex = TagManager.window.onScroll(function (event) {
+        var hasReachedScrollPosition = false;
+        var dom = TagManager.dom;
+        var lastScrollTop = parseInt(dom.getScrollTop(), 10) + TagManager.window.getViewportHeight();
+        var lastScrollLeft = parseInt(dom.getScrollLeft(), 10) + TagManager.window.getViewportWidth();
+        var docHeight = dom.getDocumentHeight();
+        var docWidth = dom.getDocumentWidth();
+        var scrollPercentageVertical = (lastScrollTop / docHeight) * 100;
+        var scrollPercentageHorizontal = (lastScrollLeft / docWidth) * 100;
+        var eventType = event && event.type ? event.type : "";
+        switch (scrollType) {
+          case "verticalpixel":
+            if (lastScrollTop > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpixel":
+            if (lastScrollLeft > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "verticalpercentage":
+            if (scrollPercentageVertical >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpercentage":
+            if (scrollPercentageHorizontal >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+        }
+        if (hasReachedScrollPosition) {
+          if (!numTriggers) {
+            numTriggers++;
+            triggerEvent({
+              event: "mtm.ScrollReach",
+              "mtm.scrollSource": eventType,
+              "mtm.scrollLeftPx": lastScrollLeft,
+              "mtm.scrollTopPx": lastScrollTop,
+              "mtm.scrollVerticalPercentage": Math.round(scrollPercentageVertical * 100) / 100,
+              "mtm.scrollHorizontalPercentage": Math.round(scrollPercentageHorizontal * 100) / 100,
+              "mtm.scrollDocumentHeightPx": docHeight,
+              "mtm.scrollDocumentWidthPx": docWidth,
+            });
+          }
+          if (self.scrollIndex !== null) {
+            TagManager.window.offScroll(self.scrollIndex);
+            self.scrollIndex = null;
+          }
+        }
+      });
+    };
+  };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["ReferrerUrlVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -7839,6 +7936,162 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "ceb61dd2-286e-43a0-915b-814ac885a3f8",
+  "type": "Matomo",
+  "name": "Scroll25",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Swap_motor",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Swap_motor/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Srolled",
+    "eventAction": "Srolled",
+    "eventName": "Srolled",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Scroll25"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "aa5f89af-6a8b-486a-aad5-6660e16fd503"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Swap_motor",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "15f9a375-cfd5-40f9-b277-ad6e473b56f3",
+  "type": "Matomo",
+  "name": "All Link Clicked",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "Swap_motor",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Swap_motor/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Link_clicked",
+    "eventAction": "Link_clicked",
+    "eventName": "Link_clicked",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Destination URL",
+          "name": "ClickDestinationUrl",
+          "type": "ClickDestinationUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickDestinationUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "All Link Clicked"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "d02596ca-bd47-40b0-9939-34df0c836633"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "Swap_motor",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -7972,6 +8225,43 @@
     }
   ],
   "Name": "Quote Form Submit"
+},
+            {
+  "id": "aa5f89af-6a8b-486a-aad5-6660e16fd503",
+  "type": "ScrollReach",
+  "name": "ScrollReach",
+  "Trigger": "ScrollReachTrigger",
+  "selectedTrigger": "Scroll Reach",
+  "parameters": {
+    "scrollType": "horizontalpercentage",
+    "percentage": "25"
+  },
+  "conditions": [],
+  "Name": "Scroll25"
+},
+            {
+  "id": "d02596ca-bd47-40b0-9939-34df0c836633",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Destination URL",
+        "name": "ClickDestinationUrl",
+        "type": "ClickDestinationUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickDestinationUrlVariable"
+      },
+      "comparison": "contains",
+      "expected": "https://"
+    }
+  ],
+  "Name": "All Links Clicked"
 },
           ],
           variables: [
