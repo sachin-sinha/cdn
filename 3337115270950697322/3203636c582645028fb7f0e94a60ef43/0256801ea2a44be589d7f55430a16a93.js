@@ -6763,6 +6763,103 @@
       });
     }
   };
+})();Templates["ScrollReachTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    var self = this;
+    var numTriggers = 0;
+    this.setUp = function (triggerEvent) {
+      var scrollType = parameters.get("scrollType");
+      var pixels = parameters.get("pixels", 1000);
+      var percentage = parameters.get("percentage", 50);
+      if (!scrollType) {
+        return;
+      }
+      this.scrollIndex = TagManager.window.onScroll(function (event) {
+        var hasReachedScrollPosition = false;
+        var dom = TagManager.dom;
+        var lastScrollTop = parseInt(dom.getScrollTop(), 10) + TagManager.window.getViewportHeight();
+        var lastScrollLeft = parseInt(dom.getScrollLeft(), 10) + TagManager.window.getViewportWidth();
+        var docHeight = dom.getDocumentHeight();
+        var docWidth = dom.getDocumentWidth();
+        var scrollPercentageVertical = (lastScrollTop / docHeight) * 100;
+        var scrollPercentageHorizontal = (lastScrollLeft / docWidth) * 100;
+        var eventType = event && event.type ? event.type : "";
+        switch (scrollType) {
+          case "verticalpixel":
+            if (lastScrollTop > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpixel":
+            if (lastScrollLeft > pixels) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "verticalpercentage":
+            if (scrollPercentageVertical >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+          case "horizontalpercentage":
+            if (scrollPercentageHorizontal >= percentage) {
+              hasReachedScrollPosition = true;
+            }
+            break;
+        }
+        if (hasReachedScrollPosition) {
+          if (!numTriggers) {
+            numTriggers++;
+            triggerEvent({
+              event: "mtm.ScrollReach",
+              "mtm.scrollSource": eventType,
+              "mtm.scrollLeftPx": lastScrollLeft,
+              "mtm.scrollTopPx": lastScrollTop,
+              "mtm.scrollVerticalPercentage": Math.round(scrollPercentageVertical * 100) / 100,
+              "mtm.scrollHorizontalPercentage": Math.round(scrollPercentageHorizontal * 100) / 100,
+              "mtm.scrollDocumentHeightPx": docHeight,
+              "mtm.scrollDocumentWidthPx": docWidth,
+            });
+          }
+          if (self.scrollIndex !== null) {
+            TagManager.window.offScroll(self.scrollIndex);
+            self.scrollIndex = null;
+          }
+        }
+      });
+    };
+  };
+})();Templates["AllElementsClickTrigger"] = (function () {
+  return function (parameters, TagManager) {
+    this.setUp = function (triggerEvent) {
+      TagManager.dom.onReady(function () {
+        TagManager.dom.onClick(function (event, clickButton) {
+          clickCallback(event, triggerEvent, clickButton);
+        });
+      });
+    };
+    function clickCallback(event, triggerEvent, clickButton) {
+      if (!event.target) {
+        return;
+      }
+      var target = event.target;
+      if (target.shadowRoot) {
+        var composedPath = event.composedPath();
+        if (composedPath.length) {
+          target = composedPath[0];
+        }
+      }
+      triggerEvent({
+        event: "mtm.AllElementsClick",
+        "mtm.clickElement": target,
+        "mtm.clickElementId": TagManager.dom.getElementAttribute(target, "id"),
+        "mtm.clickElementClasses": TagManager.dom.getElementClassNames(target),
+        "mtm.clickText": TagManager.dom.getElementText(target),
+        "mtm.clickNodeName": target.nodeName,
+        "mtm.clickElementUrl": target.href || TagManager.dom.getElementAttribute(target, "href"),
+        "mtm.clickButton": clickButton,
+      });
+    }
+  };
 })();Templates["DataLayerVariable"] = (function () {
     return function (parameters, TagManager) {
       this.get = function () {
@@ -8172,6 +8269,162 @@
   "Type": "BangDB Analytics",
   "blockedTriggerIds": []
 },
+        {
+  "id": "7a406715-4de1-411c-b91a-ec6bcd6e8ee0",
+  "type": "Matomo",
+  "name": "Scroll25",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-miles",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_miles/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Srolled",
+    "eventAction": "Srolled",
+    "eventName": "Srolled",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Page URL",
+          "name": "PageUrl",
+          "type": "PageUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "PageUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "Scroll25"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "3883e024-2eed-419c-a37a-fbf6e5be0ba8"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-miles",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
+        {
+  "id": "2d95e7f6-f0b5-4a85-a718-6a9a92b1026c",
+  "type": "Matomo",
+  "name": "All Links Clicked",
+  "parameters": {
+    "matomoConfig": {
+      "name": "Matomo Configuration",
+      "type": "MatomoConfiguration",
+      "lookUpTable": [],
+      "defaultValue": "",
+      "parameters": {
+        "matomoUrl": "https://javeed.bangdb.com:18080",
+        "idSite": "autoparts-miles",
+        "enableLinkTracking": true,
+        "enableCrossDomainLinking": true,
+        "enableDoNotTrack": false,
+        "enableJSErrorTracking": true,
+        "enableHeartBeatTimer": true,
+        "trackAllContentImpressions": true,
+        "trackVisibleContentImpressions": true,
+        "disableCookies": false,
+        "requireConsent": false,
+        "requireCookieConsent": false,
+        "customCookieTimeOutEnable": false,
+        "customCookieTimeOut": 393,
+        "setSecureCookie": true,
+        "cookieDomain": "",
+        "cookiePath": "",
+        "cookieSameSite": "Lax",
+        "disableBrowserFeatureDetection": false,
+        "domains": [],
+        "alwaysUseSendBeacon": false,
+        "userId": "",
+        "customDimensions": [],
+        "bundleTracker": true,
+        "registerAsDefaultTracker": true,
+        "jsEndpoint": "matomo.js",
+        "trackingEndpoint": "stream/Autoparts_miles/Data"
+      },
+      "Variable": "MatomoConfigurationVariable"
+    },
+    "trackingType": "event",
+    "idGoal": "",
+    "goalCustomRevenue": "",
+    "documentTitle": "",
+    "customUrl": "",
+    "eventCategory": "Link_clicked",
+    "eventAction": "Link_clicked",
+    "eventName": "Link_clicked",
+    "eventValue": {
+      "joinedVariable": [
+        {
+          "Name": "Click Destination URL",
+          "name": "ClickDestinationUrl",
+          "type": "ClickDestinationUrl",
+          "lookUpTable": [],
+          "defaultValue": null,
+          "parameters": [],
+          "Variable": "ClickDestinationUrlVariable"
+        }
+      ]
+    },
+    "selectedTag": "BangDB Analytics",
+    "Name": "All Links Clicked"
+  },
+  "blockTriggerIds": [],
+  "fireTriggerIds": [
+    "02136761-c302-4832-a374-12c9a9158148"
+  ],
+  "fireLimit": "unlimited",
+  "fireDelay": 0,
+  "startDate": null,
+  "endDate": null,
+  "Tag": "MatomoTag",
+  "idSite": "autoparts-miles",
+  "Type": "BangDB Analytics",
+  "blockedTriggerIds": []
+},
           ],
           triggers: [
             
@@ -8341,6 +8594,43 @@
   ],
   "Name": "Call Button",
   "Description": "Sends data, when call button is clicked on the website."
+},
+            {
+  "id": "3883e024-2eed-419c-a37a-fbf6e5be0ba8",
+  "type": "ScrollReach",
+  "name": "ScrollReach",
+  "Trigger": "ScrollReachTrigger",
+  "selectedTrigger": "Scroll Reach",
+  "parameters": {
+    "scrollType": "horizontalpercentage",
+    "percentage": "25"
+  },
+  "conditions": [],
+  "Name": "Scroll25"
+},
+            {
+  "id": "02136761-c302-4832-a374-12c9a9158148",
+  "type": "AllElementsClick",
+  "name": "AllElementsClick",
+  "Trigger": "AllElementsClickTrigger",
+  "selectedTrigger": "All Elements Click",
+  "parameters": {},
+  "conditions": [
+    {
+      "actual": {
+        "Name": "Click Destination URL",
+        "name": "ClickDestinationUrl",
+        "type": "ClickDestinationUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickDestinationUrlVariable"
+      },
+      "comparison": "contains",
+      "expected": "https://"
+    }
+  ],
+  "Name": "All Links Clicked"
 },
           ],
           variables: [
