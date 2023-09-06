@@ -8678,6 +8678,19 @@
       },
       "comparison": "contains",
       "expected": "https://"
+    },
+    {
+      "actual": {
+        "Name": "Click Destination URL",
+        "name": "ClickDestinationUrl",
+        "type": "ClickDestinationUrl",
+        "lookUpTable": [],
+        "defaultValue": null,
+        "parameters": [],
+        "Variable": "ClickDestinationUrlVariable"
+      },
+      "comparison": "contains",
+      "expected": "#"
     }
   ],
   "Name": "All Link Clicks",
