@@ -6935,7 +6935,7 @@
   })();
           Templates["CustomJsFunctionVariable75876ea95a654a24824c3c6275f96cfd"] = (function () {
             return function (parameters, TagManager) {
-                this.get = function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['Name'].value;fd.email=fe.elements['Email'].value;fd.txt_phon=fe.elements['Phone'].value;return JSON.stringify(fd);}
+                this.get = function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['name'].value;fd.email=fe.elements['email'].value;fd.txt_phon=fe.elements['number'].value;return JSON.stringify(fd);}
             };
         })()
           
@@ -7391,85 +7391,6 @@
           environment: "live",
           tags: [
             
-        {
-  "id": "5a61c83b-3bc4-46ff-a3e3-f067a1d633a7",
-  "type": "Matomo",
-  "name": "FormSubmit",
-  "parameters": {
-    "matomoConfig": {
-      "name": "Matomo Configuration",
-      "type": "MatomoConfiguration",
-      "lookUpTable": [],
-      "defaultValue": "",
-      "parameters": {
-        "matomoUrl": "https://javeed.bangdb.com:18080",
-        "idSite": "used-engines-drivetrain.us",
-        "enableLinkTracking": true,
-        "enableCrossDomainLinking": true,
-        "enableDoNotTrack": false,
-        "enableJSErrorTracking": true,
-        "enableHeartBeatTimer": true,
-        "trackAllContentImpressions": true,
-        "trackVisibleContentImpressions": true,
-        "disableCookies": false,
-        "requireConsent": false,
-        "requireCookieConsent": false,
-        "customCookieTimeOutEnable": false,
-        "customCookieTimeOut": 393,
-        "setSecureCookie": true,
-        "cookieDomain": "",
-        "cookiePath": "",
-        "cookieSameSite": "Lax",
-        "disableBrowserFeatureDetection": false,
-        "domains": [],
-        "alwaysUseSendBeacon": false,
-        "userId": "",
-        "customDimensions": [],
-        "bundleTracker": true,
-        "registerAsDefaultTracker": true,
-        "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
-      },
-      "Variable": "MatomoConfigurationVariable"
-    },
-    "trackingType": "event",
-    "idGoal": "",
-    "goalCustomRevenue": "",
-    "documentTitle": "",
-    "customUrl": "",
-    "eventCategory": "FormSubmit",
-    "eventAction": "FormSubmit",
-    "eventName": "FormSubmit",
-    "eventValue": {
-      "joinedVariable": [
-        {
-          "Name": "Form Name",
-          "name": "FormName",
-          "type": "FormName",
-          "lookUpTable": [],
-          "defaultValue": null,
-          "parameters": [],
-          "Variable": "FormNameVariable"
-        }
-      ]
-    },
-    "selectedTag": "BangDB Analytics",
-    "Name": "FormSubmit",
-    "Description": "This tag returns name of the form, when a form is submitted."
-  },
-  "blockTriggerIds": [],
-  "fireTriggerIds": [
-    "4bf26ce8-8cfb-4793-8add-36c4eecd40b8"
-  ],
-  "fireLimit": "unlimited",
-  "fireDelay": 0,
-  "startDate": null,
-  "endDate": null,
-  "Tag": "MatomoTag",
-  "idSite": "used-engines-drivetrain.us",
-  "Type": "BangDB Analytics",
-  "blockedTriggerIds": []
-},
         {
   "id": "a3055fab-12c8-4523-ba1f-493730842fcb",
   "type": "Matomo",
@@ -8576,7 +8497,7 @@
     "dataLayerName": "ip"
   }
 }, Variable: "DataLayerVariable"},
-          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['Name'].value;fd.email=fe.elements['Email'].value;fd.txt_phon=fe.elements['Phone'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable75876ea95a654a24824c3c6275f96cfd" },
+          { name: "CustomJsFunction", type: "CustomJsFunction", lookUpTable: [], defaultValue: "", parameters: { jsFunction: "function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['name'].value;fd.email=fe.elements['email'].value;fd.txt_phon=fe.elements['number'].value;return JSON.stringify(fd);}" }, Variable: "CustomJsFunctionVariable75876ea95a654a24824c3c6275f96cfd" },
             {
               name: "MatomoConfiguration",
               type: "MatomoConfiguration",
