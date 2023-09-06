@@ -8676,21 +8676,8 @@
         "parameters": [],
         "Variable": "ClickDestinationUrlVariable"
       },
-      "comparison": "contains",
-      "expected": "https://"
-    },
-    {
-      "actual": {
-        "Name": "Click Destination URL",
-        "name": "ClickDestinationUrl",
-        "type": "ClickDestinationUrl",
-        "lookUpTable": [],
-        "defaultValue": null,
-        "parameters": [],
-        "Variable": "ClickDestinationUrlVariable"
-      },
-      "comparison": "contains",
-      "expected": "#"
+      "comparison": "regexp",
+      "expected": "https:\\/\\/|#"
     }
   ],
   "Name": "All Link Clicks",
