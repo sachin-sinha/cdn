@@ -8904,8 +8904,8 @@
         "parameters": [],
         "Variable": "ClickDestinationUrlVariable"
       },
-      "comparison": "contains",
-      "expected": "https://"
+      "comparison": "regexp",
+      "expected": "https:\\/\\/|#"
     }
   ],
   "Name": "All Links Clicked"
