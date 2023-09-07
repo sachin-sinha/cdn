@@ -8194,30 +8194,6 @@
             "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['Name'].value;fd.email=fe.elements['Email'].value;fd.txt_phon=fe.elements['Phone'].value;return JSON.stringify(fd);}"
           },
           "Variable": "CustomJsFunctionVariable75876ea95a654a24824c3c6275f96cfd"
-        },
-        {
-          "selectedVariable": "Custom JavaScript",
-          "name": "CustomJsFunction",
-          "type": "CustomJsFunction",
-          "Name": "Quote Form Data",
-          "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['name'].value;fd.email=fe.elements['email'].value;fd.txt_phon=fe.elements['number'].value;return JSON.stringify(fd);}",
-          "id": "75876ea9-5a65-4a24-824c-3c6275f96cfd",
-          "parameters": {
-            "selectedVariable": "Custom JavaScript",
-            "name": "CustomJsFunction",
-            "type": "CustomJsFunction",
-            "Name": "Quote Form Data",
-            "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['name'].value;fd.email=fe.elements['email'].value;fd.txt_phon=fe.elements['number'].value;return JSON.stringify(fd);}",
-            "id": "75876ea9-5a65-4a24-824c-3c6275f96cfd",
-            "parameters": {
-              "selectedVariable": "Custom JavaScript",
-              "name": "CustomJsFunction",
-              "type": "CustomJsFunction",
-              "Name": "Quote Form Data",
-              "jsFunction": "function() {var fd={};var fe=document.querySelector('form#quote-form');fd.sel_year=fe.elements['Year'].value;fd.sel_make=fe.elements['Make'].value;fd.sel_mode=fe.elements['Model'].value;fd.sel_part=fe.elements['Part'].value;fd.sel_size=fe.elements['Size'].value;fd.txt_name=fe.elements['Name'].value;fd.email=fe.elements['Email'].value;fd.txt_phon=fe.elements['Phone'].value;return JSON.stringify(fd);}"
-            }
-          },
-          "Variable": "CustomJsFunctionVariable75876ea95a654a24824c3c6275f96cfd"
         }
       ]
     },
