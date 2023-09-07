@@ -7747,7 +7747,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_motors_for_sale/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -7756,9 +7756,9 @@
     "goalCustomRevenue": "",
     "documentTitle": "",
     "customUrl": "",
-    "eventCategory": "FormSubmit",
-    "eventAction": "FormSubmit",
-    "eventName": "FormSubmit",
+    "eventCategory": "quoteForm",
+    "eventAction": "quoteForm",
+    "eventName": "sync",
     "eventValue": {
       "joinedVariable": [
         {
@@ -7832,7 +7832,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_motors_for_sale/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -7910,7 +7910,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_motors_for_sale/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -7998,7 +7998,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_motors_for_sale/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -8076,7 +8076,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_motors_for_sale/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -8420,7 +8420,7 @@
                 bundleTracker: true,
                 registerAsDefaultTracker: true,
                 jsEndpoint: "matomo.js",
-                trackingEndpoint: "stream/ShopIQ/Data",
+                trackingEndpoint: "stream/used_motors_for_sale/Data",
               },
               Variable: "MatomoConfigurationVariable",
             },
