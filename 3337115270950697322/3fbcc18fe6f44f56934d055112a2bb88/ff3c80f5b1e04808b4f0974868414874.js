@@ -7752,7 +7752,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -7836,7 +7836,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -7920,7 +7920,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -8009,7 +8009,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -8087,7 +8087,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -8165,7 +8165,7 @@
         "bundleTracker": true,
         "registerAsDefaultTracker": true,
         "jsEndpoint": "matomo.js",
-        "trackingEndpoint": "stream/s/Data"
+        "trackingEndpoint": "stream/used_engines_drivetrain/Data"
       },
       "Variable": "MatomoConfigurationVariable"
     },
@@ -8559,7 +8559,7 @@
                 bundleTracker: true,
                 registerAsDefaultTracker: true,
                 jsEndpoint: "matomo.js",
-                trackingEndpoint: "stream/ShopIQ/Data",
+                trackingEndpoint: "stream/used_engines_drivetrain/Data",
               },
               Variable: "MatomoConfigurationVariable",
             },
