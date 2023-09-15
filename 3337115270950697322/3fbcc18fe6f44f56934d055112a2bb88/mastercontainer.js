@@ -3,7 +3,7 @@
   var d = document,
   s = d.getElementsByTagName('script')[0];
   containerList.forEach(container => {
-    fetch(`https://raw.githubusercontent.com/sachin-sinha/cdn/master/KpG4GoZiM6Py/3fbcc18fe6f44f56934d055112a2bb88/${container}.js`)
+    fetch(`https://raw.githubusercontent.com/sachin-sinha/cdn/master/3337115270950697322/3fbcc18fe6f44f56934d055112a2bb88/${container}.js`)
     .then(response => response.text())
     .then(scriptText => {
       const script = document.createElement('script');
