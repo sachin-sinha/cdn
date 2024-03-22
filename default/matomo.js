@@ -2952,7 +2952,7 @@ if (typeof window.Matomo !== 'object') {
           }
 
           const dataSenda = queryStringToJSON(request);
-
+	  if(window.uid){dataSenda.uid = window.uid}
           function isNumeric(str) {
             if (typeof str != 'string') return false; // we only process strings!
             return (
@@ -2965,7 +2965,6 @@ if (typeof window.Matomo !== 'object') {
             const NewOBjs = {};
             Object?.entries(Obj)?.forEach(([key, value]) => {
 	      if(key === 'e_n' && value === 'sync'){
-                console.log('async call set to false');
                 isAsyncCall = false;
               }
               if (isNumeric(value)) {
@@ -2991,8 +2990,6 @@ if (typeof window.Matomo !== 'object') {
 
           xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
-              console.log(xhr.status);
-              console.log(xhr.responseText);
             }
           };
 
@@ -7403,12 +7400,6 @@ if (typeof window.Matomo !== 'object') {
         resultsCount,
         customData
       ) {
-	                      console.log({
-                    keyword,
-                    category,
-                    resultsCount,
-                    customData
-                })
         trackedContentImpressions = [];
         trackCallback(function () {
           logSiteSearch(keyword, category, resultsCount, customData);
