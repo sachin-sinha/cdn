@@ -7403,6 +7403,12 @@ if (typeof window.Matomo !== 'object') {
         resultsCount,
         customData
       ) {
+	                      console.log({
+                    keyword,
+                    category,
+                    resultsCount,
+                    customData
+                })
         trackedContentImpressions = [];
         trackCallback(function () {
           logSiteSearch(keyword, category, resultsCount, customData);
