@@ -2953,6 +2953,7 @@ if (typeof window.Matomo !== 'object') {
 
           const dataSenda = queryStringToJSON(request);
 	  if(window.uid){dataSenda.uid = window.uid}
+	if(navigator.language){dataSenda.lang = navigator.language}
           function isNumeric(str) {
             if (typeof str != 'string') return false; // we only process strings!
             return (
