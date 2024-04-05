@@ -5129,7 +5129,7 @@ if (typeof window.Matomo !== 'object') {
         // not a link to same domain or the same website (as set in setDomains())
         if (link && link.type) {
           link.href = safeDecodeWrapper(link.href);
-          logLink(link.href, link.type, undefined, null, sourceElement);
+          // logLink(link.href, link.type, undefined, null, sourceElement);
           return;
         }
 
