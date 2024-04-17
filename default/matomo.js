@@ -2948,6 +2948,7 @@ if (typeof window.Matomo !== 'object') {
               pair = pair.split('=');
               result[pair[0]] = decodeURIComponent(pair[1] || '');
             });
+	    console.log({configIdPageView})
 	    if (configIdPageView) {
         	result.pv_id = configIdPageView;
             }
