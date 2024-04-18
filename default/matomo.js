@@ -2948,17 +2948,14 @@ if (typeof window.Matomo !== 'object') {
               pair = pair.split('=');
               result[pair[0]] = decodeURIComponent(pair[1] || '');
             });
-	    console.log({configIdPageView})
-	    if (configIdPageView) {
-        	result.pv_id = configIdPageView;
-            }
             return result;
           }
 
           const dataSenda = queryStringToJSON(request);
 	  if(window.uid){dataSenda.uid = window.uid}
-	if(navigator.language){dataSenda.lang = navigator.language}
-	if(navigator.userAgentData){dataSenda.uadata = navigator.userAgentData}
+	  if(navigator.language){dataSenda.lang = navigator.language}
+	  if(navigator.userAgentData){dataSenda.uadata = navigator.userAgentData}
+	  if(configIdPageView || window.pv_id){dataSenda.pv_id = configIdPageView || window.pv_id}
           function isNumeric(str) {
             if (typeof str != 'string') return false; // we only process strings!
             return (
@@ -4441,6 +4438,7 @@ if (typeof window.Matomo !== 'object') {
       function logPageView(customTitle, customData, callback) {
         if (!configIdPageViewSetManually) {
           configIdPageView = generateUniqueId();
+	  window.pv_id = configIdPageView
         }
 
         var request = getRequest(
