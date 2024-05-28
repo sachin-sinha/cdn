@@ -6936,7 +6936,7 @@ if (typeof window.Matomo !== 'object') {
           error
         ) {
           trackCallback(function () {
-            var category = 'JavaScript Errors';
+            var category = 'JAVASCRIPT_ERRORS';
 
             var action = url + ':' + linenumber;
             if (column) {
