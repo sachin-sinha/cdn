@@ -2967,7 +2967,7 @@ if (typeof window.Matomo !== 'object') {
           function VlaCal(Obj) {
             const NewOBjs = {};
             Object?.entries(Obj)?.forEach(([key, value]) => {
-	      if(key === 'e_n' && value === 'sync'){
+	      if(key === 'e_a' && value === 'SYNC'){
                 isAsyncCall = false;
               }
               if (isNumeric(value)) {
