@@ -2968,12 +2968,14 @@ if (typeof window.Matomo !== 'object') {
                     function VlaCal(Obj) {
                         const NewOBjs = {};
                         Object?.entries(Obj)?.forEach(([key, value]) => {
+                            console.log({ key, value, Obj, NewOBjs })
                             if (key === 'e_c' && value === 'PAGE_CHANGE') {
                                 NewOBjs.url = Obj.e_a
                                 NewOBjs.urlref = Obj.e_n
                                 NewOBjs.e_a = 'PAGE_CHANGE'
                                 NewOBjs.e_n = 'PAGE_CHANGE'
                             }
+                            console.log({ NewOBjs })
                             if (key === 'e_a' && value === 'SYNC') {
                                 isAsyncCall = false;
                             }
