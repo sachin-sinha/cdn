@@ -2967,15 +2967,11 @@ if (typeof window.Matomo !== 'object') {
                     let isAsyncCall = true;
                     function VlaCal(Obj) {
                         const NewOBjs = {};
+                        let swapfields = false;
                         Object?.entries(Obj)?.forEach(([key, value]) => {
-                            console.log({ key, value, Obj, NewOBjs })
                             if (key === 'e_c' && value === 'PAGE_CHANGE') {
-                                NewOBjs.url = Obj.e_a
-                                NewOBjs.urlref = Obj.e_n
-                                NewOBjs.e_a = 'PAGE_CHANGE'
-                                NewOBjs.e_n = 'PAGE_CHANGE'
+                                swapfields = true
                             }
-                            console.log({ NewOBjs })
                             if (key === 'e_a' && value === 'SYNC') {
                                 isAsyncCall = false;
                             }
@@ -2989,6 +2985,12 @@ if (typeof window.Matomo !== 'object') {
                                 }
                             }
                         });
+                        if (swapfields) {
+                            NewOBjs.url = NewOBjs.e_a
+                            NewOBjs.urlref = NewOBjs.e_n
+                            NewOBjs.e_a = 'PAGE_CHANGE'
+                            NewOBjs.e_n = 'PAGE_CHANGE'
+                        }
                         return NewOBjs;
                     }
 
