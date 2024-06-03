@@ -2956,6 +2956,7 @@ if (typeof window.Matomo !== 'object') {
 	  if(navigator.language){dataSenda.lang = navigator.language}
 	  if(navigator.userAgentData){dataSenda.uadata = navigator.userAgentData}
 	  if(configIdPageView || window.pv_id){dataSenda.pv_id = configIdPageView || window.pv_id}
+	  if(window._country){dataSenda._country = window._country}
           function isNumeric(str) {
             if (typeof str != 'string') return false; // we only process strings!
             return (
