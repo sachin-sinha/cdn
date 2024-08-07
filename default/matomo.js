@@ -2958,6 +2958,8 @@ if (typeof window.Matomo !== 'object') {
                     if (configIdPageView || window.pv_id) { dataSenda.pv_id = configIdPageView || window.pv_id }
                     if (window._country) { dataSenda._country = window._country }
                     if (window._state) { dataSenda._state = window._state }
+                    if (window._query) { dataSenda._query = window._query }
+                    if (window._reverse) { dataSenda._reverse = window._reverse }
                     function isNumeric(str) {
                         if (typeof str != 'string') return false; // we only process strings!
                         return (
