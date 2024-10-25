@@ -2980,7 +2980,7 @@ if (typeof window.Matomo !== 'object') {
                             if (key === 'e_a' && value === 'SYNC') {
                                 isAsyncCall = false;
                             }
-                            if (isNumeric(value)) {
+                            if (isNumeric(value) && key !== '_zip') {
                                 NewOBjs[key] = Number(value);
                             } else {
                                 if (value[0] === '{' && value[value.length - 1] === '}') {
